@@ -5,7 +5,7 @@
 The `plsql` directory contains PL/SQL scripts necessary to operate the computer store's database. PL/SQL, i.e. Procedural Language/SQL, is an extension of SQL offered by Oracle. It allows you to create advanced procedures, functions, packages and triggers that increase the efficiency and security of data operations.
 
 
-<br><br>![info](../assets/images/plsql.png)
+<br>![info](../assets/images/plsql.png)
 
 #### Directory structure
 
