@@ -5,7 +5,7 @@
 
 # TechByte
 
-<br><br>![info](assets/images/logo/Logo2.webp)
+<br><br>![info](assets/images/Main.png)
 
 ## Introduction
 Welcome to the GitHub repository of the TechByte computer store project. This store is a modern e-commerce platform, offering a wide selection of computer products, including laptops, desktop computers and components and accessories.
