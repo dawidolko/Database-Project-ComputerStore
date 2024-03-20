@@ -12,7 +12,7 @@ Welcome to the GitHub repository of the TechByte computer store project. This st
 
 ## Project Structure
 The repository is available in various directories that are responsible for part of the web application and contain HTML files necessary for the operation of the store. Here is a detailed description of each directory and file:
-
+```
 .
 ├── .github
 │ └── workflows
@@ -51,6 +51,7 @@ The repository is available in various directories that are responsible for part
 ├── privacy.html
 ├── sales.html
 └── signup.html
+```
 
 ### .github/workflow
 Catalog of applying CI/CD system definitions for our project, automatic testing and implementation of changes on the website.
