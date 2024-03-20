@@ -1,168 +1,175 @@
-# Zespół: Dawid Olko, Piotr Smoła
+# Team: Dawid Olko, Piotr Smoła
 
-## Temat projektu: Witryna sklepu internetowego z komputerami i częściami komputerowymi
-### Opis: 
-Projekt sklepu internetowego, który ma na celu oferowanie szerokiego asortymentu sprzętu komputerowego, będzie zaawansowaną platformą e-commerce, skonstruowaną z myślą o zapewnieniu użytkownikom maksymalnej wygody podczas zakupów online. Strona zostanie zaprojektowana z nowoczesnym i intuicyjnym interfejsem użytkownika, który umożliwi łatwe nawigowanie po różnych kategoriach produktów, takich jak laptopy, komputery stacjonarne, komponenty PC (procesory, karty graficzne, pamięci RAM czy dyski twarde itp.)
+## Project topic: Website of an online store with computers and computer parts
+### Description:
+The online store project, which aims to offer a wide range of computer equipment, will be an advanced e-commerce platform, designed to give users influence when shopping online. The website is available with an external user interface that allows you to navigate through various products such as laptops, desktop computers, PC components (processors, graphics cards, RAM or hard drives, etc.)
 
-### Baza Danych i Katalog Produktów
-Kluczowym elementem sklepu będzie rozbudowana baza danych produktów, która będzie regularnie aktualizowana o nowe pozycje, aby zapewnić klientom dostęp do najnowszych technologii i rozwiązań na rynku. Każdy produkt będzie miał szczegółową kartę produktową, zawierającą pełne specyfikacje techniczne, zdjęcia wysokiej jakości, ceny, informacje o dostępności, a także sekcję z ocenami od innych użytkowników. To pozwoli klientom na dokładne zapoznanie się z produktem przed dokonaniem zakupu.
+### Database and Product Catalog
+A key element of the equipment will be an extensive product database, which will be regularly updated with new elements to provide access to the latest technology and software on the market. Each product will have a detailed product card, including full technical specifications, high-quality photos, prices, availability information, as well as a section with ratings from other users. To enable customers to review before making a purchase.
 
-### Funkcjonalności Dla Użytkowników
-Frontend sklepu zostanie wyposażony w zaawansowane funkcje wyszukiwania, umożliwiające filtrowanie produktów na podstawie różnych parametrów, takich jak cena, marka, specyfikacje techniczne czy oceny użytkowników, wraz z opcją sortowania po ocenach czy cenach. System koszyka zakupowego zostanie zaprojektowany tak, aby był prosty w obsłudze, umożliwiając łatwe dodawanie i usuwanie produktów, jak również szybkie przejście do procesu zakupu.
-Oczywiście klient będzie mieć możliwość zakładania konta w którym zapisywane będą informacje, takie jak historia zamówień, dane adresowe czy śledzenie statusu zamówienia.
-Proces składania zamówień zostanie zintegrowany z różnymi metodami płatności, w tym kartami kredytowymi, przelewami bankowymi, a także popularnymi systemami płatności online, takimi jak PayPal, aby zapewnić użytkownikom elastyczność w sposobie płatności. Sklep zapewni również wsparcie dla procesu zakupów mobilnych, co pozwoli na dokonywanie zakupów za pośrednictwem smartfonów i tabletów.
- 
-### Panel Administracyjny
-Zaawansowany panel administracyjny będzie kluczowym narzędziem dla osób zarządzających sklepem, umożliwiając łatwe dodawanie nowych produktów, aktualizację istniejących, zarządzanie stanem magazynowym, ustalanie cen oraz organizację promocji i wyprzedaży. Panel umożliwi również monitoring zamówień w czasie rzeczywistym, co pozwoli na szybką reakcję na potrzeby klientów oraz efektywne zarządzanie logistyką i dostawami.
+### Functionality For Users
+The frontend includes advanced search functions, product filtering based on various parameters such as price, brand, technical specifications and user ratings, along with post-rating or inspection sorting controls. The shopping cart system will be designed to be easy to distribute, enabling the addition and removal of products, as well as a quick transition to the purchasing process.
+The customer will be able to use an account containing information such as disruption history, address details or exit information.
+Sending process with payment methods including credit cards, bank transfers, as well as biological online payment systems, email like PayPal, so that users can use the payment method. The store also provides support for the mobile shopping process, which allows you to make payments via distribution and tablets.
 
-### Wsparcie i Obsługa Klienta
-Strona będzie zawierać sekcję wsparcia, w której klienci mogą znaleźć odpowiedzi na najczęściej zadawane pytania (FAQ) dotyczące na przykład informacji jak zwrócić zakupione produkty, wraz z odnośnikiem do formularza zwrotu. 
+### Administration panel
+An advanced administration panel will be available to store end users, providing distributors for delivering new products, inventory management, pricing, and promotion and exit devices. The panel enables monitoring over time, which allows for quick launch to meet customer needs and manage logistics and deliveries.
 
-Podsumowując, projekt sklepu internetowego komputerowego zostanie stworzony z myślą o zapewnieniu optymalnej funkcjonalności, wygody oraz bezpieczeństwa zakupów online. Zostanie on wyposażony w szereg narzędzi i funkcji, które nie tylko ułatwią zakupy, ale także pozwolą na efektywne zarządzanie sklepem i asortymentem, co przyczyni się do wzrostu satysfakcji klientów i rozwój biznesu.
+### Customer support and service
+The website will include a support section where customers can find answers to frequently asked questions (FAQs) about examples of information on how to apply the by-products, along with a return for return.
 
-## Tabele bazy danych: 
+the design of the online computer store was created to ensure comfort of use as well as security of online shopping. It contains a set of tools and functions that not only facilitate shopping, but also manage the store and assortment, which will help reduce side effects and develop your business.
 
-### 1.	Tabela Produkty:
-•	ID Produktu
-•	Nazwa
-•	Kategoria
-•	Cena
-•	Specyfikacja (szczegóły techniczne produktu)
-•	Ilość w magazynie (liczba dostępnych sztuk)
+## Database tables:
 
-### 2.	Tabela Kategorie:
-•	ID Kategorii
-•	Nazwa Kategorii
-•	Opis (opis kategorii)
+### 1. Products table:
+• ID products
+• Name
+• Category
+• Price
+• Specification (technical product details)
+• Quantity in stock (number of pieces)
 
-### 3.	Tabela Zamówienia:
-•	ID Zamówienia
-•	ID Klienta
-•	ID Pracownika (pracownik przygotowujący dane zamówienie)
-•	Data Zamówienia
-•	Status (status realizacji zamówienia)
- 
-### 4.	Tabela Klienci:
-•	ID Klienta
-•	Imię
-•	Nazwisko
-•	Adres dostawy
-•	Adres na dokumencie zakupu
-•	Numer telefonu
-•	Adres Email
-•	Historia Zakupów (lista zakupionych produktów lub odniesienie do zamówień)
-•	Hasło
+### 2. Category Category:
+• Category ID
+• Category Name
+• Description (category description)
 
-### 5.	Tabela Opinie:
-•	ID Opinii
-•	ID Produktu
-•	ID Klienta
-•	Treść Opinii
-•	Ocena (ocena produktu przyznana przez klienta w skali 1-5)
+### 3. Order table:
+• Identification orders
+• Customer ID
+• Employee ID (employee preparing order data)
+• Order data
+• Status (order fulfillment status)
 
-### 6.	Tabela Pracownicy:
-•	ID Pracownika
-•	Imię
-•	Nazwisko
-•	Stanowisko
-•	Email pracownika
-•	Telefon pracownika
+### 4. Customer Table:
+• Customer ID
+• Name
+• Last name
+• Address delivery
+• Address available for purchase
+• Phone number
+•	E-mail adress
+• Purchase History (list of mandatory products or reference to destruction)
+• Password
 
-### 7.	Tabela Reklamacje:
-•	ID Reklamacji
-•	ID Zamówienia
-•	Przyczyna Reklamacji
-•	Status Reklamacji
-•	Data Zgłoszenia
+### 5. Opinion table:
+• Opinion ID
+• ID products
+• Customer ID
+• Content of the Opinion
+• Rating (product rating given by the customer on a scale of 1-5)
 
-### 8.	Tabela Newsletter:
-•	ID Subskrypcji
-•	ID Klienta
-•	Data Subskrypcji
-•	Status subskrypcji
+### 6. Employee table:
+• Employee ID
+• Name
+• Last name
+• Position
+• Send an email to an employee
+• Telephone attendant
 
-### 9.	Tabela Stanu Magazynowego:
-•	ID Produktu
-•	Liczba dostępnych sztuk
-•	Liczba sprzedanych sztuk
- 
-### 10.	Tabela Przesyłki:
-•	ID Przesyłki
-•	ID Zamówienia
-•	Firma Kurierska
-•	Numer Śledzenia
-•	Status Dostawy
-•	Szacowany czas dostawy
+### 7. Complaints table:
+• Complaint ID
+• Identification orders
+• Cause of complaint
+• Complaint Status
+• Report Data
 
-### 11.	Tabela Promocje:
-•	ID Promocji
-•	ID Produktu
-•	Opis Promocji
-•	Procent/Kwota rabatu
-•	Data Rozpoczęcia
-•	Data Zakończenia
+### 8. Table Bulletin:
+• Subscription ID
+• Customer ID
+• Data Subscriptions
+• Aggravating condition
 
-## Relacje między tabelami:
+### 9. Stock Table:
+• ID products
+• The number of items
+• Number of units sold
 
-### I.	Tabela Produkty:
-•	Przechowuje dane o wszystkich produktach oferowanych w sklepie.
-•	Relacje:
-•	Z Tabelą Kategorie poprzez pole Kategoria, które wskazuje, do której kategorii należy produkt.
-•	Z Tabelą Opinie poprzez ID Produktu, pozwalając na przypisanie opinii do produktu.
-•	Z Tabelą Stanu Magazynowego poprzez ID Produktu, umożliwiając zbieranie informacji na temat ilości dostępnych sztuk produktu na magazynie.
+### 10. Shipping Table:
+• Shipment ID
+• Identification orders
+• Delivery company
+• Tracking number
+• Delivery Status
+• Estimated delivery time
 
-### II.	Tabela Kategorie:
-•	Zawiera informacje o kategoriach produktów.
-•	Relacje:
-•	Z Tabelą Produkty, gdzie każdy produkt jest przypisany do jednej kategorii.
+### 11. Table Promotions:
+• Promotion ID
+• ID products
+• Promotion Description
+• Discount percentage/amount
+• Start Data
+• Data termination
 
-### III.	Tabela Zamówienia:
-•	Zawiera informacje o zamówieniach dokonanych przez klientów.
-•	Relacje:
-•	Z Tabelą Klienci poprzez ID Klienta, wskazując, kto złożył zamówienie.
-•	Z Tabelą Przesyłki poprzez ID Zamówienia, śledząc informacje o dostawie dla danego zamówienia.
-•	Z Tabelą Reklamacje poprzez ID Zamówienia, dla ewentualnych reklamacji powiązanych z zamówieniem.
+## Relationships between tables:
 
-### IV.	Tabela Klienci:
-•	Zawiera dane klientów sklepu.
-•	Relacje:
-•	Z Tabelą Zamówienia poprzez ID Klienta, pokazując ich zamówienia.
-•	Z Tabelą Opinie poprzez ID Klienta, umożliwiając im wystawianie opinii o produktach.
-•	Z Tabelą Newsletter poprzez ID Klienta, wskazując na subskrypcję newslettera.
+### I. Products table:
+• Stores data about all products offered in the store.
+• Relations:
+• With the Category Table via the Category field that indicates d
 
-### V.	Tabela Opinie:
-•	Zawiera opinie klientów na temat produktów.
-•	Relacje:
-•	Z Tabelą Produkty i Tabelą Klienci poprzez odpowiednio ID Produktu i ID Klienta, przypisując opinie do produktów i klientów.
+## Relationships between tables:
 
-### VI.	Tabela Pracownicy:
-•	Zawiera dane pracowników sklepu.
-•	Relacje: 
-•	Powiązanie z tabelą Zamówienia, powiązując dane zamówienie z przygotowującym je pracownikiem (ID Pracownika jako klucz obcy w tabeli Zamówienia)
+### I. Products table:
+• Stores data about all products offered in the store.
+•	Relations:
+• With the Category Table via the Category field, which indicates which category the product belongs to.
+• With the Reviews Table via Product ID, allowing reviews to be assigned to a product.
+• With the Stock Status Table via Product ID, enabling the collection of information on the number of available pieces of a product in stock.
 
-### VII.	Tabela Reklamacje:
-•	Zarządza procesem reklamacji produktów.
-•	Relacje:
-•	Z Tabelą Zamówienia poprzez ID Zamówienia, identyfikując, które zamówienie jest reklamowane.
+### II. Table Categories:
+• Provides information about product categories.
+•	Relations:
+• With the Products Table, where each product is assigned to one category.
 
-### VIII.	Tabela Newsletter:
-•	Zarządza subskrypcją newsletterów przez klientów.
-•	Relacje:
-•	Z Tabelą Klienci poprzez ID Klienta, śledząc, kto subskrybuje newsletter.
+### III. Order Table:
+• Contains information about orders placed by customers.
+•	Relations:
+• With the Customers Table via Customer ID, indicating who placed the order.
+• With the Shipping Table via Order ID, tracking delivery information for a given order.
+• With the Complaints Table via Order ID, for any complaints related to the order.
 
-### IX.	Tabela Statystyki Produktów:
-•	Zawiera dane o ilości dostępnych sztuk danego produktu na stanie magazynowym
-•	Relacje:
-•	Z Tabelą Produkty poprzez ID Produktu, umożliwiając zbieranie statystyk dotyczących konkretnego produktu.
- 
-### X.	Tabela Przesyłki:
-•	Przechowuje informacje o przesyłkach towarów do klientów.
-•	Relacje:
-•	Z Tabelą Zamówienia poprzez ID Zamówienia, umożliwiając śledzenie, jakie przesyłki odpowiadają konkretnym zamówieniom.
+### IV. Customers table:
+• Contains store customer data.
+•	Relations:
+• With Order Table via Customer ID, showing their orders.
+• With a Reviews Table via Customer ID, allowing them to leave product reviews.
+• With the Newsletter Table via Customer ID, indicating newsletter subscription.
 
-### XI.	Tabela Promocje:
-•	Zawiera informacje o promocjach i rabatach oferowanych przez sklep.
-•	Relacje: 
-•	Z Tabelą Produkty w celu przypisania promocji do konkretnych produktów.
+### V. Table Opinions:
+• Contains customer opinions about products.
+•	Relations:
+• With the Products Table and the Customers Table via Product ID and Customer ID respectively, assigning reviews to products and customers.
 
-Każda tabela w bazie danych ma swoje przeznaczenie, które składa się na ogólną funkcjonalność sklepu internetowego. Tabela Produkty jest sercem katalogu sklepu, zawierającym wszystkie przedmioty dostępne do zakupu. Tabela Kategorie umożliwia klientom łatwe przeszukiwanie asortymentu sklepu. Tabela Zamówienia oraz Tabela Przesyłki obsługują proces sprzedaży od momentu złożenia zamówienia przez klienta aż do jego dostawy. Tabela Klienci jest niezbędna do zarządzania kontami użytkowników, podczas gdy Tabela Opinie pomaga budować zaufanie i zapewnia feedback odnośnie produktów. Tabela Pracownicy jest  używana do zarządzania zamówieniami, gdy w przypadku napotkanych problemów z zamówieniem odpowiedzialny będzie przypisany do niego pracownik na etapie przygotowania i realizacji zamówienia. Tabela Reklamacje służy do obsługi ewentualnych problemów po sprzedaży. Tabela Newsletter jest istotna dla działań marketingowych i utrzymywania relacji z klientami. Tabela Stanu Magazynowego dostarcza cennych informacji dla działów sprzedaży oraz osób odpowiedzialnych za uzupełnianie brakujących produktów na stanie magazynowym, zaś Tabela Promocje umożliwia zarządzanie cenami i ofertami specjalnymi.
+### VI. Employees table:
+• Contains data of store employees.
+•	Relations:
+• Linking to the Orders table, linking a given order with the employee preparing it (Employee ID as a foreign key in the Orders table)
+
+### VII. Complaints table:
+• Manages the product complaint process.
+•	Relations:
+• With the Order Table via Order ID, identifying which order is being advertised.
+
+### VIII. Newsletter table:
+• Manages customer subscriptions to newsletters.
+•	Relations:
+• With the Customers Table via Customer ID, tracking who subscribes to the newsletter.
+
+### IX. Product Statistics Table:
+• Contains data on the number of available pieces of a given product in stock
+•	Relations:
+• With the Products Table via Product ID, allowing you to collect statistics about a specific product.
+
+### X. Shipping Table:
+• Stores information about shipments of goods to customers.
+•	Relations:
+• With the Order Table via Order ID, allowing you to track which shipments correspond to specific orders.
+
+### XI. Table Promotions:
+• Contains information about promotions and discounts offered by the store.
+•	Relations:
+• With the Products Table to assign promotions to specific products.
+
+Each table in the database has its own purpose, which contributes to the overall functionality of the online store. The Products table is the heart of the store catalog, containing all the items available for purchase. The Categories table allows customers to easily search the store's assortment. The Order Table and the Shipment Table support the sales process from the moment the customer places the order until its delivery. The Customers table is essential for managing user accounts, while the Opinions table helps build trust and provides product feedback. The Employees table is used to manage orders when, in case of problems encountered with the order, the employee assigned to him will be responsible at the stage of order preparation and execution. The Complaints table is used to handle any post-sale problems. The Newsletter table is important for marketing activities and maintaining customer relationships. The Inventory Table provides valuable information for sales departments and people responsible for replenishing missing products in stock, while the Promotions Table enables the management of prices and special offers.
