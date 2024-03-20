@@ -13,6 +13,45 @@ Welcome to the GitHub repository of the TechByte computer store project. This st
 ## Project Structure
 The repository is available in various directories that are responsible for part of the web application and contain HTML files necessary for the operation of the store. Here is a detailed description of each directory and file:
 
+.
+├── .github
+│ └── workflows
+│ └── static.yml
+├── ERD
+│ └── README.md
+├── assets
+│ └── (files related to assets will be included here, e.g. images, CSS, JS)
+├── components
+│ └── README.md
+├── computers
+│ └── README.md
+├── docs
+│ └── description.md
+├── laptops
+│ └── README.md
+├── php
+│ └── README.md
+├── plsql
+│ └── README.md
+├── CNAME
+├── LICENSES
+├── README.md
+├── account.html
+├── cart.html
+├── checkout.html
+├── components.html
+├── computers.html
+├── congratulations.html
+├── contact.html
+├── faq.html
+├── favorite.html
+├── index.html
+├── laptops.html
+├── login.html
+├── privacy.html
+├── sales.html
+└── signup.html
+
 ### .github/workflow
 Catalog of applying CI/CD system definitions for our project, automatic testing and implementation of changes on the website.
 
