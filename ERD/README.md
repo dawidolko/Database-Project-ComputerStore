@@ -1,3 +1,3 @@
-# Diagram związków encji (zwany również diagramem ERD) pokazuje, jak encje (osoby, obiekty i koncepcje) wchodzą w interakcje.
+# An entity relationship diagram (also called an ERD diagram) shows how entities (people, objects, and concepts) interact.
 
 <br>![ERDiagram](ERD.png)
