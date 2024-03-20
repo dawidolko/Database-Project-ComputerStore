@@ -103,4 +103,4 @@ If you follow the design, please see our insert effect in the [CONTRIBUTING.md](
 
 - [dawidolko](https://github.com/dawidolko).
 
-- [piotrsmola](https://github.com/piotrsmola).
+- [piotrsmola](https://github.com/piotrsmola)
