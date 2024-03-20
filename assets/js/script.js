@@ -1,88 +1,147 @@
-'use strict';
+"use strict";
 
-// modal variables
-const modal = document.querySelector('[data-modal]');
-const modalCloseBtn = document.querySelector('[data-modal-close]');
-const modalCloseOverlay = document.querySelector('[data-modal-overlay]');
+// Modal variables
+const modal = document.querySelector("[data-modal]");
+const modalCloseBtn = document.querySelector("[data-modal-close]");
+const modalCloseOverlay = document.querySelector("[data-modal-overlay]");
 
-// modal function
-const modalCloseFunc = function () { modal.classList.add('closed') }
+// Modal function
+const modalCloseFunc = function () {
+  modal.classList.add("closed");
+};
 
-// modal eventListener
-modalCloseOverlay.addEventListener('click', modalCloseFunc);
-modalCloseBtn.addEventListener('click', modalCloseFunc);
+// Modal eventListener
+if (modalCloseOverlay) {
+  modalCloseOverlay.addEventListener("click", modalCloseFunc);
+}
+if (modalCloseBtn) {
+  modalCloseBtn.addEventListener("click", modalCloseFunc);
+}
 
+// Notification toast variables
+const notificationToast = document.querySelector("[data-toast]");
+const toastCloseBtn = document.querySelector("[data-toast-close]");
 
+// Notification toast eventListener
+if (toastCloseBtn) {
+  toastCloseBtn.addEventListener("click", function () {
+    notificationToast.classList.add("closed");
+  });
+}
 
+// Sidebar category variables
+const sidebarCategory = document.querySelector(".sidebar");
+const mobileNavigationMenu = document.querySelector(".mobile-navigation-menu");
+const overlay = document.querySelector("[data-overlay]");
 
+// Toggle category function
+const toggleCategory = function () {
+  sidebarCategory.classList.toggle("active");
+  mobileNavigationMenu.classList.toggle("active");
+  overlay.classList.toggle("active");
+};
 
-// notification toast variables
-const notificationToast = document.querySelector('[data-toast]');
-const toastCloseBtn = document.querySelector('[data-toast-close]');
+// Mobile menu open button eventListeners
+const mobileMenuOpenBtns = document.querySelectorAll(
+  "[data-mobile-menu-open-btn]"
+);
 
-// notification toast eventListener
-toastCloseBtn.addEventListener('click', function () {
-  notificationToast.classList.add('closed');
+mobileMenuOpenBtns.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    const target = this.dataset.mobileMenuOpenBtn;
+    const targetElement = document.querySelector(
+      `[data-mobile-menu="${target}"]`
+    );
+    targetElement.classList.toggle("active");
+    overlay.classList.toggle("active");
+  });
 });
 
+// Mobile menu close button eventListener
+const mobileMenuCloseBtn = document.querySelector(
+  "[data-mobile-menu-close-btn]"
+);
 
+if (mobileMenuCloseBtn) {
+  mobileMenuCloseBtn.addEventListener("click", function () {
+    sidebarCategory.classList.remove("active");
+    mobileNavigationMenu.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+}
 
+// Overlay eventListener
+if (overlay) {
+  overlay.addEventListener("click", toggleCategory);
+}
 
+// Accordion variables
+const accordionBtn = document.querySelectorAll("[data-accordion-btn]");
+const accordion = document.querySelectorAll("[data-accordion]");
+const sidebarCloseBtn = document.querySelector(".sidebar-close-btn");
 
-// mobile menu variables
-const mobileMenuOpenBtn = document.querySelectorAll('[data-mobile-menu-open-btn]');
-const mobileMenu = document.querySelectorAll('[data-mobile-menu]');
-const mobileMenuCloseBtn = document.querySelectorAll('[data-mobile-menu-close-btn]');
-const overlay = document.querySelector('[data-overlay]');
+if (sidebarCloseBtn) {
+  sidebarCloseBtn.addEventListener("click", function () {
+    sidebarCategory.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+}
 
-for (let i = 0; i < mobileMenuOpenBtn.length; i++) {
+// Accordion eventListener
+accordionBtn.forEach((btn, index) => {
+  btn.addEventListener("click", function () {
+    const isActive = this.classList.contains("active");
+    this.classList.toggle("active");
+    if (isActive) {
+      accordion[index].classList.remove("active");
+    } else {
+      accordion.forEach((acc, i) => {
+        if (acc !== accordion[index]) {
+          acc.classList.remove("active");
+          accordionBtn[i].classList.remove("active");
+        }
+      });
+      accordion[index].classList.add("active");
+    }
+  });
+});
 
-  // mobile menu function
-  const mobileMenuCloseFunc = function () {
-    mobileMenu[i].classList.remove('active');
-    overlay.classList.remove('active');
+document.addEventListener("DOMContentLoaded", (event) => {
+  const mobileMenuBtn = document.querySelector("[data-mobile-menu-open-btn]");
+  const mobileMenu = document.querySelector("[data-mobile-menu]");
+  const overlay = document.querySelector("[data-overlay]");
+  const closeMobileMenuBtn = document.querySelector(
+    "[data-mobile-menu-close-btn]"
+  );
+
+  // Function to open mobile menu
+  function openMobileMenu() {
+    if (mobileMenu) {
+      mobileMenu.classList.add("active");
+      overlay.classList.add("active");
+    }
   }
 
-  mobileMenuOpenBtn[i].addEventListener('click', function () {
-    mobileMenu[i].classList.add('active');
-    overlay.classList.add('active');
-  });
-
-  mobileMenuCloseBtn[i].addEventListener('click', mobileMenuCloseFunc);
-  overlay.addEventListener('click', mobileMenuCloseFunc);
-
-}
-
-
-
-
-
-// accordion variables
-const accordionBtn = document.querySelectorAll('[data-accordion-btn]');
-const accordion = document.querySelectorAll('[data-accordion]');
-
-for (let i = 0; i < accordionBtn.length; i++) {
-
-  accordionBtn[i].addEventListener('click', function () {
-
-    const clickedBtn = this.nextElementSibling.classList.contains('active');
-
-    for (let i = 0; i < accordion.length; i++) {
-
-      if (clickedBtn) break;
-
-      if (accordion[i].classList.contains('active')) {
-
-        accordion[i].classList.remove('active');
-        accordionBtn[i].classList.remove('active');
-
-      }
-
+  // Function to close mobile menu
+  function closeMobileMenu() {
+    if (mobileMenu) {
+      mobileMenu.classList.remove("active");
+      overlay.classList.remove("active");
     }
+  }
 
-    this.nextElementSibling.classList.toggle('active');
-    this.classList.toggle('active');
+  // Event listener for open mobile menu button
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener("click", openMobileMenu);
+  }
 
-  });
+  // Event listener for close mobile menu button
+  if (closeMobileMenuBtn) {
+    closeMobileMenuBtn.addEventListener("click", closeMobileMenu);
+  }
 
-}
+  // Event listener for overlay to close mobile menu
+  if (overlay) {
+    overlay.addEventListener("click", closeMobileMenu);
+  }
+});
