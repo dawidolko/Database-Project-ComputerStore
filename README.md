@@ -42,7 +42,7 @@ A directory with PHP scripts responsible for transferring data to the applicatio
 ### Please
 Directory with `PL/SQL` scripts for database management, including stored procedures and triggers.
 
-### [Other HTML files]
+### [HTML files]
 Each HTML file represents a different page or component of the store, such as the home page ("index.html"), shopping cart ("cart.html"), checkout process ("checkout.html"), etc.
 
 ## Getting started
