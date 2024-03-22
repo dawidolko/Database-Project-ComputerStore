@@ -37,6 +37,9 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   </head>
 
   <body>
@@ -1032,6 +1035,112 @@
         </div>
       </div>
 
+      <!--
+            - CONTACT US
+          -->
+
+      <div class="container new-conti">
+        <section id="contact-techbyte">
+          <h1 class="section-header-techbyte">Contact</h1>
+
+          <div class="contact-wrapper-techbyte">
+            <!-- Contact Form -->
+            <form
+              id="contact-form-techbyte"
+              class="form-horizontal-techbyte"
+              role="form">
+              <div class="form-group-techbyte">
+                <input
+                  type="text"
+                  class="form-control-techbyte"
+                  id="name-techbyte"
+                  placeholder="NAME"
+                  name="name"
+                  required />
+              </div>
+
+              <div class="form-group-techbyte">
+                <input
+                  type="email"
+                  class="form-control-techbyte"
+                  id="email-techbyte"
+                  placeholder="EMAIL"
+                  name="email"
+                  required />
+              </div>
+
+              <textarea
+                class="form-control-techbyte"
+                rows="10"
+                placeholder="MESSAGE"
+                name="message"
+                required></textarea>
+
+              <button
+                class="btn-techbyte send-button-techbyte"
+                id="submit-techbyte"
+                type="submit">
+                <div class="alt-send-button-techbyte">
+                  <i class="fa fa-paper-plane"></i
+                  ><span class="send-text-techbyte">SEND</span>
+                </div>
+              </button>
+            </form>
+
+            <!-- Contact Information -->
+            <div class="direct-contact-container-techbyte">
+              <ul class="contact-list-techbyte">
+                <li class="list-item-techbyte">
+                  <i class="fa fa-phone fa-2x"
+                    ><span class="contact-text-techbyte phone-techbyte"
+                      ><a href="tel:1-212-555-5555">(+48) 666-555-444</a></span
+                    ></i
+                  >
+                </li>
+                <li class="list-item-techbyte">
+                  <i class="fa fa-envelope fa-2x"
+                    ><span class="contact-text-techbyte gmail-techbyte"
+                      ><a href="mailto:hitmeup@gmail.com"
+                        >techbyte@kontakt.pl</a
+                      ></span
+                    ></i
+                  >
+                </li>
+              </ul>
+
+              <hr />
+              <ul class="social-media-list-techbyte">
+                <li>
+                  <a href="#" target="_blank" class="contact-icon-techbyte">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="contact-icon-techbyte">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="contact-icon-techbyte">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="contact-icon-techbyte">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                  </a>
+                </li>
+              </ul>
+              <hr />
+
+              <div class="copyright-techbyte">
+                &copy; ALL OF THE RIGHTS RESERVED
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
       <div>
         <div class="container">
           <div class="testimonials-box">
@@ -1428,6 +1537,20 @@
     - custom js link
   -->
     <script src="assets/js/script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelector("#contact-form-techbyte")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            // Here you would typically handle the form submission, such as using fetch or XMLHttpRequest to send the data to a server
+            alert("Message sent!"); // Placeholder action
+
+            // Reset the form after submission
+            this.reset();
+          });
+      });
+    </script>
 
     <!--
     - ionicon link

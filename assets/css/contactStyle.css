@@ -1108,6 +1108,163 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 /*-----------------------------------*\
+    #CONTACT US
+  \*-----------------------------------*/
+
+.new-conti {
+  display: flex;
+  justify-content: space-around;
+}
+
+#contact-techbyte {
+  color: var(--eerie-black);
+  font-family: "Poppins", sans-serif;
+  padding: 40px 0;
+  border: 2px solid var(--eerie-black);
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.section-header-techbyte {
+  font-size: 60px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+
+.contact-wrapper-techbyte {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 840px;
+  padding: 20px;
+}
+
+.form-control-techbyte textarea {
+  height: 450px;
+}
+
+.form-control-techbyte {
+  background-color: var(--eerie-black);
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  border: 1px solid #fff;
+  margin-bottom: 15px;
+  padding: 12px 20px;
+  border-radius: 20px;
+}
+
+.btn-techbyte {
+  background-color: var(--salmon-pink);
+  border: none;
+  color: #fff;
+  padding: 10px 24px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 10px;
+}
+
+.btn-techbyte:hover,
+.btn-techbyte:focus {
+  background-color: red;
+}
+
+.alt-send-button-techbyte {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-text-techbyte {
+  margin-left: 8px;
+  font-size: 16px;
+}
+
+.direct-contact-container-techbyte {
+  text-align: right;
+  width: 300px;
+}
+
+.contact-list-techbyte,
+.social-media-list-techbyte {
+  padding: 0;
+}
+
+.contact-list-techbyte li,
+.social-media-list-techbyte li {
+  display: inline-block;
+  margin: 0 0 10px 0;
+}
+
+.contact-text-techbyte {
+  margin-left: 10px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+}
+
+.contact-text-techbyte a {
+  margin-left: 10px;
+  font-size: 16px;
+  color: var(--salmon-pink);
+  font-family: "Poppins", sans-serif;
+}
+
+.social-media-list-techbyte li a {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #000000;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+.social-media-list-techbyte li {
+  margin: 0 10px;
+}
+
+.fa {
+  color: inherit;
+}
+
+@media (max-width: 850px) {
+  .contact-wrapper-techbyte {
+    flex-direction: column;
+  }
+  .form-control-techbyte textarea {
+    height: 450px;
+  }
+
+  .direct-contact-container-techbyte {
+    text-align: center;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 569px) {
+  .contact-wrapper-techbyte,
+  .form-control-techbyte,
+  .btn-techbyte {
+    width: 100%;
+  }
+
+  .form-control-techbyte textarea {
+    height: 450px;
+  }
+
+  .social-media-list-techbyte li a {
+    margin: 10px auto;
+  }
+}
+
+/*-----------------------------------*\
     #TESTIMONIAL
   \*-----------------------------------*/
 

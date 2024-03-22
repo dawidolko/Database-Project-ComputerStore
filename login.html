@@ -1031,7 +1031,49 @@
           </div>
         </div>
       </div>
-
+      <!--
+            - LOGIN-FORM
+          -->
+      <div class="container login-panel" id="panel-login-signup">
+        <div class="konteneryn" id="konteneryn">
+          <div class="formularz-kontener zarejestruj-sie-kontener">
+            <form id="signup-form" action="#" method="post" onsubmit="return validateSignupForm()">
+              <h1>Sign up</h1>
+              <span>Use your account</span>
+              <input type="text" placeholder="Imię" name="username" required pattern=".{3,}" title="Username must be at least 3 characters long" />
+              <input type="email" placeholder="E-mail" name="email" required pattern=".+@.+\..{2,}" title="Please include '@' and a domain" />
+              <input type="password" placeholder="Hasło" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" title="Password must contain at least one number, one uppercase letter, and one special character" />
+              <button type="submit">SIGN UP</button>
+            </form>
+          </div>
+          <div class="formularz-kontener zaloguj-sie-kontener">
+            <form id="signin-form" action="#" method="post" onsubmit="return validateSigninForm()">
+              <h1>Sign in</h1>
+              <span>Use your account</span>
+              <input type="email" placeholder="E-mail" name="email" required pattern=".+@.+\..{2,}" title="Please include '@' and a domain" />
+              <input type="password" placeholder="Hasło" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" title="Password must contain at least one number, one uppercase letter, and one special character" />
+              <a href="#">Forget your password?</a>
+              <button type="submit">SIGN IN</button>
+            </form>
+          </div>
+          <div class="nakładka-kontener">
+            <div class="nakładka">
+              <div class="nakładka-panel nakładka-lewa">
+                <h1>Welcome back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="widmo" id="zaloguj">Sign in</button>
+              </div>
+              <div class="nakładka-panel nakładka-prawa">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button class="widmo" id="zarejestruj">Sign up</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
       <div>
         <div class="container">
           <div class="testimonials-box">
@@ -1428,7 +1470,8 @@
     - custom js link
   -->
     <script src="assets/js/script.js"></script>
-
+    <script src="assets/js/login.js"></script>
+      
     <!--
     - ionicon link
   -->
