@@ -26,7 +26,7 @@ The repository is available in various directories that are responsible for part
 ├── entity-relationship-diagram
 │ └── README.md
 ├── assets
-│ └── (files related to assets will be included here, e.g. images, CSS, JS)
+│ └── (files related to assets will be included here, e.g. images, CSS, JS, PHP)
 ├── components
 │ └── README.md
 ├── computers
@@ -34,8 +34,6 @@ The repository is available in various directories that are responsible for part
 ├── docs
 │ └── description.md
 ├── laptops
-│ └── README.md
-├── php
 │ └── README.md
 ├── plsql
 │ └── README.md
