@@ -638,15 +638,19 @@
 
               <ul class="submenu-category-list" data-accordion>
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">English</a>
+                  <button data-lang="en-US" class="submenu-title btn-lang">
+                    English
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Polish</a>
+                  <button data-lang="pl-PL" class="submenu-title btn-lang">
+                    Polish
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Fren&ccedil;h</a>
+                  <button data-lang="fr" class="submenu-title btn-lang">
+                    French
+                  </button>
                 </li>
               </ul>
             </li>
@@ -1043,6 +1047,250 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 
+        PRODUCT
+       -->
+
+      <div id="imageOverlay" class="image-overlay" style="display: none">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
+      </div>
+
+      <div class="produkt new-conti category-section" id="case1">
+        <div class="product-main">
+          <div class="product-grid">
+            <div class="showcase">
+              <div class="slider showcase-banner">
+                <!-- Zdjęcia produktu -->
+                <div class="slides-container"></div>
+                <!-- Przyciski nawigacyjne -->
+                <button class="slide-nav prev" onclick="changeSlide(-1)">
+                  &#10094;
+                </button>
+                <button class="slide-nav next" onclick="changeSlide(1)">
+                  &#10095;
+                </button>
+                <!-- Miniatury obrazów -->
+                <div class="thumbnail-container"></div>
+
+                <p class="showcase-badge">15%</p>
+
+                <div class="showcase-actions">
+                  <button class="btn-action">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action magnification">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action repeat">
+                    <ion-icon name="repeat-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action">
+                    <ion-icon name="bag-add-outline"></ion-icon>
+                  </button>
+                </div>
+              </div>
+
+              <div class="showcase-content">
+                <div class="caseBox-info">
+                  <div class="caseBox1">
+                    <a href="set9.html" class="showcase-category">Computer 9</a>
+                    <a href="set9.html">
+                      <h3 class="showcase-title">
+                        Set Z9 | G4M3R HERO i7-13700F/32GB/1TB/RTX4060Ti/W11x
+                      </h3>
+                    </a>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <div class="price-cart-fav">
+                      <div class="price-box">
+                        <p class="price" data-price-usd="3900.00">$3900.00</p>
+                        <del data-price-usd="4200.00">$4200.00</del>
+                      </div>
+
+                      <div class="cart-favorite">
+                        <button class="btn-action favoriting">
+                          <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action carting">
+                          <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+              <h2 class="product-description-title">Description</h2>
+              <div class="product-description"></div>
+
+              <table class="product-specification">
+                <tr>
+                  <th>Component</th>
+                  <th>Specification</th>
+                </tr>
+                <tr class="specification-row">
+                  <td>Processor</td>
+                  <td>
+                    Intel Core i7-13700F (16 cores, 24 threads, 2.10-5.20 GHz,
+                    30 MB cache)
+                  </td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Chipset</td>
+                  <td>Intel B760</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>RAM</td>
+                  <td>32 GB (DIMM DDR5, 6000MHz)</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Memory architecture</td>
+                  <td>Dual-channel</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Maximum amount of RAM supported</td>
+                  <td>192GB</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Number of memory slots (total/free)</td>
+                  <td>4/2</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>RAM voltage</td>
+                  <td>1.35 V</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Graphics Card</td>
+                  <td>NVIDIA GeForce RTX 4060 Ti</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Graphics card memory size</td>
+                  <td>8192 MB GDDR6 (own memory)</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>PCIe 4.0 SSD</td>
+                  <td>1000 GB SSD M.2 PCIe 4.0</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Options for adding disks</td>
+                  <td>
+                    Possibility to install four SATA drives<br />Possibility to
+                    install an M.2 PCIe drive
+                  </td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Built-in optical drives</td>
+                  <td>Lack</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Sound</td>
+                  <td>Integrated sound card</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Communication</td>
+                  <td>Wi-Fi 6E<br />LAN 10/100/1000 Mbps<br />Bluetooth</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Connectors - rear panel</td>
+                  <td>
+                    USB 2.0 - 4 pcs.<br />USB 3.2 Gen. 1 - 1 pc.<br />USB Type-C
+                    - 1 pc.<br />Audio input/outputs - 3 pcs.<br />RJ-45 (LAN) -
+                    1 pc.<br />HDMI (inactive) - 1 pc.<br />HDMI (graphics card)
+                    - 2 pcs.<br />Display Port (inactive) - 1 pc.<br />Display
+                    Port (graphics card) - 2 pcs.<br />PS/2 Combo - 1 pc.<br />AC-in
+                    (power input) - 1 pc.<br />Antenna connector - 2 pcs.
+                  </td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Connectors - top panel</td>
+                  <td>
+                    USB 3.2 Gen. 1 - 2 pcs.<br />USB Type-C - 1 pc.<br />Microphone
+                    input - 1 pc.<br />Headphone/speaker output - 1 pc.
+                  </td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Internal ports (free)</td>
+                  <td>
+                    PCI-e x16 - 4 pcs.<br />SATA III - 4 pcs.<br />M.2 PCIe - 1
+                    pc.<br />Internal pocket 5.25" - 2 pcs.<br />Internal pocket
+                    3.5"/2.5" - 2 pcs.<br />Internal pocket 2.5" - 2 pcs.
+                  </td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Charger</td>
+                  <td>750 W</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Power supply efficiency</td>
+                  <td>80 Plus Bronze</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Housing illumination</td>
+                  <td>Multicolor (ARGB)</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Backlight modes</td>
+                  <td>14 modes</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Additional information</td>
+                  <td>DLSS 3 support</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Accessories included</td>
+                  <td>Power cable<br />WiFi antenna</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Operating system</td>
+                  <td>Microsoft Windows 11 Home</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Software included</td>
+                  <td>Game Pass Ultimate - 1 month</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Height</td>
+                  <td>454mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Width</td>
+                  <td>215mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Depth</td>
+                  <td>474mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Guarantee</td>
+                  <td>36 months (manufacturer's warranty)</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Type of warranty</td>
+                  <td>x-kom G4M3R (door-to-door)</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Producer code</td>
+                  <td>GHi7F13D5406T-S-A-11H</td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>
@@ -1456,6 +1704,12 @@
     - custom js link
   -->
     <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/sliderProduct.js"></script>
+    <script src="../assets/js/magnification.js"></script>
+    <script src="../assets/js/rotation.js"></script>
+    <script src="../assets/js/changeTheLanguage.js"></script>
+    <script src="../assets/js/exchange.js"></script>
+    <script src="../assets/js/computersProduct.js"></script>
 
     <!--
     - ionicon link

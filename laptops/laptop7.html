@@ -638,15 +638,19 @@
 
               <ul class="submenu-category-list" data-accordion>
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">English</a>
+                  <button data-lang="en-US" class="submenu-title btn-lang">
+                    English
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Polish</a>
+                  <button data-lang="pl-PL" class="submenu-title btn-lang">
+                    Polish
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Fren&ccedil;h</a>
+                  <button data-lang="fr" class="submenu-title btn-lang">
+                    French
+                  </button>
                 </li>
               </ul>
             </li>
@@ -1043,6 +1047,167 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 
+        PRODUCT
+       -->
+
+      <div id="imageOverlay" class="image-overlay" style="display: none">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
+      </div>
+
+      <div class="produkt new-conti category-section" id="case1">
+        <div class="product-main">
+          <div class="product-grid">
+            <div class="showcase">
+              <div class="slider showcase-banner">
+                <!-- Zdjęcia produktu -->
+                <div class="slides-container"></div>
+                <!-- Przyciski nawigacyjne -->
+                <button class="slide-nav prev" onclick="changeSlide(-1)">
+                  &#10094;
+                </button>
+                <button class="slide-nav next" onclick="changeSlide(1)">
+                  &#10095;
+                </button>
+                <!-- Miniatury obrazów -->
+                <div class="thumbnail-container"></div>
+
+                <p class="showcase-badge">15%</p>
+
+                <div class="showcase-actions">
+                  <button class="btn-action">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action magnification">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action repeat">
+                    <ion-icon name="repeat-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action">
+                    <ion-icon name="bag-add-outline"></ion-icon>
+                  </button>
+                </div>
+              </div>
+
+              <div class="showcase-content">
+                <div class="caseBox-info">
+                  <div class="caseBox1">
+                    <a href="laptop7.html" class="showcase-category"
+                      >Laptop 7</a
+                    >
+                    <a href="laptop7.html">
+                      <h3 class="showcase-title">
+                        Acer Chromebook 315 N4500/8GB/128/FHD ChromeOS
+                      </h3>
+                    </a>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <div class="price-cart-fav">
+                      <div class="price-box">
+                        <p class="price" data-price-usd="556.00">$556.00</p>
+                        <del data-price-usd="578.00">$578.00</del>
+                      </div>
+
+                      <div class="cart-favorite">
+                        <button class="btn-action favoriting">
+                          <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action carting">
+                          <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+              <h2 class="product-description-title">Description</h2>
+              <div class="product-description"></div>
+
+              <table class="product-specification">
+                <tr>
+                  <th>Component</th>
+                  <th>Specification</th>
+                </tr>
+                <tr class="specification-row">
+                  <td>Motherboard</td>
+                  <td>MSI PRO B650M-P</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Case</td>
+                  <td>
+                    Logic Concept Aramis ARGB black (AT-ARAMIS-10-0000000-0002)
+                  </td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Processor</td>
+                  <td>
+                    AMD Ryzen 5 7500F, 3.7 GHz, 32 MB, OEM (100-000000597)
+                  </td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>CPU cooling</td>
+                  <td>Endorfy Fera 5 (EY3A005)</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>SSD drive</td>
+                  <td>
+                    Lexar NM620 512GB M.2 2280 PCI-E x4 Gen3 NVMe
+                    (LNM620X512G-RNNNG)
+                  </td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>RAM</td>
+                  <td>
+                    Kingston Fury Beast, DDR5, 16 GB, 6000MHz, CL36
+                    (KF560C36BBEK2-16)
+                  </td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Graphics Card</td>
+                  <td>Palit GeForce RTX 4060 TI Dual 8GB GDDR6</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Charger</td>
+                  <td>
+                    Thermaltake Litepower II Black 650W (PS-LTP-0650NPCNEU-2)
+                  </td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Operating system</td>
+                  <td>
+                    Windows 10 Home (unactivated)*<br />*possibility to purchase
+                    licenses by changing attributes
+                  </td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>The set price includes</td>
+                  <td>
+                    Assembly of components<br />BIOS update<br />Installation of
+                    the Operating System<br />Installation of all updates and
+                    drivers<br />System optimization for better performance
+                  </td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>
@@ -1456,6 +1621,12 @@
     - custom js link
   -->
     <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/sliderProduct.js"></script>
+    <script src="../assets/js/magnification.js"></script>
+    <script src="../assets/js/rotation.js"></script>
+    <script src="../assets/js/changeTheLanguage.js"></script>
+    <script src="../assets/js/exchange.js"></script>
+    <script src="../assets/js/laptopsProduct.js"></script>
 
     <!--
     - ionicon link

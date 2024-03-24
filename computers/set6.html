@@ -638,15 +638,19 @@
 
               <ul class="submenu-category-list" data-accordion>
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">English</a>
+                  <button data-lang="en-US" class="submenu-title btn-lang">
+                    English
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Polish</a>
+                  <button data-lang="pl-PL" class="submenu-title btn-lang">
+                    Polish
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Fren&ccedil;h</a>
+                  <button data-lang="fr" class="submenu-title btn-lang">
+                    French
+                  </button>
                 </li>
               </ul>
             </li>
@@ -1043,6 +1047,155 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 
+        PRODUCT
+       -->
+
+      <div id="imageOverlay" class="image-overlay" style="display: none">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
+      </div>
+
+      <div class="produkt new-conti category-section" id="case1">
+        <div class="product-main">
+          <div class="product-grid">
+            <div class="showcase">
+              <div class="slider showcase-banner">
+                <!-- Zdjęcia produktu -->
+                <div class="slides-container"></div>
+                <!-- Przyciski nawigacyjne -->
+                <button class="slide-nav prev" onclick="changeSlide(-1)">
+                  &#10094;
+                </button>
+                <button class="slide-nav next" onclick="changeSlide(1)">
+                  &#10095;
+                </button>
+                <!-- Miniatury obrazów -->
+                <div class="thumbnail-container"></div>
+
+                <p class="showcase-badge">15%</p>
+
+                <div class="showcase-actions">
+                  <button class="btn-action">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action magnification">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action repeat">
+                    <ion-icon name="repeat-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action">
+                    <ion-icon name="bag-add-outline"></ion-icon>
+                  </button>
+                </div>
+              </div>
+
+              <div class="showcase-content">
+                <div class="caseBox-info">
+                  <div class="caseBox1">
+                    <a href="set6.html" class="showcase-category">Computer 6</a>
+                    <a href="set6.html">
+                      <h3 class="showcase-title">
+                        Set Z6 | Intel I5-14600KF, RX 7900 GRE 16GB, 16GB DDR5,
+                        500GB SSD, 700W, ARX 500 ARGB
+                      </h3>
+                    </a>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <div class="price-cart-fav">
+                      <div class="price-box">
+                        <p class="price" data-price-usd="261.00">$732.00</p>
+                        <del data-price-usd="311.00">$650.00</del>
+                      </div>
+
+                      <div class="cart-favorite">
+                        <button class="btn-action favoriting">
+                          <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action carting">
+                          <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+              <h2 class="product-description-title">Description</h2>
+              <div class="product-description"></div>
+
+              <table class="product-specification">
+                <tr>
+                  <th>Component</th>
+                  <th>Specification</th>
+                </tr>
+                <tr class="specification-row">
+                  <td>Płyta główna</td>
+                  <td>ASRock B760M PG RIPTIDE DDR5</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Obudowa</td>
+                  <td>Endorfy ARX 500 ARGB</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Procesor</td>
+                  <td>Intel Core i5-14600KF</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Chłodzenie procesora</td>
+                  <td>Endorfy Fortis 5</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Dysk SSD</td>
+                  <td>Lexar NM620 512GB</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Pamięć RAM</td>
+                  <td>Kingston DDR5 Fury Beast Black 16GB (2x8GB)/6000 CL40</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Karta graficzna</td>
+                  <td>ASRock Radeon RX 7900 GRE Challenger 16GB</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Zasilacz</td>
+                  <td>Endorfy L5 700W</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>System operacyjny</td>
+                  <td>
+                    Windows 10 Home (nieaktywowany)*<br />*możliwość zakupu
+                    licencji poprzez zmianę atrybutów
+                  </td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Cena zestawu zawiera</td>
+                  <td>
+                    Montaż podzespołów<br />Aktualizacja BIOS<br />Instalacja
+                    Systemu Operacyjnego<br />Instalacja wszystkich aktualizacji
+                    oraz sterowników<br />Optymalizacja systemu dla lepszej
+                    wydajności
+                  </td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>
@@ -1456,6 +1609,12 @@
     - custom js link
   -->
     <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/sliderProduct.js"></script>
+    <script src="../assets/js/magnification.js"></script>
+    <script src="../assets/js/rotation.js"></script>
+    <script src="../assets/js/changeTheLanguage.js"></script>
+    <script src="../assets/js/exchange.js"></script>
+    <script src="../assets/js/computersProduct.js"></script>
 
     <!--
     - ionicon link
