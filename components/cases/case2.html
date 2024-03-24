@@ -646,15 +646,19 @@
 
               <ul class="submenu-category-list" data-accordion>
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">English</a>
+                  <button data-lang="en-US" class="submenu-title btn-lang">
+                    English
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Polish</a>
+                  <button data-lang="pl-PL" class="submenu-title btn-lang">
+                    Polish
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Fren&ccedil;h</a>
+                  <button data-lang="fr" class="submenu-title btn-lang">
+                    French
+                  </button>
                 </li>
               </ul>
             </li>
@@ -1053,6 +1057,258 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 
+        PRODUCT
+       -->
+
+      <div id="imageOverlay" class="image-overlay" style="display: none">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
+      </div>
+
+      <div class="produkt new-conti category-section" id="case1">
+        <div class="product-main">
+          <div class="product-grid">
+            <div class="showcase">
+              <div class="slider showcase-banner">
+                <!-- Zdjęcia produktu -->
+                <div class="slides-container"></div>
+                <!-- Przyciski nawigacyjne -->
+                <button class="slide-nav prev" onclick="changeSlide(-1)">
+                  &#10094;
+                </button>
+                <button class="slide-nav next" onclick="changeSlide(1)">
+                  &#10095;
+                </button>
+                <!-- Miniatury obrazów -->
+                <div class="thumbnail-container"></div>
+
+                <p class="showcase-badge">15%</p>
+
+                <div class="showcase-actions">
+                  <button class="btn-action">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action magnification">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action repeat">
+                    <ion-icon name="repeat-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action">
+                    <ion-icon name="bag-add-outline"></ion-icon>
+                  </button>
+                </div>
+              </div>
+
+              <div class="showcase-content">
+                <div class="caseBox-info">
+                  <div class="caseBox1">
+                    <a href="case2.html" class="showcase-category">Case 2</a>
+                    <a href="case2.html">
+                      <h3 class="showcase-title">
+                        Fury Shobo SH4F Tempered Glass
+                      </h3>
+                    </a>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <div class="price-cart-fav">
+                      <div class="price-box">
+                        <p class="price" data-price-usd="64.00">$64.00</p>
+                        <del data-price-usd="100.00">$100.00</del>
+                      </div>
+
+                      <div class="cart-favorite">
+                        <button class="btn-action favoriting">
+                          <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action carting">
+                          <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+              <h2 class="product-description-title">Description</h2>
+              <div class="product-description"></div>
+
+              <table class="product-specification">
+                <tr>
+                  <th>Specification</th>
+                  <th>Details</th>
+                </tr>
+                <tr class="specification-row">
+                  <td>Housing type</td>
+                  <td>Midi Tower</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Motherboard standard</td>
+                  <td>Mini-ITX, Micro-ATX, ATX</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Compatible power supply standard</td>
+                  <td>ATX</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Power supply location</td>
+                  <td>Hole</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Maximum length of the power supply</td>
+                  <td>170mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Maximum CPU cooling height</td>
+                  <td>161mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Maximum length of the GPU graphics card</td>
+                  <td>330mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>I/O panel</td>
+                  <td>USB 3.0 Type-A x2, USB 2.0 Type-A x1, Mini Jack x2</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Side panel type</td>
+                  <td>Tempered glass</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Type of front panel</td>
+                  <td>Mesh (dense mesh)</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Number of fans installed</td>
+                  <td>4</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Fans installed</td>
+                  <td>4x 120 mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Maximum number of fans</td>
+                  <td>8</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Possibility of mounting fans - bottom</td>
+                  <td>2x 120 mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Possibility of mounting fans - top</td>
+                  <td>2x 120 mm, 1x 140 mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Possibility to install fans - front</td>
+                  <td>3x 140 mm, 3x 120 mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Possibility of mounting fans - rear</td>
+                  <td>1x 120 mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Fan speed +/-10%</td>
+                  <td>1200 RPM</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Fan life</td>
+                  <td>40000</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Fan airflow</td>
+                  <td>36.5 CFM</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Fan noise level</td>
+                  <td>21.2 dB</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Possibility to install water cooling (AIO)</td>
+                  <td>Yes</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Possibility to install liquid cooling - top</td>
+                  <td>240mm, 120mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Possibility to install liquid cooling - front</td>
+                  <td>360mm, 280mm, 240mm, 140mm, 120mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Possibility to install liquid cooling - rear</td>
+                  <td>120mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Number of expansion slots</td>
+                  <td>7</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Number of places for 2.5" drives (SSD/HDD)</td>
+                  <td>2</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Number of places for 3.5" drives (SSD/HDD)</td>
+                  <td>2</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Power supply compartment</td>
+                  <td>Yes</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Power supply included</td>
+                  <td>NO</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Security</td>
+                  <td>Dust filters</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Material</td>
+                  <td>Tempered glass, Steel, ABS</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Color</td>
+                  <td>Black</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Length</td>
+                  <td>386mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Width</td>
+                  <td>204mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Height</td>
+                  <td>448mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Libra</td>
+                  <td>4.3kg</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Accessories included</td>
+                  <td>Set of mounting elements, assembly instructions</td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>
@@ -1482,6 +1738,12 @@
     - custom js link
   -->
     <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/sliderProduct.js"></script>
+    <script src="../../assets/js/magnification.js"></script>
+    <script src="../../assets/js/rotation.js"></script>
+    <script src="../../assets/js/changeTheLanguage.js"></script>
+    <script src="../../assets/js/exchange.js"></script>
+    <script src="../../assets/js/caseProduct.js"></script>
 
     <!--
     - ionicon link

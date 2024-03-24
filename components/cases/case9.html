@@ -646,15 +646,19 @@
 
               <ul class="submenu-category-list" data-accordion>
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">English</a>
+                  <button data-lang="en-US" class="submenu-title btn-lang">
+                    English
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Polish</a>
+                  <button data-lang="pl-PL" class="submenu-title btn-lang">
+                    Polish
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Fren&ccedil;h</a>
+                  <button data-lang="fr" class="submenu-title btn-lang">
+                    French
+                  </button>
                 </li>
               </ul>
             </li>
@@ -1057,6 +1061,178 @@
           </div>
         </div>
       </div>
+
+      <!-- 
+        PRODUCT
+       -->
+
+      <div id="imageOverlay" class="image-overlay" style="display: none">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
+      </div>
+
+      <div class="produkt new-conti category-section" id="case1">
+        <div class="product-main">
+          <div class="product-grid">
+            <div class="showcase">
+              <div class="slider showcase-banner">
+                <!-- Zdjęcia produktu -->
+                <div class="slides-container"></div>
+                <!-- Przyciski nawigacyjne -->
+                <button class="slide-nav prev" onclick="changeSlide(-1)">
+                  &#10094;
+                </button>
+                <button class="slide-nav next" onclick="changeSlide(1)">
+                  &#10095;
+                </button>
+                <!-- Miniatury obrazów -->
+                <div class="thumbnail-container"></div>
+
+                <p class="showcase-badge">15%</p>
+
+                <div class="showcase-actions">
+                  <button class="btn-action">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action magnification">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action repeat">
+                    <ion-icon name="repeat-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action">
+                    <ion-icon name="bag-add-outline"></ion-icon>
+                  </button>
+                </div>
+              </div>
+
+              <div class="showcase-content">
+                <div class="caseBox-info">
+                  <div class="caseBox1">
+                    <a href="case1.html" class="showcase-category">Case 9</a>
+                    <a href="case1.html">
+                      <h3 class="showcase-title">
+                        ENDORFY Arx 500 ARGB Tempered Glass
+                      </h3>
+                    </a>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <div class="price-cart-fav">
+                      <div class="price-box">
+                        <p class="price" data-price-usd="70.00">$70.00</p>
+                        <del data-price-usd="80.00">$80.00</del>
+                      </div>
+
+                      <div class="cart-favorite">
+                        <button class="btn-action favoriting">
+                          <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action carting">
+                          <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+              <h2 class="product-description-title">Description</h2>
+              <div class="product-description"></div>
+
+              <table class="product-specification">
+                <tr>
+                  <th>Specification</th>
+                  <th>Details</th>
+                </tr>
+                <tr class="specification-row">
+                  <td>Product type</td>
+                  <td>PC case</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Color</td>
+                  <td>black</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Dimensions (height × width × depth)</td>
+                  <td>486×228×429mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Motherboard standard</td>
+                  <td>ATX, microATX, ITX</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Maximum graphics card (GPU) length</td>
+                  <td>350mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Maximum height of the processor cooling system (CPU)</td>
+                  <td>179mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Maximum power supply unit (PSU) length</td>
+                  <td>300mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Slots for expansion cards</td>
+                  <td>7</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Number of bays</td>
+                  <td>1× 2.5”/3.5”, 6× 2.5″</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Number of fans (maximum)</td>
+                  <td>7</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Number of fans (included)</td>
+                  <td>4</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Front</td>
+                  <td>3× Stratus 140 PWM fan (200–1200 rpm)</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Back</td>
+                  <td>1× Stratus 140 PWM fan (200–1200 rpm)</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Compatibility with liquid cooling radiators</td>
+                  <td>
+                    Front 1× 120, 240, 280, 360 mm<br />Top 1× 120, 240, 280
+                    mm<br />Rear 1× 120, 140 mm
+                  </td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Dust filters</td>
+                  <td>Front, Top, Bottom</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>I/O panel</td>
+                  <td>
+                    1× USB-C<br />2× USB-A<br />1× headphones (3.5 mm
+                    minijack)<br />1× microphone (3.5 mm minijack)<br />1× POWER
+                    button<br />1× RESET/LED button
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div>
         <div class="container">
           <div class="testimonials-box">
@@ -1481,6 +1657,12 @@
     - custom js link
   -->
     <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/sliderProduct.js"></script>
+    <script src="../../assets/js/magnification.js"></script>
+    <script src="../../assets/js/rotation.js"></script>
+    <script src="../../assets/js/changeTheLanguage.js"></script>
+    <script src="../../assets/js/exchange.js"></script>
+    <script src="../../assets/js/caseProduct.js"></script>
 
     <!--
     - ionicon link

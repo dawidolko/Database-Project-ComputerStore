@@ -646,15 +646,19 @@
 
               <ul class="submenu-category-list" data-accordion>
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">English</a>
+                  <button data-lang="en-US" class="submenu-title btn-lang">
+                    English
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Polish</a>
+                  <button data-lang="pl-PL" class="submenu-title btn-lang">
+                    Polish
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Fren&ccedil;h</a>
+                  <button data-lang="fr" class="submenu-title btn-lang">
+                    French
+                  </button>
                 </li>
               </ul>
             </li>
@@ -1057,6 +1061,219 @@
           </div>
         </div>
       </div>
+
+      <!-- 
+        PRODUCT
+       -->
+
+      <div id="imageOverlay" class="image-overlay" style="display: none">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
+      </div>
+
+      <div class="produkt new-conti category-section" id="case1">
+        <div class="product-main">
+          <div class="product-grid">
+            <div class="showcase">
+              <div class="slider showcase-banner">
+                <!-- Zdjęcia produktu -->
+                <div class="slides-container"></div>
+                <!-- Przyciski nawigacyjne -->
+                <button class="slide-nav prev" onclick="changeSlide(-1)">
+                  &#10094;
+                </button>
+                <button class="slide-nav next" onclick="changeSlide(1)">
+                  &#10095;
+                </button>
+                <!-- Miniatury obrazów -->
+                <div class="thumbnail-container"></div>
+
+                <p class="showcase-badge">15%</p>
+
+                <div class="showcase-actions">
+                  <button class="btn-action">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action magnification">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action repeat">
+                    <ion-icon name="repeat-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action">
+                    <ion-icon name="bag-add-outline"></ion-icon>
+                  </button>
+                </div>
+              </div>
+
+              <div class="showcase-content">
+                <div class="caseBox-info">
+                  <div class="caseBox1">
+                    <a href="case1.html" class="showcase-category">Case 5</a>
+                    <a href="case1.html">
+                      <h3 class="showcase-title">
+                        Logic Portos Midi ARGB Black
+                      </h3>
+                    </a>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <div class="price-cart-fav">
+                      <div class="price-box">
+                        <p class="price" data-price-usd="50.00">$50.00</p>
+                        <del data-price-usd="64.00">$64.00</del>
+                      </div>
+
+                      <div class="cart-favorite">
+                        <button class="btn-action favoriting">
+                          <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action carting">
+                          <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+              <h2 class="product-description-title">Description</h2>
+              <div class="product-description"></div>
+
+              <table class="product-specification">
+                <tr>
+                  <th>Specification</th>
+                  <th>Details</th>
+                </tr>
+                <tr class="specification-row">
+                  <td>Typ obudowy</td>
+                  <td>Middle Tower</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Panel boczny</td>
+                  <td>Szkło hartowane</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Podświetlenie</td>
+                  <td>ARGB</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Podświetlane wentylatory</td>
+                  <td>Brak informacji</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Standard płyty głównej</td>
+                  <td>ATX, microATX, Mini-ITX</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Standard zasilacza</td>
+                  <td>ATX</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Miejsca na wewnętrzne dyski/napędy</td>
+                  <td>4 x 2,5", 1 x 3,5"/2,5", 1 x 3,5"</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Miejsca na karty rozszerzeń</td>
+                  <td>7</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Maksymalna długość karty graficznej</td>
+                  <td>340 mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Maksymalna wysokość chłodzenia CPU</td>
+                  <td>155 mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Maksymalna liczba wentylatorów</td>
+                  <td>6</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Opcje montażu wentylatorów</td>
+                  <td>
+                    3x 120/140 mm (przód), 1x 120 mm (tył), 2x 120/140 mm (góra)
+                  </td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Liczba zainstalowanych wentylatorów</td>
+                  <td>4</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Zainstalowane wentylatory</td>
+                  <td>
+                    3x 120 mm (przód) - podświetlenie ARGB, 1x 120 mm (tył) -
+                    podświetlenie ARGB
+                  </td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Przyciski i regulatory</td>
+                  <td>Power, Reset</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Wyprowadzone złącza</td>
+                  <td>
+                    USB 2.0 - 2 szt., USB 3.2 Gen. 1 - 1 szt., Wyjście
+                    słuchawkowe/głośnikowe - 1 szt.
+                  </td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Materiał</td>
+                  <td>Tworzywo sztuczne, Stal, Szkło</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Kolor</td>
+                  <td>Czarny</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Dodatkowe informacje</td>
+                  <td>
+                    System aranżowania kabli, Otwór wspomagający montaż
+                    chłodzenia na procesor, Montaż zasilacza na dole obudowy,
+                    Filtry antykurzowe, Panel boczny w formie drzwi
+                  </td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Dołączone akcesoria</td>
+                  <td>Komplet śrubek i elementów montażowych</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Wysokość</td>
+                  <td>450 mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Szerokość</td>
+                  <td>200 mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Głębokość</td>
+                  <td>390 mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Gwarancja</td>
+                  <td>24 miesiące (gwarancja producenta)</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Kod producenta</td>
+                  <td>AT-PORTOS-10-0000000-0002</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div>
         <div class="container">
           <div class="testimonials-box">
@@ -1481,6 +1698,12 @@
     - custom js link
   -->
     <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/sliderProduct.js"></script>
+    <script src="../../assets/js/magnification.js"></script>
+    <script src="../../assets/js/rotation.js"></script>
+    <script src="../../assets/js/changeTheLanguage.js"></script>
+    <script src="../../assets/js/exchange.js"></script>
+    <script src="../../assets/js/caseProduct.js"></script>
 
     <!--
     - ionicon link

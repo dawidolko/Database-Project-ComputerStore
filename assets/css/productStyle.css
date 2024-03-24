@@ -1294,7 +1294,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .product-grid .showcase-category {
   color: var(--salmon-pink);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: var(--weight-500);
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -1302,7 +1302,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .product-grid .showcase-title {
   color: var(--sonic-silver);
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: var(--weight-300);
   text-transform: capitalize;
   letter-spacing: 1px;
@@ -1338,23 +1338,82 @@ body::-webkit-scrollbar-thumb:hover {
 
 .product-grid .price {
   font-weight: var(--weight-700);
+  font-size: 1.5rem;
 }
 
 .product-grid del {
   color: var(--sonic-silver);
 }
 
+.product-grid .price-cart-fav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.product-grid .caseBox-info .btn-action {
+  background: var(--white);
+  color: var(--sonic-silver);
+  margin-bottom: 5px;
+  border: 1px solid var(--cultured);
+  padding: 10px;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition-timing);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.product-grid .caseBox-info .btn-action:hover ion-icon {
+  color: red; /* Change this to the color you want on hover */
+}
+
+.product-grid .caseBox-info .btn-action:active ion-icon {
+  color: purple; /* Change this to the color you want on click */
+}
+
+/* You may need to add !important to override any other specific styles */
+.product-grid .caseBox-info .btn-action:hover ion-icon[name="heart-outline"] {
+  color: red !important;
+}
+
+.product-grid .caseBox-info .btn-action:hover ion-icon[name="bag-add-outline"] {
+  color: red !important;
+}
+
+.product-grid .caseBox-info .btn-action:active ion-icon[name="heart-outline"],
+.product-grid
+  .caseBox-info
+  .btn-action:active
+  ion-icon[name="bag-add-outline"] {
+  color: purple !important;
+}
+
+.product-description-title {
+  padding: 20px 20px 20px 20px;
+  font-size: 2rem;
+  text-align: justify;
+  text-decoration: underline;
+}
+
 /* Opis produktu */
 .product-description {
   padding: 20px 20px 20px 20px;
   text-align: justify;
+  font-size: 0.8rem;
+}
+
+.product-description p {
+  padding: 10px 10px 10px 10px;
 }
 
 /* Tabela specyfikacji */
 .product-specification {
-  width: 100%;
+  width: 95%;
   border-collapse: collapse;
-  margin: 20px 0;
+  margin: auto;
+  margin-bottom: 20px;
+  font-size: 0.6rem;
 }
 
 .product-specification th,
@@ -1375,7 +1434,7 @@ body::-webkit-scrollbar-thumb:hover {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04aa6d;
+  background-color: var(--salmon-pink);
   color: white;
 }
 
