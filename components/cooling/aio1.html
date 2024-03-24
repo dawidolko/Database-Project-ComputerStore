@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cooling - Sklep komputerowy</title>
+    <title>Cooling 1 - Sklep komputerowy</title>
     <meta
       name="description"
       content="Discover the future of technology with TechByte, your ultimate online destination for cutting-edge computer components, laptops, and gaming gear. Experience unparalleled quality, competitive prices, and exceptional customer service. Shop now to elevate your tech game!" />
@@ -646,15 +646,19 @@
 
               <ul class="submenu-category-list" data-accordion>
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">English</a>
+                  <button data-lang="en-US" class="submenu-title btn-lang">
+                    English
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Polish</a>
+                  <button data-lang="pl-PL" class="submenu-title btn-lang">
+                    Polish
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Fren&ccedil;h</a>
+                  <button data-lang="fr" class="submenu-title btn-lang">
+                    French
+                  </button>
                 </li>
               </ul>
             </li>
@@ -1057,6 +1061,179 @@
           </div>
         </div>
       </div>
+
+      <!-- 
+        PRODUCT
+       -->
+
+      <div id="imageOverlay" class="image-overlay" style="display: none">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
+      </div>
+
+      <div class="produkt new-conti category-section" id="case1">
+        <div class="product-main">
+          <div class="product-grid">
+            <div class="showcase">
+              <div class="slider showcase-banner">
+                <!-- Zdjęcia produktu -->
+                <div class="slides-container"></div>
+                <!-- Przyciski nawigacyjne -->
+                <button class="slide-nav prev" onclick="changeSlide(-1)">
+                  &#10094;
+                </button>
+                <button class="slide-nav next" onclick="changeSlide(1)">
+                  &#10095;
+                </button>
+                <!-- Miniatury obrazów -->
+                <div class="thumbnail-container"></div>
+
+                <p class="showcase-badge">15%</p>
+
+                <div class="showcase-actions">
+                  <button class="btn-action">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action magnification">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action repeat">
+                    <ion-icon name="repeat-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action">
+                    <ion-icon name="bag-add-outline"></ion-icon>
+                  </button>
+                </div>
+              </div>
+
+              <div class="showcase-content">
+                <div class="caseBox-info">
+                  <div class="caseBox1">
+                    <a href="aio1.html" class="showcase-category">Cooling 1</a>
+                    <a href="aio1.html">
+                      <h3 class="showcase-title">
+                        AiO Arctic Liquid Freezer II 280 OUTLET water
+                      </h3>
+                    </a>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <div class="price-cart-fav">
+                      <div class="price-box">
+                        <p class="price" data-price-usd="44.00">$44.00</p>
+                        <del data-price-usd="50.00">$50.00</del>
+                      </div>
+
+                      <div class="cart-favorite">
+                        <button class="btn-action favoriting">
+                          <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action carting">
+                          <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+              <h2 class="product-description-title">Description</h2>
+              <div class="product-description"></div>
+
+              <table class="product-specification">
+                <tr>
+                  <th>Feature</th>
+                  <th>Specification</th>
+                </tr>
+                <tr class="specification-row">
+                  <td>Number of fans</td>
+                  <td>2 pcs</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Fan dimensions</td>
+                  <td>140 mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Speed control</td>
+                  <td>PWM control</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Minimum fan speed</td>
+                  <td>800 rpm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Maximum fan speed</td>
+                  <td>2000 rpm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Heatsink Material</td>
+                  <td>Aluminum + Copper</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Radiator dimensions</td>
+                  <td>317 x 138 x 38 mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Backlight</td>
+                  <td>None</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Outer diameter of hoses</td>
+                  <td>12.4 mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Inner diameter of hoses</td>
+                  <td>6 mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Hose length</td>
+                  <td>450 mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Power consumption</td>
+                  <td>2.7 W</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Weight</td>
+                  <td>1572 g</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Airflow</td>
+                  <td>72.8 CFM</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Compatibility</td>
+                  <td>Intel LGA 1700, 115X, 2011-3, 2066, AMD AM4</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Block dimensions</td>
+                  <td>98 x 78 x 53</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>VRM fan</td>
+                  <td>40mm PWM, 1000 - 3000 RPM</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Manufacturer</td>
+                  <td>Arctic</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div>
         <div class="container">
           <div class="testimonials-box">
@@ -1481,6 +1658,12 @@
     - custom js link
   -->
     <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/sliderProduct.js"></script>
+    <script src="../../assets/js/magnification.js"></script>
+    <script src="../../assets/js/rotation.js"></script>
+    <script src="../../assets/js/changeTheLanguage.js"></script>
+    <script src="../../assets/js/exchange.js"></script>
+    <script src="../../assets/js/coolingProduct.js"></script>
 
     <!--
     - ionicon link

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cooling - Sklep komputerowy</title>
+    <title>Cooling 8 - Sklep komputerowy</title>
     <meta
       name="description"
       content="Discover the future of technology with TechByte, your ultimate online destination for cutting-edge computer components, laptops, and gaming gear. Experience unparalleled quality, competitive prices, and exceptional customer service. Shop now to elevate your tech game!" />
@@ -646,15 +646,19 @@
 
               <ul class="submenu-category-list" data-accordion>
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">English</a>
+                  <button data-lang="en-US" class="submenu-title btn-lang">
+                    English
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Polish</a>
+                  <button data-lang="pl-PL" class="submenu-title btn-lang">
+                    Polish
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Fren&ccedil;h</a>
+                  <button data-lang="fr" class="submenu-title btn-lang">
+                    French
+                  </button>
                 </li>
               </ul>
             </li>
@@ -1057,6 +1061,148 @@
           </div>
         </div>
       </div>
+
+      <!-- 
+        PRODUCT
+       -->
+
+      <div id="imageOverlay" class="image-overlay" style="display: none">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
+      </div>
+
+      <div class="produkt new-conti category-section" id="case1">
+        <div class="product-main">
+          <div class="product-grid">
+            <div class="showcase">
+              <div class="slider showcase-banner">
+                <!-- Zdjęcia produktu -->
+                <div class="slides-container"></div>
+                <!-- Przyciski nawigacyjne -->
+                <button class="slide-nav prev" onclick="changeSlide(-1)">
+                  &#10094;
+                </button>
+                <button class="slide-nav next" onclick="changeSlide(1)">
+                  &#10095;
+                </button>
+                <!-- Miniatury obrazów -->
+                <div class="thumbnail-container"></div>
+
+                <p class="showcase-badge">15%</p>
+
+                <div class="showcase-actions">
+                  <button class="btn-action">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action magnification">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action repeat">
+                    <ion-icon name="repeat-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action">
+                    <ion-icon name="bag-add-outline"></ion-icon>
+                  </button>
+                </div>
+              </div>
+
+              <div class="showcase-content">
+                <div class="caseBox-info">
+                  <div class="caseBox1">
+                    <a href="air3.html" class="showcase-category">Cooling 8</a>
+                    <a href="air3.html">
+                      <h3 class="showcase-title">
+                        Jonsbo CR-1400 CPU ARGB 92mm Black
+                      </h3>
+                    </a>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <div class="price-cart-fav">
+                      <div class="price-box">
+                        <p class="price" data-price-usd="20.00">$20.00</p>
+                        <del data-price-usd="30.00">$30.00</del>
+                      </div>
+
+                      <div class="cart-favorite">
+                        <button class="btn-action favoriting">
+                          <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action carting">
+                          <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+              <h2 class="product-description-title">Description</h2>
+              <div class="product-description"></div>
+
+              <table class="product-specification">
+                <tr>
+                  <th>Feature</th>
+                  <th>Specification</th>
+                </tr>
+                <tr class="specification-row">
+                  <td>Dimensions</td>
+                  <td>93 x 126 x 78 mm (W x H x D)</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Weight</td>
+                  <td>Approximately 450g</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Material</td>
+                  <td>Copper, Aluminum, Plastic</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>TDP</td>
+                  <td>130W</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Fan</td>
+                  <td>
+                    <ul>
+                      <li>Number: 1x 92 mm</li>
+                      <li>Speed: 900 - 2300 rpm</li>
+                      <li>Max Airflow: 61.1 m³/h</li>
+                      <li>Noise Level: 20 - 30.5 dB(A)</li>
+                      <li>Plug: 4-pin PWM</li>
+                      <li>Voltage: 12V</li>
+                      <li>Number of Heat Pipes: 4x 6 mm</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Compatibility</td>
+                  <td>
+                    <ul>
+                      <li>Intel: 775, 1150, 1151, 1155, 1156</li>
+                      <li>
+                        AMD: AM2, AM2+, AM3, AM3+, AM4, AM5, FM1, FM2, FM2+
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div>
         <div class="container">
           <div class="testimonials-box">
@@ -1481,6 +1627,12 @@
     - custom js link
   -->
     <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/sliderProduct.js"></script>
+    <script src="../../assets/js/magnification.js"></script>
+    <script src="../../assets/js/rotation.js"></script>
+    <script src="../../assets/js/changeTheLanguage.js"></script>
+    <script src="../../assets/js/exchange.js"></script>
+    <script src="../../assets/js/coolingProduct.js"></script>
 
     <!--
     - ionicon link

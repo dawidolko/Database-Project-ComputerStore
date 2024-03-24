@@ -646,15 +646,19 @@
 
               <ul class="submenu-category-list" data-accordion>
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">English</a>
+                  <button data-lang="en-US" class="submenu-title btn-lang">
+                    English
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Polish</a>
+                  <button data-lang="pl-PL" class="submenu-title btn-lang">
+                    Polish
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Fren&ccedil;h</a>
+                  <button data-lang="fr" class="submenu-title btn-lang">
+                    French
+                  </button>
                 </li>
               </ul>
             </li>
@@ -1057,6 +1061,151 @@
           </div>
         </div>
       </div>
+
+      <!-- 
+        PRODUCT
+       -->
+
+      <div id="imageOverlay" class="image-overlay" style="display: none">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
+      </div>
+
+      <div class="produkt new-conti category-section" id="case1">
+        <div class="product-main">
+          <div class="product-grid">
+            <div class="showcase">
+              <div class="slider showcase-banner">
+                <!-- Zdjęcia produktu -->
+                <div class="slides-container"></div>
+                <!-- Przyciski nawigacyjne -->
+                <button class="slide-nav prev" onclick="changeSlide(-1)">
+                  &#10094;
+                </button>
+                <button class="slide-nav next" onclick="changeSlide(1)">
+                  &#10095;
+                </button>
+                <!-- Miniatury obrazów -->
+                <div class="thumbnail-container"></div>
+
+                <p class="showcase-badge">15%</p>
+
+                <div class="showcase-actions">
+                  <button class="btn-action">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action magnification">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action repeat">
+                    <ion-icon name="repeat-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action">
+                    <ion-icon name="bag-add-outline"></ion-icon>
+                  </button>
+                </div>
+              </div>
+
+              <div class="showcase-content">
+                <div class="caseBox-info">
+                  <div class="caseBox1">
+                    <a href="hdd.html" class="showcase-category">Disk 9</a>
+                    <a href="hdd.html">
+                      <h3 class="showcase-title">
+                        Toshiba P300 1TB 7200obr. 64MB
+                      </h3>
+                    </a>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <div class="price-cart-fav">
+                      <div class="price-box">
+                        <p class="price" data-price-usd="25.00">$25.00</p>
+                        <del data-price-usd="35.00">$35.00</del>
+                      </div>
+
+                      <div class="cart-favorite">
+                        <button class="btn-action favoriting">
+                          <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action carting">
+                          <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+              <h2 class="product-description-title">Description</h2>
+              <div class="product-description"></div>
+
+              <table class="product-specification">
+                <tr>
+                  <th>Feature</th>
+                  <th>Specification</th>
+                </tr>
+                <tr class="specification-row">
+                  <td>Pojemność</td>
+                  <td>1000 GB</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Format</td>
+                  <td>3.5"</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Interfejs</td>
+                  <td>SATA III (6.0 Gb/s) - 1 szt.</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Pamięć podręczna cache</td>
+                  <td>64 MB</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Prędkość obrotowa</td>
+                  <td>7200 obr./min</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Wysokość</td>
+                  <td>26.1 mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Szerokość</td>
+                  <td>101.6 mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Głębokość</td>
+                  <td>147 mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Waga</td>
+                  <td>450 g</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Gwarancja</td>
+                  <td>24 miesiące (gwarancja producenta)</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Kod producenta</td>
+                  <td>HDWD110EZSTA</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div>
         <div class="container">
           <div class="testimonials-box">
@@ -1481,6 +1630,12 @@
     - custom js link
   -->
     <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/sliderProduct.js"></script>
+    <script src="../../assets/js/magnification.js"></script>
+    <script src="../../assets/js/rotation.js"></script>
+    <script src="../../assets/js/changeTheLanguage.js"></script>
+    <script src="../../assets/js/exchange.js"></script>
+    <script src="../../assets/js/disksProduct.js"></script>
 
     <!--
     - ionicon link

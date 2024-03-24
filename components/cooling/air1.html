@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cooling - Sklep komputerowy</title>
+    <title>Cooling 6 - Sklep komputerowy</title>
     <meta
       name="description"
       content="Discover the future of technology with TechByte, your ultimate online destination for cutting-edge computer components, laptops, and gaming gear. Experience unparalleled quality, competitive prices, and exceptional customer service. Shop now to elevate your tech game!" />
@@ -646,15 +646,19 @@
 
               <ul class="submenu-category-list" data-accordion>
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">English</a>
+                  <button data-lang="en-US" class="submenu-title btn-lang">
+                    English
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Polish</a>
+                  <button data-lang="pl-PL" class="submenu-title btn-lang">
+                    Polish
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Fren&ccedil;h</a>
+                  <button data-lang="fr" class="submenu-title btn-lang">
+                    French
+                  </button>
                 </li>
               </ul>
             </li>
@@ -1057,6 +1061,202 @@
           </div>
         </div>
       </div>
+
+      <!-- 
+        PRODUCT
+       -->
+
+      <div id="imageOverlay" class="image-overlay" style="display: none">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
+      </div>
+
+      <div class="produkt new-conti category-section" id="case1">
+        <div class="product-main">
+          <div class="product-grid">
+            <div class="showcase">
+              <div class="slider showcase-banner">
+                <!-- Zdjęcia produktu -->
+                <div class="slides-container"></div>
+                <!-- Przyciski nawigacyjne -->
+                <button class="slide-nav prev" onclick="changeSlide(-1)">
+                  &#10094;
+                </button>
+                <button class="slide-nav next" onclick="changeSlide(1)">
+                  &#10095;
+                </button>
+                <!-- Miniatury obrazów -->
+                <div class="thumbnail-container"></div>
+
+                <p class="showcase-badge">15%</p>
+
+                <div class="showcase-actions">
+                  <button class="btn-action">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action magnification">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action repeat">
+                    <ion-icon name="repeat-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action">
+                    <ion-icon name="bag-add-outline"></ion-icon>
+                  </button>
+                </div>
+              </div>
+
+              <div class="showcase-content">
+                <div class="caseBox-info">
+                  <div class="caseBox1">
+                    <a href="air1.html" class="showcase-category">Cooling 6</a>
+                    <a href="air1.html">
+                      <h3 class="showcase-title">
+                        CPU Valkyrie Vind SL125 Białe
+                      </h3>
+                    </a>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <div class="price-cart-fav">
+                      <div class="price-box">
+                        <p class="price" data-price-usd="50.00">$50.00</p>
+                        <del data-price-usd="60.00">$60.00</del>
+                      </div>
+
+                      <div class="cart-favorite">
+                        <button class="btn-action favoriting">
+                          <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action carting">
+                          <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+              <h2 class="product-description-title">Description</h2>
+              <div class="product-description"></div>
+
+              <table class="product-specification">
+                <tr>
+                  <th>Feature</th>
+                  <th>Specification</th>
+                </tr>
+                <tr class="specification-row">
+                  <td>Color</td>
+                  <td>White</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Cooler Dimensions</td>
+                  <td>400 x 124 x 27 mm (L x W x H)</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Material</td>
+                  <td>Aluminum, Plastic</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Length of Hoses</td>
+                  <td>400 mm, Braided</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Fan Type</td>
+                  <td>3x EK-Vardar 120 D-RGB (ARGB, 120 mm)</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Fan Dimensions</td>
+                  <td>120 x 120 x 25 mm (L x W x H)</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Plug Type</td>
+                  <td>4-pin PWM / 3-pin ARGB plug (5V)</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Rotational Speed</td>
+                  <td>500 - 2,200 rpm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Air Flow</td>
+                  <td>131 m³/h</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Static Pressure</td>
+                  <td>Max. 3.16 mmH2O</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Volume</td>
+                  <td>33.5 dB(A)</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Operating Voltage</td>
+                  <td>12V DC</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Power Consumption</td>
+                  <td>2.16 W</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>MTTF (Fan)</td>
+                  <td>50,000 hours</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Pump Dimensions</td>
+                  <td>61.6 x 69.2 x 82.3 mm (L x W x H)</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Max Speed (Pump)</td>
+                  <td>3,100 rpm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Volume (Pump)</td>
+                  <td>18.5 dB(A)</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Current Intensity (Pump)</td>
+                  <td>0.37 A</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>ARGB Backlight</td>
+                  <td>3-Pin RGB (5VDG, 5V)</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Plug (Pump)</td>
+                  <td>>4-Pin PWM</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>MTTF (Pump)</td>
+                  <td>70,000 hours</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Compatibility (Intel)</td>
+                  <td>
+                    LGA 1700, LGA 1200, LGA 115X, LGA 1366, LGA 775, LGA 2011,
+                    LGA 2066
+                  </td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Compatibility (AMD)</td>
+                  <td>AM4, AM5</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div>
         <div class="container">
           <div class="testimonials-box">
@@ -1481,6 +1681,12 @@
     - custom js link
   -->
     <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/sliderProduct.js"></script>
+    <script src="../../assets/js/magnification.js"></script>
+    <script src="../../assets/js/rotation.js"></script>
+    <script src="../../assets/js/changeTheLanguage.js"></script>
+    <script src="../../assets/js/exchange.js"></script>
+    <script src="../../assets/js/coolingProduct.js"></script>
 
     <!--
     - ionicon link

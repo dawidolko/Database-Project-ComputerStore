@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cooling - Sklep komputerowy</title>
+    <title>Cooling 2 - Sklep komputerowy</title>
     <meta
       name="description"
       content="Discover the future of technology with TechByte, your ultimate online destination for cutting-edge computer components, laptops, and gaming gear. Experience unparalleled quality, competitive prices, and exceptional customer service. Shop now to elevate your tech game!" />
@@ -646,15 +646,19 @@
 
               <ul class="submenu-category-list" data-accordion>
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">English</a>
+                  <button data-lang="en-US" class="submenu-title btn-lang">
+                    English
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Polish</a>
+                  <button data-lang="pl-PL" class="submenu-title btn-lang">
+                    Polish
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Fren&ccedil;h</a>
+                  <button data-lang="fr" class="submenu-title btn-lang">
+                    French
+                  </button>
                 </li>
               </ul>
             </li>
@@ -1057,6 +1061,202 @@
           </div>
         </div>
       </div>
+
+      <!-- 
+        PRODUCT
+       -->
+
+      <div id="imageOverlay" class="image-overlay" style="display: none">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
+      </div>
+
+      <div class="produkt new-conti category-section" id="case1">
+        <div class="product-main">
+          <div class="product-grid">
+            <div class="showcase">
+              <div class="slider showcase-banner">
+                <!-- Zdjęcia produktu -->
+                <div class="slides-container"></div>
+                <!-- Przyciski nawigacyjne -->
+                <button class="slide-nav prev" onclick="changeSlide(-1)">
+                  &#10094;
+                </button>
+                <button class="slide-nav next" onclick="changeSlide(1)">
+                  &#10095;
+                </button>
+                <!-- Miniatury obrazów -->
+                <div class="thumbnail-container"></div>
+
+                <p class="showcase-badge">15%</p>
+
+                <div class="showcase-actions">
+                  <button class="btn-action">
+                    <ion-icon name="heart-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action magnification">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action repeat">
+                    <ion-icon name="repeat-outline"></ion-icon>
+                  </button>
+
+                  <button class="btn-action">
+                    <ion-icon name="bag-add-outline"></ion-icon>
+                  </button>
+                </div>
+              </div>
+
+              <div class="showcase-content">
+                <div class="caseBox-info">
+                  <div class="caseBox1">
+                    <a href="aio2.html" class="showcase-category">Cooling 2</a>
+                    <a href="aio2.html">
+                      <h3 class="showcase-title">
+                        AiO ENDORFY Navis F280 OUTLET
+                      </h3>
+                    </a>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <div class="price-cart-fav">
+                      <div class="price-box">
+                        <p class="price" data-price-usd="84.00">$45.00</p>
+                        <del data-price-usd="100.00">$56.00</del>
+                      </div>
+
+                      <div class="cart-favorite">
+                        <button class="btn-action favoriting">
+                          <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action carting">
+                          <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+              <h2 class="product-description-title">Description</h2>
+              <div class="product-description"></div>
+
+              <table class="product-specification">
+                <tr>
+                  <th>Feature</th>
+                  <th>Specification</th>
+                </tr>
+                <tr class="specification-row">
+                  <td>Product Type</td>
+                  <td>CPU Liquid Cooling System</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Radiator Dimensions</td>
+                  <td>140×310×28 mm</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Radiator Dimensions with Fans</td>
+                  <td>140×310×54 mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Material</td>
+                  <td>Aluminum</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Number of Fans</td>
+                  <td>2</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Fan Type</td>
+                  <td>Fluctus 140 PWM</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Fan Dimensions</td>
+                  <td>140×140×25 mm</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Fan Bearings</td>
+                  <td>FDB (Fluid Dynamic Bearing)</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Fan Speed</td>
+                  <td>250 (±100) – 1800 (±10%) RPM</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Fan Control (Speed)</td>
+                  <td>PWM (Pulse Width Modulation)</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Fan Power Connector</td>
+                  <td>4-pin (male and female)</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Fan Voltage</td>
+                  <td>12 V</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Fan Current (Peak)</td>
+                  <td>0.30 A</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Fan Lifespan</td>
+                  <td>100,000 hours</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Cold Plate Base</td>
+                  <td>Copper</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Bearing</td>
+                  <td>Ceramic</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Pump Voltage</td>
+                  <td>12 V</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Pump Current (Peak)</td>
+                  <td>0.33 A</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Pump Control (Speed)</td>
+                  <td>PWM (Pulse Width Modulation)</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Speed Connector (Pump)</td>
+                  <td>4-pin PWM (female)</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Pump Speed</td>
+                  <td>1600 – 2600 (±10%) RPM</td>
+                </tr>
+                <tr class="specification-row alt">
+                  <td>Power Connector (Pump)</td>
+                  <td>SATA</td>
+                </tr>
+                <tr class="specification-row">
+                  <td>Compatibility with Processors</td>
+                  <td>
+                    AMD AM5, AM4<br />Intel LGA1700, LGA1200, LGA1150, LGA1151,
+                    LGA1155, LGA1156, LGA2066, LGA2011-3, LGA2011 (square ILM)
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div>
         <div class="container">
           <div class="testimonials-box">
@@ -1481,6 +1681,12 @@
     - custom js link
   -->
     <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/sliderProduct.js"></script>
+    <script src="../../assets/js/magnification.js"></script>
+    <script src="../../assets/js/rotation.js"></script>
+    <script src="../../assets/js/changeTheLanguage.js"></script>
+    <script src="../../assets/js/exchange.js"></script>
+    <script src="../../assets/js/coolingProduct.js"></script>
 
     <!--
     - ionicon link
