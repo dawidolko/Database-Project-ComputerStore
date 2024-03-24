@@ -2,17 +2,13 @@
 const productData = {
   laptop1: {
     description: `
-      <h3>Ready-Made Gaming PC Set</h3>
-      <p>Choosing a ready-made computer set is an ideal solution for those who prefer not to risk selecting components themselves or assembling them into a functioning unit. However, many off-the-shelf products can be traps for inexperienced users, lured by attractive prices but unaware of potential quality issues or outdated components.</p>
-      
-      <p>As gamers ourselves with over a decade of experience, we've completed hundreds, if not thousands, of set orders. This allows us to expertly select components and configure the system so that the computer delivered to you only requires pressing the POWER button to start enjoying virtual gameplay.</p>
-      
-      <p>With your purchased set, we perform several activities for you. We install the operating system (unactivated Windows 10), all necessary drivers, and make essential updates, including BIOS updates for enhanced security and performance. Depending on the components chosen, we also perform overclocking to safely boost performance in games and applications.</p>
-      
-      <p>You can rest assured about transport. The ordered set will be delivered by an insured courier, with the computer's interior protected to prevent mechanical damage to the components even in case of accidental drops. These protections must be removed before the first startup.</p>
-      
-      <p>We provide a Door-to-Door warranty for the purchased set, meaning that in the event of a component failure, we'll collect the defective part or the entire computer from you and service it according to the manufacturer's warranty terms.</p>
-       `,
+    <h3>Apple MacBook Air M2/16GB/256/Mac OS Midnight</h3>
+    <p>Discover the epitome of elegance and performance with the Apple MacBook Air M2. Combining cutting-edge technology with sleek design, this laptop redefines portability and productivity.</p>
+    <p>Powered by the innovative M2 chip, this MacBook Air delivers lightning-fast performance and remarkable efficiency, ensuring smooth multitasking and seamless user experience. With 16GB of RAM, it effortlessly handles demanding tasks, from creative projects to productivity workflows.</p>
+    <p>The spacious 256GB SSD provides ample storage for your files, documents, and multimedia content, while ensuring swift data access and fast boot-up times.</p>
+    <p>Featuring macOS Midnight, Apple's intuitive and powerful operating system, the MacBook Air offers a seamless and secure computing environment. Enjoy a wide range of built-in apps, robust security features, and seamless integration with other Apple devices.</p>
+    <p>Experience stunning visuals and vibrant colors on the high-resolution display, ideal for immersive multimedia consumption, content creation, and professional tasks.</p>
+    <p>Whether you're a creative professional, a student, or a business user, the Apple MacBook Air M2/16GB/256/Mac OS Midnight is the perfect companion for all your computing needs, combining power, style, and versatility in a compact and lightweight package.</p>`,
     images: [
       "../assets/images/products/laptops/laptop1v1.webp",
       "../assets/images/products/laptops/laptop1v2.webp",
@@ -20,17 +16,12 @@ const productData = {
   },
   laptop2: {
     description: `
-      <h3>Ready-Made Computer Set: Your Gaming Solution</h3>
-      <p>For those lacking expertise or the desire to select and assemble components, a ready-made computer set is the perfect solution. Unfortunately, off-the-shelf products can be a trap for the inexperienced, lured by attractive prices without realizing the potential drawbacks of poor quality or outdated components, hindering future expansion or modernization.</p>
-      
-      <p>As gamers with over a decade of experience, we've completed countless set orders, enabling us to expertly select components and configure systems. Your delivered computer only requires pressing the POWER button to start enjoying virtual gameplay.</p>
-      
-      <p>With your purchase, we go the extra mile! We install the operating system (unactivated Windows 10), all drivers, and necessary updates (including BIOS) to enhance security and speed. Depending on your components, we may even perform overclocking—safely boosting performance in games and applications through programmatic modification of processor, RAM, and graphics card parameters.</p>
-      
-      <p>Transport concerns are unnecessary. Your ordered set will be sent via insured courier, with the computer's interior protected to prevent mechanical damage, even in case of drops. These protections must be removed before the first start-up.</p>
-      
-      <p>We offer a Door-to-Door warranty, ensuring peace of mind. In the event of a component failure, we collect the defective part or the entire computer and service it according to the manufacturer's warranty terms.</p>
-      `,
+    <h3>HP 255 G9 Ryzen 5-5625U/16GB/512/Win11</h3>
+    <p>Experience seamless performance and reliable computing with the HP 255 G9 laptop. Powered by the efficient Ryzen 5-5625U processor, this laptop offers impressive speed and responsiveness for both work and entertainment.</p>
+    <p>With 16GB of RAM, multitasking becomes effortless, allowing you to run multiple applications simultaneously without any slowdowns. The spacious 512GB SSD provides ample storage space for your files, documents, and multimedia content while ensuring fast data access and quick boot-up times.</p>
+    <p>Equipped with Windows 11, the latest operating system from Microsoft, the HP 255 G9 offers a modern and intuitive computing experience. Enjoy enhanced security features, improved multitasking capabilities, and a sleek user interface designed to maximize productivity.</p>
+    <p>The HP 255 G9 boasts a sleek and durable design, making it perfect for both office use and on-the-go computing. Its lightweight construction and long battery life ensure that you can stay productive wherever you go.</p>
+    <p>Whether you're working on spreadsheets, streaming HD videos, or browsing the web, the HP 255 G9 Ryzen 5-5625U/16GB/512/Win11 laptop delivers reliable performance and versatility for all your computing needs.</p>`,
     images: [
       "../assets/images/products/laptops/laptop2v1.webp",
       "../assets/images/products/laptops/laptop2v2.webp",
@@ -43,17 +34,13 @@ const productData = {
   },
   laptop3: {
     description: `
-      <h3>Ready-Made Computer Sets: Your Hassle-Free Solution</h3>
-      <p>For those lacking technical expertise or the desire to navigate component selection and assembly, ready-made computer sets offer an ideal solution. However, it's crucial to avoid falling into the trap of attractive prices that may disguise poor quality or outdated components, hindering future expansion or modernization.</p>
-      
-      <p>As avid gamers ourselves, boasting over a decade of experience and having completed hundreds, if not thousands, of set orders, we possess the expertise to meticulously select components and perform full configuration. Our goal is to deliver a computer that only requires pressing the POWER button on the casing, allowing you to dive straight into virtual gameplay.</p>
-      
-      <p>With your purchased set, we go above and beyond! We not only install the operating system (unactivated Windows 10) but also all necessary drivers and updates, including BIOS updates that enhance security and speed. Depending on your chosen components, we may even perform overclocking, safely boosting performance in games and applications through programmatic modification of processor, RAM, and graphics card parameters.</p>
-      
-      <p>Transportation worries are a thing of the past. Your ordered set will be securely sent to you by insured courier, with the interior of the computer meticulously protected to prevent mechanical damage, even in the event of mishaps during transit. These protections must be removed before the first start-up.</p>
-      
-      <p>Rest assured with our Door-to-Door warranty for the purchased set. In the unfortunate event of a component failure, we'll collect the defective component or the entire computer from you and service it in accordance with the warranty terms of the manufacturer.</p>
-      `,
+    <h3>MSI Thin GF63 i5-12450H/16GB/512 RTX2050 144Hz</h3>
+    <p>Unleash the power of portable gaming with the MSI Thin GF63 laptop. Featuring the latest Intel Core i5-12450H processor, this laptop delivers exceptional performance for gaming, content creation, and multitasking.</p>
+    <p>Equipped with 16GB of DDR4 RAM, the MSI Thin GF63 ensures smooth and responsive performance, allowing you to run multiple applications simultaneously without any lag. The 512GB SSD provides ample storage space for your games, media files, and software, while offering lightning-fast data transfer speeds.</p>
+    <p>Experience immersive gaming visuals with the NVIDIA GeForce RTX 2050 graphics card. With its powerful GPU and dedicated video memory, you can enjoy smooth gameplay and stunning graphics on the laptop's vibrant 144Hz display.</p>
+    <p>The MSI Thin GF63 features a sleek and lightweight design, making it perfect for gaming on the go. Its thin bezels and slim profile enhance the overall aesthetics, while the durable construction ensures long-lasting durability.</p>
+    <p>Stay connected and productive with a range of ports, including USB Type-C, HDMI, and more. The laptop also features Wi-Fi 6 support for faster wireless connectivity and Bluetooth compatibility for seamless device pairing.</p>
+    <p>Whether you're gaming, working, or streaming content, the MSI Thin GF63 i5-12450H/16GB/512 RTX2050 144Hz laptop offers powerful performance and portability for all your computing needs.</p>`,
     images: [
       "../assets/images/products/laptops/laptop3v1.webp",
       "../assets/images/products/laptops/laptop3v2.webp",
@@ -65,16 +52,14 @@ const productData = {
   },
   laptop4: {
     description: `
-      <h3>Why Choose a Ready-Made Computer Set?</h3>
-      <p>For those lacking the technical know-how or the desire to navigate the complexities of selecting and assembling components, a ready-made computer set offers an ideal solution. However, it's important to beware of the pitfalls associated with ready-made products, which can often entice inexperienced users with attractive prices, only to deliver poor-quality or outdated components, hindering future expansion or modernization.</p>
-      <h3>Our Expertise, Your Confidence</h3>
-      <p>As avid gamers ourselves with over a decade of experience and countless orders fulfilled, we possess the expertise to meticulously select components and perform full configurations. Our goal is to deliver a computer that's ready to use upon delivery—all you need to do is press the POWER button and dive into your virtual adventures.</p>
-      <h3>Comprehensive Service</h3>
-      <p>With your purchased set, we go the extra mile. We not only install the operating system (unactivated Windows 10) but also ensure that all drivers and necessary updates, including BIOS updates, are installed to enhance the security and speed of your computer. Depending on your chosen components, we may even perform overclocking, safely boosting performance in games and applications through programmatic modification of processor, RAM, and graphics card parameters.</p>
-      <h3>Worry-Free Transport</h3>
-      <p>Forget about transportation concerns. Your ordered set will be securely sent to you by insured courier, with meticulous protection ensuring that even if the shipment is dropped, there will be no mechanical damage to the components. Please remember to remove these protections before the first start-up.</p>
-      <h3>Peace of Mind Warranty</h3>
-      <p>With our Door-to-Door warranty, you can rest assured that in the event of a component failure, we'll take care of everything. Whether it's collecting the defective component or the entire computer from you, we'll ensure that it's serviced in accordance with the warranty terms of the manufacturer, providing you with peace of mind and uninterrupted gaming enjoyment.</p>`,
+    <h3>ASUS Vivobook 15 i5-1235U/16GB/512/Win11</h3>
+    <p>Experience productivity and style with the ASUS Vivobook 15, featuring powerful performance in a sleek and portable design. Powered by the Intel Core i5-1235U processor and equipped with 16GB of RAM, this laptop delivers smooth multitasking and responsiveness for everyday computing tasks.</p>
+    <p>With its 15.6-inch Full HD display, the ASUS Vivobook 15 offers vibrant visuals and crisp details, whether you're working on documents, streaming content, or browsing the web. The slim bezel design maximizes screen space, providing an immersive viewing experience without adding bulk to the laptop.</p>
+    <p>Featuring a spacious 512GB SSD, this laptop offers ample storage for your files, software, and multimedia content, while ensuring fast boot times and quick access to your data. With Windows 11 pre-installed, you'll enjoy the latest features and enhancements for productivity and creativity.</p>
+    <p>The ASUS Vivobook 15 combines performance with portability, making it ideal for on-the-go professionals and students. Its lightweight and compact design allow you to take it anywhere, whether you're commuting to work or studying in a coffee shop.</p>
+    <p>Equipped with a full range of connectivity options, including USB Type-C, USB 3.2, HDMI, and Wi-Fi 6, the ASUS Vivobook 15 offers seamless connectivity to peripherals, displays, and networks. Stay productive and connected wherever you go with this versatile and reliable laptop.</p>
+    <p>Whether you're tackling everyday tasks or working on creative projects, the ASUS Vivobook 15 provides the performance and versatility you need to get things done. With its sleek design, powerful hardware, and convenient features, it's the perfect companion for work and play.</p>
+    `,
     images: [
       "../assets/images/products/laptops/laptop4v1.webp",
       "../assets/images/products/laptops/laptop4v2.webp",
@@ -87,16 +72,15 @@ const productData = {
   },
   laptop5: {
     description: `
-      <h3>Why Choose a Ready-Made Computer Set?</h3>
-      <p>For individuals lacking technical expertise or the desire to select and assemble components, a ready-made computer set offers an ideal solution. However, ready-made products can often be a double-edged sword, particularly for inexperienced users. They may be lured by attractive prices but unknowingly receive components of poor quality or outdated technology, limiting future expansion or upgrades.</p>
-      <h3>Our Expertise, Your Peace of Mind</h3>
-      <p>As avid gamers ourselves with over a decade of experience, having fulfilled hundreds, if not thousands, of orders, we are well-equipped to select components and perform full configurations. This ensures that the computer delivered to you requires nothing more than pressing the POWER button to enjoy seamless virtual gameplay.</p>
-      <h3>Comprehensive Service</h3>
-      <p>With your purchased set, we go above and beyond. We not only install the operating system (unactivated Windows 10) but also ensure that all drivers and necessary updates, including BIOS updates, are installed to enhance the security and speed of your computer. Depending on your chosen components, we may even perform overclocking—safely boosting performance in games and applications by programmatically modifying the parameters of the processor, RAM, and graphics card.</p>
-      <h3>Worry-Free Transport</h3>
-      <p>Forget about transportation worries. Your ordered set will be securely sent to you by insured courier. The interior of the computer is meticulously protected during transport, ensuring that even if the shipment is dropped, there will be no mechanical damage to the components. Remember to remove these protections before the first start-up.</p>
-      <h3>Peace of Mind Warranty</h3>
-      <p>With our Door-to-Door warranty, you can rest assured that in the event of a component failure, we've got you covered. Whether it's collecting the defective component or the entire computer from you, we'll service it in accordance with the warranty terms of the manufacturer, ensuring minimal disruption to your gaming experience.</p>`,
+    <h3>Dell Inspiron 3520 i5-1235U/16GB/1TB/Win11 120Hz</h3>
+    <p>Experience superior performance and immersive visuals with the Dell Inspiron 3520. Powered by the Intel Core i5-1235U processor and equipped with 16GB of RAM, this laptop delivers blazing-fast speeds and smooth multitasking for enhanced productivity.</p>
+    <p>The Dell Inspiron 3520 features a stunning 120Hz display, offering buttery-smooth visuals and ultra-responsive gameplay. Whether you're editing videos, playing games, or watching movies, the high refresh rate ensures a seamless viewing experience with minimal motion blur.</p>
+    <p>With a spacious 1TB hard drive, this laptop provides ample storage for your files, documents, and multimedia content. Store your entire digital library without worrying about running out of space, and enjoy fast access to your data for improved workflow efficiency.</p>
+    <p>Pre-installed with Windows 11, the Dell Inspiron 3520 offers the latest features and enhancements for enhanced productivity and creativity. Navigate the user-friendly interface, access your favorite apps with ease, and enjoy seamless integration with Microsoft services.</p>
+    <p>Designed for performance and portability, the Dell Inspiron 3520 features a sleek and lightweight design that's perfect for on-the-go professionals and students. Take it with you wherever you go and stay productive, whether you're working from home, at the office, or on the go.</p>
+    <p>Equipped with a range of connectivity options, including USB Type-C, USB 3.2, HDMI, and Wi-Fi 6, the Dell Inspiron 3520 offers seamless connectivity to peripherals, displays, and networks. Stay connected and productive wherever you are with reliable and high-speed connections.</p>
+    <p>Whether you're tackling demanding work tasks or enjoying multimedia entertainment, the Dell Inspiron 3520 delivers the performance and versatility you need to stay productive and entertained. With its powerful hardware, immersive display, and convenient features, it's the perfect laptop for work and play.</p>
+    `,
     images: [
       "../assets/images/products/laptops/laptop5v1.webp",
       "../assets/images/products/laptops/laptop5v2.jpg",
@@ -108,16 +92,14 @@ const productData = {
   },
   laptop6: {
     description: `
-      <h3>Why Choose a Ready-Made Computer Set?</h2>
-      <p>For individuals lacking technical expertise or the desire to select and assemble components themselves, a ready-made computer set offers an ideal solution. However, it's important to be cautious, as ready-made products can sometimes lead to disappointment for inexperienced users. They may be attracted by low prices but unknowingly receive components of poor quality or outdated technology, hindering future expansion or upgrades.</p>
-      <h3>Our Experience, Your Confidence</h2>
-      <p>As gamers ourselves with over 10 years of experience and having fulfilled hundreds, if not thousands, of orders for sets, we have the expertise to select components and perform full configurations. This ensures that the computer delivered to you only requires pressing the POWER button on the casing to enjoy seamless virtual gameplay.</p>
-      <h3>Comprehensive Services Included</h2>
-      <p>With your purchased set, we go the extra mile. We not only install the operating system (unactivated Windows 10) but also all necessary drivers and updates, including BIOS updates, to enhance the security and speed of your computer. Depending on the selected components, we may even perform overclocking—safely boosting performance in games and applications by programmatically modifying the parameters of the processor, RAM, and graphics card.</p>
-      <h3>Worry-Free Transport</h2>
-      <p>Forget about transport concerns. Your ordered set will be securely sent to you by insured courier. The interior of the computer is meticulously protected during transport, ensuring that even if the shipment is dropped, there will be no mechanical damage to the components. Remember to remove these protections before the first start-up.</p>
-      <h3>Peace of Mind Warranty</h2>
-      <p>With our Door-to-Door warranty, you can rest assured that in the event of a component failure, we've got you covered. Whether it's collecting the defective component or the entire computer from you, we'll service it in accordance with the warranty terms of the manufacturer, ensuring minimal disruption to your gaming experience.</p>`,
+    <h3>Dell Inspiron 3520 i5-1235U/16GB/1TB/Win11 120Hz Srebrny</h3>
+    <p>Dell Inspiron 3520 to doskonały laptop, który łączy wydajność, elegancję i funkcjonalność. Wyposażony w procesor Intel Core i5-1235U oraz 16GB pamięci RAM, zapewnia niezwykłą szybkość działania i płynne przełączanie się między aplikacjami, abyś mógł skutecznie wykonywać swoje codzienne zadania.</p>
+    <p>Laptop Dell Inspiron 3520 w wersji Srebrny wyróżnia się eleganckim wyglądem i solidną konstrukcją, co sprawia, że doskonale sprawdza się zarówno w pracy, jak i podczas relaksu. Matowa powierzchnia obudowy zapewnia odporność na zabrudzenia i zarysowania, a subtelne detale nadają mu wyjątkowy wygląd.</p>
+    <p>Wyposażony w ekran o częstotliwości odświeżania 120Hz, laptop Dell Inspiron 3520 Srebrny zapewnia płynne i responsywne doznania wizualne podczas oglądania filmów, przeglądania stron internetowych czy grania w gry. Obraz jest wyraźny, a ruchy płynne, co pozwala w pełni cieszyć się każdą chwilą użytkowania.</p>
+    <p>Dzięki 1TB pojemności dysku twardego, masz wystarczająco dużo miejsca na przechowywanie swoich plików, dokumentów i multimediów. Bez względu na to, czy masz dużą kolekcję zdjęć, filmów czy muzyki, zawsze będziesz miał szybki dostęp do swoich danych, co pozwoli Ci efektywnie zarządzać swoimi zasobami.</p>
+    <p>Preinstalowany system Windows 11 zapewnia wygodną i intuicyjną obsługę laptopa Dell Inspiron 3520. Dzięki najnowszym funkcjom i ulepszeniom systemu, możesz skutecznie wykonywać swoje zadania, korzystać z ulubionych aplikacji i cieszyć się płynną pracą na co dzień.</p>
+    <p>Laptop Dell Inspiron 3520 Srebrny oferuje szeroki zakres funkcji i możliwości, dzięki którym możesz być bardziej produktywny i kreatywny w pracy, nauce czy rozrywce. Z łatwością podłączysz się do różnych urządzeń i sieci, dzięki zróżnicowanym portom i technologiom bezprzewodowym.</p>
+    <p>Niezależnie od tego, czy potrzebujesz laptopa do pracy, nauki czy rozrywki, Dell Inspiron 3520 Srebrny spełni Twoje oczekiwania pod względem wydajności, funkcjonalności i designu. Dzięki solidnej konstrukcji, eleganckiemu wyglądowi i zaawansowanym funkcjom, jest to idealne rozwiązanie dla osób poszukujących wszechstronnego i niezawodnego laptopa.</p> `,
     images: [
       "../assets/images/products/laptops/laptop7v1.webp",
       "../assets/images/products/laptops/laptop7v2.webp",
@@ -128,16 +110,14 @@ const productData = {
   },
   laptop7: {
     description: `
-      <h3>Why Choose a Ready-Made Computer Set?</h3>
-      <p>A ready-made computer set offers an ideal solution for individuals who lack the expertise or desire to select and assemble components themselves. However, ready-made products can sometimes lead to disappointment for inexperienced users. They may be enticed by attractive prices but overlook the fact that some components are of poor quality or outdated, limiting future expansion or upgrades.</p>
-      <h3>Expertise and Experience</h3>
-      <p>As gamers ourselves with over 10 years of experience, we have completed hundreds, if not thousands, of orders for sets. This allows us to properly select components and perform full configurations, ensuring that the computer delivered to you requires only pressing the POWER button on the casing to enjoy seamless virtual gameplay.</p>
-      <h3>Comprehensive Services Included</h3>
-      <p>With your purchased set, we go above and beyond. We not only install the operating system (unactivated Windows 10) but also all necessary drivers and updates, including BIOS updates, to enhance the security and speed of your computer. Depending on the selected components, we may even perform overclocking—safely boosting performance in games and applications by modifying the parameters of the processor, RAM, and graphics card.</p>
-      <h3>Worry-Free Transport</h3>
-      <p>Forget transport concerns. Your ordered set will be securely sent to you by insured courier. The interior of the computer is meticulously protected during transport, ensuring that even if the shipment is dropped, there will be no mechanical damage to the components. Remember to remove these protections before the first start-up.</p>
-      <h3>Peace of Mind Warranty</h3>
-      <p>With our Door-to-Door warranty, you can rest assured that in the event of a component failure, we have you covered. Whether it's collecting the defective component or the entire computer from you, we'll service it in accordance with the warranty terms of the manufacturer, ensuring minimal disruption to your gaming experience.</p>`,
+    <h3>Acer Chromebook 315 N4500/8GB/128/FHD ChromeOS</h3>
+    <p>Acer Chromebook 315 to wydajny laptop, który zapewnia niezawodność, szybkość działania i świetne wrażenia użytkowe. Wyposażony w procesor Intel N4500 oraz 8GB pamięci RAM, ten laptop zapewnia płynną pracę i szybkie ładowanie aplikacji, co ułatwia codzienne zadania.</p>
+    <p>Dzięki systemowi ChromeOS, Acer Chromebook 315 oferuje wygodną i intuicyjną obsługę oraz dostęp do szerokiej gamy aplikacji dostępnych w sklepie Google Play. Możesz więc swobodnie korzystać z ulubionych aplikacji do pracy, nauki czy rozrywki, mając pewność, że będą działać sprawnie i bezproblemowo.</p>
+    <p>Laptop Acer Chromebook 315 wyposażony jest w ekran o rozdzielczości Full HD, który zapewnia wyraźny i ostry obraz. Dzięki temu możesz cieszyć się wysoką jakością wizualną podczas przeglądania stron internetowych, oglądania filmów czy korzystania z aplikacji multimedialnych.</p>
+    <p>Z dużą pojemnością dysku SSD 128GB masz wystarczająco dużo miejsca na przechowywanie swoich plików, dokumentów i multimediów. Dodatkowo, korzystając z usług chmury, możesz mieć dostęp do swoich danych z dowolnego miejsca i urządzenia, co zapewnia elastyczność i mobilność w pracy.</p>
+    <p>Wytrzymała bateria laptopa Acer Chromebook 315 zapewnia długie godziny pracy bez konieczności częstego ładowania. Dzięki temu możesz spokojnie pracować przez cały dzień bez obaw o utratę zasilania, co zwiększa Twoją produktywność i mobilność.</p>
+    <p>Laptop Acer Chromebook 315 to również lekka i kompaktowa konstrukcja, która sprawia, że łatwo go zabrać ze sobą w podróż czy na spotkanie. Zastosowane materiały są trwałe i odporne na uszkodzenia, co zapewnia długotrwałą wydajność i niezawodność użytkowania.</p>
+    <p>Podsumowując, Acer Chromebook 315 N4500/8GB/128/FHD ChromeOS to doskonały wybór dla osób poszukujących wydajnego, niezawodnego i łatwego w obsłudze laptopa do pracy, nauki czy rozrywki. Dzięki zaawansowanym funkcjom, wygodnej obsłudze i atrakcyjnemu designowi, spełni oczekiwania nawet najbardziej wymagających użytkowników.</p>`,
     images: [
       "../assets/images/products/laptops/laptop8v1.webp",
       "../assets/images/products/laptops/laptop8v2.webp",
@@ -149,16 +129,14 @@ const productData = {
   },
   laptop8: {
     description: `
-      <h3>Why Choose a Ready-Made Computer Set?</h3>
-      <p>A ready-made computer set is an ideal solution for individuals who lack the necessary knowledge or expertise to select and assemble components themselves. While the allure of attractive prices may be tempting, ready-made products can often be a trap for inexperienced users. They may unknowingly purchase components of poor quality or outdated technology, hindering future expansion or modernization of their machine.</p>
-      <h3>Expertise and Experience</h3>
-      <p>As avid gamers ourselves with over a decade of experience, we have completed hundreds, if not thousands, of orders for computer sets. This extensive experience allows us to expertly select components and perform full configurations. When you receive your computer, it will be ready to use with just the press of the POWER button, allowing you to immediately enjoy virtual gameplay.</p>
-      <h3>Comprehensive Services Included</h3>
-      <p>When you purchase a set from us, we go the extra mile for you. In addition to installing the operating system (unactivated Windows 10), we also install all necessary drivers and perform essential updates, including BIOS updates, to enhance the security and speed of your computer. Depending on the components selected, we may even perform overclocking to safely boost performance in games and applications by modifying processor, RAM, and graphics card parameters.</p>
-      <h3>Worry-Free Transport</h3>
-      <p>Rest assured, you don't need to worry about transport logistics. Your ordered set will be securely delivered to you by an insured courier. The interior of the computer is carefully protected during transport to prevent mechanical damage to components, even in the event of a drop. Remember to remove these protections before starting up your computer for the first time.</p>
-      <h3>Peace of Mind Warranty</h3>
-      <p>With our Door-to-Door warranty, you can have peace of mind knowing that in the event of a component failure, we have you covered. Whether it's collecting the defective component or the entire computer from you, we will service it in accordance with the warranty terms of the manufacturer, ensuring minimal disruption to your gaming experience.</p>`,
+    <h3>Lenovo Yoga Slim 6-14 i5-1240P/16GB/512/Win11</h3>
+    <p>Lenovo Yoga Slim 6-14 to elegancki i wydajny laptop, który zapewnia doskonałą wydajność, mobilność i funkcjonalność. Wyposażony w procesor Intel i5-1240P oraz 16GB pamięci RAM, ten laptop zapewnia płynną pracę i szybkie ładowanie aplikacji, co ułatwia zarówno pracę, jak i rozrywkę.</p>
+    <p>Dzięki systemowi Windows 11, Lenovo Yoga Slim 6-14 oferuje nowoczesny interfejs, intuicyjną obsługę oraz dostęp do szerokiej gamy aplikacji dostępnych w sklepie Microsoft Store. Możesz więc swobodnie korzystać z ulubionych programów i narzędzi, mając pewność, że będą działać sprawnie i bezproblemowo.</p>
+    <p>Laptop Lenovo Yoga Slim 6-14 wyposażony jest w wyświetlacz o rozdzielczości Full HD, który zapewnia wyraźny i ostry obraz. Dzięki technologii IPS, kolory są naturalne i wiernie odwzorowane, co sprawia, że oglądanie filmów, przeglądanie zdjęć czy korzystanie z aplikacji multimedialnych jest prawdziwą przyjemnością.</p>
+    <p>Z dużą pojemnością dysku SSD 512GB masz wystarczająco dużo miejsca na przechowywanie swoich plików, dokumentów i multimediów. Dodatkowo, korzystając z usług chmury, możesz mieć dostęp do swoich danych z dowolnego miejsca i urządzenia, co zapewnia elastyczność i mobilność w pracy.</p>
+    <p>Wytrzymała bateria laptopa Lenovo Yoga Slim 6-14 zapewnia długie godziny pracy bez konieczności częstego ładowania. Dzięki temu możesz spokojnie pracować przez cały dzień bez obaw o utratę zasilania, co zwiększa Twoją produktywność i mobilność.</p>
+    <p>Laptop Lenovo Yoga Slim 6-14 to również lekka i kompaktowa konstrukcja, która sprawia, że łatwo go zabrać ze sobą w podróż czy na spotkanie. Zastosowane materiały są trwałe i odporne na uszkodzenia, co zapewnia długotrwałą wydajność i niezawodność użytkowania.</p>
+    <p>Podsumowując, Lenovo Yoga Slim 6-14 i5-1240P/16GB/512/Win11 to doskonały wybór dla osób poszukujących eleganckiego, wydajnego i niezawodnego laptopa do pracy, nauki czy rozrywki. Dzięki zaawansowanym funkcjom, wygodnej obsłudze i atrakcyjnemu designowi, spełni oczekiwania nawet najbardziej wymagających użytkowników.</p>`,
     images: [
       "../assets/images/products/laptops/laptop9v1.webp",
       "../assets/images/products/laptops/laptop9v2.jpg",
@@ -170,8 +148,13 @@ const productData = {
   },
   laptop9: {
     description: `
-      <h3>Wybierz Inteligentnie: Opinia Dawida Olko</h3>
-      <p>Zastanawiasz się nad zakupem komputera? Nie wiesz, jak G4M3R Hero (2023) sprawdzi się w codziennym użytkowaniu? Przeczytaj opinię Piotra Smoły, redaktora portalu Geex.</p>`,
+    <h3>Microsoft Surface Laptop Studio I7/32GB/2TB/GeForce</h3>
+    <p>Microsoft Surface Laptop Studio to rewolucyjny laptop, który łączy w sobie niezwykłą wydajność, wszechstronność i innowacyjny design. Wyposażony w potężny procesor Intel Core i7, 32GB pamięci RAM, oraz 2TB dysk SSD, ten laptop zapewnia niezrównaną moc obliczeniową i ogromną przestrzeń na przechowywanie danych.</p>
+    <p>Dzięki dedykowanej karcie graficznej GeForce, Microsoft Surface Laptop Studio umożliwia płynne i responsywne działanie nawet najbardziej wymagających aplikacji i gier. Wyświetlacz PixelSense o rozdzielczości 4K pozwala cieszyć się niesamowitą ostrością, głębią kolorów i doskonałą jakością obrazu, co sprawia, że każde zadanie staje się prawdziwą przyjemnością.</p>
+    <p>Nowoczesny design Microsoft Surface Laptop Studio charakteryzuje się unikalną konstrukcją, która umożliwia płynną zmianę trybu pracy - od tradycyjnego laptopa po kreatywną stację roboczą. Dzięki intuicyjnemu mechanizmowi podnoszenia ekranu, możesz dostosować laptop do swoich potrzeb i wygodnie pracować w dowolnej pozycji.</p>
+    <p>Laptop Microsoft Surface Laptop Studio został zaprojektowany z myślą o maksymalnej wygodzie i mobilności. Waga oraz kompaktowe wymiary sprawiają, że możesz zabrać go ze sobą wszędzie, niezależnie od tego, czy pracujesz w biurze, podróżujesz czy pracujesz zdalnie.</p>
+    <p>Wytrzymała bateria zapewnia długie godziny pracy bez konieczności ładowania, co pozwala na pełną swobodę działania i produktywności przez cały dzień. Dodatkowo, zintegrowany system Windows 11 zapewnia wygodę użytkowania, nowoczesne funkcje oraz dostęp do szerokiej gamy aplikacji dostępnych w sklepie Microsoft Store.</p>
+    <p>Podsumowując, Microsoft Surface Laptop Studio I7/32GB/2TB/GeForce to nie tylko elegancki i wydajny laptop, ale również wszechstronna stacja kreatywna, która pozwala wyrazić swoją twórczość w każdej sytuacji. Dzięki zaawansowanym funkcjom, innowacyjnemu designowi i niezrównanej jakości wykonania, spełni oczekiwania nawet najbardziej wymagających użytkowników.</p>`,
     images: [
       "../assets/images/products/laptops/laptop10v1.webp",
       "../assets/images/products/laptops/laptop10v2.webp",
@@ -183,8 +166,13 @@ const productData = {
   },
   laptop10: {
     description: `
-        <h3>Wybierz Inteligentnie: Opinia Dawida Olko</h3>
-        <p>Zastanawiasz się nad zakupem komputera? Nie wiesz, jak G4M3R Hero (2023) sprawdzi się w codziennym użytkowaniu? Przeczytaj opinię Piotra Smoły, redaktora portalu Geex.</p>`,
+    <h3>Microsoft Surface Laptop Studio 2 i7/32GB/1TB/GeForce RTX4050</h3>
+    <p>Microsoft Surface Laptop Studio 2 to najnowsza odsłona innowacyjnego laptopa, który łączy elegancję, wydajność i wszechstronność. Wyposażony w potężny procesor Intel Core i7, 32GB pamięci RAM i szybki dysk SSD o pojemności 1TB, ten laptop zapewnia niezrównaną moc obliczeniową i ogromną przestrzeń na przechowywanie danych.</p>
+    <p>Dzięki dedykowanej karcie graficznej GeForce RTX4050, Microsoft Surface Laptop Studio 2 oferuje niezrównane możliwości graficzne, zapewniając płynne i responsywne działanie nawet najbardziej wymagających aplikacji i gier. Wyświetlacz PixelSense o rozdzielczości 4K zapewnia niesamowitą jakość obrazu, doskonałą ostrość i szerokie kąty widzenia, co sprawia, że każda praca staje się prawdziwą przyjemnością.</p>
+    <p>Innowacyjny design Microsoft Surface Laptop Studio 2 pozwala na płynną zmianę trybu pracy - od tradycyjnego laptopa po kreatywną stację roboczą. Dzięki intuicyjnemu mechanizmowi podnoszenia ekranu, możesz dostosować laptop do swoich potrzeb i wygodnie pracować w dowolnej pozycji.</p>
+    <p>Laptop Microsoft Surface Laptop Studio 2 został zaprojektowany z myślą o maksymalnej wygodzie i mobilności. Dzięki swojej lekkości i kompaktowym wymiarom, możesz zabrać go ze sobą wszędzie, niezależnie od tego, czy pracujesz w biurze, podróżujesz czy pracujesz zdalnie.</p>
+    <p>Wytrzymała bateria zapewnia długie godziny pracy bez konieczności ładowania, co pozwala na pełną swobodę działania przez cały dzień. Dodatkowo, zintegrowany system Windows 11 zapewnia wygodę użytkowania, nowoczesne funkcje oraz dostęp do szerokiej gamy aplikacji dostępnych w sklepie Microsoft Store.</p>
+    <p>Podsumowując, Microsoft Surface Laptop Studio 2 i7/32GB/1TB/GeForce RTX4050 to nie tylko elegancki i wydajny laptop, ale również wszechstronna stacja kreatywna, która pozwala wyrazić swoją twórczość w każdej sytuacji. Dzięki zaawansowanym funkcjom, innowacyjnemu designowi i niezrównanej jakości wykonania, spełni oczekiwania nawet najbardziej wymagających użytkowników.</p>`,
     images: [
       "../assets/images/products/laptops/laptop10v1.webp",
       "../assets/images/products/laptops/laptop10v2.webp",
