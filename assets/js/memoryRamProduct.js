@@ -2,7 +2,30 @@
 const productData = {
   memory1: {
     description: `
-            `,
+    <h3>Lexar 32GB (2x16GB) 7200MHz CL34 ARES RGB Gaming Memory Kit</h3>
+
+    <p>Elevate your gaming experience with the Lexar ARES RGB Gaming Memory Kit. Designed for high-performance gaming rigs, this memory kit combines blazing-fast speeds, ample capacity, and customizable RGB lighting to take your gaming to the next level.</p>
+
+    <h3>Blazing-Fast Speeds</h3>
+    <p>With a clock speed of 7200MHz and ultra-low CL34 latency, the Lexar ARES RGB Gaming Memory Kit delivers lightning-fast performance. Experience smoother gameplay, faster load times, and seamless multitasking with this high-speed memory kit.</p>
+
+    <h3>Ample Capacity</h3>
+    <p>Featuring a total capacity of 32GB (2x16GB), this memory kit provides ample space for storing your favorite games, applications, and multimedia files. Enjoy smooth performance and responsive multitasking, even with the most demanding tasks.</p>
+
+    <h3>Customizable RGB Lighting</h3>
+    <p>Enhance your gaming setup with customizable RGB lighting. The Lexar ARES RGB Gaming Memory Kit features dynamic RGB lighting effects that can be customized to match your gaming rig's aesthetic. Choose from a wide range of colors and lighting patterns to create your own unique look.</p>
+
+    <h3>Optimized for Gaming</h3>
+    <p>The Lexar ARES RGB Gaming Memory Kit is optimized for gaming performance. With its high-speed DDR4 memory and low-latency design, this memory kit ensures smooth gameplay, faster frame rates, and improved system responsiveness, giving you the competitive edge you need to dominate the battlefield.</p>
+
+    <h3>Easy Installation</h3>
+    <p>Installation is quick and easy with the Lexar ARES RGB Gaming Memory Kit. Simply plug the memory modules into your motherboard's DIMM slots and secure them in place. The memory kit is compatible with most modern motherboards, ensuring hassle-free installation.</p>
+
+    <h3>Reliable Performance</h3>
+    <p>Backed by Lexar's reputation for quality and reliability, the ARES RGB Gaming Memory Kit is built to last. Rigorously tested for compatibility and reliability, this memory kit is designed to withstand the rigors of gaming and deliver consistent performance over time.</p>
+
+    <p>Transform your gaming experience with the Lexar ARES RGB Gaming Memory Kit. With its blazing-fast speeds, ample capacity, and customizable RGB lighting, this memory kit is the perfect choice for gamers who demand the best.</p>
+                `,
     images: [
       "../../assets/images/products/components/memoryram/ram1v1.webp",
       "../../assets/images/products/components/memoryram/ram1v2.webp",
@@ -10,7 +33,30 @@ const productData = {
   },
   memory2: {
     description: `
-          `,
+    <h3>Kingston FURY 32GB (2x16GB) 5600MHz CL36 Beast Black EXPO AMD Memory Kit</h3>
+
+    <p>Upgrade your gaming rig with the Kingston FURY Beast Black EXPO AMD Memory Kit. Designed for high-performance gaming systems, this memory kit combines blazing-fast speeds, ample capacity, and reliable compatibility with AMD platforms to enhance your gaming experience.</p>
+
+    <h3>Blazing-Fast Speeds</h3>
+    <p>Featuring a lightning-fast clock speed of 5600MHz and ultra-low CL36 latency, the Kingston FURY Beast Black EXPO AMD Memory Kit delivers exceptional performance for gaming and multitasking. Experience smoother gameplay, faster load times, and improved system responsiveness with this high-speed memory kit.</p>
+
+    <h3>Ample Capacity</h3>
+    <p>With a total capacity of 32GB (2x16GB), this memory kit provides ample space for storing your favorite games, applications, and multimedia files. Enjoy smooth performance and seamless multitasking, even with the most demanding tasks.</p>
+
+    <h3>Optimized for AMD Platforms</h3>
+    <p>The Kingston FURY Beast Black EXPO AMD Memory Kit is specially optimized for compatibility with AMD platforms, ensuring reliable performance and seamless integration with your AMD-powered gaming system. Experience maximum stability and compatibility with AMD Ryzen processors and motherboards.</p>
+
+    <h3>Stylish Design</h3>
+    <p>Featuring a sleek black design, the Kingston FURY Beast Black EXPO AMD Memory Kit adds a touch of style to your gaming rig. The low-profile heat spreader not only looks great but also helps dissipate heat for improved thermal performance.</p>
+
+    <h3>Easy Installation</h3>
+    <p>Installation is quick and easy with the Kingston FURY Beast Black EXPO AMD Memory Kit. Simply plug the memory modules into your motherboard's DIMM slots and secure them in place. The memory kit is compatible with most modern motherboards, ensuring hassle-free installation.</p>
+
+    <h3>Reliable Performance</h3>
+    <p>Backed by Kingston's reputation for quality and reliability, the FURY Beast Black EXPO AMD Memory Kit is built to last. Rigorously tested for compatibility and reliability, this memory kit is designed to withstand the rigors of gaming and deliver consistent performance over time.</p>
+
+    <p>Take your gaming to the next level with the Kingston FURY Beast Black EXPO AMD Memory Kit. With its blazing-fast speeds, ample capacity, and stylish design, this memory kit is the perfect choice for gamers who demand the best.</p>
+              `,
     images: [
       "../../assets/images/products/components/memoryram/ram2v1.webp",
       "../../assets/images/products/components/memoryram/ram2v2.webp",
@@ -19,7 +65,24 @@ const productData = {
   },
   memory3: {
     description: `
-            `,
+    <h3>GOODRAM 32GB (2x16GB) 3600MHz CL18 IRDM PRO Deep Black Memory Kit</h3>
+    <p>Elevate your system's performance with the GOODRAM IRDM PRO Deep Black Memory Kit. Designed for enthusiasts and gamers, this memory kit offers high-speed performance, ample capacity, and sleek aesthetics to enhance your computing experience.</p>
+    <h3>High-Speed Performance</h3>
+    <p>Featuring a clock speed of 3600MHz and low CL18 latency, the GOODRAM IRDM PRO Deep Black Memory Kit delivers blazing-fast performance for smooth multitasking, gaming, and content creation. Experience improved system responsiveness and faster data transfer speeds with this high-speed memory kit.</p>
+    <h3>Ample Capacity</h3>
+    <p>With a total capacity of 32GB (2x16GB), this memory kit provides ample space for running demanding applications, multitasking with multiple programs, and storing large files. Enjoy seamless performance and smooth multitasking without worrying about running out of memory.</p>
+    <h3>Sleek Aesthetics</h3>
+    <p>The GOODRAM IRDM PRO Deep Black Memory Kit features a stylish design with a deep black heat spreader that adds a touch of elegance to your system. The sleek aesthetics complement any build and enhance the overall look of your gaming rig or workstation.</p>
+    <h3>Optimized Compatibility</h3>
+    <p>Designed for compatibility with a wide range of motherboards, the GOODRAM IRDM PRO Deep Black Memory Kit ensures seamless integration and reliable performance. Whether you're building a new system or upgrading an existing one, this memory kit is compatible with most modern platforms.</p>
+    <h3>Enhanced Cooling</h3>
+    <p>The heat spreader on the GOODRAM IRDM PRO Deep Black Memory Kit is designed to efficiently dissipate heat and keep the memory modules cool during intense gaming sessions or heavy workloads. Enjoy enhanced thermal performance and improved stability, even under demanding conditions.</p>
+    <h3>Easy Installation</h3>
+    <p>Installation is quick and easy with the GOODRAM IRDM PRO Deep Black Memory Kit. Simply insert the memory modules into the appropriate DIMM slots on your motherboard and secure them in place. The memory kit is compatible with most standard DDR4 slots, ensuring hassle-free installation.</p>
+    <h3>Reliable Performance</h3>
+    <p>Backed by GOODRAM's reputation for quality and reliability, the IRDM PRO Deep Black Memory Kit is built to last. Each memory module undergoes rigorous testing to ensure optimal performance, compatibility, and stability, so you can trust your system to perform flawlessly.</p>
+    <p>Upgrade your system with the GOODRAM IRDM PRO Deep Black Memory Kit and experience the ultimate combination of speed, capacity, and style. Whether you're gaming, creating content, or multitasking, this memory kit delivers the performance and reliability you need.</p>
+                `,
     images: [
       "../../assets/images/products/components/memoryram/ram3v1.webp",
       "../../assets/images/products/components/memoryram/ram3v2.webp",
@@ -28,7 +91,24 @@ const productData = {
   },
   memory4: {
     description: `
-            `,
+    <h3>Patriot 32GB (2x16GB) 6000MHz CL36 VIPER VENOM Memory Kit</h3>
+    <p>Upgrade your gaming experience with the Patriot VIPER VENOM Memory Kit. Designed for high-performance systems, this memory kit offers blazing-fast speeds, ample capacity, and reliable performance to take your gaming to the next level.</p>
+    <h3>Blazing-Fast Speeds</h3>
+    <p>The Patriot VIPER VENOM Memory Kit boasts a clock speed of 6000MHz, delivering lightning-fast performance for seamless gaming and multitasking. With ultra-low CL36 latency, you can enjoy responsive gameplay and smooth system operation even during intense gaming sessions.</p>
+    <h3>Ample Capacity</h3>
+    <p>With a total capacity of 32GB (2x16GB), this memory kit provides ample space for running demanding games, multitasking with multiple applications, and handling large files. Experience enhanced performance and improved productivity without worrying about running out of memory.</p>
+    <h3>Extreme Performance</h3>
+    <p>Designed for extreme overclocking, the Patriot VIPER VENOM Memory Kit is optimized for maximum performance and stability. Whether you're pushing your system to the limit or competing in eSports tournaments, this memory kit delivers the speed and reliability you need to stay ahead of the competition.</p>
+    <h3>Enhanced Cooling</h3>
+    <p>The VIPER VENOM Memory Kit features a high-quality heat spreader designed to dissipate heat and keep the memory modules cool under heavy load. Enjoy improved thermal performance and increased reliability, even during extended gaming sessions or overclocking.</p>
+    <h3>Customizable RGB Lighting</h3>
+    <p>Add style to your gaming rig with customizable RGB lighting effects. The VIPER VENOM Memory Kit features RGB lighting that can be customized to match your gaming setup or mood. Choose from a wide range of colors and effects to create the perfect ambiance for your gaming environment.</p>
+    <h3>Easy Installation</h3>
+    <p>Installation is quick and easy with the Patriot VIPER VENOM Memory Kit. Simply insert the memory modules into the appropriate DIMM slots on your motherboard and secure them in place. The memory kit is compatible with most standard DDR4 slots, ensuring hassle-free installation.</p>
+    <h3>Reliable Performance</h3>
+    <p>Backed by Patriot's reputation for quality and reliability, the VIPER VENOM Memory Kit is built to last. Each memory module undergoes rigorous testing to ensure optimal performance, compatibility, and stability, so you can trust your system to perform flawlessly.</p>
+    <p>Elevate your gaming experience with the Patriot VIPER VENOM Memory Kit and unleash the full potential of your system. With ultra-fast speeds, ample capacity, and customizable RGB lighting, this memory kit delivers the performance and style you need to dominate the competition.</p>
+                `,
     images: [
       "../../assets/images/products/components/memoryram/ram4v1.webp",
       "../../assets/images/products/components/memoryram/ram4v2.webp",
@@ -36,7 +116,25 @@ const productData = {
   },
   memory5: {
     description: `
-            `,
+    <h2>Lexar 32GB (2x16GB) 3200MHz CL16 Thor Memory Kit</h2>
+    <p>Upgrade your system's memory with the Lexar Thor Memory Kit, offering impressive performance and reliability for your computing needs.</p>
+    <h2>High-Speed Performance</h2>
+    <p>The Lexar Thor Memory Kit boasts a clock speed of 3200MHz, providing fast and responsive performance for multitasking, gaming, and multimedia applications. With low CL16 latency, you can experience smooth and efficient operation even during demanding tasks.</p>
+    <h2>Ample Capacity</h2>
+    <p>With a total capacity of 32GB (2x16GB), this memory kit offers ample space for running multiple applications simultaneously, handling large files, and storing multimedia content. Enjoy improved performance and responsiveness without worrying about running out of memory.</p>
+    <h2>Reliable Stability</h2>
+    <p>Designed for stability and reliability, the Lexar Thor Memory Kit ensures consistent performance under various workloads. Whether you're gaming, editing videos, or running productivity software, you can rely on this memory kit to deliver reliable operation.</p>
+    <h2>Enhanced Cooling</h2>
+    <p>The Lexar Thor Memory Kit features a heat spreader design to dissipate heat effectively, keeping the memory modules cool during extended use. This helps maintain optimal performance and stability, even under heavy workloads or overclocking scenarios.</p>
+    <h2>Plug-and-Play Installation</h2>
+    <p>Installation is quick and hassle-free with the Lexar Thor Memory Kit. Simply insert the memory modules into the appropriate DIMM slots on your motherboard, and the memory will be automatically detected. Enjoy seamless integration and instant performance improvements.</p>
+    <h2>Compatibility</h2>
+    <p>The Lexar Thor Memory Kit is compatible with a wide range of desktop systems, making it easy to upgrade your existing setup. Whether you're building a new PC or upgrading an older system, this memory kit offers compatibility with most modern motherboards.</p>
+    <h2>Ideal for Gaming and Productivity</h2>
+    <p>Whether you're a gamer, content creator, or power user, the Lexar Thor Memory Kit delivers the performance and reliability you need. Boost your gaming experience, enhance your productivity, and enjoy smooth multitasking with this high-quality memory solution.</p>
+    <h2>Conclusion</h2>
+    <p>Upgrade your system with the Lexar Thor Memory Kit and experience improved performance, reliability, and responsiveness. With fast speeds, ample capacity, and enhanced cooling, this memory kit is an ideal choice for gamers, professionals, and enthusiasts alike.</p>
+                `,
     images: [
       "../../assets/images/products/components/memoryram/ram5v1.webp",
       "../../assets/images/products/components/memoryram/ram5v2.webp",
@@ -45,7 +143,25 @@ const productData = {
   },
   memory6: {
     description: `
-            `,
+    <h2>Kingston FURY 32GB (2x16GB) 3600MHz CL16 Renegade Black Memory Kit</h2>
+    <p>Elevate your gaming experience and system performance with the Kingston FURY Renegade Black Memory Kit. Engineered for speed, reliability, and style, this memory kit enhances your gaming rig's capabilities and ensures smooth multitasking for demanding tasks.</p>
+    <h2>High-Speed Performance</h2>
+    <p>The Kingston FURY Renegade Black Memory Kit operates at a blistering speed of 3600MHz, providing lightning-fast responsiveness and seamless multitasking capabilities. With low CL16 latency, it delivers quick data access and ensures smooth performance even during intense gaming sessions or content creation tasks.</p>
+    <h2>Enhanced Gaming Experience</h2>
+    <p>Designed specifically for gamers, the Kingston FURY Renegade Black Memory Kit offers the perfect combination of speed and capacity to handle modern AAA titles and high-resolution gaming. Enjoy faster load times, smoother gameplay, and reduced stuttering for an immersive gaming experience.</p>
+    <h2>Reliable Stability</h2>
+    <p>Backed by Kingston's renowned reliability and quality assurance, the FURY Renegade Black Memory Kit delivers consistent performance and stability under various workloads. Whether you're overclocking your system or running resource-intensive applications, you can count on this memory kit to maintain reliable operation.</p>
+    <h2>Aggressive Design</h2>
+    <p>The Kingston FURY Renegade Black Memory Kit features a sleek and aggressive design with black heat spreaders that complement any gaming setup. The premium aesthetics add a touch of style to your rig while ensuring efficient heat dissipation for optimal performance.</p>
+    <h2>Plug-and-Play Installation</h2>
+    <p>Installation is hassle-free with the Kingston FURY Renegade Black Memory Kit. Simply insert the memory modules into the appropriate DIMM slots on your motherboard, and they will be automatically detected. Enjoy seamless integration and instant performance enhancements without any manual configuration.</p>
+    <h2>Compatibility</h2>
+    <p>Compatible with most modern Intel and AMD platforms, the Kingston FURY Renegade Black Memory Kit offers broad compatibility for hassle-free installation in a wide range of gaming systems. Whether you're building a new PC or upgrading an existing one, this memory kit ensures compatibility and reliability.</p>
+    <h2>Ideal for Enthusiasts and Gamers</h2>
+    <p>Whether you're a hardcore gamer, overclocking enthusiast, or power user, the Kingston FURY Renegade Black Memory Kit delivers the speed, performance, and reliability you need to stay ahead of the competition. Elevate your gaming experience and unleash the full potential of your system with this high-performance memory solution.</p>
+    <h2>Conclusion</h2>
+    <p>Upgrade your gaming rig with the Kingston FURY Renegade Black Memory Kit and experience unparalleled speed, reliability, and style. With its high-speed performance, aggressive design, and plug-and-play installation, this memory kit is the perfect choice for gamers and enthusiasts seeking uncompromising performance and aesthetics.</p>
+                `,
     images: [
       "../../assets/images/products/components/memoryram/ram6v1.webp",
       "../../assets/images/products/components/memoryram/ram6v2.webp",
