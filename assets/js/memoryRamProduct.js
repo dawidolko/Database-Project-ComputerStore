@@ -171,7 +171,25 @@ const productData = {
   },
   memory7: {
     description: `
-            `,
+    <h2>Lexar 32GB (2x16GB) 3600MHz CL18 Thor Memory Kit</h2>
+    <p>Elevate your gaming and computing experience with the Lexar Thor Memory Kit. Engineered for high-speed performance and reliability, this memory kit ensures seamless multitasking, smooth gaming, and efficient data handling for demanding tasks.</p>
+    <h2>Blazing Fast Performance</h2>
+    <p>The Lexar Thor Memory Kit operates at a lightning-fast speed of 3600MHz, delivering rapid data access and responsiveness for enhanced system performance. With low CL18 latency, it ensures quick access to stored data, resulting in smoother multitasking and reduced loading times for applications and games.</p>
+    <h2>Optimized for Gaming</h2>
+    <p>Designed for gaming enthusiasts and power users, the Lexar Thor Memory Kit offers the perfect balance of speed and capacity to handle intensive gaming sessions and resource-heavy tasks with ease. Enjoy faster frame rates, snappier gameplay, and improved system responsiveness for an immersive gaming experience.</p>
+    <h2>Reliable Stability</h2>
+    <p>Backed by Lexar's reputation for quality and reliability, the Thor Memory Kit delivers consistent performance and stability under various workloads. Whether you're gaming, streaming, or running demanding applications, you can rely on this memory kit to maintain optimal performance without compromise.</p>
+    <h2>Efficient Heat Dissipation</h2>
+    <p>The Lexar Thor Memory Kit features a heat spreader design that efficiently dissipates heat to ensure reliable performance even during prolonged gaming sessions or heavy workloads. The heat spreaders help prevent overheating and ensure stable operation, allowing you to push your system to its limits without worrying about thermal throttling.</p>
+    <h2>Plug-and-Play Installation</h2>
+    <p>Installation is quick and easy with the Lexar Thor Memory Kit. Simply insert the memory modules into the appropriate DIMM slots on your motherboard, and they will be automatically recognized by the system. Enjoy hassle-free setup and instant performance enhancements without the need for manual configuration.</p>
+    <h2>Compatibility</h2>
+    <p>The Lexar Thor Memory Kit is compatible with a wide range of Intel and AMD platforms, ensuring broad compatibility and seamless integration with your gaming or productivity setup. Whether you're building a new system or upgrading an existing one, this memory kit provides the compatibility and performance you need.</p>
+    <h2>Enhanced Productivity</h2>
+    <p>Boost your productivity and efficiency with the Lexar Thor Memory Kit. Whether you're multitasking, video editing, or running virtual machines, this memory kit ensures smooth performance and responsiveness for demanding tasks. Experience faster data access and smoother workflow transitions with this high-performance memory solution.</p>
+    <h2>Conclusion</h2>
+    <p>Upgrade your gaming rig or productivity workstation with the Lexar Thor Memory Kit and experience enhanced speed, reliability, and performance. With its blazing-fast speed, optimized gaming performance, and reliable stability, this memory kit is the perfect choice for gamers, content creators, and power users seeking uncompromising performance and reliability.</p>
+                `,
     images: [
       "../../assets/images/products/components/memoryram/ram7v1.webp",
       "../../assets/images/products/components/memoryram/ram7v2.webp",
@@ -180,7 +198,34 @@ const productData = {
   },
   memory8: {
     description: `
-                `,
+    <h2>Patriot 64GB (2x32GB) 6000MHz CL36 Viper VENOM Memory Kit</h2>
+
+    <p>Elevate your gaming and computing experience with the Patriot Viper VENOM Memory Kit. Engineered for high-speed performance and reliability, this memory kit ensures seamless multitasking, smooth gaming, and efficient data handling for demanding tasks.</p>
+
+    <h2>Blazing Fast Performance</h2>
+    <p>The Patriot Viper VENOM Memory Kit operates at an impressive speed of 6000MHz, delivering lightning-fast data access and responsiveness for enhanced system performance. With low CL36 latency, it ensures quick access to stored data, resulting in smoother multitasking and reduced loading times for applications and games.</p>
+
+    <h2>Optimized for Gaming</h2>
+    <p>Designed for gaming enthusiasts and power users, the Patriot Viper VENOM Memory Kit offers the perfect balance of speed and capacity to handle intensive gaming sessions and resource-heavy tasks with ease. Enjoy faster frame rates, snappier gameplay, and improved system responsiveness for an immersive gaming experience.</p>
+
+    <h2>Reliable Stability</h2>
+    <p>Backed by Patriot's reputation for quality and reliability, the Viper VENOM Memory Kit delivers consistent performance and stability under various workloads. Whether you're gaming, streaming, or running demanding applications, you can rely on this memory kit to maintain optimal performance without compromise.</p>
+
+    <h2>Efficient Heat Dissipation</h2>
+    <p>The Patriot Viper VENOM Memory Kit features a heat spreader design that efficiently dissipates heat to ensure reliable performance even during prolonged gaming sessions or heavy workloads. The heat spreaders help prevent overheating and ensure stable operation, allowing you to push your system to its limits without worrying about thermal throttling.</p>
+
+    <h2>Plug-and-Play Installation</h2>
+    <p>Installation is quick and easy with the Patriot Viper VENOM Memory Kit. Simply insert the memory modules into the appropriate DIMM slots on your motherboard, and they will be automatically recognized by the system. Enjoy hassle-free setup and instant performance enhancements without the need for manual configuration.</p>
+
+    <h2>Compatibility</h2>
+    <p>The Patriot Viper VENOM Memory Kit is compatible with a wide range of Intel and AMD platforms, ensuring broad compatibility and seamless integration with your gaming or productivity setup. Whether you're building a new system or upgrading an existing one, this memory kit provides the compatibility and performance you need.</p>
+
+    <h2>Enhanced Productivity</h2>
+    <p>Boost your productivity and efficiency with the Patriot Viper VENOM Memory Kit. Whether you're multitasking, video editing, or running virtual machines, this memory kit ensures smooth performance and responsiveness for demanding tasks. Experience faster data access and smoother workflow transitions with this high-performance memory solution.</p>
+
+    <h2>Conclusion</h2>
+    <p>Upgrade your gaming rig or productivity workstation with the Patriot Viper VENOM Memory Kit and experience enhanced speed, reliability, and performance. With its blazing-fast speed, optimized gaming performance, and reliable stability, this memory kit is the perfect choice for gamers, content creators, and power users seeking uncompromising performance and reliability.</p>
+                    `,
     images: [
       "../../assets/images/products/components/memoryram/ram8v1.webp",
       "../../assets/images/products/components/memoryram/ram8v2.webp",
@@ -192,7 +237,31 @@ const productData = {
   },
   memory9: {
     description: `
-                `,
+    <h2>Kingston FURY 16GB (2x16GB) 3600MHz CL16 Renegade Black Memory Kit</h2>
+
+    <p>Elevate your gaming experience and system performance with the Kingston FURY Renegade Black Memory Kit. Designed for enthusiasts and gamers, this memory kit delivers high-speed performance, reliability, and impressive aesthetics to enhance your gaming rig.</p>
+
+    <h2>Blazing Speed</h2>
+    <p>The Kingston FURY Renegade Black Memory Kit operates at an impressive speed of 3600MHz, providing lightning-fast data access and seamless multitasking. With low CL16 latency, it ensures quick response times and reduced loading times for applications and games, giving you a competitive edge in gaming and productivity tasks.</p>
+
+    <h2>Optimized for Gaming</h2>
+    <p>Engineered for gaming enthusiasts, the Kingston FURY Renegade Black Memory Kit offers the perfect combination of speed and capacity to handle demanding gaming sessions and intensive workloads. Experience smoother gameplay, faster frame rates, and improved system responsiveness for an immersive gaming experience.</p>
+
+    <h2>Enhanced Aesthetics</h2>
+    <p>Featuring a sleek black heatsink with a stylish design, the Kingston FURY Renegade Black Memory Kit adds a touch of elegance to your gaming rig. The black heatsink not only looks great but also helps dissipate heat effectively to ensure reliable performance during extended gaming sessions or heavy workloads.</p>
+
+    <h2>Reliable Performance</h2>
+    <p>Backed by Kingston's reputation for quality and reliability, the FURY Renegade Black Memory Kit delivers consistent performance and stability under various conditions. Whether you're gaming, streaming, or multitasking, you can count on this memory kit to maintain optimal performance without compromise.</p>
+
+    <h2>Plug-and-Play Installation</h2>
+    <p>Installation is quick and easy with the Kingston FURY Renegade Black Memory Kit. Simply insert the memory modules into the appropriate DIMM slots on your motherboard, and they will be automatically recognized by the system. Enjoy hassle-free setup and instant performance enhancements without the need for manual configuration.</p>
+
+    <h2>Compatibility</h2>
+    <p>The Kingston FURY Renegade Black Memory Kit is compatible with a wide range of Intel and AMD platforms, ensuring broad compatibility and seamless integration with your gaming setup. Whether you're building a new gaming rig or upgrading an existing one, this memory kit provides the compatibility and performance you need.</p>
+
+    <h2>Conclusion</h2>
+    <p>Upgrade your gaming rig with the Kingston FURY Renegade Black Memory Kit and experience enhanced speed, reliability, and aesthetics. With its blazing-fast speed, optimized gaming performance, and stylish design, this memory kit is the perfect choice for gamers seeking uncompromising performance and style.</p>
+                    `,
     images: [
       "../../assets/images/products/components/memoryram/ram9v1.webp",
       "../../assets/images/products/components/memoryram/ram9v2.webp",
@@ -202,7 +271,23 @@ const productData = {
   },
   memory10: {
     description: `
-                  `,
+    <h2>Patriot 32GB (2x16GB) 3600MHz CL18 Viper Steel Memory Kit</h2>
+    <p>Upgrade your system's performance with the Patriot Viper Steel Memory Kit. Designed for enthusiasts and gamers, this memory kit delivers high-speed performance, reliability, and exceptional multitasking capabilities to enhance your computing experience.</p>
+    <h2>Blazing Speed</h2>
+    <p>The Patriot Viper Steel Memory Kit operates at a blistering speed of 3600MHz, providing lightning-fast data access and seamless multitasking. With low CL18 latency, it ensures quick response times and reduced loading times for applications and games, boosting overall system performance.</p>
+    <h2>Enhanced Gaming Performance</h2>
+    <p>Engineered for gaming enthusiasts, the Patriot Viper Steel Memory Kit offers the perfect combination of speed and capacity to handle demanding gaming sessions and intensive workloads. Experience smoother gameplay, faster frame rates, and improved system responsiveness for an immersive gaming experience.</p>
+    <h2>Robust Construction</h2>
+    <p>Featuring a sleek and durable aluminum heat spreader, the Patriot Viper Steel Memory Kit not only looks great but also helps dissipate heat effectively to ensure reliable performance during extended gaming sessions or heavy workloads. The heat spreader's low-profile design ensures compatibility with most CPU coolers.</p>
+    <h2>Plug-and-Play Installation</h2>
+    <p>Installation is quick and easy with the Patriot Viper Steel Memory Kit. Simply insert the memory modules into the appropriate DIMM slots on your motherboard, and they will be automatically recognized by the system. Enjoy hassle-free setup and instant performance enhancements without the need for manual configuration.</p>
+    <h2>Reliable Performance</h2>
+    <p>Backed by Patriot's reputation for quality and reliability, the Viper Steel Memory Kit delivers consistent performance and stability under various conditions. Whether you're gaming, streaming, or multitasking, you can count on this memory kit to maintain optimal performance without compromise.</p>
+    <h2>Compatibility</h2>
+    <p>The Patriot Viper Steel Memory Kit is compatible with a wide range of Intel and AMD platforms, ensuring broad compatibility and seamless integration with your system. Whether you're building a new gaming rig or upgrading an existing one, this memory kit provides the compatibility and performance you need.</p>
+    <h2>Conclusion</h2>
+    <p>Upgrade your system with the Patriot Viper Steel Memory Kit and experience enhanced speed, reliability, and multitasking capabilities. With its blazing-fast speed, robust construction, and plug-and-play installation, this memory kit is the perfect choice for gamers and enthusiasts seeking uncompromising performance and reliability.</p>
+                      `,
     images: [
       "../../assets/images/products/components/memoryram/ram10v1.webp",
       "../../assets/images/products/components/memoryram/ram10v2.webp",

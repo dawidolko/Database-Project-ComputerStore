@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Panel Admina w Jednym Pliku</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .login-container,
+      .dashboard-container {
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        padding-top: 20px;
+        display: none; /* Domyslnie ukryte */
+      }
+
+      input[type="text"],
+      input[type="password"],
+      button {
+        margin-top: 10px;
+        width: 100%;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container" id="login-container">
+      <input type="text" id="username" placeholder="Login" />
+      <input type="password" id="password" placeholder="Hasło" />
+      <button onclick="login()">Zaloguj</button>
+    </div>
+
+    <div class="dashboard-container" id="dashboard-container">
+      <h1>Panel Admina</h1>
+      <button>Dodaj produkt</button>
+      <button>Usuń produkt</button>
+      <button>Edytuj produkt</button>
+      <button>Odczytaj produkt</button>
+      <br /><br />
+      <button onclick="logout()">Wyloguj</button>
+    </div>
+
+    <script>
+      function login() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if (username === "admin" && password === "admin") {
+          document.getElementById("login-container").style.display = "none";
+          document.getElementById("dashboard-container").style.display =
+            "block";
+        } else {
+          alert("Niepoprawne dane logowania");
+        }
+      }
+
+      function logout() {
+        document.getElementById("login-container").style.display = "block";
+        document.getElementById("dashboard-container").style.display = "none";
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+      }
+
+      // Na starcie pokazujemy tylko login-container
+      document.getElementById("login-container").style.display = "block";
+    </script>
+  </body>
+</html>
