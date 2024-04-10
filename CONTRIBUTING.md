@@ -15,7 +15,7 @@ This section guides you through submitting a bug report for [TechByte]. Followin
 
 ### Feature Requests
 
-Feature requests are welcome. But take a moment to find out whether your idea fits with the scope and aims of the project. It's up to *you* to make a strong case to convince the project's developers of the merits of this feature. Please provide as much detail and context as possible.
+Feature requests are welcome. But take a moment to find out whether your idea fits with the scope and aims of the project. It's up to _you_ to make a strong case to convince the project's developers of the merits of this feature. Please provide as much detail and context as possible.
 
 ### Pull Requests
 
@@ -32,8 +32,8 @@ Great to hear you're thinking about making a pull request! Here's what you need 
 
 - The `main` branch is basically just a snapshot of the latest stable release. All development should be done in dedicated branches. Do not submit PRs against the `master` branch.
 - Checkout a new branch from `master` and name it to what you intend to do:
-   - `feature/...` if you're adding a new feature
-   - `bugfix/...` if you're fixing a bug
+  - `feature/...` if you're adding a new feature
+  - `bugfix/...` if you're fixing a bug
 - If you've made changes to the API, update the documentation accordingly.
 - Ensure that your code adheres to the existing style of the project to maintain consistency.
 
