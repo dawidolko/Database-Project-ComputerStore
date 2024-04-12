@@ -153,11 +153,6 @@
           </div>
 
           <div class="header-top-actions">
-            <select name="currency">
-              <option value="usd">USD &dollar;</option>
-              <option value="eur">EUR &euro;</option>
-            </select>
-
             <select name="language">
               <option value="en-US">English</option>
               <option value="pl-PL">Polish</option>
@@ -196,12 +191,12 @@
 
             <a href="favorite.html" class="action-btn">
               <ion-icon name="heart-outline"></ion-icon>
-              <span class="count">0</span></a
+              <span class="count-favorite">0</span></a
             >
 
             <a href="cart.html" class="action-btn">
               <ion-icon name="bag-handle-outline"></ion-icon>
-              <span class="count">0</span></a
+              <span class="count-cart">0</span></a
             >
           </div>
         </div>
@@ -434,7 +429,7 @@
           <a href="cart.html">
             <ion-icon name="bag-handle-outline"></ion-icon>
           </a>
-          <span class="count">0</span>
+          <span class="count-cart">0</span>
         </button>
 
         <button class="action-btn">
@@ -448,7 +443,7 @@
             <ion-icon name="heart-outline"></ion-icon
           ></a>
 
-          <span class="count">0</span>
+          <span class="count-favorite">0</span>
         </button>
 
         <button class="action-btn" data-mobile-menu-open-btn>
@@ -620,28 +615,6 @@
             <li class="menu-category">
               <button class="accordion-menu" data-accordion-btn>
                 <p class="menu-title">Language</p>
-                <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
-              </button>
-        
-              <ul class="submenu-category-list" data-accordion>
-                <li class="submenu-category">
-                  <button data-lang="en-US" class="submenu-title btn-lang">English</button>
-                </li>
-                <li class="submenu-category">
-                  <button data-lang="pl-PL" class="submenu-title btn-lang">Polish</button>
-                </li>
-                <li class="submenu-category">
-                  <button data-lang="fr" class="submenu-title btn-lang">French</button>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        
-
-            <li class="menu-category">
-              <button class="accordion-menu" data-accordion-btn>
-                <p class="menu-title">Currency</p>
                 <ion-icon
                   name="caret-back-outline"
                   class="caret-back"></ion-icon>
@@ -649,16 +622,26 @@
 
               <ul class="submenu-category-list" data-accordion>
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">USD &dollar;</a>
+                  <button data-lang="en-US" class="submenu-title btn-lang">
+                    English
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">EUR &euro;</a>
+                  <button data-lang="pl-PL" class="submenu-title btn-lang">
+                    Polish
+                  </button>
+                </li>
+                <li class="submenu-category">
+                  <button data-lang="fr" class="submenu-title btn-lang">
+                    French
+                  </button>
                 </li>
               </ul>
             </li>
           </ul>
+        </div>
 
+        <div class="menu-social">
           <ul class="menu-social-container">
             <li>
               <a href="#" class="social-link">
@@ -2131,13 +2114,16 @@
 
                       <h3 class="showcase-title">
                         <a href="computers/set4.html" class="showcase-title">
-                          Set Z5 | Intel I5-14400F, RX 7800 XT 12GB, 16GB
-                    DDR4, 500GB SSD, 650W, MSI 112 ARGB</a
+                          Set Z5 | Intel I5-14400F, RX 7800 XT 12GB, 16GB DDR4,
+                          500GB SSD, 650W, MSI 112 ARGB</a
                         >
                       </h3>
 
                       <p class="showcase-desc">
-                        This computer set is an ideal solution for those who do not have the appropriate knowledge and do not want to risk selecting components themselves or later assembling them into a properly functioning unit.
+                        This computer set is an ideal solution for those who do
+                        not have the appropriate knowledge and do not want to
+                        risk selecting components themselves or later assembling
+                        them into a properly functioning unit.
                       </p>
 
                       <div class="price-box">
@@ -2219,7 +2205,7 @@
                     <p class="showcase-badge">15%</p>
 
                     <div class="showcase-actions">
-                      <button class="btn-action">
+                      <button class="btn-action heart">
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
 
@@ -2231,7 +2217,13 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                       </button>
 
-                      <button class="btn-action">
+                      <button
+                        class="btn-action bag-add"
+                        onclick="addToCart(this)"
+                        data-image="./assets/images/products/components/computerCases/case2v1.webp"
+                        data-name="Fury Shobo SH4F Tempered Glass"
+                        data-price="64.00"
+                        data-quantity="1">
                         <ion-icon name="bag-add-outline"></ion-icon>
                       </button>
                     </div>
@@ -2279,7 +2271,7 @@
                     <p class="showcase-badge angle black">sale</p>
 
                     <div class="showcase-actions">
-                      <button class="btn-action">
+                      <button class="btn-action heart">
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
 
@@ -2291,7 +2283,7 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                       </button>
 
-                      <button class="btn-action">
+                      <button class="btn-action bag-add">
                         <ion-icon name="bag-add-outline"></ion-icon>
                       </button>
                     </div>
@@ -2339,7 +2331,7 @@
                       width="300" />
 
                     <div class="showcase-actions">
-                      <button class="btn-action">
+                      <button class="btn-action heart">
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
 
@@ -2351,7 +2343,7 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                       </button>
 
-                      <button class="btn-action">
+                      <button class="btn-action bag-add">
                         <ion-icon name="bag-add-outline"></ion-icon>
                       </button>
                     </div>
@@ -2401,7 +2393,7 @@
                     <p class="showcase-badge angle pink">new</p>
 
                     <div class="showcase-actions">
-                      <button class="btn-action">
+                      <button class="btn-action heart">
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
 
@@ -2413,7 +2405,7 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                       </button>
 
-                      <button class="btn-action">
+                      <button class="btn-action bag-add">
                         <ion-icon name="bag-add-outline"></ion-icon>
                       </button>
                     </div>
@@ -2459,7 +2451,7 @@
                       width="300" />
 
                     <div class="showcase-actions">
-                      <button class="btn-action">
+                      <button class="btn-action heart">
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
 
@@ -2471,7 +2463,7 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                       </button>
 
-                      <button class="btn-action">
+                      <button class="btn-action bag-add">
                         <ion-icon name="bag-add-outline"></ion-icon>
                       </button>
                     </div>
@@ -2521,7 +2513,7 @@
                     <p class="showcase-badge angle black">sale</p>
 
                     <div class="showcase-actions">
-                      <button class="btn-action">
+                      <button class="btn-action heart">
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
 
@@ -2533,7 +2525,7 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                       </button>
 
-                      <button class="btn-action">
+                      <button class="btn-action bag-add">
                         <ion-icon name="bag-add-outline"></ion-icon>
                       </button>
                     </div>
@@ -2584,7 +2576,7 @@
                       width="300" />
 
                     <div class="showcase-actions">
-                      <button class="btn-action">
+                      <button class="btn-action heart">
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
 
@@ -2596,7 +2588,7 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                       </button>
 
-                      <button class="btn-action">
+                      <button class="btn-action bag-add">
                         <ion-icon name="bag-add-outline"></ion-icon>
                       </button>
                     </div>
@@ -2648,7 +2640,7 @@
                     <p class="showcase-badge angle black">sale</p>
 
                     <div class="showcase-actions">
-                      <button class="btn-action">
+                      <button class="btn-action heart">
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
 
@@ -2660,7 +2652,7 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                       </button>
 
-                      <button class="btn-action">
+                      <button class="btn-action bag-add">
                         <ion-icon name="bag-add-outline"></ion-icon>
                       </button>
                     </div>
@@ -2710,7 +2702,7 @@
                       width="300" />
 
                     <div class="showcase-actions">
-                      <button class="btn-action">
+                      <button class="btn-action heart">
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
 
@@ -2722,7 +2714,7 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                       </button>
 
-                      <button class="btn-action">
+                      <button class="btn-action bag-add">
                         <ion-icon name="bag-add-outline"></ion-icon>
                       </button>
                     </div>
@@ -2774,7 +2766,7 @@
                     <p class="showcase-badge angle black">sale</p>
 
                     <div class="showcase-actions">
-                      <button class="btn-action">
+                      <button class="btn-action heart">
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
 
@@ -2786,7 +2778,7 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                       </button>
 
-                      <button class="btn-action">
+                      <button class="btn-action bag-add">
                         <ion-icon name="bag-add-outline"></ion-icon>
                       </button>
                     </div>
@@ -2833,7 +2825,7 @@
                       width="300" />
 
                     <div class="showcase-actions">
-                      <button class="btn-action">
+                      <button class="btn-action heart">
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
 
@@ -2845,7 +2837,7 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                       </button>
 
-                      <button class="btn-action">
+                      <button class="btn-action bag-add">
                         <ion-icon name="bag-add-outline"></ion-icon>
                       </button>
                     </div>
@@ -2891,7 +2883,7 @@
                     <p class="showcase-badge angle black">sale</p>
 
                     <div class="showcase-actions">
-                      <button class="btn-action">
+                      <button class="btn-action heart">
                         <ion-icon name="heart-outline"></ion-icon>
                       </button>
 
@@ -2903,7 +2895,7 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                       </button>
 
-                      <button class="btn-action">
+                      <button class="btn-action bag-add">
                         <ion-icon name="bag-add-outline"></ion-icon>
                       </button>
                     </div>
@@ -3433,93 +3425,14 @@
   - custom js link
 -->
     <script src="./assets/js/scriptIndex.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const overlay = document.getElementById("imageOverlay");
+    <script src="./assets/js/photoIndex.js"></script>
+    <script src="./assets/js/rotationIndex.js"></script>
+    <script src="./assets/js/lanIndex.js"></script>
+    <script src="./assets/js/lanMoblieIndex.js"></script>
 
-        // Funkcja do otwierania overlay z obrazkiem
-        function showOverlayImage(imgSrc) {
-          overlay.style.display = "flex";
-          overlay.querySelector(".overlay-image").src = imgSrc;
-        }
-
-        // Nasłuchiwanie kliknięcia na każdy przycisk 'eye-outline'
-        document.querySelectorAll(".magnification").forEach((button) => {
-          button.addEventListener("click", function (event) {
-            // Znajdź najbliższy obrazek i pobierz jego źródło
-            const imgSrc = this.closest(".showcase-banner").querySelector(
-              ".product-img.default"
-            ).src;
-            showOverlayImage(imgSrc);
-            event.stopPropagation(); // Zapobiegaj propagacji, aby kliknięcie na button nie zamykało od razu overlay
-          });
-        });
-
-        // Zamknięcie overlay po kliknięciu na krzyżyk
-        document
-          .querySelector(".image-overlay .close-btn")
-          .addEventListener("click", function () {
-            overlay.style.display = "none";
-          });
-
-        // Zamknięcie overlay przez kliknięcie poza obrazek
-        overlay.addEventListener("click", function (event) {
-          if (event.target === overlay) {
-            overlay.style.display = "none";
-          }
-        });
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Funkcja obracająca oba obrazy produktu
-        function rotateImages(showcaseBanner, rotation) {
-          const images = showcaseBanner.querySelectorAll("img");
-          images.forEach((img) => {
-            const currentRotation = parseInt(img.dataset.rotation) || 0;
-            const newRotation = currentRotation + rotation;
-            img.style.transform = `rotate(${newRotation}deg)`;
-            img.dataset.rotation = newRotation % 360;
-          });
-        }
-
-        // Dodaj nasłuchiwacz do każdego przycisku 'repeat'
-        document.querySelectorAll(".repeat").forEach((button) => {
-          button.addEventListener("click", function () {
-            const showcaseBanner = this.closest(".showcase-banner");
-            rotateImages(showcaseBanner, 90); // Obróć o 90 stopni
-          });
-        });
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Znajdź element <select> na stronie
-        const languageSelector = document.querySelector(
-          'select[name="language"]'
-        );
-
-        // Dodaj nasłuchiwacz zdarzeń dla zmiany wartości <select>
-        languageSelector.addEventListener("change", function () {
-          // Pobierz wybrany język
-          const selectedLanguage = this.value;
-
-          // Zaktualizuj atrybut 'lang' w tagu <html>
-          document.documentElement.setAttribute("lang", selectedLanguage);
-        });
-      });
-    </script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.btn-lang').forEach(button => {
-          button.addEventListener('click', function() {
-            const selectedLanguage = this.getAttribute('data-lang');
-            document.documentElement.setAttribute('lang', selectedLanguage);
-          });
-        });
-      });
-      </script>
-      
+    <script src="assets/js/loginAccount.js"></script>
+    <script src="./assets/js/counterCart.js"></script>
+    <script src="./assets/js/cartAdd.js"></script>
 
     <!--
   - ionicon link

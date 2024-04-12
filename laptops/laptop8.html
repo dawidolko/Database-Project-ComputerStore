@@ -196,12 +196,12 @@
 
             <a href="../favorite.html" class="action-btn">
               <ion-icon name="heart-outline"></ion-icon>
-              <span class="count">0</span></a
+              <span class="count-favorite">0</span></a
             >
 
             <a href="../cart.html" class="action-btn">
               <ion-icon name="bag-handle-outline"></ion-icon>
-              <span class="count">0</span></a
+              <span class="count-cart">0</span></a
             >
           </div>
         </div>
@@ -436,7 +436,7 @@
           <a href="../cart.html">
             <ion-icon name="bag-handle-outline"></ion-icon>
           </a>
-          <span class="count">0</span>
+          <span class="count-cart">0</span>
         </button>
 
         <button class="action-btn">
@@ -450,7 +450,7 @@
             <ion-icon name="heart-outline"></ion-icon
           ></a>
 
-          <span class="count">0</span>
+          <span class="count-favorite">0</span>
         </button>
 
         <button class="action-btn" data-mobile-menu-open-btn="sidebar">
@@ -1078,10 +1078,8 @@
                 <!-- Miniatury obrazów -->
                 <div class="thumbnail-container"></div>
 
-                <p class="showcase-badge">15%</p>
-
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -1093,7 +1091,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -1718,7 +1716,8 @@
     <script src="../assets/js/changeTheLanguage.js"></script>
     <script src="../assets/js/exchange.js"></script>
     <script src="../assets/js/laptopsProduct.js"></script>
-
+    <script src="./assets/js/counterCart.js"></script>
+    <script src="assets/js/loginAccount.js"></script>
     <!--
     - ionicon link
   -->

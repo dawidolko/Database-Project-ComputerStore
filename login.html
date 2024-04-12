@@ -153,10 +153,6 @@
           </div>
 
           <div class="header-top-actions">
-            <select name="currency">
-              <option value="usd">USD &dollar;</option>
-              <option value="eur">EUR &euro;</option>
-            </select>
 
             <select name="language">
               <option value="en-US">English</option>
@@ -196,12 +192,12 @@
 
             <a href="favorite.html" class="action-btn">
               <ion-icon name="heart-outline"></ion-icon>
-              <span class="count">0</span></a
+              <span class="count-favorite">0</span></a
             >
 
             <a href="cart.html" class="action-btn">
               <ion-icon name="bag-handle-outline"></ion-icon>
-              <span class="count">0</span></a
+              <span class="count-cart">0</span></a
             >
           </div>
         </div>
@@ -436,7 +432,7 @@
           <a href="cart.html">
             <ion-icon name="bag-handle-outline"></ion-icon>
           </a>
-          <span class="count">0</span>
+          <span class="count-cart">0</span>
         </button>
 
         <button class="action-btn">
@@ -450,7 +446,7 @@
             <ion-icon name="heart-outline"></ion-icon
           ></a>
 
-          <span class="count">0</span>
+          <span class="count-favorite">0</span>
         </button>
 
         <button class="action-btn" data-mobile-menu-open-btn="sidebar">
@@ -628,37 +624,23 @@
 
               <ul class="submenu-category-list" data-accordion>
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">English</a>
+                  <button data-lang="en-US" class="submenu-title btn-lang">
+                    English
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Polish</a>
+                  <button data-lang="pl-PL" class="submenu-title btn-lang">
+                    Polish
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Fren&ccedil;h</a>
-                </li>
+                  <button data-lang="fr" class="submenu-title btn-lang">
+                    French
+                  </button>
               </ul>
             </li>
 
-            <li class="menu-category">
-              <button class="accordion-menu" data-accordion-btn>
-                <p class="menu-title">Currency</p>
-                <ion-icon
-                  name="caret-back-outline"
-                  class="caret-back"></ion-icon>
-              </button>
-
-              <ul class="submenu-category-list" data-accordion>
-                <li class="submenu-category">
-                  <a href="#" class="submenu-title">USD &dollar;</a>
-                </li>
-
-                <li class="submenu-category">
-                  <a href="#" class="submenu-title">EUR &euro;</a>
-                </li>
-              </ul>
-            </li>
+        
           </ul>
 
           <ul class="menu-social-container">
@@ -1034,44 +1016,46 @@
       <!--
             - LOGIN-FORM
           -->
-      <div class="container login-panel" id="panel-login-signup">
-        <div class="konteneryn" id="konteneryn">
-          <div class="formularz-kontener zarejestruj-sie-kontener">
-            <form id="signup-form" action="#" method="post" onsubmit="return validateSignupForm()">
-              <h1>Sign up</h1>
-              <span>Use your account</span>
-              <input type="text" placeholder="Imię" name="username" required pattern=".{3,}" title="Username must be at least 3 characters long" />
-              <input type="email" placeholder="E-mail" name="email" required pattern=".+@.+\..{2,}" title="Please include '@' and a domain" />
-              <input type="password" placeholder="Hasło" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" title="Password must contain at least one number, one uppercase letter, and one special character" />
-              <button type="submit">SIGN UP</button>
-            </form>
-          </div>
-          <div class="formularz-kontener zaloguj-sie-kontener">
-            <form id="signin-form" action="#" method="post" onsubmit="return validateSigninForm()">
-              <h1>Sign in</h1>
-              <span>Use your account</span>
-              <input type="email" placeholder="E-mail" name="email" required pattern=".+@.+\..{2,}" title="Please include '@' and a domain" />
-              <input type="password" placeholder="Hasło" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" title="Password must contain at least one number, one uppercase letter, and one special character" />
-              <a href="#">Forget your password?</a>
-              <button type="submit">SIGN IN</button>
-            </form>
-          </div>
-          <div class="nakładka-kontener">
-            <div class="nakładka">
-              <div class="nakładka-panel nakładka-lewa">
-                <h1>Welcome back!</h1>
-                <p>To keep connected with us please login with your personal info</p>
-                <button class="widmo" id="zaloguj">Sign in</button>
+          <div class="container login-panel" id="panel-login-signup">
+            <div class="konteneryn" id="konteneryn">
+              <div class="formularz-kontener zarejestruj-sie-kontener">
+                <form id="signup-form">
+                  <h1>Register</h1>
+                  <span>Use your account</span>
+                  <input type="text" placeholder="Imię" id="signup-username" required pattern=".{3,}" title="Nazwa użytkownika musi mieć co najmniej 3 znaki" />
+                  <input type="email" placeholder="E-mail" id="signup-email" required pattern=".+@.+\..{2,}" title="Proszę podać '@' i domenę" />
+                  <input type="password" placeholder="Hasło" id="signup-password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z\d]).{8,}" title="Hasło musi zawierać przynajmniej jedną cyfrę, jedną dużą literę i jeden znak specjalny" />
+                  <button type="button" onclick="registerUser()">Register</button>
+                </form>
               </div>
-              <div class="nakładka-panel nakładka-prawa">
-                <h1>Hello, Friend!</h1>
-                <p>Enter your personal details and start journey with us</p>
-                <button class="widmo" id="zarejestruj">Sign up</button>
+              <div class="formularz-kontener zaloguj-sie-kontener">
+                <form id="signin-form">
+                  <h1>Log in</h1>
+                  <span>Use your account</span>
+                  <input type="email" placeholder="E-mail" id="signin-email" required />
+                  <input type="password" placeholder="Hasło" id="signin-password" required />
+                  <button type="button" onclick="loginUser()">Log in</button>
+                </form>
+              </div>
+              <div class="nakładka-kontener">
+                <div class="nakładka">
+                  <div class="nakładka-panel nakładka-lewa">
+                    <h1>Welcome back!</h1>
+                    <p>To stay with us, log in with your details</p>
+                    <button class="widmo" id="zaloguj">Log in</button>
+                  </div>
+                  <div class="nakładka-panel nakładka-prawa">
+                    <h1>Hello my friend!</h1>
+                    <p>Enter your personal data and start your adventure with us</p>
+                    <button class="widmo" id="zarejestruj">Register</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        
+          <div id="notification" style="display: none; position: fixed; bottom: 0; left: 0; color: white; padding: 10px; border-radius: 15px;
+          margin-bottom: 10px;
+          margin-left: 10px;"></div>
         </div>
       </div>
       <div>
@@ -1470,7 +1454,10 @@
     - custom js link
   -->
     <script src="assets/js/script.js"></script>
+    <script src="./assets/js/counterCart.js"></script>
+    <script src="assets/js/changeTheLanguage.js"></script>
     <script src="assets/js/login.js"></script>
+    <script src="assets/js/loginAccount.js"></script>
       
     <!--
     - ionicon link

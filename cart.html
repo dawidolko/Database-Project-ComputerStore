@@ -14,6 +14,9 @@
     studies, store, TechByte" />
     <meta name="author" content="TechByte" />
     <meta name="copyright" content="TechByte" />
+    <script
+      src="https://kit.fontawesome.com/fdc09ecfc9.js"
+      crossorigin="anonymous"></script>
 
     <!--
     - favicon
@@ -153,11 +156,6 @@
           </div>
 
           <div class="header-top-actions">
-            <select name="currency">
-              <option value="usd">USD &dollar;</option>
-              <option value="eur">EUR &euro;</option>
-            </select>
-
             <select name="language">
               <option value="en-US">English</option>
               <option value="pl-PL">Polish</option>
@@ -196,12 +194,12 @@
 
             <a href="favorite.html" class="action-btn">
               <ion-icon name="heart-outline"></ion-icon>
-              <span class="count">0</span></a
+              <span class="count-favorite">0</span></a
             >
 
             <a href="cart.html" class="action-btn">
               <ion-icon name="bag-handle-outline"></ion-icon>
-              <span class="count">0</span></a
+              <span class="count-cart">0</span></a
             >
           </div>
         </div>
@@ -436,7 +434,7 @@
           <a href="cart.html">
             <ion-icon name="bag-handle-outline"></ion-icon>
           </a>
-          <span class="count">0</span>
+          <span class="count-cart">0</span>
         </button>
 
         <button class="action-btn">
@@ -450,7 +448,7 @@
             <ion-icon name="heart-outline"></ion-icon
           ></a>
 
-          <span class="count">0</span>
+          <span class="count-favorite">0</span>
         </button>
 
         <button class="action-btn" data-mobile-menu-open-btn="sidebar">
@@ -628,34 +626,19 @@
 
               <ul class="submenu-category-list" data-accordion>
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">English</a>
+                  <button data-lang="en-US" class="submenu-title btn-lang">
+                    English
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Polish</a>
+                  <button data-lang="pl-PL" class="submenu-title btn-lang">
+                    Polish
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Fren&ccedil;h</a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="menu-category">
-              <button class="accordion-menu" data-accordion-btn>
-                <p class="menu-title">Currency</p>
-                <ion-icon
-                  name="caret-back-outline"
-                  class="caret-back"></ion-icon>
-              </button>
-
-              <ul class="submenu-category-list" data-accordion>
-                <li class="submenu-category">
-                  <a href="#" class="submenu-title">USD &dollar;</a>
-                </li>
-
-                <li class="submenu-category">
-                  <a href="#" class="submenu-title">EUR &euro;</a>
+                  <button data-lang="fr" class="submenu-title btn-lang">
+                    French
+                  </button>
                 </li>
               </ul>
             </li>
@@ -1032,8 +1015,100 @@
         </div>
       </div>
 
+      <!--
+            - CART
+          -->
+
+      <div class="container">
+        <h2 class="cart__heading">Your cart</h2>
+        <section class="cart">
+          <div class="cart__wrapper">
+            <table class="cart__table">
+              <tr class="cart__table-titles">
+                <th>Product</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+              <tbody class="cart__table_tr"></tbody>
+            </table>
+            <div class="cart__box">
+              <a href="index.html">
+                <button class="cart__continue">
+                  <i class="fa-solid fa-chevron-left"></i> Continue
+                </button>
+              </a>
+              <p class="cart__total-price"></p>
+              <!-- <button class="payment__button" onclick="attemptCheckout()">
+                Buy now
+              </button> -->
+            </div>
+          </div>
+          <form id="personalInfoForm" onsubmit="validateAndCheckout(event)">
+            <div class="payment">
+              <h2 class="payment__title">Personal Information</h2>
+              <label class="payment__label">Name and Surname</label>
+              <input
+                type="text"
+                placeholder="Your name"
+                id="nameSurname"
+                class="payment__input"
+                required />
+              <label class="payment__label">Phone Number</label>
+              <input
+                type="text"
+                placeholder="Phone Number"
+                id="phoneNumber"
+                class="payment__input"
+                required />
+              <label class="payment__label">Address</label>
+              <input
+                type="text"
+                placeholder="Address"
+                id="address"
+                class="payment__input"
+                required />
+              <h2 class="payment__title">Card Information</h2>
+              <div class="payment__icons">
+                <img src="./img/visa.webp" alt="" class="payment__icon" />
+                <img src="./img/master.webp" alt="" class="payment__icon" />
+              </div>
+              <input
+                type="password"
+                id="cardNumber"
+                class="payment__input"
+                placeholder="Card Number"
+                required />
+              <div class="payment__Info">
+                <input
+                  type="text"
+                  placeholder="mm"
+                  id="expMonth"
+                  class="payment__input payment__input-date"
+                  required />
+                <input
+                  type="text"
+                  placeholder="yyyy"
+                  id="expYear"
+                  class="payment__input payment__input-date"
+                  required />
+                <input
+                  type="text"
+                  placeholder="cvv"
+                  id="cvv"
+                  class="payment__input payment__input-date"
+                  required />
+              </div>
+              <p class="payment__message"></p>
+              <button type="submit" class="payment__button">Checkout!</button>
+            </div>
+          </form>
+        </section>
+      </div>
+      <div class="notification"></div>
+
       <div>
-        <div class="container">
+        <div class="container-cart">
           <div class="testimonials-box">
             <!--
             - TESTIMONIALS
@@ -1428,6 +1503,11 @@
     - custom js link
   -->
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/changeTheLanguage.js"></script>
+    <script src="./assets/js/counterCart.js"></script>
+    <script src="./assets/js/loginAccount.js"></script>
+    <script src="assets/js/loginAccount.js"></script>
+    <script src="assets/js/cartAdd.js"></script>
 
     <!--
     - ionicon link

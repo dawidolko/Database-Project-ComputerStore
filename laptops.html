@@ -153,10 +153,6 @@
           </div>
 
           <div class="header-top-actions">
-            <select name="currency">
-              <option value="usd">USD &dollar;</option>
-              <option value="eur">EUR &euro;</option>
-            </select>
 
             <select name="language">
               <option value="en-US">English</option>
@@ -196,12 +192,12 @@
 
             <a href="favorite.html" class="action-btn">
               <ion-icon name="heart-outline"></ion-icon>
-              <span class="count">0</span></a
+              <span class="count-favorite">0</span></a
             >
 
             <a href="cart.html" class="action-btn">
               <ion-icon name="bag-handle-outline"></ion-icon>
-              <span class="count">0</span></a
+              <span class="count-cart">0</span></a
             >
           </div>
         </div>
@@ -250,15 +246,15 @@
                   </li>
 
                   <li class="panel-list-item">
-                    <a href="laptops.html#gaming">Gaming</a>
+                    <button class="category-btn" data-category="#gaming">Gaming</button>
                   </li>
 
                   <li class="panel-list-item">
-                    <a href="laptops.html#learning">Learing</a>
+                    <button class="category-btn" data-category="#learning">Learing</button>
                   </li>
 
                   <li class="panel-list-item">
-                    <a href="laptops.html#office">Office</a>
+                    <button class="category-btn" data-category="#office">Office</button>
                   </li>
 
                   <li class="panel-list-item">
@@ -355,19 +351,19 @@
 
               <ul class="dropdown-list">
                 <li class="dropdown-item">
-                  <a href="laptops.html#gaming">Gaming</a>
+                  <button class="category-btn" data-category="#gaming">Gaming</button>
                 </li>
 
                 <li class="dropdown-item">
-                  <a href="laptops.html#learning">Learning</a>
+                  <button class="category-btn" data-category="#learning">Learing</button>
                 </li>
 
                 <li class="dropdown-item">
-                  <a href="laptops.html#office">Office</a>
+                  <button class="category-btn" data-category="#office">Office</button>
                 </li>
 
                 <li class="dropdown-item">
-                  <a href="laptops.html#all">All</a>
+                  <button class="category-btn" data-category="#all">All</button>
                 </li>
               </ul>
             </li>
@@ -436,7 +432,7 @@
           <a href="cart.html">
             <ion-icon name="bag-handle-outline"></ion-icon>
           </a>
-          <span class="count">0</span>
+          <span class="count-cart">0</span>
         </button>
 
         <button class="action-btn">
@@ -450,7 +446,7 @@
             <ion-icon name="heart-outline"></ion-icon
           ></a>
 
-          <span class="count">0</span>
+          <span class="count-favorite">0</span>
         </button>
 
         <button class="action-btn" data-mobile-menu-open-btn="sidebar">
@@ -517,21 +513,20 @@
 
             <ul class="submenu-category-list" data-accordion>
               <li class="submenu-category">
-                <a href="laptops.html#gaming" class="submenu-title">Gaming</a>
+                <button class="category-btn" data-category="#gaming">Gaming</button>
+
               </li>
 
               <li class="submenu-category">
-                <a href="laptops.html#learning" class="submenu-title"
-                  >Learning</a
-                >
+                <button class="category-btn" data-category="#learning">Learing</button>
               </li>
 
               <li class="submenu-category">
-                <a href="laptops.html#office" class="submenu-title">Office</a>
+                <button class="category-btn" data-category="#office">Office</button>
               </li>
 
               <li class="submenu-category">
-                <a href="laptops.html#all" class="submenu-title">All</a>
+                <button class="category-btn" data-category="#all">All</button>
               </li>
             </ul>
           </li>
@@ -628,35 +623,19 @@
 
               <ul class="submenu-category-list" data-accordion>
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">English</a>
+                  <button data-lang="en-US" class="submenu-title btn-lang">
+                    English
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Polish</a>
+                  <button data-lang="pl-PL" class="submenu-title btn-lang">
+                    Polish
+                  </button>
                 </li>
-
                 <li class="submenu-category">
-                  <a href="#" class="submenu-title">Fren&ccedil;h</a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="menu-category">
-              <button class="accordion-menu" data-accordion-btn>
-                <p class="menu-title">Currency</p>
-                <ion-icon
-                  name="caret-back-outline"
-                  class="caret-back"></ion-icon>
-              </button>
-
-              <ul class="submenu-category-list" data-accordion>
-                <li class="submenu-category">
-                  <a href="#" class="submenu-title">USD &dollar;</a>
-                </li>
-
-                <li class="submenu-category">
-                  <a href="#" class="submenu-title">EUR &euro;</a>
-                </li>
+                  <button data-lang="fr" class="submenu-title btn-lang">
+                    French
+                  </button>
               </ul>
             </li>
           </ul>
@@ -963,28 +942,23 @@
 
                 <ul class="sidebar-submenu-category-list" data-accordion>
                   <li class="sidebar-submenu-category">
-                    <a href="laptops.html#gaming" class="sidebar-submenu-title">
-                      <p class="product-name">Gaming</p>
+                    <button class="category-btn" data-category="#gaming">Gaming
                       <data value="45" class="stock" title="Available Stock"
                         >12</data
                       >
-                    </a>
+                    </button>
                   </li>
 
                   <li class="sidebar-submenu-category">
-                    <a
-                      href="laptops.html#learning"
-                      class="sidebar-submenu-title">
-                      <p class="product-name">Learning</p>
+                    <button class="category-btn" data-category="#learning">Learning
                       <data value="5" class="stock" title="Available Stock"
                         >5</data
                       >
-                    </a>
+                    </button>
                   </li>
 
                   <li class="sidebar-submenu-category">
-                    <a href="laptops.html#office" class="sidebar-submenu-title">
-                      <p class="product-name">Office</p>
+                    <button class="category-btn" data-category="#office">Office
                       <data value="6" class="stock" title="Available Stock"
                         >6</data
                       >
@@ -992,12 +966,11 @@
                   </li>
 
                   <li class="sidebar-submenu-category">
-                    <a href="laptops.html#all" class="sidebar-submenu-title">
-                      <p class="product-name">All</p>
+                    <button class="category-btn" data-category="#all">All
                       <data value="23" class="stock" title="Available Stock"
                         >23</data
                       >
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </li>
@@ -1223,22 +1196,20 @@
                   width="300"
                   class="product-img hover" />
 
-                <p class="showcase-badge">15%</p>
-
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
                   <button class="btn-action magnification">
                     <ion-icon name="eye-outline"></ion-icon>
-                  </button>              
+                  </button>
 
                   <button class="btn-action repeat">
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -1281,10 +1252,8 @@
                   width="300"
                   class="product-img hover" />
 
-                <p class="showcase-badge angle black">sale</p>
-
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -1296,7 +1265,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -1342,7 +1311,7 @@
                   class="product-img hover" />
 
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -1354,7 +1323,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -1399,10 +1368,8 @@
                   width="300"
                   class="product-img hover" />
 
-                <p class="showcase-badge angle pink">new</p>
-
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -1414,7 +1381,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -1460,7 +1427,7 @@
                   class="product-img hover" />
 
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -1472,7 +1439,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -1519,10 +1486,8 @@
                 width="300"
                 class="product-img hover" />
 
-                <p class="showcase-badge angle black">sale</p>
-
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -1534,7 +1499,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -1583,7 +1548,7 @@
                   class="product-img hover" />
 
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -1595,7 +1560,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -1642,10 +1607,8 @@
                 width="300"
                 class="product-img hover" />
 
-                <p class="showcase-badge angle black">sale</p>
-
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -1657,7 +1620,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -1705,7 +1668,7 @@
                   class="product-img hover" />
 
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -1717,7 +1680,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -1765,7 +1728,7 @@
                   class="product-img hover" />
 
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -1777,7 +1740,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -1837,7 +1800,7 @@
                   class="product-img hover" />
 
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -1849,7 +1812,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -1894,10 +1857,8 @@
                   width="300"
                   class="product-img hover" />
 
-                <p class="showcase-badge angle pink">new</p>
-
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -1909,7 +1870,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -1955,7 +1916,7 @@
                   class="product-img hover" />
 
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -1967,7 +1928,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -2015,7 +1976,7 @@
                   class="product-img hover" />
 
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -2027,7 +1988,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -2085,10 +2046,8 @@
                   width="300"
                   class="product-img hover" />
 
-                <p class="showcase-badge">15%</p>
-
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -2100,7 +2059,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -2143,10 +2102,9 @@
                 width="300"
                 class="product-img hover" />
 
-                <p class="showcase-badge angle black">sale</p>
 
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -2158,7 +2116,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -2206,10 +2164,8 @@
                 width="300"
                 class="product-img hover" />
 
-                <p class="showcase-badge angle black">sale</p>
-
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -2221,7 +2177,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -2280,10 +2236,8 @@
                   width="300"
                   class="product-img hover" />
 
-                <p class="showcase-badge angle black">sale</p>
-
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -2295,7 +2249,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -2341,7 +2295,7 @@
                   class="product-img hover" />
 
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -2353,7 +2307,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -2401,7 +2355,7 @@
                   class="product-img hover" />
 
                 <div class="showcase-actions">
-                  <button class="btn-action">
+                  <button class="btn-action heart">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -2413,7 +2367,7 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action">
+                  <button class="btn-action bag-add">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -2605,15 +2559,9 @@
           <div class="footer-category-box">
             <h3 class="category-box-title">Laptops :</h3>
 
-            <a href="laptops.html#gaming" class="footer-category-link"
-              >Gaming</a
-            >
-            <a href="laptops.html#learning" class="footer-category-link"
-              >Learning</a
-            >
-            <a href="laptops.html#office" class="footer-category-link"
-              >Office</a
-            >
+            <button class="category-btn" data-category="#gaming">Gaming
+              <button class="category-btn" data-category="#learning">Learning
+                <button class="category-btn" data-category="#office">Office
           </div>
 
           <div class="footer-category-box">
@@ -2845,6 +2793,9 @@
     - custom js link
   -->
     <script src="assets/js/script.js"></script>
+    <script src="./assets/js/counterCart.js"></script>
+    <script src="assets/js/changeTheLanguage.js"></script>
+    <script src="assets/js/loginAccount.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const categoryButtons = document.querySelectorAll('.category-btn');

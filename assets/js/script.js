@@ -140,8 +140,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
     closeMobileMenuBtn.addEventListener("click", closeMobileMenu);
   }
 
-  // Event listener for overlay to close mobile menu
+  // Updated overlay click event listener
   if (overlay) {
-    overlay.addEventListener("click", closeMobileMenu);
+    overlay.addEventListener("click", function () {
+      if (
+        mobileNavigationMenu.classList.contains("active") ||
+        sidebarCategory.classList.contains("active")
+      ) {
+        mobileNavigationMenu.classList.remove("active");
+        sidebarCategory.classList.remove("active");
+        overlay.classList.remove("active");
+      }
+    });
   }
 });

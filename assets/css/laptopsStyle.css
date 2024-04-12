@@ -635,7 +635,8 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 10px;
 }
 
-.mobile-bottom-navigation .count {
+.mobile-bottom-navigation .count-cart,
+.mobile-bottom-navigation .count-favorite {
   background: var(--bittersweet);
   color: var(--white);
   position: absolute;
@@ -766,14 +767,16 @@ body::-webkit-scrollbar-thumb:hover {
   margin-left: 10px;
 }
 
-.submenu-title {
+.submenu-title,
+.submenu-category button {
   padding: 6px 0;
   font-size: var(--fs-6);
   color: var(--sonic-silver);
   font-weight: var(--weight-300);
 }
 
-.submenu-title:hover {
+.submenu-title:hover,
+.submenu-category button:hover {
   color: var(--davys-gray);
 }
 
@@ -1279,7 +1282,8 @@ body::-webkit-scrollbar-thumb:hover {
   visibility: visible;
 }
 
-.sidebar-submenu-title {
+.sidebar-submenu-title,
+.sidebar button {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1297,11 +1301,13 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 2px 0;
 }
 
-.sidebar-submenu-title:hover {
+.sidebar-submenu-title:hover,
+.sidebar button:hover {
   color: var(--eerie-black);
 }
 
-.sidebar .product-name {
+.sidebar .product-name,
+.sidebar button {
   text-transform: capitalize;
 }
 
@@ -1889,7 +1895,8 @@ footer {
   text-transform: uppercase;
 }
 
-.footer-category-link {
+.footer-category-link,
+.footer-category-box button {
   position: relative;
   color: var(--sonic-silver);
   font-size: var(--fs-7);
@@ -1899,7 +1906,8 @@ footer {
   transition: var(--transition-timing);
 }
 
-.footer-category-link:hover {
+.footer-category-link:hover,
+.footer-category-box button:hover {
   color: var(--spanish-gray);
 }
 
@@ -2509,7 +2517,8 @@ footer {
     padding: 5px;
   }
 
-  .header-user-actions .count {
+  .header-user-actions .count-cart,
+  .header-user-actions .count-favorite {
     position: absolute;
     top: -2px;
     right: -3px;
@@ -2664,7 +2673,8 @@ footer {
     border-radius: var(--border-radius-sm);
   }
 
-  .dropdown-list {
+  .dropdown-list,
+  .dropdown-panel-list button {
     position: absolute;
     top: 100%;
     left: 0;
@@ -2697,7 +2707,8 @@ footer {
     pointer-events: all;
   }
 
-  .dropdown-list .dropdown-item a {
+  .dropdown-list .dropdown-item a,
+  .menu-category button {
     color: var(--sonic-silver);
     font-size: var(--fs-7);
     text-transform: capitalize;
@@ -2707,7 +2718,8 @@ footer {
     transition: var(--transition-timing);
   }
 
-  .dropdown-list .dropdown-item a:hover {
+  .dropdown-list .dropdown-item a:hover,
+  .menu-category button:hover {
     color: var(--salmon-pink);
   }
 

@@ -635,7 +635,8 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 10px;
 }
 
-.mobile-bottom-navigation .count {
+.mobile-bottom-navigation .count-cart,
+.mobile-bottom-navigation .count-favorite {
   background: var(--bittersweet);
   color: var(--white);
   position: absolute;
@@ -2095,7 +2096,8 @@ footer {
     padding: 5px;
   }
 
-  .header-user-actions .count {
+  .header-user-actions .count-cart,
+  .header-user-actions .count-favorite {
     position: absolute;
     top: -2px;
     right: -3px;

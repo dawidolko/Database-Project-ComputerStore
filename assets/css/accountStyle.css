@@ -635,7 +635,8 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 10px;
 }
 
-.mobile-bottom-navigation .count {
+.mobile-bottom-navigation .count-cart,
+.mobile-bottom-navigation .count-favorite {
   background: var(--bittersweet);
   color: var(--white);
   position: absolute;
@@ -1105,6 +1106,103 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .action-btn a:visited {
   color: #000;
+}
+
+/*-----------------------------------*\
+  #ACCOUNT
+\*-----------------------------------*/
+
+.account-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-greeting h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.user-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+.action-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.action-button:hover {
+  background-color: #2980b9;
+}
+
+.user-form {
+  margin-bottom: 20px;
+}
+
+.user-form textarea,
+.user-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.submit-button {
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #27ae60;
+}
+
+#notification-box {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background-color: red;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  display: none;
+  z-index: 1000;
+}
+
+.user-orders {
+  display: flex;
+  justify-content: center;
+}
+
+#order {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.order-item {
+  margin-bottom: 20px;
+  background-color: #d6d1d1;
 }
 
 /*-----------------------------------*\
@@ -1862,7 +1960,8 @@ footer {
     padding: 5px;
   }
 
-  .header-user-actions .count {
+  .header-user-actions .count-cart,
+  .header-user-actions .count-favorite {
     position: absolute;
     top: -2px;
     right: -3px;
