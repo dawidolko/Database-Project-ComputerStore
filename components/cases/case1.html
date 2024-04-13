@@ -1089,7 +1089,13 @@
                 <div class="thumbnail-container"></div>
 
                 <div class="showcase-actions">
-                  <button class="btn-action heart">
+                  <button
+                    class="btn-action heart"
+                    onclick="addToFavorite(this)"
+                    data-image="../../assets/images/products/components/computerCases/casev1.webp"
+                    data-name="Fury Shobo SH4F RGB"
+                    data-price="84.00"
+                    data-quantity="1">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -1101,7 +1107,14 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action bag-add">
+                  <button
+                    class="btn-action bag-add"
+                    onclick="addToCart(this)"
+                    data-id="unique-product-id-330"
+                    data-image="../../assets/images/products/components/computerCases/casev1.webp"
+                    data-name="Fury Shobo SH4F RGB"
+                    data-price="84.00"
+                    data-quantity="1">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -1130,11 +1143,24 @@
                       </div>
 
                       <div class="cart-favorite">
-                        <button class="btn-action favoriting">
+                        <button
+                          class="btn-action heart favoriting"
+                          onclick="addToFavorite(this)"
+                          data-image="../../assets/images/products/components/computerCases/casev1.webp"
+                          data-name="Fury Shobo SH4F RGB"
+                          data-price="84.00"
+                          data-quantity="1">
                           <ion-icon name="heart-outline"></ion-icon>
                         </button>
 
-                        <button class="btn-action carting">
+                        <button
+                          class="btn-action bag-add carting"
+                          onclick="addToCart(this)"
+                          data-id="unique-product-id-330"
+                          data-image="../../assets/images/products/components/computerCases/casev1.webp"
+                          data-name="Fury Shobo SH4F RGB"
+                          data-price="84.00"
+                          data-quantity="1">
                           <ion-icon name="bag-add-outline"></ion-icon>
                         </button>
                       </div>
@@ -1706,7 +1732,10 @@
     <script src="../../assets/js/changeTheLanguage.js"></script>
     <script src="../../assets/js/exchange.js"></script>
     <script src="../../assets/js/caseProduct.js"></script>
-    <script src="assets/js/loginAccount.js"></script>
+    <script src="../../assets/js/loginAccount.js"></script>
+    <script src="../../assets/js/cartAdd.js"></script>
+    <script src="../../assets/js/favoriteAdd.js"></script>
+    <script src="../../assets/js/counterCart.js"></script>
 
     <!--
     - ionicon link

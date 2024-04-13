@@ -5,42 +5,79 @@
     <title>Panel Admina w Jednym Pliku</title>
     <style>
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7fa;
+        margin: 0;
+        padding: 0;
       }
 
-      .login-container,
-      .dashboard-container {
-        max-width: 300px;
-        margin: auto;
-        text-align: center;
-        padding-top: 20px;
-        display: none; /* Domyslnie ukryte */
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .panel {
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 20px;
+        margin: 15px;
+      }
+
+      h1 {
+        color: #333;
+        font-size: 24px;
+      }
+
+      button {
+        background-color: #5c6bc0;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        margin: 10px 0;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #3f51b5;
       }
 
       input[type="text"],
-      input[type="password"],
-      button {
-        margin-top: 10px;
+      input[type="password"] {
         width: 100%;
         padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .dashboard-container {
+        display: none; /* Default to hidden */
       }
     </style>
   </head>
   <body>
-    <div class="login-container" id="login-container">
-      <input type="text" id="username" placeholder="Login" />
-      <input type="password" id="password" placeholder="Hasło" />
-      <button onclick="login()">Zaloguj</button>
-    </div>
+    <div class="container">
+      <div class="panel login-container" id="login-container">
+        <h1>Logowanie</h1>
+        <input type="text" id="username" placeholder="Login" />
+        <input type="password" id="password" placeholder="Hasło" />
+        <button onclick="login()">Zaloguj</button>
+      </div>
 
-    <div class="dashboard-container" id="dashboard-container">
-      <h1>Panel Admina</h1>
-      <button>Dodaj produkt</button>
-      <button>Usuń produkt</button>
-      <button>Edytuj produkt</button>
-      <button>Odczytaj produkt</button>
-      <br /><br />
-      <button onclick="logout()">Wyloguj</button>
+      <div class="panel dashboard-container" id="dashboard-container">
+        <h1>Panel Admina</h1>
+        <button onclick="addProduct()">Dodaj produkt</button>
+        <button onclick="removeProduct()">Usuń produkt</button>
+        <button onclick="editProduct()">Edytuj produkt</button>
+        <button onclick="readProduct()">Odczytaj produkt</button>
+        <br /><br />
+        <button onclick="logout()">Wyloguj</button>
+      </div>
     </div>
 
     <script>
@@ -64,7 +101,21 @@
         document.getElementById("password").value = "";
       }
 
-      // Na starcie pokazujemy tylko login-container
+      // Additional dummy functions for the dashboard
+      function addProduct() {
+        /* logic to add product */
+      }
+      function removeProduct() {
+        /* logic to remove product */
+      }
+      function editProduct() {
+        /* logic to edit product */
+      }
+      function readProduct() {
+        /* logic to read product */
+      }
+
+      // Display login container on start
       document.getElementById("login-container").style.display = "block";
     </script>
   </body>

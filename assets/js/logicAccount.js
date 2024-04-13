@@ -3,58 +3,73 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function loadUserData() {
-  // Load user data from localStorage or a server call
-  const username = localStorage.getItem("userEmail"); // Example, use more detailed user data
+  const username = localStorage.getItem("userEmail");
   document.getElementById("user-name").textContent = username;
 }
 
 function toggleForm(formId) {
-  // Hide all forms
   document
     .querySelectorAll(".user-form")
     .forEach((form) => (form.style.display = "none"));
-  // Show the one we care about
   const form = document.getElementById(formId);
   form.style.display = form.style.display === "none" ? "block" : "none";
 }
 
 function changePassword() {
-  const oldPassword = document.getElementById("old-password").value;
-  const newPassword = document.getElementById("new-password").value;
-  const storedPassword = localStorage.getItem("userPassword"); // For example purposes
+  const oldPasswordInput = document.getElementById("old-password");
+  const newPasswordInput = document.getElementById("new-password");
+  const oldPassword = oldPasswordInput.value;
+  const newPassword = newPasswordInput.value;
+  const userEmail = localStorage.getItem("loggedInUserName");
+  const users = JSON.parse(localStorage.getItem("users")) || {};
 
-  if (oldPassword === storedPassword) {
-    // Save the new password - this is just for demonstration purposes
-    localStorage.setItem("userPassword", newPassword);
-    showNotification("Hasło zostało zmienione.", "green");
-    // Delay the redirect
-    setTimeout(() => {
-      window.location.href = "account.html";
-    }, 3000);
-  } else {
-    showNotification("Stare hasło jest nieprawidłowe.", "red");
+  const user = Object.values(users).find((u) => u.username === userEmail);
+
+  if (!user) {
+    showNotification("Nie jesteś zalogowany.", "red");
+    return;
   }
+
+  if (user.password !== oldPassword) {
+    showNotification("Stare hasło jest nieprawidłowe.", "red");
+    oldPasswordInput.value = "";
+    return;
+  }
+
+  user.password = newPassword;
+  localStorage.setItem("users", JSON.stringify(users));
+  showNotification("Hasło zostało zmienione.", "green");
+  newPasswordInput.value = "";
 }
 
 function submitComplaint() {
-  // Here you'd normally send data to the server
   showNotification("Reklamacja została wysłana.", "green");
-  // Delay any navigation if necessary
 }
 
 function leaveReview() {
-  // Here you'd normally send data to the server
   showNotification("Opinia została opublikowana.", "green");
-  // Delay any navigation if necessary
 }
 
 function showNotification(message, color) {
-  const notificationBox = document.getElementById("notification-box");
-  notificationBox.textContent = message;
-  notificationBox.style.backgroundColor = color;
-  notificationBox.style.display = "block";
-  // Ustaw timeout na 3000 milisekund (3 sekundy)
-  setTimeout(() => {
-    notificationBox.style.display = "none";
-  }, 3000);
+  const notification = document.getElementById("notification-box");
+  if (notification) {
+    notification.textContent = message;
+    notification.style.backgroundColor = color;
+    notification.style.display = "block";
+    notification.style.position = "fixed";
+    notification.style.left = "50%";
+    notification.style.bottom = "10px";
+    notification.style.transform = "translateX(-50%)";
+    notification.style.borderRadius = "5px";
+    notification.style.zIndex = "1000";
+    notification.style.padding = "10px";
+    notification.style.color = "white";
+    setTimeout(() => {
+      notification.style.display = "none";
+    }, 3000);
+  } else {
+    console.error(
+      "Element powiadomienia 'notification-box' nie został znaleziony w DOM."
+    );
+  }
 }

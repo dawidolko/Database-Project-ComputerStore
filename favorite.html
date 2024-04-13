@@ -1015,50 +1015,26 @@
         </div>
       </div>
 
-      <!-- <div class="container">
-        <h2 class="cart__heading">Favority products</h2>
-        <section class="cart">
-          <div class="cart__wrapper">
-            <table class="cart__table">
-              <tr class="cart__table-titles">
-                <th>Product</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Total</th>
-              </tr>
-              <tbody class="cart__table_tr"></tbody>
-            </table>
-            <div class="cart__box">
-              <a href="index.html"
-                ><button class="cart__continue">
-                  <i class="fa-solid fa-chevron-left"></i> Continue shopping
-                </button></a
-              >
-              <p class="cart__total-price"></p>
-            </div>
-          </div>
-      </div> -->
-
       <div class="container">
         <h2 class="cart__heading">Favorite products</h2>
         <section class="cart">
           <div class="cart__wrapper">
-            <table class="cart__table">
+            <table class="favorites__table_tr">
               <tr class="cart__table-titles">
                 <th>Product</th>
                 <th>Name</th>
                 <th>Quantity</th>
                 <th>Total</th>
               </tr>
-              <tbody class="cart__table_tr"></tbody>
+              <tbody class="favorites__table-body"></tbody>
             </table>
             <div class="cart__box">
               <a href="index.html">
                 <button class="cart__continue">
-                  <i class="fa-solid fa-chevron-left"></i> Continue shopping
+                  <i class="fa-solid fa-chevron-left"></i> Continue
                 </button>
               </a>
-              <p class="cart__total-price"></p>
+              <p class="favorites__total-price"></p>
               <button class="cart__buy" onclick="attemptPurchase()">
                 Buy now
               </button>
@@ -1082,24 +1058,6 @@
         ">
         You need to log in
       </div>
-      <script>
-        function attemptPurchase() {
-          if (!localStorage.getItem("loggedIn")) {
-            showLoginPrompt();
-          } else {
-            // logika realizacji zakupu
-          }
-        }
-
-        function showLoginPrompt() {
-          const notification = document.querySelector(".notification");
-          notification.style.display = "block";
-          setTimeout(function () {
-            notification.style.display = "none";
-            window.location.href = "login.html";
-          }, 3000);
-        }
-      </script>
 
       <div>
         <div class="container">
@@ -1500,6 +1458,7 @@
     <script src="./assets/js/counterCart.js"></script>
     <script src="assets/js/changeTheLanguage.js"></script>
     <script src="assets/js/loginAccount.js"></script>
+    <script src="./assets/js/favoriteAdd.js"></script>
 
     <!--
     - ionicon link

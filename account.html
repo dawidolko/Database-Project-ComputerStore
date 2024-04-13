@@ -1014,31 +1014,53 @@
 
       <!--
             - ACCOUNT
-          -->
+      -->
 
-      <div class="account-container container">
-        <!-- User greeting and actions -->
+      <div
+        id="logged-out-message"
+        class="user-greeting container"
+        style="display: block">
+        <div class="loginregister">
+          <h2>Zaloguj się lub zarejestruj</h2>
+          <a href="login.html" class="action-button">Przejdź do logowania</a>
+        </div>
+      </div>
+
+      <div class="account-container container" style="display: none">
         <div class="user-greeting">
           <h2>Cześć, <span id="user-name">[Nazwa użytkownika]</span></h2>
           <div class="user-actions">
-            <button
-              class="action-button"
-              onclick="toggleForm('change-password-form')">
-              Zmień hasło
-            </button>
-            <button
-              class="action-button"
-              onclick="toggleForm('complaint-form')">
-              Zgłoś reklamację
-            </button>
-            <button class="action-button" onclick="toggleForm('review-form')">
-              Wystaw opinię
-            </button>
+            <div class="opinion">
+              <button
+                class="action-button"
+                onclick="toggleForm('complaint-form')">
+                Zgłoś reklamację
+              </button>
+              <button class="action-button" onclick="toggleForm('review-form')">
+                Wystaw opinię
+              </button>
+            </div>
+            <div class="account-sys">
+              <button
+                class="action-button"
+                onclick="toggleForm('change-password-form')">
+                Zmień hasło
+              </button>
+              <button
+                id="logout-button"
+                class="action-button"
+                onclick="logoutUser()">
+                Wyloguj
+              </button>
+            </div>
           </div>
         </div>
 
-        <!-- Change Password Form -->
-        <form id="change-password-form" class="user-form" style="display: none">
+        <form
+          id="change-password-form"
+          class="user-form"
+          style="display: none"
+          onsubmit="changePassword(); return false;">
           <input
             type="password"
             placeholder="Stare hasło"
@@ -1049,12 +1071,11 @@
             placeholder="Nowe hasło"
             id="new-password"
             required />
-          <button class="submit-button" onclick="changePassword()">
+          <button type="submit" class="submit-button">
             Zatwierdź zmianę hasła
           </button>
         </form>
 
-        <!-- Complaint Form -->
         <form id="complaint-form" class="user-form" style="display: none">
           <textarea
             placeholder="Opisz swój problem"
@@ -1065,7 +1086,6 @@
           </button>
         </form>
 
-        <!-- Review Form -->
         <form id="review-form" class="user-form" style="display: none">
           <textarea
             placeholder="Napisz swoją opinię"
@@ -1076,16 +1096,13 @@
           </button>
         </form>
 
-        <!-- Orders Section -->
         <h3 id="order">Zamówienia</h3>
         <div class="user-orders">
-          <div id="orders-list">
-            <!-- Orders will be loaded here -->
-          </div>
+          <div id="orders-list"></div>
         </div>
       </div>
 
-      <!-- Notification Box -->
+      <div id="notification" style="display: none"></div>
       <div id="notification-box" style="display: none"></div>
 
       <div>

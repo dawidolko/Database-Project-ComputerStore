@@ -6,9 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const newsletterForm = document.querySelector(".newsletter form");
   const emailField = document.querySelector(".email-field");
 
-  // Funkcja aktualizująca liczniki w interfejsie użytkownika
   function updateCounters() {
-    // Pobieranie długości tablicy koszyka zamiast wartości licznika
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
     const cartCount = cartItems.length;
     const favoriteItems = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -22,10 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
     cartItems.splice(index, 1);
     localStorage.setItem("cart", JSON.stringify(cartItems));
-    updateCounters(); // Upewniamy się, że aktualizujemy licznik po każdej zmianie
+    updateCounters();
   }
 
-  // Funkcja wyświetlająca powiadomienia
   function showNotification(message) {
     const notification = document.createElement("div");
     notification.className = "notification";
@@ -45,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 3000);
   }
 
-  // Dodawanie produktu do koszyka
   addToCartButtons.forEach((button) => {
     button.addEventListener("click", function () {
       let cartCount = localStorage.getItem("cartCount") || 0;
@@ -56,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Dodawanie produktu do ulubionych
   addToFavoritesButtons.forEach((button) => {
     button.addEventListener("click", function () {
       let favoriteCount = localStorage.getItem("favoriteCount") || 0;
@@ -67,20 +62,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Obsługa formularza newslettera
   if (newsletterForm) {
     newsletterForm.addEventListener("submit", function (e) {
       e.preventDefault();
       const email = emailField.value.trim();
       if (email) {
-        // Upewnij się, że pole email nie jest puste
         localStorage.setItem("newsletterEmail", email);
         showNotification("Thank you for subscribing to our content!");
-        emailField.value = ""; // Opcjonalnie, wyczyść pole po subskrypcji
+        emailField.value = "";
       }
     });
   }
 
-  // Inicjalizacja liczników przy załadowaniu strony
   updateCounters();
 });

@@ -1088,7 +1088,13 @@
                 <div class="thumbnail-container"></div>
 
                 <div class="showcase-actions">
-                  <button class="btn-action heart">
+                  <button
+                    class="btn-action heart"
+                    onclick="addToFavorite(this)"
+                    data-image="../../assets/images/products/components/graphics/grap9v1.webp"
+                    data-name="Sapphire Radeon RX 7800 XT PURE 16GB GDDR6"
+                    data-price="585.00"
+                    data-quantity="1">
                     <ion-icon name="heart-outline"></ion-icon>
                   </button>
 
@@ -1100,7 +1106,14 @@
                     <ion-icon name="repeat-outline"></ion-icon>
                   </button>
 
-                  <button class="btn-action bag-add">
+                  <button
+                    class="btn-action bag-add"
+                    onclick="addToCart(this)"
+                    data-id="unique-product-id-368"
+                    data-image="../../assets/images/products/components/graphics/grap9v1.webp"
+                    data-name="Sapphire Radeon RX 7800 XT PURE 16GB GDDR6"
+                    data-price="585.00"
+                    data-quantity="1">
                     <ion-icon name="bag-add-outline"></ion-icon>
                   </button>
                 </div>
@@ -1128,16 +1141,29 @@
 
                     <div class="price-cart-fav">
                       <div class="price-box">
-                        <p class="price" data-price-usd="24.00">$585.00</p>
-                        <del data-price-usd="40.00">$535.00</del>
+                        <p class="price" data-price-usd="585.00">$585.00</p>
+                        <del data-price-usd="535.00">$535.00</del>
                       </div>
 
                       <div class="cart-favorite">
-                        <button class="btn-action favoriting">
+                        <button
+                          class="btn-action heart favoriting"
+                          onclick="addToFavorite(this)"
+                          data-image="../../assets/images/products/components/graphics/grap9v1.webp"
+                          data-name="Sapphire Radeon RX 7800 XT PURE 16GB GDDR6"
+                          data-price="585.00"
+                          data-quantity="1">
                           <ion-icon name="heart-outline"></ion-icon>
                         </button>
 
-                        <button class="btn-action carting">
+                        <button
+                          class="btn-action bag-add carting"
+                          onclick="addToCart(this)"
+                          data-id="unique-product-id-368"
+                          data-image="../../assets/images/products/components/graphics/grap9v1.webp"
+                          data-name="Sapphire Radeon RX 7800 XT PURE 16GB GDDR6"
+                          data-price="585.00"
+                          data-quantity="1">
                           <ion-icon name="bag-add-outline"></ion-icon>
                         </button>
                       </div>
@@ -1699,7 +1725,10 @@
     <script src="../../assets/js/changeTheLanguage.js"></script>
     <script src="../../assets/js/exchange.js"></script>
     <script src="../../assets/js/graphicsProduct.js"></script>
-    <script src="assets/js/loginAccount.js"></script>
+    <script src="../../assets/js/loginAccount.js"></script>
+    <script src="../../assets/js/cartAdd.js"></script>
+    <script src="../../assets/js/favoriteAdd.js"></script>
+    <script src="../../assets/js/counterCart.js"></script>
     <!--
     - ionicon link
   -->

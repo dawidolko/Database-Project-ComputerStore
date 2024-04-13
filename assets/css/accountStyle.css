@@ -1119,18 +1119,38 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: #f5f5f5;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+}
+
+.opinion,
+.account-sys {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 20px;
 }
 
 .user-greeting h2 {
   font-size: 24px;
   color: #333;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .user-actions {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
   margin-bottom: 50px;
+}
+
+#logged-out-message {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#logged-out-message a {
+  display: flex;
+  justify-content: center;
 }
 
 .action-button {
@@ -1142,15 +1162,23 @@ body::-webkit-scrollbar-thumb:hover {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  max-width: 200px;
   transition: background-color 0.3s;
 }
 
 .action-button:hover {
   background-color: #2980b9;
+  max-width: 200px;
 }
 
 .user-form {
   margin-bottom: 20px;
+}
+
+.loginregister {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .user-form textarea,
@@ -1200,9 +1228,18 @@ body::-webkit-scrollbar-thumb:hover {
   margin-bottom: 20px;
 }
 
+.order-item img {
+  width: 200px;
+  height: 200px;
+}
 .order-item {
   margin-bottom: 20px;
   background-color: #d6d1d1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 500px;
 }
 
 /*-----------------------------------*\
@@ -1803,6 +1840,10 @@ footer {
    * #MODAL 
    */
 
+  .account-container {
+    margin-bottom: 50px;
+  }
+
   .modal-content {
     display: -webkit-box;
     display: -webkit-flex;
@@ -1878,6 +1919,22 @@ footer {
 /**
  * responsive larger than 1024px screen
  */
+@media (max-width: 650px) {
+  .order-item img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .order-item {
+    margin-bottom: 20px;
+    background-color: #d6d1d1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+  }
+}
 
 @media (min-width: 1024px) {
   /**

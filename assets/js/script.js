@@ -1,16 +1,13 @@
 "use strict";
 
-// Modal variables
 const modal = document.querySelector("[data-modal]");
 const modalCloseBtn = document.querySelector("[data-modal-close]");
 const modalCloseOverlay = document.querySelector("[data-modal-overlay]");
 
-// Modal function
 const modalCloseFunc = function () {
   modal.classList.add("closed");
 };
 
-// Modal eventListener
 if (modalCloseOverlay) {
   modalCloseOverlay.addEventListener("click", modalCloseFunc);
 }
@@ -18,30 +15,25 @@ if (modalCloseBtn) {
   modalCloseBtn.addEventListener("click", modalCloseFunc);
 }
 
-// Notification toast variables
 const notificationToast = document.querySelector("[data-toast]");
 const toastCloseBtn = document.querySelector("[data-toast-close]");
 
-// Notification toast eventListener
 if (toastCloseBtn) {
   toastCloseBtn.addEventListener("click", function () {
     notificationToast.classList.add("closed");
   });
 }
 
-// Sidebar category variables
 const sidebarCategory = document.querySelector(".sidebar");
 const mobileNavigationMenu = document.querySelector(".mobile-navigation-menu");
 const overlay = document.querySelector("[data-overlay]");
 
-// Toggle category function
 const toggleCategory = function () {
   sidebarCategory.classList.toggle("active");
   mobileNavigationMenu.classList.toggle("active");
   overlay.classList.toggle("active");
 };
 
-// Mobile menu open button eventListeners
 const mobileMenuOpenBtns = document.querySelectorAll(
   "[data-mobile-menu-open-btn]"
 );
@@ -57,7 +49,6 @@ mobileMenuOpenBtns.forEach((btn) => {
   });
 });
 
-// Mobile menu close button eventListener
 const mobileMenuCloseBtn = document.querySelector(
   "[data-mobile-menu-close-btn]"
 );
@@ -70,12 +61,10 @@ if (mobileMenuCloseBtn) {
   });
 }
 
-// Overlay eventListener
 if (overlay) {
   overlay.addEventListener("click", toggleCategory);
 }
 
-// Accordion variables
 const accordionBtn = document.querySelectorAll("[data-accordion-btn]");
 const accordion = document.querySelectorAll("[data-accordion]");
 const sidebarCloseBtn = document.querySelector(".sidebar-close-btn");
@@ -87,7 +76,6 @@ if (sidebarCloseBtn) {
   });
 }
 
-// Accordion eventListener
 accordionBtn.forEach((btn, index) => {
   btn.addEventListener("click", function () {
     const isActive = this.classList.contains("active");
@@ -114,7 +102,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     "[data-mobile-menu-close-btn]"
   );
 
-  // Function to open mobile menu
   function openMobileMenu() {
     if (mobileMenu) {
       mobileMenu.classList.add("active");
@@ -122,7 +109,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   }
 
-  // Function to close mobile menu
   function closeMobileMenu() {
     if (mobileMenu) {
       mobileMenu.classList.remove("active");
@@ -130,17 +116,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   }
 
-  // Event listener for open mobile menu button
   if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener("click", openMobileMenu);
   }
 
-  // Event listener for close mobile menu button
   if (closeMobileMenuBtn) {
     closeMobileMenuBtn.addEventListener("click", closeMobileMenu);
   }
 
-  // Updated overlay click event listener
   if (overlay) {
     overlay.addEventListener("click", function () {
       if (

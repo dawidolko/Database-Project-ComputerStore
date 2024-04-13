@@ -1,11 +1,24 @@
-// Function to check if email already exists in localStorage
+document.addEventListener("DOMContentLoaded", function () {
+  updateUserName();
+  updateVisibility();
+});
+
+function updateVisibility() {
+  const isLoggedIn = localStorage.getItem("loggedIn");
+  const accountContainer = document.querySelector(".account-container");
+  const loggedOutMessage = document.getElementById("logged-out-message");
+
+  if (accountContainer && loggedOutMessage) {
+    accountContainer.style.display = isLoggedIn ? "block" : "none";
+    loggedOutMessage.style.display = isLoggedIn ? "none" : "block";
+  }
+}
+
 function emailExists(email) {
-  // Retrieve the existing users from localStorage
   const users = JSON.parse(localStorage.getItem("users")) || {};
   return users[email] !== undefined;
 }
 
-// Function to register a new user
 function registerUser() {
   const username = document.getElementById("signup-username").value;
   const email = document.getElementById("signup-email").value;
@@ -24,12 +37,10 @@ function registerUser() {
     return;
   }
 
-  // Store user data
   const users = JSON.parse(localStorage.getItem("users")) || {};
   users[email] = { username, password };
   localStorage.setItem("users", JSON.stringify(users));
 
-  // Clear input fields
   document.getElementById("signup-username").value = "";
   document.getElementById("signup-email").value = "";
   document.getElementById("signup-password").value = "";
@@ -37,34 +48,63 @@ function registerUser() {
   showNotification("Registered! Now you can log in.", "green");
 }
 
-// Function to log in a user
 function loginUser() {
   const email = document.getElementById("signin-email").value;
   const password = document.getElementById("signin-password").value;
 
-  // Retrieve the existing users from localStorage
   const users = JSON.parse(localStorage.getItem("users")) || {};
 
   if (users[email] && users[email].password === password) {
     localStorage.setItem("loggedIn", true);
-    // Clear input fields
-    document.getElementById("signin-email").value = "";
-    document.getElementById("signin-password").value = "";
-    // Redirect to the account page
-    window.location.href = "account.html";
+    localStorage.setItem("loggedInUserName", users[email].username);
+    updateUserName();
+    updateVisibility();
     showNotification("Zalogowano!", "green");
+    window.location.href = "account.html";
   } else {
     showNotification("Niepoprawne dane", "red");
   }
 }
 
-// Function to show a notification
 function showNotification(message, color) {
-  const notification = document.getElementById("notification");
-  notification.style.backgroundColor = color;
-  notification.textContent = message;
-  notification.style.display = "block";
-  setTimeout(() => {
-    notification.style.display = "none";
+  const notification = document.getElementById("notification-box");
+  if (notification) {
+    notification.textContent = message;
+    notification.style.backgroundColor = color;
+    notification.style.display = "block";
+    notification.style.position = "fixed";
+    notification.style.left = "50%";
+    notification.style.bottom = "10px";
+    notification.style.transform = "translateX(-50%)";
+    notification.style.borderRadius = "5px";
+    notification.style.zIndex = "1000";
+    notification.style.padding = "10px";
+    notification.style.color = "white";
+    setTimeout(() => {
+      notification.style.display = "none";
+    }, 3000);
+  } else {
+    console.error(
+      "Element powiadomienia 'notification-box' nie został znaleziony w DOM."
+    );
+  }
+}
+
+function logoutUser() {
+  localStorage.removeItem("loggedIn");
+  localStorage.removeItem("loggedInUserName");
+
+  showNotification("Wylogowano pomyślnie.", "green");
+
+  setTimeout(function () {
+    window.location.href = "login.html";
   }, 3000);
+}
+
+function updateUserName() {
+  const loggedInUserName = localStorage.getItem("loggedInUserName");
+  const userNameDisplay = document.getElementById("user-name");
+  if (loggedInUserName && userNameDisplay) {
+    userNameDisplay.textContent = loggedInUserName;
+  }
 }

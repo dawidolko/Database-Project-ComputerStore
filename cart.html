@@ -1039,9 +1039,6 @@
                 </button>
               </a>
               <p class="cart__total-price"></p>
-              <!-- <button class="payment__button" onclick="attemptCheckout()">
-                Buy now
-              </button> -->
             </div>
           </div>
           <form id="personalInfoForm" onsubmit="validateAndCheckout(event)">
@@ -1105,7 +1102,19 @@
           </form>
         </section>
       </div>
-      <div class="notification"></div>
+      <div
+        id="notification"
+        style="
+          display: none;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          padding: 10px;
+          border-radius: 5px;
+          background-color: red;
+          color: white;
+          z-index: 1000;
+        "></div>
 
       <div>
         <div class="container-cart">
