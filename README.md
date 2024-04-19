@@ -4,11 +4,11 @@
 
 ### Full application of a store selling computers and computer components, with a Frontend written in JavaScript, a Backend in PHP and a PL/SQL database
 
-<br><br>![info](fronted/assets/images/plsql.png)
+<br><br>![info](frontend/assets/images/plsql.png)
 
 # TechByte
 
-<br><br>![info](fronted/assets/images/Main.png)
+<br><br>![info](frontend/assets/images/Main.png)
 
 ## Introduction
 
