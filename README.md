@@ -19,7 +19,69 @@ Welcome to the GitHub repository of the TechByte computer store project. This st
 The repository is available in various directories that are responsible for part of the web application and contain HTML files necessary for the operation of the store. Here is a detailed description of each directory and file:
 
 ```
+# Structure of the ComputerStore Project
 
+The ComputerStore project contains several directories and files related to documentation, database design and the application frontend.
+
+## .github/workflows
+- static.yml # Configuration file for GitHub Actions
+
+## docs
+### jsDoc
+- database-storage-and-limitation.docx
+- project-description-v1.docx
+- project-description-v2.docx
+- suggestions-sopics.docx
+- README.md # Project documentation
+
+## entity-relationship-diagram
+- DB-Diagram.pdf
+- ERD_v3.pdf
+- ERD_v3.png
+- ERD-project-base-drawio.pdf
+- ERD-Projekt-v2-drawio.pdf
+- ERD-VERSION1.png
+- ERD-VERSION2.png
+- ERD-VERSION3.png
+- ERD.pgerd
+- README.md # ER diagram documentation
+
+##fronted
+### assets
+(Path to resources like graphics, CSS, etc.)
+### components
+(Path to reusable components)
+### computers
+(Possible path to computer-specific components or pages)
+### laptops
+- accounts.html
+- cart.html
+- checkout.html
+- CNAME # CNAME configuration file for the custom domain
+- components.html
+- computers.html
+- contact.html
+- dashboard.html
+-faq.html
+- favorite.html
+- index.html # Main page of the store
+- laptops.html
+- login.html
+- privacy.html
+- sales.html
+
+## plsql
+- photos
+- export-database-v1.sql
+- export-database-v2.sql
+- final_modified_database.xlsx
+- README.md # PL/SQL statements
+
+## Project root files
+- CNAME
+- CONTRIBUTING.md
+- LICENSES
+- README.md # This file with instructions
 ```
 
 ### .github/workflow
