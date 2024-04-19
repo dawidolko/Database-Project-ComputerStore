@@ -28,7 +28,7 @@ function addToCart(element) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
   displayCartItems();
-  showNotification("Product added to cart", "green");
+  // showNotification("Product added to cart", "green");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -63,7 +63,7 @@ function displayCartItems() {
             <button onclick="changeQuantity('plus', ${index})">+</button>
           </td>
           <td>$${(product.price * product.quantity).toFixed(2)}</td>
-          <td><button onclick="removeFromCart(${index})">Usuń</button></td>
+          <td><button onclick="removeFromCart(${index})">Delete</button></td>
         </tr>
       `;
     });
@@ -91,24 +91,24 @@ function changeQuantity(action, index) {
 
 function showNotification(message, color) {
   const notification = document.getElementById("notification");
-  if (notification) {
-    notification.textContent = message;
-    notification.style.backgroundColor = color;
-    notification.style.display = "block";
-    notification.style.position = "fixed";
-    notification.style.left = "10px";
-    notification.style.bottom = "10px";
-    notification.style.padding = "10px";
-    notification.style.borderRadius = "5px";
-    notification.style.zIndex = "1000";
-    setTimeout(() => {
-      notification.style.display = "none";
-    }, 3000);
-  } else {
+  if (!notification) {
     console.error(
-      "Element powiadomienia 'notification' nie został znaleziony w DOM."
+      "The notification element 'notification' was not found in the DOM."
     );
+    return;
   }
+  notification.textContent = message;
+  notification.style.backgroundColor = color;
+  notification.style.display = "block";
+  notification.style.position = "fixed";
+  notification.style.left = "10px";
+  notification.style.bottom = "10px";
+  notification.style.padding = "10px";
+  notification.style.borderRadius = "5px";
+  notification.style.zIndex = "1000";
+  setTimeout(() => {
+    notification.style.display = "none";
+  }, 3000);
 }
 
 function validateAndCheckout(event) {
@@ -124,15 +124,15 @@ function validateAndCheckout(event) {
 
   if (!name.match(/^[a-zA-Z ]{2,}$/)) {
     showNotification(
-      "Proszę wprowadzić poprawne imię i nazwisko (tylko litery i spacje).",
+      "Please enter your correct name and surname (letters and spaces only).",
       "red"
     );
     return;
   }
 
-  if (!phone.match(/^\+?\d{10,}$/)) {
+  if (!phone.match(/^\+?\d{9,}$/)) {
     showNotification(
-      "Proszę wprowadzić poprawny numer telefonu (minimum 10 cyfr).",
+      "Please enter a valid phone number (minimum 9 digits).",
       "red"
     );
     return;
@@ -140,7 +140,7 @@ function validateAndCheckout(event) {
 
   if (address.length < 5) {
     showNotification(
-      "Proszę wprowadzić poprawny adres (minimum 5 znaków).",
+      "Please enter a valid address (minimum 5 characters).",
       "red"
     );
     return;
@@ -148,7 +148,7 @@ function validateAndCheckout(event) {
 
   if (!cardNumber.match(/^\d{16}$/)) {
     showNotification(
-      "Proszę wprowadzić poprawny numer karty (16 cyfr).",
+      "Please enter the correct card number (16 digits).",
       "red"
     );
     return;
@@ -160,17 +160,14 @@ function validateAndCheckout(event) {
     parseInt(expYear) < new Date().getFullYear()
   ) {
     showNotification(
-      "Proszę wprowadzić poprawną datę wygaśnięcia karty (MM/RRRR).",
+      "Please enter the correct card expiration date (MM/YYYY).",
       "red"
     );
     return;
   }
 
   if (!cvv.match(/^\d{3,4}$/)) {
-    showNotification(
-      "Proszę wprowadzić poprawny kod CVV (3 lub 4 cyfry).",
-      "red"
-    );
+    showNotification("Please enter a valid CVV code (3 or 4 digits).", "red");
     return;
   }
 
@@ -205,12 +202,12 @@ function finalizePurchase() {
     orders.push(...cart);
     localStorage.setItem("orders", JSON.stringify(orders));
     localStorage.removeItem("cart");
-    showNotification("Zakupiono produkt", "green");
+    showNotification("Product purchased", "green");
     setTimeout(() => {
       window.location.href = "account.html";
     }, 3000);
   } else {
-    showNotification("Koszyk jest pusty", "red");
+    showNotification("Cart is empty", "red");
   }
 }
 

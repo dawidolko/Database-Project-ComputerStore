@@ -59,10 +59,10 @@ function loginUser() {
     localStorage.setItem("loggedInUserName", users[email].username);
     updateUserName();
     updateVisibility();
-    showNotification("Zalogowano!", "green");
+    showNotification("Logged in!", "green");
     window.location.href = "account.html";
   } else {
-    showNotification("Niepoprawne dane", "red");
+    showNotification("Incorrect data", "red");
   }
 }
 
@@ -85,7 +85,7 @@ function showNotification(message, color) {
     }, 3000);
   } else {
     console.error(
-      "Element powiadomienia 'notification-box' nie został znaleziony w DOM."
+      "The notification element 'notification-box' was not found in the DOM."
     );
   }
 }
@@ -94,7 +94,7 @@ function logoutUser() {
   localStorage.removeItem("loggedIn");
   localStorage.removeItem("loggedInUserName");
 
-  showNotification("Wylogowano pomyślnie.", "green");
+  showNotification("You have logged out successfully.", "green");
 
   setTimeout(function () {
     window.location.href = "login.html";

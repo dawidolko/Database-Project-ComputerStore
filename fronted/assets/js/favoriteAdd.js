@@ -20,9 +20,9 @@ function addToFavorite(element) {
     favorites.push(product);
     localStorage.setItem("favorites", JSON.stringify(favorites));
     displayFavorites();
-    showNotification("Product added to favorites", "green");
+    // showNotification("Product added to favorites", "green");
   } else {
-    showNotification("Product is already in favorites", "blue");
+    // showNotification("Product is already in favorites", "blue");
   }
 }
 
@@ -61,7 +61,9 @@ function displayFavorites() {
       totalElement.textContent = `Total: $${total.toFixed(2)}`;
     }
   } else {
-    console.error("Element .favorites__table_tr nie istnieje na tej stronie.");
+    console.error(
+      "The .favorites__table_tr element does not exist on this page."
+    );
   }
 }
 
@@ -134,21 +136,25 @@ function attemptPurchase() {
 }
 
 function showNotification(message, color) {
-  const notification = document.querySelector(".notification");
-  notification.textContent = message;
-  notification.style.display = "block";
-  notification.style.backgroundColor = color;
-  notification.style.position = "fixed";
-  notification.style.right = "15px";
-  notification.style.bottom = "15px";
-  notification.style.borderRadius = "15px";
-  notification.style.color = "white";
-  notification.style.width = "300px";
-  notification.style.padding = "10px";
-  notification.style.boxShadow = "0 2px 4px rgba(0,0,0,.2)";
-  setTimeout(() => {
-    notification.style.display = "none";
-  }, 3000);
+  const notification = document.getElementById("notification");
+  if (notification) {
+    notification.textContent = message;
+    notification.style.backgroundColor = color;
+    notification.style.display = "block";
+    notification.style.position = "fixed";
+    notification.style.left = "10px";
+    notification.style.bottom = "10px";
+    notification.style.padding = "10px";
+    notification.style.borderRadius = "5px";
+    notification.style.zIndex = "1000";
+    setTimeout(() => {
+      notification.style.display = "none";
+    }, 3000);
+  } else {
+    console.error(
+      "The notification element 'notification' was not found in the DOM."
+    );
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {

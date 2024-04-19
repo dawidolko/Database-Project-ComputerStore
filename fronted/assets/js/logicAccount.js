@@ -26,28 +26,28 @@ function changePassword() {
   const user = Object.values(users).find((u) => u.username === userEmail);
 
   if (!user) {
-    showNotification("Nie jesteś zalogowany.", "red");
+    showNotification("You're not logged in.", "red");
     return;
   }
 
   if (user.password !== oldPassword) {
-    showNotification("Stare hasło jest nieprawidłowe.", "red");
+    showNotification("The old password is incorrect.", "red");
     oldPasswordInput.value = "";
     return;
   }
 
   user.password = newPassword;
   localStorage.setItem("users", JSON.stringify(users));
-  showNotification("Hasło zostało zmienione.", "green");
+  showNotification("Password has been changed.", "green");
   newPasswordInput.value = "";
 }
 
 function submitComplaint() {
-  showNotification("Reklamacja została wysłana.", "green");
+  showNotification("The complaint has been sent.", "green");
 }
 
 function leaveReview() {
-  showNotification("Opinia została opublikowana.", "green");
+  showNotification("The opinion has been published.", "green");
 }
 
 function showNotification(message, color) {
@@ -69,7 +69,7 @@ function showNotification(message, color) {
     }, 3000);
   } else {
     console.error(
-      "Element powiadomienia 'notification-box' nie został znaleziony w DOM."
+      "The notification element 'notification-box' was not found in the DOM."
     );
   }
 }

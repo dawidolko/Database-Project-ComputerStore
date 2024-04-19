@@ -1067,8 +1067,14 @@
                 required />
               <h2 class="payment__title">Card Information</h2>
               <div class="payment__icons">
-                <img src="./img/visa.webp" alt="" class="payment__icon" />
-                <img src="./img/master.webp" alt="" class="payment__icon" />
+                <img
+                  src="./assets/images/socials/payment.png"
+                  alt=""
+                  class="payment__icon" />
+                <img
+                  src="./assets/images/socials/visa.webp"
+                  alt=""
+                  class="payment__icon" />
               </div>
               <input
                 type="password"
@@ -1104,6 +1110,19 @@
       </div>
       <div
         id="notification"
+        style="
+          display: none;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          padding: 10px;
+          border-radius: 5px;
+          background-color: red;
+          color: white;
+          z-index: 1000;
+        "></div>
+      <div
+        id="notification-box"
         style="
           display: none;
           position: fixed;
