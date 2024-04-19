@@ -19,53 +19,29 @@ Welcome to the GitHub repository of the TechByte computer store project. This st
 The repository is available in various directories that are responsible for part of the web application and contain HTML files necessary for the operation of the store. Here is a detailed description of each directory and file:
 
 ```
-.
-├── .github
-│ └── workflows
-│ └── static.yml
-├── entity-relationship-diagram
-│ └── README.md
-├── assets
-│ └── (files related to assets will be included here, e.g. images, CSS, JS, PHP)
-├── components
-│ └── README.md
-├── computers
-│ └── README.md
-├── docs
-│ └── description.md
-├── laptops
-│ └── README.md
-├── plsql
-│ └── README.md
-├── CNAME
-├── LICENSES
-├── README.md
-├── account.html
-├── cart.html
-├── checkout.html
-├── components.html
-├── computers.html
-├── congratulations.html
-├── contact.html
-├── faq.html
-├── favorite.html
-├── index.html
-├── laptops.html
-├── login.html
-├── privacy.html
-├── sales.html
-└── signup.html
+
 ```
 
 ### .github/workflow
 
 Catalog of applying CI/CD system definitions for our project, automatic testing and implementation of changes on the website.
 
+### documents
+
+Catalog with project documentation, including API specifications and user manuals for end users.
+
+### php
+A directory with `PHP scripts` responsible for transferring data to the application, including session handling and database interaction.
+
 ### ERD
 
 Directory with files documenting the Entity-Relationship Diagram (ERD) model for the store database. Below
 
-<br><br>![erd](entity-relationship-diagram/ERD-VERSION2.png)
+<br><br>![erd](entity-relationship-diagram//ERD_v3.png)
+
+<hr>
+
+## fronted
 
 ### assets
 
@@ -79,16 +55,11 @@ The catalog contains HTML snippets that are re-available on various pages, such 
 
 Contains HTML files containing various models of stationary devices available in our store.
 
-### documents
-
-Catalog with project documentation, including API specifications and user manuals for end users.
-
 ### laptops
 
 The catalog contains `HTML pages` with laptop offers.
 
-###php
-A directory with `PHP scripts` responsible for transferring data to the application, including session handling and database interaction.
+<hr>
 
 ### Please
 
