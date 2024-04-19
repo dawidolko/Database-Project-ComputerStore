@@ -1,0 +1,43 @@
+A:\Python\BazySkrypty\.venv\Scripts\python.exe A:\Python\BazySkrypty\test2.py 
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (1, 'Róża', 'Kraszkiewicz', 'pl. Graniczna 33
+52-606 Police', 576741468, 'cczerner@onet.pl', 'MQ8FlMj4&tV9');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (2, 'Hubert', 'Szarzec', 'ulica Skłodowskiej-Curie 93
+87-069 Zduńska Wola', 608986389, 'yjarmuz@grupa.net', 'n#6#42Bsqo8D');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (3, 'Dorota', 'Borak', 'pl. Lubelska 76/98
+57-794 Przemyśl', 694988359, 'angelika84@interia.pl', 'A_Y_pY0pIO7F');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (4, 'Oliwier', 'Klorek', 'pl. Asnyka 59
+46-596 Zawiercie', 732567190, 'aleksandertuzimek@piejko.net', '@fMZ%Ymq7@HT');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (5, 'Angelika', 'Chowaniak', 'plac Dąbrowskiego 69/69
+58-964 Biłgoraj', 721740009, 'ckazek@meler-szpala.com', 'n!X7+Psk64i*');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (6, 'Grzegorz', 'Żołądkiewicz', 'ulica Towarowa 41
+61-434 Świecie', 691404907, 'igrzywnowicz@borejko-kapral.pl', '!mNShAKf_^6W');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (7, 'Nela', 'Plewnia', 'pl. Staffa 30
+67-674 Ostrowiec Świętokrzyski', 888342505, 'kukuczkacyprian@ppuh.pl', '^3*YwBXd6ItO');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (8, 'Adrianna', 'Goworek', 'pl. Krańcowa 29/72
+58-694 Oświęcim', 662165353, 'justynakosciolek@fpuh.com', 'y9OEYxiB^@8f');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (9, 'Stanisław', 'Hawrylak', 'ul. Osiedlowa 38/19
+63-584 Chorzów', 505436705, 'nmich@interia.pl', 'v!J9BMs)&%6D');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (10, 'Juliusz', 'Roczniak', 'ulica Makuszyńskiego 110
+50-650 Skierniewice', 786072638, 'adammachniak@fpuh.pl', 'nKL7uWQzGo@a');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (11, 'Klara', 'Bugno', 'al. Willowa 09/83
+51-913 Inowrocław', 627065219, 'ewelinapazdan@gabinety.com', 'epe6Lw(v++wM');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (12, 'Maksymilian', 'Saczuk', 'plac Górska 065
+35-648 Lubin', 888093377, 'fkornet@gmail.com', 'u3^SlCKh(S!7');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (13, 'Aniela', 'Młot', 'plac Cisowa 21/41
+49-619 Skarżysko-Kamienna', 519388533, 'hornikkornel@yahoo.com', '*U*acGaFh6VM');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (14, 'Dagmara', 'Królczyk', 'aleja Królewska 512
+07-942 Chełm', 698720861, 'sandrakrus@fpuh.pl', '@jYSW+z^u6au');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (15, 'Paweł', 'Łyp', 'plac Wiązowa 20/40
+81-712 Kraśnik', 512888558, 'nela53@stowarzyszenie.net', '!6KIjHCAf6yk');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (16, 'Tobiasz', 'Pietrus', 'aleja Wspólna 57
+39-619 Lubliniec', 786448347, 'mateuszniescior@yahoo.com', ')HU+SVxl1ZHq');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (17, 'Marek', 'Szabla', 'ul. Wilcza 64
+07-893 Skarżysko-Kamienna', 604393808, 'nierodaada@bienia.pl', '1p^5YCKqU0O#');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (18, 'Nicole', 'Chomiak', 'plac Kopernika 36
+20-273 Żagań', 574040962, 'dberendt@hotmail.com', '!MvQDuyjDP5V');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (19, 'Marianna', 'Sommerfeld', 'ulica Ludowa 20
+14-589 Ostrów Mazowiecka', 781883103, 'olaf94@grupa.com', '*#rPUNspOS5h');
+INSERT INTO Klienci ("ID_KLIENTA", "IMIE", "NAZWISKO", "ADRES_DOSTAWY", "NR_TELEFONU", "EMAIL", "HASLO") VALUES (20, 'Urszula', 'Smykała', 'aleja Nadbrzeżna 02/43
+14-979 Gdańsk', 691234921, 'aleksandertarasek@hotmail.com', '^hZNGilyA3Qi');
+
+Process finished with exit code 0

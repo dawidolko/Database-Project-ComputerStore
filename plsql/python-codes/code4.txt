@@ -1,0 +1,23 @@
+A:\Python\BazySkrypty\.venv\Scripts\python.exe A:\Python\BazySkrypty\test2.py 
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (1, 'Alex', 'Kopytko', 'Specjalista ds. IT', 'aurelia23@stowarzyszenie.pl', 609956304);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (2, 'Rafał', 'Smela', 'Specjalista ds. IT', 'xdziurdzia@gmail.com', 539040853);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (3, 'Dariusz', 'Ciuła', 'Sprzedawca', 'fliegereryk@fundacja.pl', 509339857);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (4, 'Stefan', 'Startek', 'Menadżer Produktu', 'drobnikada@gabinety.org', 534017853);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (5, 'Ada', 'Lejman', 'Doradca Klienta', 'blanka27@o2.pl', 726561590);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (6, 'Ida', 'Kara', 'Doradca Klienta', 'karina53@ceran-kuza.com', 663839690);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (7, 'Sara', 'Korgul', 'Technik PC', 'natasza68@gmail.com', 575592622);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (8, 'Dominik', 'Latuszek', 'Technik PC', 'borys15@o2.pl', 504971697);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (9, 'Tomasz', 'Garbacik', 'Specjalista ds. IT', 'wgruszczyk@fpuh.com', 662118943);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (10, 'Natan', 'Kuryłowicz', 'Menadżer Produktu', 'malyszekjedrzej@grupa.net', 691523794);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (11, 'Krzysztof', 'Hajder', 'Sprzedawca', 'jedrzejmajczyna@o2.pl', 575212856);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (12, 'Ignacy', 'Uzar', 'Sprzedawca', 'dorota26@o2.pl', 531792172);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (13, 'Justyna', 'Rzeźniczek', 'Technik PC', 'ngaudyn@interia.pl', 508449644);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (14, 'Daniel', 'Chodak', 'Sprzedawca', 'kornelrembisz@interia.pl', 532866780);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (15, 'Maciej', 'Szpyra', 'Menadżer Produktu', 'anitabilik@gmail.com', 506529947);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (16, 'Oskar', 'Nesterowicz', 'Menadżer Produktu', 'xgogacz@gmail.com', 791592264);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (17, 'Olgierd', 'Behrendt', 'Doradca Klienta', 'rpacyga@stowarzyszenie.com', 603829787);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (18, 'Anna Maria', 'Łasica', 'Specjalista ds. IT', 'aprochownik@rubacha-wieladek.pl', 605203715);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (19, 'Iwo', 'Duszczyk', 'Sprzedawca', 'karmelitaelzbieta@onet.pl', 643775845);
+INSERT INTO Pracownicy ("ID_PRACOWNIKA", "IMIE", "NAZWISKO", "STANOWISKO", "EMAIL", "NR_TELEFONU") VALUES (20, 'Ida', 'Buczko', 'Specjalista ds. IT', 'iszostak@interia.pl', 737557856);
+
+Process finished with exit code 0
