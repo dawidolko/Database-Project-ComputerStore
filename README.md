@@ -31,13 +31,14 @@ Catalog of applying CI/CD system definitions for our project, automatic testing 
 Catalog with project documentation, including API specifications and user manuals for end users.
 
 ### php
+
 A directory with `PHP scripts` responsible for transferring data to the application, including session handling and database interaction.
 
 ### ERD
 
 Directory with files documenting the Entity-Relationship Diagram (ERD) model for the store database. Below
 
-<br><br>![erd](entity-relationship-diagram//ERD_v3.png)
+<br><br>![erd](entity-relationship-diagram//ERD-VERSION4.png)
 
 <hr>
 
