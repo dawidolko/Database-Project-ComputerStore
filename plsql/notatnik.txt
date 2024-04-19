@@ -1,0 +1,50 @@
+For gaming
+For learning
+For office
+Obudowy komputerowe, znane również jako "cases", chronią wewnętrzne komponenty i wpływają na estetykę systemu. Są one dostępne w różnych rozmiarach i stylach, aby zaspokoić potrzeby różnych użytkowników.
+Systemy chłodzenia są kluczowe dla utrzymania optymalnej temperatury komponentów komputerowych. W tej kategorii znajdują się wentylatory, chłodnice i inne rozwiązania chłodzące.
+Dyski twarde i SSD są podstawowymi urządzeniami magazynującymi w komputerze, przechowujące system operacyjny, aplikacje i dane użytkownika. Są one niezbędne dla funkcjonowania i wydajności komputera.
+Wentylatory komputerowe to komponenty odpowiadające za przepływ powietrza wewnątrz obudowy, zapewniające chłodzenie innych komponentów. Są one istotne dla utrzymania stabilnej pracy systemu.
+Ta kategoria obejmuje wszelkiego rodzaju części składowe komputera, od kart graficznych po płyty główne. Komponenty te są kluczowe dla budowy niestandardowych systemów komputerowych i ulepszania istniejących konfiguracji.
+Laptopy oferują mobilność i wygodę, umożliwiając użytkownikom pracę i rozrywkę w dowolnym miejscu. Ich kompaktowa budowa łączy wydajność komputera stacjonarnego z przenośnością, czyniąc je idealnym wyborem dla osób w ciągłym ruchu.
+Urządzenia te stanowią podstawę nowoczesnej technologii, umożliwiając użytkownikom przetwarzanie danych i wykonywanie złożonych obliczeń. Są niezbędne w domach, szkołach i miejscach pracy, oferując funkcje od prostych zadań po zaawansowane operacje obliczeniowe.
+Karty graficzne są odpowiedzialne za renderowanie obrazów na ekranie monitora. Są one niezbędne dla gier, edycji wideo i innych zadań wymagających intensywnej grafiki.
+Pamięć RAM to rodzaj pamięci komputerowej, która jest wykorzystywana do przechowywania danych roboczych i kodu maszynowego obecnie używanego przez komputer. Szybkość i pojemność RAM ma znaczący wpływ na wydajność systemu.
+Płyty główne to centralne płyty drukowane w komputerze, do których podłączone są wszystkie inne komponenty. Odgrywają kluczową rolę w połączeniu wszystkich części komputera w jedną funkcjonalną całość.
+Zasilacze dostarczają energię elektryczną do wszystkich komponentów komputera. Są one niezbędne do utrzymania stabilnego i bezpiecznego dostępu do mocy dla systemu komputerowego.
+Procesory to mózg komputera, wykonujące instrukcje programów poprzez wykonywanie operacji wejścia/wyjścia, operacji logicznych i arytmetycznych. Są kluczowym elementem wpływającym na ogólną wydajność komputera.
+
+DROP TABLE KATEGORIE;
+DROP TABLE KLIENCI;
+DROP TABLE NEWSLETTER;
+DROP TABLE OPINIE;
+DROP TABLE PRACOWNICY;
+DROP TABLE PRODUKTY;
+DROP TABLE PRODUKTY_KATEGORIE;
+DROP TABLE PROMOCJE;
+DROP TABLE PRZESYLKI;
+DROP TABLE REKLAMACJE;
+DROP TABLE SPECYFIKACJE;
+DROP TABLE ZAMOWIENIA;
+DROP TABLE ZAMOWIENIA_PRODUKTY;
+DROP TABLE ZDJECIA_PRODUKTOW;
+
+DROP INDEX PK_KATEGORIE;
+DROP INDEX PK_KLIENCI;
+DROP INDEX PK_NEWSLETTER;
+DROP INDEX PK_OPINIE;
+DROP INDEX PK_PRACOWNICY;
+DROP INDEX PK_PRODUKTY;
+DROP INDEX PK_PROMOCJE;
+DROP INDEX PK_PRZESYLKI;
+DROP INDEX PK_REKLAMACJE;
+DROP INDEX PK_SPECYFIKACJE;
+DROP INDEX PK_ZAMOWIENIA;
+DROP INDEX PK_ZAMOWIENIA_PRODUKTY;
+DROP INDEX PK_ZDJECIA_PRODUKTOW;
+DROP INDEX SYS_IL0000073200C00003$$;
+DROP INDEX SYS_IL0000073190C00003$$;
+DROP INDEX SYS_IL0000073200C00004$$;
+DROP INDEX UNIQUE_ID_KLIENTA_NEWSLETTER;
+DROP INDEX UNIQUE_ID_ZAMOWIENIA;
+DROP INDEX UNIQUE_ID_ZAMOWIENIA_PRZESYL;
