@@ -31,45 +31,9 @@ To translate the entire document into English and add specifications to each tab
 2. Add `NULLABLE` and `DATA_TYPE` specifications to each attribute in the tables based on the diagrams.
 3. Update or add the tables `Klienci` (Clients), `Produkty` (Products), `Specyfikacje` (Specifications), `Promocje` (Promotions), and `Zdjecia Produktow` (Product Images) as per the images provided.
 
-**Translation and Table Definitions:**
-
-```markdown
-# Project Team:
-
-Dawid Olko, Piotr Smoła
-
-# Project Title:
-
-Online Computer and Computer Parts Store Website
-
-# Description:
-
-The project aims to create an advanced e-commerce platform designed to offer a wide range of computer hardware, providing maximum convenience for online shopping. The site will be designed with a modern and intuitive user interface for easy navigation through various product categories, such as laptops, desktops, and PC components (CPUs, GPUs, RAM, HDDs, etc.).
-
-# Database and Product Catalog:
-
-A comprehensive product database will be a core element of the store, regularly updated with new items to offer customers the latest technology. Each product will have a detailed product card with full specifications, high-quality images, pricing, availability information, and a section for ratings from other users, allowing customers to thoroughly familiarize themselves with the product before purchasing.
-
-# User Functionality:
-
-The storefront will feature advanced search capabilities allowing filtering of products based on various parameters such as price, brand, technical specifications, and user ratings, along with sorting options. The shopping cart system will be easy to use, allowing straightforward product additions and removals and quick checkout.
-
-Customers will have the option to create an account where their order history, address information, and order status will be saved.
-
-Order placement will be integrated with various payment methods including credit cards, bank transfers, and popular online payment systems like PayPal to provide flexibility. The store will also support mobile shopping, allowing purchases through smartphones and tablets.
-
-# Administrative Panel:
-
-An advanced administrative panel will be a key tool for store management, enabling easy addition of new products, updating existing ones, inventory management, pricing, and organization of promotions and sales. It will also allow real-time order monitoring for prompt customer service and efficient logistics and delivery management.
-
-# Customer Support and Service:
-
-The site will include a support section where customers can find answers to frequently asked questions (FAQs), such as return policy details, along with a return form link.
-
-In conclusion, the computer store project will be created with optimal functionality, convenience, and security for online shopping in mind. It will be equipped with tools and features that not only facilitate purchasing but also allow for efficient store and inventory management, contributing to customer satisfaction and business growth.
-
 # Database Tables Descriptions:
 
+```
 **Table `Klienci` (Clients):**
 
 - `ID_KLIENTA` NUMBER(38, 0) NOT NULL
@@ -180,6 +144,7 @@ For the rest of the tables, based on the ERD and screenshots you provided, I ass
 - `ID_Sledzenia` CHAR(20)
 - `Status_Dostawy` VARCHAR2(30) NOT NULL
 - `Czas_Dostawy` DATE
+```
 
 ## Relationships between tables:
 
@@ -264,4 +229,3 @@ For the rest of the tables, based on the ERD and screenshots you provided, I ass
 • With the Products Table to assign promotions to specific products.
 
 Each table in the database has its own purpose, which contributes to the overall functionality of the online store. The Products table is the heart of the store catalog, containing all the items available for purchase. The Categories table allows customers to easily search the store's assortment. The Order Table and the Shipment Table support the sales process from the moment the customer places the order until its delivery. The Customers table is essential for managing user accounts, while the Opinions table helps build trust and provides product feedback. The Employees table is used to manage orders when, in case of problems encountered with the order, the employee assigned to him will be responsible at the stage of order preparation and execution. The Complaints table is used to handle any post-sale problems. The Newsletter table is important for marketing activities and maintaining customer relationships. The Inventory Table provides valuable information for sales departments and people responsible for replenishing missing products in stock, while the Promotions Table enables the management of prices and special offers.
-```
