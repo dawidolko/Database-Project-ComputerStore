@@ -1,1 +1,1 @@
-piotrsmola.dawidolko.pl - store computers
+# piotrsmola.dawidolko.pl - store computers
