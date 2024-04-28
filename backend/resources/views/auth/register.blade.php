@@ -27,8 +27,36 @@
                         <form method="POST" action="{{ route('register') }}" class="needs-validation" novalidate>
                             @csrf
                             <div class="form-group mb-2">
+                                <label for="name" class="form-label">Imię</label>
+                                <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
+                                @error('name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="last_name" class="form-label">Nazwisko</label>
+                                <input id="last_name" name="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" value="{{ old('last_name') }}" required>
+                                @error('last_name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="delivery_address" class="form-label">Adres dostawy</label>
+                                <input id="delivery_address" name="delivery_address" type="text" class="form-control @error('delivery_address') is-invalid @enderror" value="{{ old('delivery_address') }}" required>
+                                @error('delivery_address')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="phone_number" class="form-label">Numer telefonu</label>
+                                <input id="phone_number" name="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" value="{{ old('phone_number') }}" required>
+                                @error('phone_number')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group mb-2">
                                 <label for="email" class="form-label">Email</label>
-                                <input id="email" name="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required autofocus>
+                                <input id="email" name="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required>
                                 @error('email')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -44,25 +72,12 @@
                                 <label for="password_confirmation" class="form-label">Potwierdź hasło</label>
                                 <input id="password_confirmation" name="password_confirmation" type="password" class="form-control" required>
                             </div>
-                            <div class="form-group mb-2">
-                                <label for="country_id" class="form-label">Kraj</label>
-                                <select id="country_id" name="country_id" class="form-control @error('country_id') is-invalid @enderror" required>
-                                    <option value="">Wybierz kraj...</option>
-                                    @foreach ($countries as $country)
-                                        <option value="{{ $country->id }}" @if (old('country_id') == $country->id) selected @endif>{{ $country->name }}</option>
-                                    @endforeach
-                                </select>
-                                @error('country_id')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
                             <div class="text-center mt-4 mb-4">
                                 <button class="btn btn-primary" type="submit">Zarejestruj</button>
                             </div>
                         </form>
-                        
                     </div>
-                </div>
+                </div>                
             </div>
 
         

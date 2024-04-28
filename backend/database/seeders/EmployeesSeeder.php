@@ -26,7 +26,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Specjalista ds. IT',
                 'EMAIL' => 'aurelia23@stowarzyszenie.pl',
                 'PHONE_NUMBER' => '48 609 956 304',
-                'password' => Hash::make('n#6#91R2#Fz7'),
+                'PASSWORD' => Hash::make('n#6#91R2#Fz7'),
             ],
             [
                 'ID' => 2,
@@ -35,7 +35,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Specjalista ds. IT',
                 'EMAIL' => 'xdziurdzia@gmail.com',
                 'PHONE_NUMBER' => '539 040 853',
-                'password' => Hash::make('n#6#3Vx4#1Ds'),
+                'PASSWORD' => Hash::make('n#6#3Vx4#1Ds'),
             ],
             [
                 'ID' => 3,
@@ -44,7 +44,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Sprzedawca',
                 'EMAIL' => 'fliegereryk@fundacja.pl',
                 'PHONE_NUMBER' => '509 339 857',
-                'password' => Hash::make('n#6#5W6d#2Hk'),
+                'PASSWORD' => Hash::make('n#6#5W6d#2Hk'),
             ],
             [
                 'ID' => 4,
@@ -53,7 +53,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Menadżer Produktu',
                 'EMAIL' => 'drobnikada@gabinety.org',
                 'PHONE_NUMBER' => '534 017 853',
-                'password' => Hash::make('n#6#8Q1h3UyS'),
+                'PASSWORD' => Hash::make('n#6#8Q1h3UyS'),
             ],
             [
                 'ID' => 5,
@@ -62,7 +62,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Doradca Klienta',
                 'EMAIL' => 'blanka27@o2.pl',
                 'PHONE_NUMBER' => '48 726 561 590',
-                'password' => Hash::make('n#6#2I4j9RlE'),
+                'PASSWORD' => Hash::make('n#6#2I4j9RlE'),
             ],
             [
                 'ID' => 6,
@@ -71,7 +71,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Doradca Klienta',
                 'EMAIL' => 'karina53@ceran-kuza.com',
                 'PHONE_NUMBER' => '48 663 839 690',
-                'password' => Hash::make('n#6#7S5z6MvT'),
+                'PASSWORD' => Hash::make('n#6#7S5z6MvT'),
             ],
             [
                 'ID' => 7,
@@ -80,7 +80,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Technik PC',
                 'EMAIL' => 'natasza68@gmail.com',
                 'PHONE_NUMBER' => '575 592 622',
-                'password' => Hash::make('n#6#4O9#8NcX'),
+                'PASSWORD' => Hash::make('n#6#4O9#8NcX'),
             ],
             [
                 'ID' => 8,
@@ -89,7 +89,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Technik PC',
                 'EMAIL' => 'borys15@o2.pl',
                 'PHONE_NUMBER' => '504 971 697',
-                'password' => Hash::make('n#6#3U7a5JbF'),
+                'PASSWORD' => Hash::make('n#6#3U7a5JbF'),
             ],
             [
                 'ID' => 9,
@@ -98,7 +98,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Specjalista ds. IT',
                 'EMAIL' => 'wgruszczyk@fpuh.com',
                 'PHONE_NUMBER' => '48 662 118 943',
-                'password' => Hash::make('n#6#9T8b#1FaC'),
+                'PASSWORD' => Hash::make('n#6#9T8b#1FaC'),
             ],
             [
                 'ID' => 10,
@@ -107,7 +107,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Menadżer Produktu',
                 'EMAIL' => 'malyszekjedrzej@grupa.net',
                 'PHONE_NUMBER' => '48 691 523 794',
-                'password' => Hash::make('n#6#6Z4m7YpA'),
+                'PASSWORD' => Hash::make('n#6#6Z4m7YpA'),
             ],
             [
                 'ID' => 11,
@@ -116,7 +116,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Sprzedawca',
                 'EMAIL' => 'jedrzejmajczyna@o2.pl',
                 'PHONE_NUMBER' => '575 212 856',
-                'password' => Hash::make('n#6#9T8b#1XXC'),
+                'PASSWORD' => Hash::make('n#6#9T8b#1XXC'),
             ],
             [
                 'ID' => 12,
@@ -125,7 +125,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Sprzedawca',
                 'EMAIL' => 'dorota26@o2.pl',
                 'PHONE_NUMBER' => '531 792 172',
-                'password' => Hash::make('n#6#9T8b#1FaC'),
+                'PASSWORD' => Hash::make('n#6#9T8b#1FaC'),
             ],
             [
                 'ID' => 13,
@@ -134,7 +134,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Technik PC',
                 'EMAIL' => 'ngaudyn@interia.pl',
                 'PHONE_NUMBER' => '508 449 644',
-                'password' => Hash::make('n#6#2Q5c9PxR'),
+                'PASSWORD' => Hash::make('n#6#2Q5c9PxR'),
             ],
             [
                 'ID' => 14,
@@ -143,7 +143,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Sprzedawca',
                 'EMAIL' => 'kornelrembisz@interia.pl',
                 'PHONE_NUMBER' => '532 866 780',
-                'password' => Hash::make('n#6#5G8t#4WsD'),
+                'PASSWORD' => Hash::make('n#6#5G8t#4WsD'),
             ],
             [
                 'ID' => 15,
@@ -152,7 +152,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Menadżer Produktu',
                 'EMAIL' => 'anitabilik@gmail.com',
                 'PHONE_NUMBER' => '506 529 947',
-                'password' => Hash::make('n#6#7L3e6IwF'),
+                'PASSWORD' => Hash::make('n#6#7L3e6IwF'),
             ],
             [
                 'ID' => 16,
@@ -161,7 +161,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Menadżer Produktu',
                 'EMAIL' => 'xgogacz@gmail.com',
                 'PHONE_NUMBER' => '791 592 264',
-                'password' => Hash::make('n#6#4E9r#7KaZ'),
+                'PASSWORD' => Hash::make('n#6#4E9r#7KaZ'),
             ],
             [
                 'ID' => 17,
@@ -170,7 +170,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Doradca Klienta',
                 'EMAIL' => 'rpacyga@stowarzyszenie.com',
                 'PHONE_NUMBER' => '48 603 829 787',
-                'password' => Hash::make('n#6#8X2u5VoS'),
+                'PASSWORD' => Hash::make('n#6#8X2u5VoS'),
             ],
             [
                 'ID' => 18,
@@ -179,7 +179,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Specjalista ds. IT',
                 'EMAIL' => 'aprochownik@rubacha-wieladek.pl',
                 'PHONE_NUMBER' => '605 203 715',
-                'password' => Hash::make('n#6#6C9v#3LnM'),
+                'PASSWORD' => Hash::make('n#6#6C9v#3LnM'),
             ],
             [
                 'ID' => 19,
@@ -188,7 +188,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Sprzedawca',
                 'EMAIL' => 'karmelitaelzbieta@onet.pl',
                 'PHONE_NUMBER' => '+48 22 775 26 57',
-                'password' => Hash::make('n#6#2A7p4DtH'),
+                'PASSWORD' => Hash::make('n#6#2A7p4DtH'),
             ],
             [
                 'ID' => 20,
@@ -197,7 +197,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Specjalista ds. IT',
                 'EMAIL' => 'iszostak@interia.pl',
                 'PHONE_NUMBER' => '737 557 856',
-                'password' => Hash::make('n#6#9B5k#8RwE'),
+                'PASSWORD' => Hash::make('n#6#9B5k#8RwE'),
             ],
         ];
 

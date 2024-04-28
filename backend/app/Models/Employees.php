@@ -14,9 +14,9 @@ class Employees extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'NAME', 'LAST_NAME', 'JOB_POSITION', 'EMAIL', 'PHONE_NUMBER', 'password'
+        'NAME', 'LAST_NAME', 'JOB_POSITION', 'EMAIL', 'PHONE_NUMBER', 'PASSWORD'
     ];
-    protected $hidden = ['password'];
+    protected $hidden = ['PASSWORD'];
 
     public function orders()
     {

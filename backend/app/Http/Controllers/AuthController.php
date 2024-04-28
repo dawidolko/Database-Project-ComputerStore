@@ -9,6 +9,7 @@ use App\Models\Country;
 use App\Models\Products;
 use App\Models\Customers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -16,7 +17,7 @@ class AuthController extends Controller
     public function login()
     {
         // if (Auth::check()) {
-        //     return redirect()->route('trips.index');
+        //     return redirect()->route('index');
         // }
 
         $iloscKomputerow = Products::whereHas('computerCategories')->sum('QUANTITIES_AVAILABLE');
@@ -66,6 +67,11 @@ class AuthController extends Controller
             // Przekieruj użytkownika tam, gdzie powinien się znaleźć po zalogowaniu jako klient
             return redirect()->intended('customer/dashboard');
         }
+
+        // if (Auth::attempt($credentials)) {
+        //     $request->session()->regenerate();
+        //     return redirect()->route('customer/dashboard');
+        // }
     
         // Jeśli nie udało się zalogować
         return back()->withErrors([
@@ -76,23 +82,37 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $validatedData = $request->validate([
-            'email' => ['required', 'email', 'unique:customers'],
-            'password' => ['required', 'confirmed'],
+            'name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'delivery_address' => ['required', 'string', 'max:255'],
+            'phone_number' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:customers'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
-    
-        // Stwórz nowego klienta
-        $customer = Customers::create([
-            'EMAIL' => $validatedData['email'],
-            'PASSWORD' => Hash::make($validatedData['password']), // Tutaj używamy 'PASSWORD', ale może powinno być 'password'
-        ]);
+
+        // DB::table('customers')->insertGetId([
+        //     'NAME' => $validatedData['name'],
+        //     'LAST_NAME' => $validatedData['last_name'],
+        //     'DELIVERY_ADDRESS' => $validatedData['delivery_address'],
+        //     'PHONE_NUMBER' => $validatedData['phone_number'],
+        //     'EMAIL' => $validatedData['email'],
+        //     'PASSWORD' => bcrypt($validatedData['password']), 
+        // ]);      
         
-    
-        // Zaloguj nowego klienta
+        $customer = Customers::create([
+            'NAME' => $validatedData['name'],
+            'LAST_NAME' => $validatedData['last_name'],
+            'DELIVERY_ADDRESS' => $validatedData['delivery_address'],
+            'PHONE_NUMBER' => $validatedData['phone_number'],
+            'EMAIL' => $validatedData['email'],
+            'PASSWORD' => bcrypt($validatedData['password']), 
+        ]);        
+
         Auth::guard('customer')->login($customer);
-    
-        // Przekieruj do dashboardu klienta
+
         return redirect('customer/dashboard');
     }
+
     
     public function logout(Request $request)
     {
@@ -103,5 +123,11 @@ class AuthController extends Controller
     
         return redirect('index');
     }
+
+    public function showRegistrationForm()
+    {
+        return view('auth.register');
+    }
+
     
 }

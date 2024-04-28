@@ -32,9 +32,14 @@ Route::get('/contact', [MainController::class, 'contact'])->name('contact');
 Route::get('/sales', [MainController::class, 'sales'])->name('sales');
 Route::get('/privacy', [MainController::class, 'privacy'])->name('privacy');
 
-Route::get('login', [AuthController::class, 'login'])->name('login');
-Route::post('login/authenticate', [AuthController::class, 'authenticate'])->name('login.authenticate');
-Route::get('register', [AuthController::class, 'register'])->name('register');
-Route::post('register', [AuthController::class, 'store'])->name('register.store');
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+// Route::get('login', [AuthController::class, 'login'])->name('login');
+// Route::post('login/authenticate', [AuthController::class, 'authenticate'])->name('login.authenticate');
+// Route::get('register', [AuthController::class, 'register'])->name('register');
+// Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login/authenticate', [AuthController::class, 'authenticate'])->name('login.authenticate');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register'])->name('register');

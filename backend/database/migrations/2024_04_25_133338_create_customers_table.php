@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('DELIVERY_ADDRESS', 100);
             $table->char('PHONE_NUMBER', 20);
             $table->string('EMAIL', 100)->nullable()->unique();
-            $table->char('password', 64);
+            $table->char('PASSWORD', 64);
         });
     }
 

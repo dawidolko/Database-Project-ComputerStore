@@ -11,12 +11,13 @@ class Customers extends Authenticatable
 {
     use HasFactory;
 
-    use Notifiable;
     protected $table = 'customers';
-    protected $guard = 'customer';
     public $timestamps = false;
-    protected $fillable = ['NAME', 'LAST_NAME', 'DELIVERY_ADDRESS', 'PHONE_NUMBER', 'EMAIL', 'password'];
-    protected $hidden = ['password'];
+    // protected $fillable = ['name', 'last_name', 'delivery_address', 'phone_number', 'email', 'password'];
+    // protected $hidden = ['password'];
+
+    protected $fillable = ['NAME', 'LAST_NAME', 'DELIVERY_ADDRESS', 'PHONE_NUMBER', 'EMAIL', 'PASSWORD'];
+    protected $hidden = ['PASSWORD'];
     
     public function order()
     {
@@ -32,9 +33,6 @@ class Customers extends Authenticatable
     {
         return $this->hasOne(Newsletter::class, 'CUSTOMERS_ID');
     }
-    public function getAuthPassword()
-    {
-        return $this->PASSWORD;
-    }
+
 
 }

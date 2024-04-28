@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('JOB_POSITION', 50);
             $table->string('EMAIL', 100)->nullable()->unique();
             $table->char('PHONE_NUMBER', 20);
-            $table->char('password', 64);
+            $table->char('PASSWORD', 64);
         });
     }
 
