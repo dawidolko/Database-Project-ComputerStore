@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Orders extends Model
+{
+    use HasFactory;
+    protected $table = 'orders';
+    protected $fillable = ['CUSTOMERS_ID', 'EMPLOYEES_ID', 'DATE_ORDER', 'STATUS'];
+
+    public function Customer()
+    {
+        return $this->belongsTo(Customers::class);
+    }
+
+    public function Employee()
+    {
+        return $this->belongsTo(Employees::class);
+    }
+
+    public function ordersProducts()
+    {
+        return $this->belongsToMany(Products::class, 'orders_products', 'ORDERS_ID', 'PRODUCTS_ID');
+    }
+
+    public function shipments()
+    {
+        return $this->hasOne(Shipments::class);
+    }
+
+    public function complaints()
+    {
+        return $this->hasMany(Complaints::class);
+    }
+}

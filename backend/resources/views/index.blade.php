@@ -1,6 +1,9 @@
 @include('shared.html')
 
   @include('shared.head', ['pageTitle' => 'Home - Sklep komputerowy'])
+  <head>
+    <link rel="stylesheet" href="{{ asset('css/style-prefix.css') }}" />
+  </head>
   <body>
     @include('shared.navbar')
 
@@ -101,7 +104,7 @@
                   <div class="category-content-flex">
                     <h3 class="category-item-title">Computers</h3>
   
-                    <p class="category-item-amount">(42)</p>
+                    <p class="category-item-amount">({{ $iloscKomputerow }})</p>
                   </div>
   
                   <a href="{{ route('computers.index') }}" class="category-btn">Show all</a>
@@ -120,7 +123,7 @@
                   <div class="category-content-flex">
                     <h3 class="category-item-title">Laptops</h3>
   
-                    <p class="category-item-amount">(23)</p>
+                    <p class="category-item-amount">({{ $iloscLaptopow }})</p>
                   </div>
   
                   <a href="{{ route('laptops.index') }}" class="category-btn">Show all</a>
@@ -139,7 +142,7 @@
                   <div class="category-content-flex">
                     <h3 class="category-item-title">Processors</h3>
   
-                    <p class="category-item-amount">(58)</p>
+                    <p class="category-item-amount">({{ $iloscProcessors }})</p>
                   </div>
   
                   <a href="{{ route('components.index') }}#all" class="category-btn">Show all</a>
@@ -158,7 +161,7 @@
                   <div class="category-content-flex">
                     <h3 class="category-item-title">Graphics</h3>
   
-                    <p class="category-item-amount">(87)</p>
+                    <p class="category-item-amount">({{ $iloscGraphics }})</p>
                   </div>
   
                   <a href="{{ route('components.index') }}#all" class="category-btn">Show all</a>
@@ -174,7 +177,7 @@
                   <div class="category-content-flex">
                     <h3 class="category-item-title">Memory RAM</h3>
   
-                    <p class="category-item-amount">(37)</p>
+                    <p class="category-item-amount">({{ $iloscMemoryRam }})</p>
                   </div>
   
                   <a href="{{ route('components.index') }}#all" class="category-btn">Show all</a>
@@ -193,7 +196,7 @@
                   <div class="category-content-flex">
                     <h3 class="category-item-title">Cooling</h3>
   
-                    <p class="category-item-amount">(56)</p>
+                    <p class="category-item-amount">({{ $iloscCooling }})</p>
                   </div>
   
                   <a href="{{ route('components.index') }}#all" class="category-btn">Show all</a>
@@ -212,7 +215,7 @@
                   <div class="category-content-flex">
                     <h3 class="category-item-title">Fans</h3>
   
-                    <p class="category-item-amount">(127)</p>
+                    <p class="category-item-amount">({{ $iloscFans }})</p>
                   </div>
   
                   <a href="{{ route('components.index') }}#all" class="category-btn">Show all</a>
@@ -231,7 +234,7 @@
                   <div class="category-content-flex">
                     <h3 class="category-item-title">Power supply</h3>
   
-                    <p class="category-item-amount">(31)</p>
+                    <p class="category-item-amount">({{ $iloscPowerSupply }})</p>
                   </div>
   
                   <a href="{{ route('components.index') }}#all" class="category-btn">Show all</a>
@@ -289,8 +292,8 @@
                           href="{{ route('computers.index') }}#gaming"
                           class="sidebar-submenu-title">
                           <p class="product-name">Gaming</p>
-                          <data value="12" class="stock" title="Available Stock"
-                            >12</data
+                          <data class="stock" title="Available Stock"
+                            >{{ $iloscGamingComputers }}</data
                           >
                         </a>
                       </li>
@@ -300,8 +303,8 @@
                           href="{{ route('computers.index') }}#learning"
                           class="sidebar-submenu-title">
                           <p class="product-name">Learning</p>
-                          <data value="20" class="stock" title="Available Stock"
-                            >20</data
+                          <data class="stock" title="Available Stock"
+                            >{{ $iloscLearningComputers }}</data
                           >
                         </a>
                       </li>
@@ -311,8 +314,8 @@
                           href="{{ route('computers.index') }}#office"
                           class="sidebar-submenu-title">
                           <p class="product-name">Office</p>
-                          <data value="10" class="stock" title="Available Stock"
-                            >10</data
+                          <data class="stock" title="Available Stock"
+                            >{{ $iloscOfficeComputers }}</data
                           >
                         </a>
                       </li>
@@ -322,8 +325,8 @@
                           href="{{ route('computers.index') }}#all"
                           class="sidebar-submenu-title">
                           <p class="product-name">All</p>
-                          <data value="42" class="stock" title="Available Stock"
-                            >42</data
+                          <data class="stock" title="Available Stock"
+                            >{{ $iloscKomputerow }}</data
                           >
                         </a>
                       </li>
@@ -357,8 +360,8 @@
                           href="{{ route('laptops.index') }}#gaming"
                           class="sidebar-submenu-title">
                           <p class="product-name">Gaming</p>
-                          <data value="45" class="stock" title="Available Stock"
-                            >12</data
+                          <data class="stock" title="Available Stock"
+                            >{{ $iloscGamingLaptops }}</data
                           >
                         </a>
                       </li>
@@ -368,8 +371,8 @@
                           href="{{ route('laptops.index') }}#learning"
                           class="sidebar-submenu-title">
                           <p class="product-name">Learning</p>
-                          <data value="5" class="stock" title="Available Stock"
-                            >5</data
+                          <data class="stock" title="Available Stock"
+                            >{{ $iloscLearningLaptops }}</data
                           >
                         </a>
                       </li>
@@ -379,8 +382,8 @@
                           href="{{ route('laptops.index') }}#office"
                           class="sidebar-submenu-title">
                           <p class="product-name">Office</p>
-                          <data value="6" class="stock" title="Available Stock"
-                            >6</data
+                          <data class="stock" title="Available Stock"
+                            >{{ $iloscOfficeLaptops }}</data
                           >
                         </a>
                       </li>
@@ -388,8 +391,8 @@
                       <li class="sidebar-submenu-category">
                         <a href="{{ route('laptops.index') }}#all" class="sidebar-submenu-title">
                           <p class="product-name">All</p>
-                          <data value="23" class="stock" title="Available Stock"
-                            >23</data
+                          <data class="stock" title="Available Stock"
+                            >{{ $iloscLaptopow }}</data
                           >
                         </a>
                       </li>
@@ -423,8 +426,8 @@
                           href="{{ route('components.index') }}#processors"
                           class="sidebar-submenu-title">
                           <p class="product-name">Prossecors</p>
-                          <data value="58" class="stock" title="Available Stock"
-                            >58</data
+                          <data class="stock" title="Available Stock"
+                            >{{ $iloscProcessors }}</data
                           >
                         </a>
                       </li>
@@ -434,8 +437,8 @@
                           href="{{ route('components.index') }}#graphics"
                           class="sidebar-submenu-title">
                           <p class="product-name">Graphics</p>
-                          <data value="87" class="stock" title="Available Stock"
-                            >87</data
+                          <data class="stock" title="Available Stock"
+                            >{{ $iloscGraphics }}</data
                           >
                         </a>
                       </li>
@@ -445,8 +448,8 @@
                           href="{{ route('components.index') }}#memoryRam"
                           class="sidebar-submenu-title">
                           <p class="product-name">Memory RAM</p>
-                          <data value="37" class="stock" title="Available Stock"
-                            >37</data
+                          <data class="stock" title="Available Stock"
+                            >{{ $iloscMemoryRam }}</data
                           >
                         </a>
                       </li>
@@ -456,134 +459,48 @@
               </div>
   
               <div class="product-showcase">
-                <h3 class="showcase-heading">best sellers</h3>
+                <h3 class="showcase-heading">Random items</h3>
   
                 <div class="showcase-wrapper">
                   <div class="showcase-container">
+                    @forelse($randomProducts as $produkt)
                     <div class="showcase">
                       <a
-                        href="{{ route('components.index') }}/cases/case1.html"
+                      href="{{ route($produkt->productsCategories->first()->category_name) }}"
                         class="showcase-img-box">
-                        <img
-                          src="{{ asset('storage/img') }}//products/components/computerCases/case1v1.webp"
-                          alt="Case 1v1"
-                          width="75"
-                          height="75"
-                          class="showcase-img" />
+                        @php
+                            $photoPath = $produkt->photosProducts->isNotEmpty() ? $produkt->photosProducts->first()->path : 'default.png';
+                        @endphp
+                        <img src="{{ asset('storage/images/' . $photoPath) }}"
+                            alt="{{ $produkt->name }}"
+                            width="75"
+                            height="75"
+                            class="showcase-img" />
                       </a>
   
                       <div class="showcase-content">
-                        <a href="{{ route('components.index') }}cases/case1.html">
-                          <h4 class="showcase-title">Fury Shobo SH4F RGB</h4>
+                        <a href="{{ route($produkt->productsCategories->first()->category_name) }}"
+                          >
+                          <h3 class="showcase-title">{{ $produkt->name }}</h3>
                         </a>
   
                         <div class="showcase-rating">
+                          {{-- <ion-icon name="star"></ion-icon>
                           <ion-icon name="star"></ion-icon>
                           <ion-icon name="star"></ion-icon>
                           <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon> --}}
                         </div>
   
                         <div class="price-box">
-                          <del>$100.00</del>
-                          <p class="price">$84.00</p>
-                        </div>
+                          <del>${{ $produkt->old_price }}</del>
+                          <p class="price">${{ $produkt->price }}</p>
+                      </div>
                       </div>
                     </div>
-  
-                    <div class="showcase">
-                      <a
-                        href="{{ route('components.index') }}graphics/graphics10.html"
-                        class="showcase-img-box">
-                        <img
-                          src="{{ asset('storage/img') }}/products/components/graphics/grap10v1.webp"
-                          alt="grafika 10v1"
-                          class="showcase-img"
-                          width="75"
-                          height="75" />
-                      </a>
-  
-                      <div class="showcase-content">
-                        <a href="{{ route('components.index') }}graphics/graphics10.html">
-                          <h4 class="showcase-title">ASUS GeForce RTX 4090</h4>
-                        </a>
-                        <div class="showcase-rating">
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star-half-outline"></ion-icon>
-                        </div>
-  
-                        <div class="price-box">
-                          <del>$1950.00</del>
-                          <p class="price">$2000.00</p>
-                        </div>
-                      </div>
-                    </div>
-  
-                    <div class="showcase">
-                      <a
-                        href="{{ route('components.index') }}processors/processor1.html"
-                        class="showcase-img-box">
-                        <img
-                          src="{{ asset('storage/img') }}/products/components/processors/processor1.webp"
-                          alt="girls t-shirt"
-                          class="showcase-img"
-                          width="75"
-                          height="75" />
-                      </a>
-  
-                      <div class="showcase-content">
-                        <a href="{{ route('components.index') }}processors/processor1.html">
-                          <h4 class="showcase-title">AMD Ryzen 9 7900X</h4>
-                        </a>
-                        <div class="showcase-rating">
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star-half-outline"></ion-icon>
-                        </div>
-  
-                        <div class="price-box">
-                          <del>$500</del>
-                          <p class="price">$400</p>
-                        </div>
-                      </div>
-                    </div>
-  
-                    <div class="showcase">
-                      <a
-                        href="{{ route('components.index') }}motherboards/mobo10.html"
-                        class="showcase-img-box">
-                        <img
-                          src="{{ asset('storage/img') }}/products/components/motherboards/mb10v1.webp"
-                          alt="motherboards 10v1"
-                          class="showcase-img"
-                          width="75"
-                          height="75" />
-                      </a>
-  
-                      <div class="showcase-content">
-                        <a href="#">
-                          <h4 class="showcase-title">ASUS PRIME B550-PLUS</h4>
-                        </a>
-                        <div class="showcase-rating">
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                        </div>
-  
-                        <div class="price-box">
-                          <del>$120</del>
-                          <p class="price">$100</p>
-                        </div>
-                      </div>
-                    </div>
+                    @empty
+                        <p>No products.</p>
+                    @endforelse
                   </div>
                 </div>
               </div>
@@ -600,247 +517,37 @@
   
                   <div class="showcase-wrapper has-scrollbar">
                     <div class="showcase-container">
-                      <div class="showcase">
-                        <a href="computers/set1.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/computers/computer1.webp"
-                            alt="computer 1"
-                            width="70"
-                            class="showcase-img" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="computers/set1.html">
-                            <h4 class="showcase-title">
-                              Set Z1 | Ryzen 7500F, RTX 4060 8GB, 16GB DDR5, 500GB
-                              SSD, 650W, Aramis Midi ARGB
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('computers.index') }}#gaming"
-                            class="showcase-category"
-                            >Gaming</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$910.00</p>
-                            <del>$950.00</del>
+                      @forelse($computerProducts as $produkt)
+                          <div class="showcase">
+                              @php
+                                  $photoPath = $produkt->photosProducts->isNotEmpty() ? $produkt->photosProducts->first()->path : 'default.png';
+                              @endphp
+                              <a href={{route('laptops.show', ['id' => $produkt->id])}} class="showcase-img-box">
+                                  <img src="{{ asset('storage/images/' . $photoPath) }}"
+                                      alt="{{ $produkt->name }}"
+                                      width="75"
+                                      height="75"
+                                      class="showcase-img" />
+                              </a>
+
+                              <div class="showcase-content">
+                                  <a href={{route('computers.show', ['id' => $produkt->id])}}>
+                                      <h3 class="showcase-title">{{ $produkt->name }}</h3>
+                                  </a>
+
+                                  <a href="{{ route($produkt->productsCategories->first()->category_name) }}#{{ $produkt->productsCategories->first()->description }}" class="showcase-category">
+                                      {{ $produkt->productsCategories->first()->description }}
+                                  </a>
+
+                                  <div class="price-box">
+                                      <p class="price">${{ $produkt->price }}</p>
+                                      <del>${{ $produkt->old_price }}</del>
+                                  </div>
+                              </div>
                           </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a href="computers/set2.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/computers/computer2.webp"
-                            alt="computer 2"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="computers/set2.html">
-                            <h4 class="showcase-title">
-                              Set Z2 | Ryzen 5 5600, RTX 4060 8GB, 16GB DDR4, 1TB
-                              SSD, Signum 300 ARGB, 750W
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('computers.index') }}#learing"
-                            class="showcase-category"
-                            >Learning</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$960.00</p>
-                            <del>$990.00</del>
-                          </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a href="computers/set3.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/computers/computer3.webp"
-                            alt="computer 3"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="computers/set3.html">
-                            <h4 class="showcase-title">
-                              Set Z3 | Intel I7-14700KF, RTX 4070 Ti SUPER 16GB,
-                              32GB DDR5, 1TB SSD, 750W, ARX 500 ARGB
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('computers.index') }}#gaming"
-                            class="showcase-category"
-                            >Gaming</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$1975.00</p>
-                            <del>$2225.00</del>
-                          </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a href="computers/set4.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/computers/computer4.webp"
-                            alt="computer 4"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="computers/set4.html">
-                            <h4 class="showcase-title">
-                              Set Z4 | Ryzen 7 5700X, RTX 4060 8GB, 16GB DDR4,
-                              500GB SSD, Aramis ARGB, 550W
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('computers.index') }}#office"
-                            class="showcase-category"
-                            >Office</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$1630.00</p>
-                            <del>$1680.00</del>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-  
-                    <div class="showcase-container">
-                      <div class="showcase">
-                        <a href="computers/set5.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/computers/computer5.webp"
-                            alt="computer 5 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="computers/set5.html">
-                            <h4 class="showcase-title">
-                              Set Z5 | Intel I5-14400F, RX 7800 XT 12GB, 16GB
-                              DDR4, 500GB SSD, 650W, MSI 112 ARGB
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('computers.index') }}#learning"
-                            class="showcase-category"
-                            >Learning</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$261.00</p>
-                            <del>$311.00</del>
-                          </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a href="computers/set6.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/computers/computer6.webp"
-                            alt="computer 6"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="computers/set6.html">
-                            <h4 class="showcase-title">
-                              Set Z6 | Intel I5-14600KF, RX 7900 GRE 16GB, 16GB
-                              DDR5, 500GB SSD, 700W, ARX 500 ARGB
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('computers.index') }}#gaming"
-                            class="showcase-category"
-                            >Gaming</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$732.00</p>
-                            <del>$820.00</del>
-                          </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a href="computers/set.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/computers/computer7.webp"
-                            alt="computer 7"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="computers/set7.html">
-                            <h4 class="showcase-title">
-                              Set Z7 | Ryzen 5 7600, RX 7800 XT 16GB, 16GB
-                              DDR5,500GB SSD, 112R ARGB, 700W
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('computers.index') }}#office"
-                            class="showcase-category"
-                            >Office</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$650.00</p>
-                            <del>$725.00</del>
-                          </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a href="computers/set8.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/computers/computer8.webp"
-                            alt="computer 8"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="computers/set8.html">
-                            <h4 class="showcase-title">
-                              Set Z8 | Ryzen 7 7800X3D, RX 7900 XTX 24GB, 32GB
-                              DDR5, 2TB SSD, Regnum 400 ARGB, 1000W
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('computers.index') }}#gaming"
-                            class="showcase-category"
-                            >Gaming</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$420.00</p>
-                            <del>$510.00</del>
-                          </div>
-                        </div>
-                      </div>
+                      @empty
+                          <p>No computers available.</p>
+                      @endforelse
                     </div>
                   </div>
                 </div>
@@ -850,230 +557,37 @@
   
                   <div class="showcase-wrapper has-scrollbar">
                     <div class="showcase-container">
-                      <div class="showcase">
-                        <a href="laptops/laptop1.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/laptops/laptop1v1.webp"
-                            alt="laptop 1v1 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="laptops/laptop1.html">
-                            <h4 class="showcase-title">
-                              Apple MacBook Air M2/16GB/256/Mac OS Midnight
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('laptops.index') }}#learning"
-                            class="showcase-category"
-                            >Learning</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$319.00</p>
-                            <del>$350.00</del>
+                      @forelse($laptopProducts as $produkt)
+                          <div class="showcase">
+                              @php
+                                  $photoPath = $produkt->photosProducts->isNotEmpty() ? $produkt->photosProducts->first()->path : 'default.png';
+                              @endphp
+                              <a href={{route('laptops.show', ['id' => $produkt->id])}} class="showcase-img-box">
+                                  <img src="{{ asset('storage/images/' . $photoPath) }}"
+                                      alt="{{ $produkt->name }}"
+                                      width="75"
+                                      height="75"
+                                      class="showcase-img" />
+                              </a>
+
+                              <div class="showcase-content">
+                                  <a href="{{ route($produkt->productsCategories->first()->category_name) }}">
+                                      <h3 class="showcase-title">{{ $produkt->name }}</h3>
+                                  </a>
+
+                                  <a href="{{ route($produkt->productsCategories->first()->category_name) }}#{{ $produkt->productsCategories->first()->description }}" class="showcase-category">
+                                      {{ $produkt->productsCategories->first()->description }}
+                                  </a>
+
+                                  <div class="price-box">
+                                      <p class="price">${{ $produkt->price }}</p>
+                                      <del>${{ $produkt->old_price }}</del>
+                                  </div>
+                              </div>
                           </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a href="laptops/laptop2.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/laptops/laptop2v1.webp"
-                            alt="laptop 2v1 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="laptops/laptop2.html">
-                            <h4 class="showcase-title">
-                              HP 255 G9 Ryzen 5-5625U/16GB/512/Win11
-                            </h4>
-                          </a>
-  
-                          <a href="{{ route('laptops.index') }}#office" class="showcase-category"
-                            >Office</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$1578.00</p>
-                            <del>$1536.00</del>
-                          </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a href="laptops/laptop3.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/laptops/laptop3v1.webp"
-                            alt="laptop 3v1 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="laptops/laptop3.html">
-                            <h4 class="showcase-title">
-                              MSI Thin GF63 i5-12450H/16GB/512 RTX2050 144Hz
-                            </h4>
-                          </a>
-  
-                          <a href="{{ route('laptops.index') }}#gaming" class="showcase-category"
-                            >Gaming</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$1294.00</p>
-                            <del>$1242.00</del>
-                          </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a href="laptops/laptop4.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/laptops/laptop4v1.webp"
-                            alt="laptop 4v1 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="laptops/laptop4.html">
-                            <h4 class="showcase-title">
-                              ASUS Vivobook 15 i5-1235U/16GB/512/Win11
-                            </h4>
-                          </a>
-  
-                          <a href="{{ route('laptops.index') }}#gaming" class="showcase-category"
-                            >Gaming</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$654.00</p>
-                            <del>$665.00</del>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-  
-                    <div class="showcase-container">
-                      <div class="showcase">
-                        <a href="laptops/laptop5.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/laptops/laptop5v1.webp"
-                            alt="laptop 5v1 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="laptops/laptop5.html">
-                            <h4 class="showcase-title">
-                              Dell Inspiron 3520 i5-1235U/16GB/1TB/Win11 120Hz
-                            </h4>
-                          </a>
-  
-                          <a href="{{ route('laptops.index') }}#office" class="showcase-category"
-                            >Office</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$1500.00</p>
-                            <del>$1555.00</del>
-                          </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a href="laptops/laptop7.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/laptops/laptop9v1.webp"
-                            alt="laptop 9v1 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="laptops/laptop8.html">
-                            <h4 class="showcase-title">
-                              Dell Inspiron 3520 i5-1235U/16GB/1TB/Win11 120Hz
-                              Srebrny
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('laptops.index') }}#learning"
-                            class="showcase-category"
-                            >Learning</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$920.00</p>
-                            <del>$930.00</del>
-                          </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a href="laptops/laptop7.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/laptops/laptop7v1.webp"
-                            alt="laptop 7v1 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="laptops/laptop6.html">
-                            <h4 class="showcase-title">
-                              Acer Chromebook 315 N4500/8GB/128/FHD ChromeOS
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('laptops.index') }}#learning"
-                            class="showcase-category"
-                            >Learning</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$556.00</p>
-                            <del>$578.00</del>
-                          </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a href="laptops/laptop7.html" class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/laptops/laptop8v1.webp"
-                            alt="laptop 8v1 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="laptops/laptop7.html">
-                            <h4 class="showcase-title">
-                              Lenovo Yoga Slim 6-14 i5-1240P/16GB/512/Win11
-                            </h4>
-                          </a>
-  
-                          <a href="{{ route('laptops.index') }}#office" class="showcase-category"
-                            >Office</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$850.00</p>
-                            <del>$855.00</del>
-                          </div>
-                        </div>
-                      </div>
+                      @empty
+                          <p>No laptops available.</p>
+                      @endforelse
                     </div>
                   </div>
                 </div>
@@ -1083,251 +597,37 @@
   
                   <div class="showcase-wrapper has-scrollbar">
                     <div class="showcase-container">
-                      <div class="showcase">
-                        <a
-                          href="components/cases/case5.html"
-                          class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/components/computerCases/case5v1.webp"
-                            alt="Cases 5v1 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="components/cases/case5.html">
-                            <h4 class="showcase-title">
-                              Logic Portos Midi ARGB Black
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('components.index') }}#cases"
-                            class="showcase-category"
-                            >Cases</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$50.00</p>
-                            <del>$64.00</del>
+                      @forelse($componentProducts as $produkt)
+                          <div class="showcase">
+                              @php
+                                  $photoPath = $produkt->photosProducts->isNotEmpty() ? $produkt->photosProducts->first()->path : 'default.png';
+                              @endphp
+                              <a href={{route('components.show', ['id' => $produkt->id])}} class="showcase-img-box">
+                                  <img src="{{ asset('storage/images/' . $photoPath) }}"
+                                      alt="{{ $produkt->name }}"
+                                      width="75"
+                                      height="75"
+                                      class="showcase-img" />
+                              </a>
+                      
+                              <div class="showcase-content">
+                                  <a href="{{ route($produkt->productsCategories->first()->category_name) }}">
+                                      <h3 class="showcase-title">{{ $produkt->name }}</h3>
+                                  </a>
+                      
+                                  <a href="{{ route($produkt->productsCategories->first()->category_name) }}#{{ $produkt->productsCategories->first()->description }}" class="showcase-category">
+                                      {{ $produkt->productsCategories->first()->description }}
+                                  </a>
+                      
+                                  <div class="price-box">
+                                      <p class="price">${{ $produkt->price }}</p>
+                                      <del>${{ $produkt->old_price }}</del>
+                                  </div>
+                              </div>
                           </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a
-                          href="components/cooling/aio1.html"
-                          class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/components/cooling/aio1v1.webp"
-                            alt="aio 1v1 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="components/cooling/aio1.html">
-                            <h4 class="showcase-title">
-                              AiO Arctic Liquid Freezer II 280 OUTLET water
-                              cooling
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('components.index') }}#cooling"
-                            class="showcase-category"
-                            >Cooling</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$44.00</p>
-                            <del>$50.00</del>
-                          </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a
-                          href="components/disks/m2_2.html"
-                          class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/components/disks/m2_2v1.webp"
-                            alt="m2 2v1 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="components/disks/m2_2.html">
-                            <h4 class="showcase-title">
-                              Lexar 1TB M.2 PCIe Gen4 NVMe NM800 Pro
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('components.index') }}#disks"
-                            class="showcase-category"
-                            >Disks</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$22.00</p>
-                            <del>$30.00</del>
-                          </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a
-                          href="components/fans/fan1.html"
-                          class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/components/fans/fan1v1.webp"
-                            alt="fan1v1 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="components/fans/fan1.html">
-                            <h4 class="showcase-title">
-                              Silver Monkey X Sirocco 3x120 mm PWM KIT
-                            </h4>
-                          </a>
-  
-                          <a href="{{ route('components.index') }}#fans" class="showcase-category"
-                            >Fans</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$24.00</p>
-                            <del>$40.00</del>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-  
-                    <div class="showcase-container">
-                      <div class="showcase">
-                        <a
-                          href="components/graphics/graphics10.html"
-                          class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/components/graphics/grap10v1.webp"
-                            alt="grap10v1 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="components/graphics/graphics10.html">
-                            <h4 class="showcase-title">
-                              ASUS GeForce RTX 4090 ROG Strix Gaming White OC 24GB
-                              GDDR6X
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('components.index') }}#graphics"
-                            class="showcase-category"
-                            >Graphics</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$2000.00</p>
-                            <del>$1900.00</del>
-                          </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a
-                          href="components/memoryRam/memory10.html"
-                          class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/components/memoryram/ram10v1.webp"
-                            alt="ram 10v1 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="components/memoryRam/memory10.html">
-                            <h4 class="showcase-title">
-                              Patriot 32GB (2x16GB) 3600MHz CL18 Viper Steel
-                            </h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('components.index') }}#memoryRam"
-                            class="showcase-category"
-                            >Memory RAM</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$56.00</p>
-                            <del>$78.00</del>
-                          </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a
-                          href="components/motherboards/mobo10.html"
-                          class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/components/motherboards/mb10v1.webp"
-                            alt="mb 10v1 0 photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="components/motherboards/mobo10.html">
-                            <h4 class="showcase-title">ASUS PRIME B550-PLUS</h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('components.index') }}#motherboards"
-                            class="showcase-category"
-                            >Motherboards</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$100.00</p>
-                            <del>$120.00</del>
-                          </div>
-                        </div>
-                      </div>
-  
-                      <div class="showcase">
-                        <a
-                          href="components/processors/processor10.html"
-                          class="showcase-img-box">
-                          <img
-                            src="{{ asset('storage/img') }}/products/components/processors/processor10.webp"
-                            alt="processor10 - photo 1"
-                            class="showcase-img"
-                            width="70" />
-                        </a>
-  
-                        <div class="showcase-content">
-                          <a href="components/processors/processor10.html">
-                            <h4 class="showcase-title">Intel Core i3-13100</h4>
-                          </a>
-  
-                          <a
-                            href="{{ route('components.index') }}#processors"
-                            class="showcase-category"
-                            >Processors</a
-                          >
-  
-                          <div class="price-box">
-                            <p class="price">$200.00</p>
-                            <del>$300.00</del>
-                          </div>
-                        </div>
-                      </div>
+                      @empty
+                          <p>No components available.</p>
+                      @endforelse
                     </div>
                   </div>
                 </div>
@@ -1342,180 +642,152 @@
   
                 <div class="showcase-wrapper has-scrollbar">
                   <div class="showcase-container">
+                    @forelse([$selectedLaptop] as $produkt)
                     <div class="showcase">
-                      <div class="showcase-banner">
-                        <img
-                          src="{{ asset('storage/img') }}/products/laptops/laptop11v2.webp"
-                          alt="laptop 11v2 - photo 12"
-                          class="showcase-img" />
-                      </div>
-  
-                      <div class="showcase-content">
-                        <div class="showcase-rating">
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star-outline"></ion-icon>
+                        <div class="showcase-banner">
+                            <img
+                                src="{{ $produkt->photosProducts->isNotEmpty() ? asset('storage/images/' . $produkt->photosProducts->first()->path) : asset('storage/images/default.png') }}"
+                                alt="{{ $produkt->name }}"
+                                class="showcase-img" />
                         </div>
-  
-                        <a href="laptops/laptop10.html">
-                          <h3 class="showcase-title">
-                            Microsoft Surface Laptop Studio i7/32GB/2TB/GeForce
-                            RTX
-                          </h3>
-                        </a>
-  
-                        <p class="showcase-desc">
-                          Powerful, fast and infinitely flexible Let your
-                          imagination run wild - the most powerful Surface laptop
-                          takes advantage of the best features of Windows 11. Act
-                          without limits, be inspired and pursue your passions.
-                        </p>
-  
-                        <div class="price-box">
-                          <p class="price">$3900.00</p>
-  
-                          <del>$4200.00</del>
+                
+                        <div class="showcase-content">
+                            <a href={{route('laptops.show', ['id' => $produkt->id])}}>
+                                <h3 class="showcase-title">
+                                    {{ $produkt->name }}
+                                </h3>
+                            </a>
+                
+                            <p class="showcase-desc">
+                                Powerful, fast and infinitely flexible. Let your imagination run wild - the most 
+                                powerful Surface laptop takes advantage of the best features of Windows 11. Act 
+                                without limits, be inspired and pursue your passions.
+                            </p>
+                
+                            <div class="price-box">
+                                <p class="price">${{ $produkt->price }}</p>
+                                <del>${{ $produkt->old_price }}</del>
+                            </div>
+                            <button
+                              class="add-cart-btn"
+                              class="btn-action bag-add"
+                              onclick="addToCart(this)"
+                              data-id="unique-product-id-13"
+                              data-image="{{ asset('storage/images') . '/' . $produkt->photosProducts->first()->path }}"
+                              data-name="{{ $produkt->name }}"
+                              data-price="{{ $produkt->price }}"
+                              data-quantity="1">
+                              <a style="color: white" href="{{ route('cart') }}">add to cart</a>
+                            </button>
+                
+                            <div class="showcase-status">
+                                <div class="wrapper">
+                                    
+                                    <p>available: <b>{{ $availableCount }}</b></p>
+                                </div>
+                                <div class="showcase-status-bar" style="width: {{ $soldCount / max($soldCount+1, 1) * 100 }}%;"></div>
+                            </div>
+                
+                            <div class="countdown-box">
+                                <p class="countdown-desc">Hurry Up! Offer ends in:</p>
+                                <div class="countdown-content">
+                                  <p class="display-number">360</p>
+                                  <p class="display-text">Days</p>
+                                </div>
+                                <div class="countdown-content">
+                                  <p class="display-number">24</p>
+                                  <p class="display-text">Hours</p>
+                                </div>
+      
+                                <div class="countdown-content">
+                                  <p class="display-number">59</p>
+                                  <p class="display-text">Min</p>
+                                </div>
+      
+                                <div class="countdown-content">
+                                  <p class="display-number">00</p>
+                                  <p class="display-text">Sec</p>
+                                </div>
+                            </div>
                         </div>
-                        <button
-                          class="btn-action bag-add"
-                          onclick="addToCart(this)"
-                          data-id="unique-product-id-12"
-                          data-image="{{ asset('storage/img') }}/products/laptops/laptop9v1.webp"
-                          data-name="Dell Inspiron 3520 i5-1235U/16GB/1TB/Win11 120Hz"
-                          data-price="920.00"
-                          data-quantity="1">
-                          <a style="color: white" href="cart.html">add to cart</a>
-                        </button>
-  
-                        <div class="showcase-status">
-                          <div class="wrapper">
-                            <p>already sold: <b>2</b></p>
-  
-                            <p>available: <b>5</b></p>
-                          </div>
-  
-                          <div class="showcase-status-bar"></div>
-                        </div>
-  
-                        <div class="countdown-box">
-                          <p class="countdown-desc">Hurry Up! Offer ends in:</p>
-  
-                          <div class="countdown">
-                            <div class="countdown-content">
-                              <p class="display-number">360</p>
-  
-                              <p class="display-text">Days</p>
-                            </div>
-  
-                            <div class="countdown-content">
-                              <p class="display-number">24</p>
-                              <p class="display-text">Hours</p>
-                            </div>
-  
-                            <div class="countdown-content">
-                              <p class="display-number">59</p>
-                              <p class="display-text">Min</p>
-                            </div>
-  
-                            <div class="countdown-content">
-                              <p class="display-number">00</p>
-                              <p class="display-text">Sec</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
+                @empty
+                    <p>No product found.</p>
+                @endforelse
+                
                   </div>
   
                   <div class="showcase-container">
-                    <div class="showcase">
-                      <div class="showcase-banner">
-                        <img
-                          src="{{ asset('storage/img') }}/products/computers/computer5.webp"
-                          alt="computer 5 - photo 2"
-                          class="showcase-img" />
-                      </div>
-  
-                      <div class="showcase-content">
-                        <div class="showcase-rating">
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star-outline"></ion-icon>
-                          <ion-icon name="star-outline"></ion-icon>
-                        </div>
-  
-                        <h3 class="showcase-title">
-                          <a href="computers/set4.html" class="showcase-title">
-                            Set Z5 | Intel I5-14400F, RX 7800 XT 12GB, 16GB DDR4,
-                            500GB SSD, 650W, MSI 112 ARGB</a
-                          >
-                        </h3>
-  
-                        <p class="showcase-desc">
-                          This computer set is an ideal solution for those who do
-                          not have the appropriate knowledge and do not want to
-                          risk selecting components themselves or later assembling
-                          them into a properly functioning unit.
-                        </p>
-  
-                        <div class="price-box">
-                          <p class="price">$261.00</p>
-                          <del>$311.00</del>
-                        </div>
-  
-                        <button
-                          class="add-cart-btn"
-                          class="btn-action bag-add"
-                          onclick="addToCart(this)"
-                          data-id="unique-product-id-13"
-                          data-image="{{ asset('storage/img') }}/products/computers/computer5.webp"
-                          data-name="Set Z5 | Intel I5-14400F, RX 7800 XT 12GB, 16GB DDR4,
-                        500GB SSD, 650W, MSI 112 ARGB"
-                          data-price="261.00"
-                          data-quantity="1">
-                          <a style="color: white" href="cart.html">add to cart</a>
-                        </button>
-  
-                        <div class="showcase-status">
-                          <div class="wrapper">
-                            <p>already sold: <b>3</b></p>
-  
-                            <p>available: <b>7</b></p>
-                          </div>
-  
-                          <div class="showcase-status-bar"></div>
-                        </div>
-  
-                        <div class="countdown-box">
-                          <p class="countdown-desc">Hurry Up! Offer ends in:</p>
-  
-                          <div class="countdown">
-                            <div class="countdown-content">
-                              <p class="display-number">360</p>
-                              <p class="display-text">Days</p>
+                    @forelse([$selectedComputer] as $produkt)
+                        <div class="showcase">
+                            <div class="showcase-banner">
+                                <img
+                                    src="{{ $produkt->photosProducts->isNotEmpty() ? asset('storage/images/' . $produkt->photosProducts->first()->path) : asset('storage/images/default.png') }}"
+                                    alt="{{ $produkt->name }}"
+                                    class="showcase-img" />
                             </div>
+
+                            <div class="showcase-content">
+                                <a href={{route('computers.show', ['id' => $produkt->id])}}>
+                                    <h3 class="showcase-title">
+                                        {{ $produkt->name }}
+                                    </h3>
+                                </a>
+
+                                <p class="showcase-desc">
+                                    Powerful, fast and infinitely flexible. Let your imagination run wild - the most 
+                                    powerful Surface laptop takes advantage of the best features of Windows 11. Act 
+                                    without limits, be inspired and pursue your passions.
+                                </p>
+
+                                <div class="price-box">
+                                    <p class="price">${{ $produkt->price }}</p>
+                                    <del>${{ $produkt->old_price }}</del>
+                                </div>
+                                <button
+                                  class="btn-action bag-add add-cart-btn"
+                                  onclick="addToCart(this)"
+                                  data-id="unique-product-id-{{ $produkt->id }}"
+                                  data-image="{{ asset('storage/images') . '/' . $produkt->photosProducts->first()->path }}"
+                                  data-name="{{ $produkt->name }}"
+                                  data-price="{{ $produkt->price }}"
+                                  data-quantity="1">
+                                  <a style="color: white" href="{{ route('cart') }}">add to cart</a>
+                                </button>
+
+                                <div class="showcase-status">
+                                    <div class="wrapper">
+                                        
+                                        <p>available: <b>{{ $availableCount2 }}</b></p>
+                                    </div>
+                                    <div class="showcase-status-bar" style="width: {{ ($soldCount2 / max($soldCount2 + $availableCount2, 1)) * 100 }}%;"></div>
+                                </div>                              
+
+                                <div class="countdown-box2">
+                                  <p class="countdown-desc2">Hurry Up! Offer ends in:</p>
+        
+                                  <div class="countdown-content2">
+                                    <p class="display-number2">24</p>
+                                    <p class="display-text2">Hours</p>
+                                  </div>
+        
+                                  <div class="countdown-content2">
+                                    <p class="display-number2">59</p>
+                                    <p class="display-text2">Min</p>
+                                  </div>
+        
+                                  <div class="countdown-content2">
+                                    <p class="display-number2">00</p>
+                                    <p class="display-text2">Sec</p>
+                                  </div>
+                              </div>
   
-                            <div class="countdown-content">
-                              <p class="display-number">24</p>
-                              <p class="display-text">Hours</p>
                             </div>
-  
-                            <div class="countdown-content">
-                              <p class="display-number">59</p>
-                              <p class="display-text">Min</p>
-                            </div>
-  
-                            <div class="countdown-content">
-                              <p class="display-number">00</p>
-                              <p class="display-text">Sec</p>
-                            </div>
-                          </div>
                         </div>
-                      </div>
-                    </div>
+                    @empty
+                        <p>No product found.</p>
+                    @endforelse
+
                   </div>
                 </div>
               </div>
@@ -1530,977 +802,90 @@
               </div>
   
               <div class="product-main">
-                <h2 class="title">New Products</h2>
-  
-
-                <div class="product-grid">
-                    @foreach ($products as $product)
+                <h2 class="title">Hot Offers</h2>
+              
+                  <div class="product-grid">
+                    @forelse($produktyPromocyjne as $produkt)
                     <div class="showcase">
-                        <div class="showcase-banner">
-                            @foreach ($product->zdjeciaProduktow as $zdjecie)
-                                <img src="{{ asset('storage/images/'.$zdjecie->sciezka) }}" alt="{{ $product->nazwa }}" width="300" class="product-img {{ $loop->first ? 'default' : 'hover' }}" />
-                            @endforeach
-
-                    <p class="showcase-badge">15%</p>
-
-                    <div class="showcase-actions">
-                      <button
-                        class="btn-action heart"
-                        onclick="addToFavorite(this)"
-                        data-image="{{ asset('storage/images') }}/case2v1.webp"
-                        data-name="{{ $product->nazwa }}"
-                        data-price="{{ $product->cena }}"
-                        data-quantity="1">
-                        <ion-icon name="heart-outline"></ion-icon>
-                      </button>
-
-                      <button class="btn-action magnification">
-                        <ion-icon name="eye-outline"></ion-icon>
-                      </button>
-
-                      <button class="btn-action repeat">
-                        <ion-icon name="repeat-outline"></ion-icon>
-                      </button>
-
-                      <button
-                        class="btn-action bag-add"
-                        onclick="addToCart(this)"
-                        data-id="unique-product-id-1"
-                        data-image="{{ asset('storage/images') }}/case2v1.webp"
-                        data-name="{{ $product->nazwa }}"
-                        data-price="{{ $product->cena }}"
-                        data-quantity="1">
-                        <ion-icon name="bag-add-outline"></ion-icon>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div class="showcase-content">
-                    @if($product->produktyKategorie)
-                        <a href="{{ route('kategoria', ['id' => $product->produktyKategorie->id_kategorii]) }}" class="showcase-category">
-                        {{ $product->produktyKategorie->nazwa_kategorii }}
+                      <div class="showcase-banner">
+                        @if($produkt->photosProducts->isNotEmpty())
+                            @if($produkt->photosProducts->count() >= 2)
+                            <a href="{{ route($produkt->productsCategories->first()->category_name) }}">
+                                <img src="{{ asset('storage') }}/images/{{ $produkt->photosProducts[1]->path }}" alt="{{ $produkt->name }} - photo 2" width="300" class="product-img hover" />
+                            </a>
+                                @else
+                            <a href="{{ route($produkt->productsCategories->first()->category_name) }}">
+                                <img src="{{ asset('storage') }}/images/{{ $produkt->photosProducts->first()->path }}" alt="{{ $produkt->name }} - photo 2" width="300" class="product-img hover" />
+                                </a>
+                                @endif
+                            <a href="{{ route($produkt->productsCategories->first()->category_name) }}">
+                            <img src="{{ asset('storage') }}/images/{{ $produkt->photosProducts->first()->path }}" alt="{{ $produkt->name }} - photo 1" width="300" class="product-img default" />
                         </a>
-                    @endif
+                            @else
+                        <a href="{{ route($produkt->productsCategories->first()->category_name) }}">
+                            <img src="{{ asset('storage') }}/images/default.png" alt="{{ $produkt->name }} - default photo" width="300" class="product-img default" />
+                        </a>
+                            @endif
 
-                    <a href="#">
-                        <h3 class="showcase-title">
-                          {{ $product->nazwa }}
-                        </h3>
-                      </a>
+                        <p class="showcase-badge">-{{ $produkt->sale->discount_amount }}$</p>
 
-                    <div class="showcase-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
-                    </div>
+                        <div class="showcase-actions">
+                              <button class="btn-action heart" onclick="addToFavorite(this)"
+                                data-image="{{ asset('storage/images') . '/' . $produkt->photosProducts->first()->path }}"
+                                data-name="{{ $produkt->name }}"
+                                data-price="{{ $produkt->price }}"
+                                data-quantity="1">
+                                <ion-icon name="heart-outline"></ion-icon>
+                            </button>
+                      
+                            <button class="btn-action magnification">
+                                <ion-icon name="eye-outline"></ion-icon>
+                            </button>
+                
+                            <button class="btn-action repeat">
+                                <ion-icon name="repeat-outline"></ion-icon>
+                            </button>
+                
+                            <button class="btn-action bag-add" onclick="addToCart(this)" 
+                            data-id="unique-product-id-{{ $produkt->id }}" 
+                            data-image="{{ asset('storage/images') }}/{{ $produkt->photosProducts->first()->path }}" 
+                            data-name="{{ $produkt->name }}" 
+                            data-price="{{ $produkt->price }}" 
+                            data-quantity="1">
+                            <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                        </div>
+                      </div>
 
-                    <div class="price-box">
-                        <p class="price">${{ $product->cena }}</p>
-                        <del>${{ $product->stara_cena }}</del>
-                    </div>
-                </div>
-                </div>
-                 @endforeach
+                      <div class="showcase-content">
+                        <a href="{{ route($produkt->productsCategories->first()->category_name) }}#{{ $produkt->productsCategories->first()->description }}" class="showcase-category">{{ $produkt->productsCategories->first()->description }}</a>
 
+                        <a href="{{ route($produkt->productsCategories->first()->category_name) }}">
+                          <h3 class="showcase-title">{{ $produkt->name }}</h3>
+                        </a>
 
-                    {{-- ------------------ --}}
+                        <div class="showcase-rating">
+                          {{-- <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star-outline"></ion-icon>
+                          <ion-icon name="star-outline"></ion-icon> --}}
+                        </div>
 
-                  <div class="showcase">
-                    <div class="showcase-banner">
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/computerCases/case2v1.webp"
-                        alt="Case2v1 - photo 1"
-                        width="300"
-                        class="product-img default" />
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/computerCases/case2v2.webp"
-                        alt="Case2v2 - photo 2"
-                        width="300"
-                        class="product-img hover" />
-  
-                      <p class="showcase-badge">15%</p>
-  
-                      <div class="showcase-actions">
-                        <button
-                          class="btn-action heart"
-                          onclick="addToFavorite(this)"
-                          data-image="{{ asset('storage/img') }}/products/components/computerCases/case2v1.webp"
-                          data-name="{{ $product->nazwa }}"
-                          data-price="{{ $product->cena }}"
-                          data-quantity="1">
-                          <ion-icon name="heart-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action magnification">
-                          <ion-icon name="eye-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action repeat">
-                          <ion-icon name="repeat-outline"></ion-icon>
-                        </button>
-  
-                        <button
-                          class="btn-action bag-add"
-                          onclick="addToCart(this)"
-                          data-id="unique-product-id-1"
-                          data-image="{{ asset('storage/img') }}/products/components/computerCases/case2v1.webp"
-                          data-name="{{ $product->nazwa }}"
-                          data-price="{{ $product->cena }}"
-                          data-quantity="1">
-                          <ion-icon name="bag-add-outline"></ion-icon>
-                        </button>
+                        <div class="price-box">
+                          <p class="price">${{ $produkt->price }}</p>
+                          <del>${{ $produkt->old_price }}</del>
+                        </div>
                       </div>
                     </div>
-  
-                    <div class="showcase-content">
-                      <a href="{{ route('components.index') }}#cases" class="showcase-category"
-                        >Case</a
-                      >
-  
-                      <a href="components/cases/case2.html">
-                        <h3 class="showcase-title">
-                            {{ $product->nazwa }}
-                        </h3>
-                      </a>
-  
-                      <div class="showcase-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                      </div>
-  
-                      <div class="price-box">
-                        <p class="price">${{ $product->cena }}</p>
-                        <del>${{ $product->stara_cena }}</del>
-                      </div>
-                    </div>
+                    @empty
+                        <p>No promotional products.</p>
+                    @endforelse
                   </div>
-  
-                  {{-- <div class="showcase">
-                    <div class="showcase-banner">
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/cooling/aio2v1.webp"
-                        alt="Aio2v1 - photo 1"
-                        class="product-img default"
-                        width="300" />
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/cooling/aio2v2.webp"
-                        alt="Aio2v2 - photo 2"
-                        class="product-img hover"
-                        width="300" />
-  
-                      <p class="showcase-badge angle black">sale</p>
-  
-                      <div class="showcase-actions">
-                        <button
-                          class="btn-action heart"
-                          onclick="addToFavorite(this)"
-                          data-image="{{ asset('storage/img') }}/products/components/cooling/aio2v1.webp"
-                          data-name="AiO ENDORFY Navis F280 OUTLET"
-                          data-price="45.00"
-                          data-quantity="1">
-                          <ion-icon name="heart-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action magnification">
-                          <ion-icon name="eye-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action repeat">
-                          <ion-icon name="repeat-outline"></ion-icon>
-                        </button>
-  
-                        <button
-                          class="btn-action bag-add"
-                          onclick="addToCart(this)"
-                          data-id="unique-product-id-2"
-                          data-image="{{ asset('storage/img') }}/products/components/cooling/aio2v1.webp"
-                          data-name="AiO ENDORFY Navis F280 OUTLET"
-                          data-price="45.00"
-                          data-quantity="1">
-                          <ion-icon name="bag-add-outline"></ion-icon>
-                        </button>
-                      </div>
-                    </div>
-  
-                    <div class="showcase-content">
-                      <a href="{{ route('components.index') }}#cooling" class="showcase-category"
-                        >Cooling</a
-                      >
-  
-                      <h3>
-                        <a
-                          href="components/cooling/aio2.html"
-                          class="showcase-title"
-                          >AiO ENDORFY Navis F280 OUTLET
-                        </a>
-                      </h3>
-  
-                      <div class="showcase-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                      </div>
-  
-                      <div class="price-box">
-                        <p class="price">$45.00</p>
-                        <del>$56.00</del>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="showcase">
-                    <div class="showcase-banner">
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/disks/m2_3v1.webp"
-                        alt="Dysk 3v1 - photo 1"
-                        class="product-img default"
-                        width="300" />
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/disks/m2_3v2.webp"
-                        alt="Dysk 3v1 - photo 2"
-                        class="product-img hover"
-                        width="300" />
-  
-                      <div class="showcase-actions">
-                        <button
-                          class="btn-action heart"
-                          onclick="addToFavorite(this)"
-                          data-image="{{ asset('storage/img') }}/products/components/disks/m2_3v1.webp"
-                          data-name="Lexar 1TB M.2 PCIe Gen4 NVMe NM790"
-                          data-price="58.00"
-                          data-quantity="1">
-                          <ion-icon name="heart-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action magnification">
-                          <ion-icon name="eye-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action repeat">
-                          <ion-icon name="repeat-outline"></ion-icon>
-                        </button>
-  
-                        <button
-                          class="btn-action bag-add"
-                          onclick="addToCart(this)"
-                          data-id="unique-product-id-3"
-                          data-image="{{ asset('storage/img') }}/products/components/disks/m2_3v1.webp"
-                          data-name="Lexar 1TB M.2 PCIe Gen4 NVMe NM790"
-                          data-price="58.00"
-                          data-quantity="1">
-                          <ion-icon name="bag-add-outline"></ion-icon>
-                        </button>
-                      </div>
-                    </div>
-  
-                    <div class="showcase-content">
-                      <a href="{{ route('components.index') }}#disks" class="showcase-category"
-                        >Disk</a
-                      >
-  
-                      <h3>
-                        <a
-                          href="components/disks/m2_3.html"
-                          class="showcase-title"
-                          >Lexar 1TB M.2 PCIe Gen4 NVMe NM790
-                        </a>
-                      </h3>
-  
-                      <div class="showcase-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                      </div>
-  
-                      <div class="price-box">
-                        <p class="price">$58.00</p>
-                        <del>$65.00</del>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="showcase">
-                    <div class="showcase-banner">
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/fans/fan3v1.webp"
-                        alt="fans3v1 - photo 1"
-                        class="product-img default"
-                        width="300" />
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/fans/fan3v2.webp"
-                        alt="fans3v1 - photo 2"
-                        class="product-img hover"
-                        width="300" />
-  
-                      <p class="showcase-badge angle pink">new</p>
-  
-                      <div class="showcase-actions">
-                        <button
-                          class="btn-action heart"
-                          onclick="addToFavorite(this)"
-                          data-image="{{ asset('storage/img') }}/products/components/fans/fan3v1.webp"
-                          data-name="be quiet! Silent Wings 4 120mm PWM"
-                          data-price="15.00"
-                          data-quantity="1">
-                          <ion-icon name="heart-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action magnification">
-                          <ion-icon name="eye-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action repeat">
-                          <ion-icon name="repeat-outline"></ion-icon>
-                        </button>
-  
-                        <button
-                          class="btn-action bag-add"
-                          onclick="addToCart(this)"
-                          data-id="unique-product-id-4"
-                          data-image="{{ asset('storage/img') }}/products/components/fans/fan3v1.webp"
-                          data-name="be quiet! Silent Wings 4 120mm PWM"
-                          data-price="15.00"
-                          data-quantity="1">
-                          <ion-icon name="bag-add-outline"></ion-icon>
-                        </button>
-                      </div>
-                    </div>
-  
-                    <div class="showcase-content">
-                      <a href="{{ route('components.index') }}#fans" class="showcase-category"
-                        >Fans</a
-                      >
-  
-                      <h3>
-                        <a href="components/fans/fan3.html" class="showcase-title"
-                          >be quiet! Silent Wings 4 120mm PWM
-                        </a>
-                      </h3>
-  
-                      <div class="showcase-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                      </div>
-  
-                      <div class="price-box">
-                        <p class="price">$15.00</p>
-                        <del>$35.00</del>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="showcase">
-                    <div class="showcase-banner">
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/graphics/grap2v1.webp"
-                        alt="grap2vs1 - photo 1"
-                        class="product-img default"
-                        width="300" />
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/graphics/grap2v2.webp"
-                        alt="grap2vs1 - photo 2"
-                        class="product-img hover"
-                        width="300" />
-  
-                      <div class="showcase-actions">
-                        <button
-                          class="btn-action heart"
-                          onclick="addToFavorite(this)"
-                          data-image="{{ asset('storage/img') }}/products/components/graphics/grap2v1.webp"
-                          data-name="MSI GeForce RTX 4060 Ti Gaming X SLIM 16GB GDDR6"
-                          data-price="599.00"
-                          data-quantity="1">
-                          <ion-icon name="heart-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action magnification">
-                          <ion-icon name="eye-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action repeat">
-                          <ion-icon name="repeat-outline"></ion-icon>
-                        </button>
-  
-                        <button
-                          class="btn-action bag-add"
-                          onclick="addToCart(this)"
-                          data-id="unique-product-id-5"
-                          data-image="{{ asset('storage/img') }}/products/components/graphics/grap2v1.webp"
-                          data-name="MSI GeForce RTX 4060 Ti Gaming X SLIM 16GB GDDR6"
-                          data-price="599.00"
-                          data-quantity="1">
-                          <ion-icon name="bag-add-outline"></ion-icon>
-                        </button>
-                      </div>
-                    </div>
-  
-                    <div class="showcase-content">
-                      <a href="{{ route('components.index') }}#graphics" class="showcase-category"
-                        >Graphics</a
-                      >
-  
-                      <h3>
-                        <a
-                          href="components/graphics/graphics2.html"
-                          class="showcase-title"
-                          >MSI GeForce RTX 4060 Ti Gaming X SLIM 16GB GDDR6
-                        </a>
-                      </h3>
-  
-                      <div class="showcase-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                      </div>
-  
-                      <div class="price-box">
-                        <p class="price">$599.00</p>
-                        <del>$605.00</del>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="showcase">
-                    <div class="showcase-banner">
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/memoryram/ram2v1.webp"
-                        alt="ram2v1 - photo 1"
-                        class="product-img default"
-                        width="300" />
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/memoryram/ram2v2.webp"
-                        alt="ram2v1 - photo 2"
-                        class="product-img hover"
-                        width="300" />
-  
-                      <p class="showcase-badge angle black">sale</p>
-  
-                      <div class="showcase-actions">
-                        <button
-                          class="btn-action heart"
-                          onclick="addToFavorite(this)"
-                          data-image="{{ asset('storage/img') }}/products/components/memoryram/ram2v1.webp"
-                          data-name="Kingston FURY 32GB (2x16GB) 5600MHz CL36 Beast Black
-                        EXPO AMD"
-                          data-price="50.00"
-                          data-quantity="1">
-                          <ion-icon name="heart-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action magnification">
-                          <ion-icon name="eye-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action repeat">
-                          <ion-icon name="repeat-outline"></ion-icon>
-                        </button>
-  
-                        <button
-                          class="btn-action bag-add"
-                          onclick="addToCart(this)"
-                          data-id="unique-product-id-6"
-                          data-image="{{ asset('storage/img') }}/products/components/memoryram/ram2v1.webp"
-                          data-name="Kingston FURY 32GB (2x16GB) 5600MHz CL36 Beast Black
-                        EXPO AMD"
-                          data-price="50.00"
-                          data-quantity="1">
-                          <ion-icon name="bag-add-outline"></ion-icon>
-                        </button>
-                      </div>
-                    </div>
-  
-                    <div class="showcase-content">
-                      <a
-                        href="{{ route('components.index') }}#memoryRam"
-                        class="showcase-category"
-                        >Memory RAM</a
-                      >
-  
-                      <h3>
-                        <a
-                          href="components/memoryRam/memory2.html"
-                          class="showcase-title"
-                          >Kingston FURY 32GB (2x16GB) 5600MHz CL36 Beast Black
-                          EXPO AMD
-                        </a>
-                      </h3>
-  
-                      <div class="showcase-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                      </div>
-  
-                      <div class="price-box">
-                        <p class="price">$50.00</p>
-                        <del>$70.00</del>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="showcase">
-                    <div class="showcase-banner">
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/motherboards/mb2v1.webp"
-                        alt="mb2v1 - photo 1"
-                        class="product-img default"
-                        width="300" />
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/motherboards/mb2v2.webp"
-                        alt="mb2v1 - photo 2"
-                        class="product-img hover"
-                        width="300" />
-  
-                      <div class="showcase-actions">
-                        <button
-                          class="btn-action heart"
-                          onclick="addToFavorite(this)"
-                          data-image="{{ asset('storage/img') }}/products/components/motherboards/mb2v1.webp"
-                          data-name="MSI MAG B650 TOMAHAWK WIFI"
-                          data-price="200.00"
-                          data-quantity="1">
-                          <ion-icon name="heart-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action magnification">
-                          <ion-icon name="eye-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action repeat">
-                          <ion-icon name="repeat-outline"></ion-icon>
-                        </button>
-  
-                        <button
-                          class="btn-action bag-add"
-                          onclick="addToCart(this)"
-                          data-id="unique-product-id-7"
-                          data-image="{{ asset('storage/img') }}/products/components/motherboards/mb2v1.webp"
-                          data-name="MSI MAG B650 TOMAHAWK WIFI"
-                          data-price="200.00"
-                          data-quantity="1">
-                          <ion-icon name="bag-add-outline"></ion-icon>
-                        </button>
-                      </div>
-                    </div>
-  
-                    <div class="showcase-content">
-                      <a
-                        href="{{ route('components.index') }}#motherboards"
-                        class="showcase-category"
-                        >Motherboards</a
-                      >
-  
-                      <h3>
-                        <a
-                          href="components/motherboards/mobo2.html"
-                          class="showcase-title"
-                          >MSI MAG B650 TOMAHAWK WIFI
-                        </a>
-                      </h3>
-  
-                      <div class="showcase-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                      </div>
-  
-                      <div class="price-box">
-                        <p class="price">$200.00</p>
-                        <del>$220.00</del>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="showcase">
-                    <div class="showcase-banner">
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/powerSupplies/power2v1.webp"
-                        alt="powerSupplies 2v1 - photo 1"
-                        class="product-img default"
-                        width="300" />
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/powerSupplies/power2v4.webp"
-                        alt="powerSupplies 2v1 - photo 4"
-                        class="product-img hover"
-                        width="300" />
-  
-                      <p class="showcase-badge angle black">sale</p>
-  
-                      <div class="showcase-actions">
-                        <button
-                          class="btn-action heart"
-                          onclick="addToFavorite(this)"
-                          data-image="{{ asset('storage/img') }}/products/components/powerSupplies/power2v1.webp"
-                          data-name="ENDORFY Supremo FM5 1000W 80 Plus Gold"
-                          data-price="125.00"
-                          data-quantity="1">
-                          <ion-icon name="heart-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action magnification">
-                          <ion-icon name="eye-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action repeat">
-                          <ion-icon name="repeat-outline"></ion-icon>
-                        </button>
-  
-                        <button
-                          class="btn-action bag-add"
-                          onclick="addToCart(this)"
-                          data-id="unique-product-id-8"
-                          data-image="{{ asset('storage/img') }}/products/components/powerSupplies/power2v1.webp"
-                          data-name="ENDORFY Supremo FM5 1000W 80 Plus Gold"
-                          data-price="125.00"
-                          data-quantity="1">
-                          <ion-icon name="bag-add-outline"></ion-icon>
-                        </button>
-                      </div>
-                    </div>
-  
-                    <div class="showcase-content">
-                      <a
-                        href="{{ route('components.index') }}#powerSupply"
-                        class="showcase-category"
-                        >Power Supply</a
-                      >
-  
-                      <h3>
-                        <a
-                          href="components/powerSupply/power2.html"
-                          class="showcase-title"
-                          >ENDORFY Supremo FM5 1000W 80 Plus Gold
-                        </a>
-                      </h3>
-  
-                      <div class="showcase-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                      </div>
-  
-                      <div class="price-box">
-                        <p class="price">$125.00</p>
-                        <del>$130.00</del>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="showcase">
-                    <div class="showcase-banner">
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/processors/processor2.webp"
-                        alt="procek - photo 1"
-                        class="product-img default"
-                        width="300" />
-                      <img
-                        src="{{ asset('storage/img') }}/products/components/processors/processor2.webp"
-                        alt="procek - photo 1"
-                        class="product-img hover"
-                        width="300" />
-  
-                      <div class="showcase-actions">
-                        <button
-                          class="btn-action heart"
-                          onclick="addToFavorite(this)"
-                          data-image="{{ asset('storage/img') }}/products/components/processors/processor2.webp"
-                          data-name="AMD Ryzen 7 7800X3D"
-                          data-price="332.00"
-                          data-quantity="1">
-                          <ion-icon name="heart-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action magnification">
-                          <ion-icon name="eye-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action repeat">
-                          <ion-icon name="repeat-outline"></ion-icon>
-                        </button>
-  
-                        <button
-                          class="btn-action bag-add"
-                          onclick="addToCart(this)"
-                          data-id="unique-product-id-9"
-                          data-image="{{ asset('storage/img') }}/products/components/processors/processor2.webp"
-                          data-name="AMD Ryzen 7 7800X3D"
-                          data-price="332.00"
-                          data-quantity="1">
-                          <ion-icon name="bag-add-outline"></ion-icon>
-                        </button>
-                      </div>
-                    </div>
-  
-                    <div class="showcase-content">
-                      <a
-                        href="{{ route('components.index') }}#processors"
-                        class="showcase-category"
-                        >Processors</a
-                      >
-  
-                      <h3>
-                        <a
-                          href="components/processors/processor2.html"
-                          class="showcase-title"
-                          >AMD Ryzen 7 7800X3D
-                        </a>
-                      </h3>
-  
-                      <div class="showcase-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                      </div>
-  
-                      <div class="price-box">
-                        <p class="price">$332.00</p>
-                        <del>$345.00</del>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="showcase">
-                    <div class="showcase-banner">
-                      <img
-                        src="{{ asset('storage/img') }}/products/computers/computer1.webp"
-                        alt="computer1 - photo 1"
-                        class="product-img default"
-                        width="300" />
-                      <img
-                        src="{{ asset('storage/img') }}/products/computers/computer1.webp"
-                        alt="computer1 - photo 2"
-                        class="product-img hover"
-                        width="300" />
-  
-                      <p class="showcase-badge angle black">sale</p>
-  
-                      <div class="showcase-actions">
-                        <button
-                          class="btn-action heart"
-                          onclick="addToFavorite(this)"
-                          data-image="{{ asset('storage/img') }}/products/computers/computer1.webp"
-                          data-name="Set Z1 | Ryzen 7500F, RTX 4060 8GB, 16GB DDR5, 500GB
-                        SSD, 650W, Aramis Midi ARGB"
-                          data-price="910.00"
-                          data-quantity="1">
-                          <ion-icon name="heart-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action magnification">
-                          <ion-icon name="eye-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action repeat">
-                          <ion-icon name="repeat-outline"></ion-icon>
-                        </button>
-  
-                        <button
-                          class="btn-action bag-add"
-                          onclick="addToCart(this)"
-                          data-id="unique-product-id-10"
-                          data-image="{{ asset('storage/img') }}/products/computers/computer1.webp"
-                          data-name="Set Z1 | Ryzen 7500F, RTX 4060 8GB, 16GB DDR5, 500GB
-                        SSD, 650W, Aramis Midi ARGB"
-                          data-price="910.00"
-                          data-quantity="1">
-                          <ion-icon name="bag-add-outline"></ion-icon>
-                        </button>
-                      </div>
-                    </div>
-  
-                    <div class="showcase-content">
-                      <a href="{{ route('computers.index') }}" class="showcase-category"
-                        >Computers</a
-                      >
-  
-                      <h3>
-                        <a href="computers/set1.html" class="showcase-title"
-                          >Set Z1 | Ryzen 7500F, RTX 4060 8GB, 16GB DDR5, 500GB
-                          SSD, 650W, Aramis Midi ARGB</a
-                        >
-                      </h3>
-  
-                      <div class="showcase-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                      </div>
-  
-                      <div class="price-box">
-                        <p class="price">$910.00</p>
-                        <del>$950.00</del>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="showcase">
-                    <div class="showcase-banner">
-                      <img
-                        src="{{ asset('storage/img') }}/products/laptops/laptop11v1.webp"
-                        alt="laptop11v1 - photo 1"
-                        class="product-img default"
-                        width="300" />
-                      <img
-                        src="{{ asset('storage/img') }}/products/laptops/laptop11v2.webp"
-                        alt="laptop11v2 - photo 2"
-                        class="product-img hover"
-                        width="300" />
-  
-                      <div class="showcase-actions">
-                        <button
-                          class="btn-action heart"
-                          onclick="addToFavorite(this)"
-                          data-image="{{ asset('storage/img') }}/products/laptops/laptop11v1.webp"
-                          data-name="Microsoft Surface Laptop Studio i7/32GB/2TB/GeForce"
-                          data-price="3900.00"
-                          data-quantity="1">
-                          <ion-icon name="heart-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action magnification">
-                          <ion-icon name="eye-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action repeat">
-                          <ion-icon name="repeat-outline"></ion-icon>
-                        </button>
-  
-                        <button
-                          class="btn-action bag-add"
-                          onclick="addToCart(this)"
-                          data-id="unique-product-id-11"
-                          data-image="{{ asset('storage/img') }}/products/laptops/laptop11v1.webp"
-                          data-name="Microsoft Surface Laptop Studio i7/32GB/2TB/GeForce"
-                          data-price="3900.00"
-                          data-quantity="1">
-                          <ion-icon name="bag-add-outline"></ion-icon>
-                        </button>
-                      </div>
-                    </div>
-  
-                    <div class="showcase-content">
-                      <a href="{{ route('laptops.index') }}" class="showcase-category">Laptops</a>
-  
-                      <h3>
-                        <a href="laptops/laptop10.html" class="showcase-title"
-                          >Microsoft Surface Laptop Studio i7/32GB/2TB/GeForce</a
-                        >
-                      </h3>
-  
-                      <div class="showcase-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                      </div>
-  
-                      <div class="price-box">
-                        <p class="price">$3900.00</p>
-                        <del>$4200.00</del>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="showcase">
-                    <div class="showcase-banner">
-                      <img
-                        src="{{ asset('storage/img') }}/products/laptops/laptop9v1.webp"
-                        alt="laptop9v1 - photo 1"
-                        class="product-img default"
-                        width="300" />
-                      <img
-                        src="{{ asset('storage/img') }}/products/laptops/laptop9v3.webp"
-                        alt="laptop9v1 - photo 3"
-                        class="product-img hover"
-                        width="300" />
-  
-                      <p class="showcase-badge angle black">sale</p>
-  
-                      <div class="showcase-actions">
-                        <button
-                          class="btn-action heart"
-                          onclick="addToFavorite(this)"
-                          data-image="{{ asset('storage/img') }}/products/laptops/laptop9v1.webp"
-                          data-name="Dell Inspiron 3520 i5-1235U/16GB/1TB/Win11 120Hz"
-                          data-price="920.00"
-                          data-quantity="1">
-                          <ion-icon name="heart-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action magnification">
-                          <ion-icon name="eye-outline"></ion-icon>
-                        </button>
-  
-                        <button class="btn-action repeat">
-                          <ion-icon name="repeat-outline"></ion-icon>
-                        </button>
-  
-                        <button
-                          class="btn-action bag-add"
-                          onclick="addToCart(this)"
-                          data-id="unique-product-id-12"
-                          data-image="{{ asset('storage/img') }}/products/laptops/laptop9v1.webp"
-                          data-name="Dell Inspiron 3520 i5-1235U/16GB/1TB/Win11 120Hz"
-                          data-price="920.00"
-                          data-quantity="1">
-                          <ion-icon name="bag-add-outline"></ion-icon>
-                        </button>
-                      </div>
-                    </div>
-  
-                    <div class="showcase-content">
-                      <a href="{{ route('laptops.index') }}" class="showcase-category">Laptops</a>
-  
-                      <h3>
-                        <a href="laptops/laptop8.html" class="showcase-title"
-                          >Dell Inspiron 3520 i5-1235U/16GB/1TB/Win11 120Hz</a
-                        >
-                      </h3>
-  
-                      <div class="showcase-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                      </div>
-  
-                      <div class="price-box">
-                        <p class="price">$920.00</p>
-                        <del>$930.00</del>
-                      </div>
-                    </div> 
-                  </div>--}}
-                </div>
               </div>
             </div>
-          </div>
         </div>
+      </div>
   
         <!--
         - TESTIMONIALS, CTA & SERVICE
@@ -2553,7 +938,7 @@
                   alt="summer collection"
                   class="cta-banner" />
   
-                <a href="#" class="cta-content">
+                <a href="{{ route('sales') }}" class="cta-content">
                   <p class="discount">25% Discount</p>
   
                   <h2 class="cta-title">Computer collection</h2>
@@ -2753,6 +1138,8 @@
         <script src="{{ asset('js/rotationIndex.js') }}"></script>
         <script src="{{ asset('js/lanIndex.js') }}"></script>
         <script src="{{ asset('js/lanMoblieIndex.js') }}"></script>
+        <script src="{{ asset('js/clocker.js') }}"></script>
+        <script src="{{ asset('js/clocker2.js') }}"></script>
 
         <script src="{{ asset('js/loginAccount.js') }}"></script>
         <script src="{{ asset('js/counterCart.js') }}"></script>

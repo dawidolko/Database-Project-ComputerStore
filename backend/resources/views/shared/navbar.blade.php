@@ -125,7 +125,7 @@
 
       <div class="header-main">
         <div class="container">
-          {{-- <a href="{{ route('/') }}" class="header-logo"> --}}
+          <a href="{{ route('index') }}" class="header-logo">
             <img
               src="{{ asset('storage/img/logo/Logo2.webp') }}"
               alt="TechByte logo"
@@ -167,7 +167,7 @@
         <div class="container">
           <ul class="desktop-menu-category-list">
             <li class="menu-category">
-              {{-- <a href="{{ route('/') }}" class="menu-title">Home</a> --}}
+              <a href="{{ route('index') }}" class="menu-title">Home</a>
             </li>
 
             <li class="menu-category">
@@ -394,7 +394,7 @@
         </button>
 
         <button class="action-btn">
-          {{-- <a href="{{ route('/') }}"> --}}
+          <a href="{{ route('index') }}">
             <ion-icon name="home-outline"></ion-icon>
           </a>
         </button>
@@ -423,7 +423,7 @@
 
         <ul class="mobile-menu-category-list">
           <li class="menu-category">
-            {{-- <a href="{{ route('/') }}" class="menu-title">Home</a> --}}
+            <a href="{{ route('index') }}" class="menu-title">Home</a>
           </li>
 
           <li class="menu-category">
@@ -438,25 +438,25 @@
 
             <ul class="submenu-category-list" data-accordion>
               <li class="submenu-category">
-                <a href="{{ route('components.index') }}#gaming" class="submenu-title"
+                <a href="{{ route('computers.index') }}#gaming" class="submenu-title"
                   >Gaming</a
                 >
               </li>
 
               <li class="submenu-category">
-                <a href="{{ route('components.index') }}#learning" class="submenu-title"
+                <a href="{{ route('computers.index') }}#learning" class="submenu-title"
                   >Learning</a
                 >
               </li>
 
               <li class="submenu-category">
-                <a href="{{ route('components.index') }}#office" class="submenu-title"
+                <a href="{{ route('computers.index') }}#office" class="submenu-title"
                   >Office</a
                 >
               </li>
 
               <li class="submenu-category">
-                <a href="{{ route('components.index') }}#all" class="submenu-title">All</a>
+                <a href="{{ route('computers.index') }}#all" class="submenu-title">All</a>
               </li>
             </ul>
           </li>

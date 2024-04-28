@@ -90,23 +90,23 @@
           </li>
 
           <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Processors</a>
+            <a href="{{ route('components.index') }}#processors" class="footer-nav-link">Processors</a>
           </li>
 
           <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Graphics</a>
+            <a href="{{ route('components.index') }}#graphics" class="footer-nav-link">Graphics</a>
           </li>
 
           <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Memory RAM</a>
+            <a href="{{ route('components.index') }}#memoryRam" class="footer-nav-link">Memory RAM</a>
           </li>
 
           <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Disks</a>
+            <a href="{{ route('components.index') }}#disks" class="footer-nav-link">Disks</a>
           </li>
 
           <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Motherboards</a>
+            <a href="{{ route('components.index') }}#motherboards" class="footer-nav-link">Motherboards</a>
           </li>
         </ul>
 
@@ -116,19 +116,19 @@
           </li>
 
           <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Fans</a>
+            <a href="{{ route('components.index') }}#fans" class="footer-nav-link">Fans</a>
           </li>
 
           <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Cooling</a>
+            <a href="{{ route('components.index') }}#cooling" class="footer-nav-link">Cooling</a>
           </li>
 
           <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Power Supply</a>
+            <a href="{{ route('components.index') }}#powerSupply" class="footer-nav-link">Power Supply</a>
           </li>
 
           <li class="footer-nav-item">
-            <a href="#" class="footer-nav-link">Cases</a>
+            <a href="{{ route('components.index') }}#cases" class="footer-nav-link">Cases</a>
           </li>
         </ul>
 
@@ -243,9 +243,10 @@
       </div>
     </div>
   </footer>
-    <script
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <script
     type="module"
     src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script
+  <script
     nomodule
     src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

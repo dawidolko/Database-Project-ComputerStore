@@ -22,11 +22,6 @@
       type="image/x-icon" />
 
     <!--
-    - custom css link
-     -->
-    <link rel="stylesheet" href="{{ asset('css/style-prefix.css') }}" />
-
-    <!--
     - google font link
     -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
