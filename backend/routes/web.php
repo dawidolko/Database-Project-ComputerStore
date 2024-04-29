@@ -43,3 +43,17 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+// Ścieżka dla dashboardu klienta
+Route::middleware(['auth:customer'])->group(function () {
+    Route::get('/customer/dashboard', function () {
+        return view('customer.dashboard');
+    })->name('customer.dashboard');
+});
+
+// Ścieżka dla dashboardu pracownika
+Route::middleware(['auth:employee'])->group(function () {
+    Route::get('/employee/dashboard', function () {
+        return view('employee.dashboard');
+    })->name('employee.dashboard');
+});

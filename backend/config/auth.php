@@ -18,6 +18,11 @@ return [
         'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
     ],
 
+    // 'defaults' => [
+    //     'guard' => 'customers', // zmiana na 'employee'
+    //     'passwords' => 'customer', // zmiana na 'employees'
+    // ],    
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards

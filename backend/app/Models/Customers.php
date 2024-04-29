@@ -34,5 +34,9 @@ class Customers extends Authenticatable
         return $this->hasOne(Newsletter::class, 'CUSTOMERS_ID');
     }
 
+    public function getNameAttribute($value)
+    {
+        return $this->attributes['name'];
+    }
 
 }

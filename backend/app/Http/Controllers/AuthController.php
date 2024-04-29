@@ -52,7 +52,6 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
     
-        // Sprawdź czy próbuje się zalogować pracownik
         if (Auth::guard('employee')->attempt($credentials)) {
             $request->session()->regenerate();
     
@@ -63,7 +62,6 @@ class AuthController extends Controller
         // Sprawdź czy próbuje się zalogować klient
         if (Auth::guard('customer')->attempt($credentials)) {
             $request->session()->regenerate();
-    
             // Przekieruj użytkownika tam, gdzie powinien się znaleźć po zalogowaniu jako klient
             return redirect()->intended('customer/dashboard');
         }

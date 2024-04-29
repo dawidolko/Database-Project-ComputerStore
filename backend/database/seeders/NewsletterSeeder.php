@@ -13,17 +13,17 @@ class NewsletterSeeder extends Seeder
      */
     public function run()
     {
-        $CustomerIds = [1, 5, 7, 15, 20];
+        // $CustomerIds = [1, 5, 7, 15, 20];
 
-        foreach ($CustomerIds as $CustomerId) {
-            $randomDate = Carbon::now()->subDays(rand(0, 365))->format('Y-m-d H:i:s');
+        // foreach ($CustomerIds as $CustomerId) {
+        //     $randomDate = Carbon::now()->subDays(rand(0, 365))->format('Y-m-d H:i:s');
 
-            Newsletter::create([
-                'CUSTOMERS_ID' => $CustomerId,
-                'SUBSCRIPTION_START' => $randomDate,
-                'SUBSCRIPTION_STATUS' => 'aktywna',
-            ]);
-        }
+        //     Newsletter::create([
+        //         'CUSTOMERS_ID' => $CustomerId,
+        //         'SUBSCRIPTION_START' => $randomDate,
+        //         'SUBSCRIPTION_STATUS' => 'aktywna',
+        //     ]);
+        // }
 
         // Informacje o wykonaniu Seeder'a
         $this->command->info('Records were successfully added to the database. Seeders are correct.');
