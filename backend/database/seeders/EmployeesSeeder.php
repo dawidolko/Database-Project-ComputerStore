@@ -26,7 +26,7 @@ class EmployeesSeeder extends Seeder
                 'JOB_POSITION' => 'Specjalista ds. IT',
                 'EMAIL' => 'aurelia23@stowarzyszenie.pl',
                 'PHONE_NUMBER' => '48 609 956 304',
-                'PASSWORD' => Hash::make('n#6#91R2#Fz7'),
+                'PASSWORD' => Hash::make('Haslo123@'),
             ],
             [
                 'ID' => 2,

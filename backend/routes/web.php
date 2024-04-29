@@ -44,6 +44,10 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
+Route::get('/register2', [AuthController::class, 'register2'])->name('register2');
+Route::get('/register2', [AuthController::class, 'showRegistrationForm2'])->name('register2');
+Route::post('/register2', [AuthController::class, 'register2'])->name('register2');
+
 // Ścieżka dla dashboardu klienta
 Route::middleware(['auth:customer'])->group(function () {
     Route::get('/customer/dashboard', function () {

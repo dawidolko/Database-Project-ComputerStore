@@ -24,9 +24,14 @@ class Employees extends Authenticatable
         return $this->hasMany(Orders::class);
     }
 
-    public function getAuthPassword()
+    // public function getAuthPassword()
+    // {
+    //     return $this->PASSWORD;
+    // }
+
+    public function getNameAttribute($value)
     {
-        return $this->PASSWORD;
+        return $this->attributes['name'];
     }
 
 }

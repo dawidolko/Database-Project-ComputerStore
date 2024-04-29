@@ -43,7 +43,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'customers',
+            'provider' => 'users',
         ],
         'customer' => [
             'driver' => 'session',
@@ -54,6 +54,7 @@ return [
             'provider' => 'employees',
         ],
     ],
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -115,6 +116,12 @@ return [
         ],
         'customers' => [
             'provider' => 'customers',
+            'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'employees' => [
+            'provider' => 'employees',
             'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
             'expire' => 60,
             'throttle' => 60,

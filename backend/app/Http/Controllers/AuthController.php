@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Employees;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,9 +17,9 @@ class AuthController extends Controller
 
     public function login()
     {
-        // if (Auth::check()) {
-        //     return redirect()->route('index');
-        // }
+        if (Auth::check()) {
+            return redirect()->route('index');
+        }
 
         $iloscKomputerow = Products::whereHas('computerCategories')->sum('QUANTITIES_AVAILABLE');
         $iloscLaptopow = Products::whereHas('laptopCategories')->sum('QUANTITIES_AVAILABLE');
@@ -51,6 +52,14 @@ class AuthController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
+
+        // $user = Employees::where('EMAIL', 'aurelia23@stowarzyszenie.pl')->first();
+        // if ($user && Hash::check('n#6#91R2#Fz7', $user->PASSWORD)) {
+        //     dd('Password matches');
+        // } else {
+        //     dd('Password does not match');
+        // }
+        
     
         if (Auth::guard('employee')->attempt($credentials)) {
             $request->session()->regenerate();
@@ -111,6 +120,40 @@ class AuthController extends Controller
         return redirect('customer/dashboard');
     }
 
+    public function register2(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'job_position' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:customers'],
+            'phone_number' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        // DB::table('customers')->insertGetId([
+        //     'NAME' => $validatedData['name'],
+        //     'LAST_NAME' => $validatedData['last_name'],
+        //     'DELIVERY_ADDRESS' => $validatedData['delivery_address'],
+        //     'PHONE_NUMBER' => $validatedData['phone_number'],
+        //     'EMAIL' => $validatedData['email'],
+        //     'PASSWORD' => bcrypt($validatedData['password']), 
+        // ]);      
+        
+        $employee = Employees::create([
+            'NAME' => $validatedData['name'],
+            'LAST_NAME' => $validatedData['last_name'],
+            'JOB_POSITION' => $validatedData['job_position'],
+            'EMAIL' => $validatedData['email'],
+            'PHONE_NUMBER' => $validatedData['phone_number'],
+            'PASSWORD' => bcrypt($validatedData['password']), 
+        ]);        
+
+        Auth::guard('employee')->login($employee);
+
+        return redirect('employee/dashboard');
+    }
+
     
     public function logout(Request $request)
     {
@@ -125,6 +168,11 @@ class AuthController extends Controller
     public function showRegistrationForm()
     {
         return view('auth.register');
+    }
+
+    public function showRegistrationForm2()
+    {
+        return view('auth.register2');
     }
 
     
