@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Products;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\EmployeeController;
+
 
 Route::get('/', [MainController::class, 'index'])->name('index');
 
@@ -40,7 +42,7 @@ Route::get('/privacy', [MainController::class, 'privacy'])->name('privacy');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login/authenticate', [AuthController::class, 'authenticate'])->name('login.authenticate');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
@@ -57,7 +59,5 @@ Route::middleware(['auth:customer'])->group(function () {
 
 // Ścieżka dla dashboardu pracownika
 Route::middleware(['auth:employee'])->group(function () {
-    Route::get('/employee/dashboard', function () {
-        return view('employee.dashboard');
-    })->name('employee.dashboard');
+    Route::get('/employee/dashboard', [EmployeeController::class, 'dashboard'])->name('employee.dashboard');
 });
