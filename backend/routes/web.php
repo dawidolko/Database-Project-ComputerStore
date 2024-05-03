@@ -64,3 +64,20 @@ Route::middleware(['auth:employee'])->group(function () {
 
 Route::get('/api/orders/{year}', [EmployeeController::class, 'getOrderDataByYear']);
 
+Route::get('/employee/orders', function (){
+    return view('employee.orders');
+})->name('employee.orders');
+
+Route::get('/employee/products', function (){
+    return view('employee.products');
+})->name('employee.products');
+
+Route::get('/employee/customers', function (){
+    return view('employee.customers');
+})->name('employee.customers');
+
+Route::get('/employee/complaints', function (){
+    return view('employee.complaints');
+})->name('employee.complaints');
+
+

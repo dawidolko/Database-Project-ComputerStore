@@ -35,7 +35,32 @@
             <div class="admin-aside__desc">Employee panel</div>
             <nav class="admin-aside__nav">
                 <ul class="admin-aside__list">
-                    <!-- Insert links here -->
+                    <li>
+                        <a href="{{ route('employee.dashboard') }}" class="admin-aside__link">
+                            <i data-feather="home" class="admin-aside__link-icon"></i>Home</a>
+                    </li>
+                    <br />
+                    <li>
+                        <a href="{{ route('employee.orders') }}" class="admin-aside__link">
+                            <i data-feather="shopping-cart" class="admin-aside__link-icon"></i>Orders</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('employee.products') }}" class="admin-aside__link">
+                            <i data-feather="box" class="admin-aside__link-icon"></i>Products</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('employee.customers') }}" class="admin-aside__link">
+                            <i data-feather="users" class="admin-aside__link-icon"></i>Customers</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('employee.complaints') }}" class="admin-aside__link">
+                            <i data-feather="list" class="admin-aside__link-icon"></i>Complaints</a>
+                    </li>
+                    <br />
+                    <li>
+                        {{-- <a href="{{ route('login.logout') }}" class="admin-aside__link"> --}}
+                            <i data-feather="log-out" class="admin-aside__link-icon"></i>Wyloguj</a>
+                    </li>
                 </ul>
             </nav>
         </aside>
@@ -72,7 +97,7 @@
                                 <div class="icon">
                                     <i class="fa fa-shopping-cart"></i>
                                 </div>
-                                {{-- <a href="{{ route('orders.index') }}" class="small-box-footer"> --}}
+                                <a href="{{ route('employee.orders') }}" class="small-box-footer">
                                 See all <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
@@ -86,7 +111,7 @@
                                 <div class="icon">
                                     <i class="fa fa-user"></i>
                                 </div>
-                                {{-- <a href="{{ route('customers.index') }}" class="small-box-footer"> --}}
+                                <a href="{{ route('employee.customers') }}" class="small-box-footer">
                                 See all <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
@@ -100,13 +125,13 @@
                                 <div class="icon">
                                     <i class="fa fa-laptop"></i>
                                 </div>
-                                {{-- <a href="{{ route('products.index') }}" class="small-box-footer"> --}}
+                                <a href="{{ route('employee.products') }}" class="small-box-footer">
                                 See all <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="small-box bg-success">
+                            <div class="small-box bg-danger">
                                 <div class="inner">
                                     <h3>{{ $numberOfComplaints }}</h3>
                                     <p>Number of complaints</p>
@@ -114,7 +139,7 @@
                                 <div class="icon">
                                     <i class="fa fa-user"></i>
                                 </div>
-                                {{-- <a href="{{ route('customers.index') }}" class="small-box-footer"> --}}
+                                <a href="{{ route('employee.complaints') }}" class="small-box-footer">
                                 See all <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
@@ -124,14 +149,15 @@
                     <div class="row">
                         <div class="container mt-4">
                             <div class="row">
-                                <div class="col-6 mx-auto">
+                                <div class="col-8 mx-auto">
                                     <h2>Orders Overview</h2>
                                     <canvas id="ordersChart"></canvas>
                                 </div>
                             </div>
                         </div>
 
-                        <select id="yearSelector" class="form-select mx-auto" style="width: 200px; float: right; margin: 20px;">
+                        <select id="yearSelector" class="form-select mx-auto"
+                            style="width: 200px; float: right; margin: 20px;">
                             <option value="2024">2024</option>
                             <option value="2023">2023</option>
                             <option value="2022">2022</option>
