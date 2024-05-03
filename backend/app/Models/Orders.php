@@ -23,7 +23,7 @@ class Orders extends Model
 
     public function ordersProducts()
     {
-        return $this->belongsToMany(Products::class, 'orders_products', 'ORDERS_ID', 'PRODUCTS_ID');
+        return $this->belongsToMany(Products::class, 'orders_products', 'ORDERS_ID', 'PRODUKTY_ID'); // do zmiany nazwa kolumny w bazie i tutaj na angielski
     }
 
     public function shipments()

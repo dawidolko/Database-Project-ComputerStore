@@ -60,13 +60,10 @@ Route::middleware(['auth:customer'])->group(function () {
 // Ścieżka dla dashboardu pracownika
 Route::middleware(['auth:employee'])->group(function () {
     Route::get('/employee/dashboard', [EmployeeController::class, 'dashboard'])->name('employee.dashboard');
+    Route::get('/employee/orders', [EmployeeController::class, 'Orders'])->name('employee.orders');
 });
 
 Route::get('/api/orders/{year}', [EmployeeController::class, 'getOrderDataByYear']);
-
-Route::get('/employee/orders', function (){
-    return view('employee.orders');
-})->name('employee.orders');
 
 Route::get('/employee/products', function (){
     return view('employee.products');

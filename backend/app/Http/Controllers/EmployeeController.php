@@ -25,6 +25,24 @@ class EmployeeController extends Controller
     return view('employee.dashboard', compact('numberOfOrders', 'numberOfClients', 'numberOfProducts', 'numberOfComplaints', 'employeeName', 'employeeLastName'));
 }
 
+public function Orders()
+{
+    // $order = Order::All();
+    $order = Order::with(['ordersProducts'])->get();
+
+        $order->map(function ($order) {
+            $order->totalAmount = $order->products->reduce(function ($carry, $product) {
+                return $carry + ($product->pivot->price * $product->pivot->quantity);
+            }, 0);
+        });
+    $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
+    $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+
+    return view('employee.orders', compact('order', 'employeeName', 'employeeLastName'));
+
+    // return response()->json($orders);
+}
+
 public function getOrderDataByYear($year)
 {
     $orders = DB::table('orders')
