@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul,
+  ol,
+  dl {
+    margin-bottom: 0;
+  }
+  
+  a:hover {
+    color: inherit;
+  }
+  
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  
+  .hover:hover {
+    cursor: pointer;
+  }
+  
+  .login-form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .admin-panel {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    flex-direction: row;
+  }
+  
+  .admin-aside {
+    width: 320px;
+    background-color: #f6f6f6;
+    padding: 60px 40px;
+    flex-shrink: 0;
+  }
+  
+  .admin-aside__logo {
+    margin-bottom: 50px;
+  }
+  
+  .admin-aside__title {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+  .admin-aside__desc {
+    font-size: 14px;
+    margin-bottom: 60px;
+  }
+  
+  .admin-aside__nav {
+  }
+  
+  .admin-aside__list {
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .admin-aside__link {
+    text-decoration: none;
+    color: #6f7d83;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    border-radius: 5px;
+  }
+  
+  .admin-aside__link-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .admin-aside__link--active {
+    color: #1f3442;
+    background-color: #d0e5f2;
+    font-weight: 700;
+  }
+  
+  .admin-wrapper {
+    flex-grow: 1;
+    overflow-y: scroll;
+  }
+  
+  .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eff3f4;
+    height: 100px;
+    padding: 0 50px;
+  }
+  
+  .admin-header__title {
+    color: #6f7d83;
+  }
+  
+  .admin-header__user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .admin-header__user-av {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .admin-header__user-hello {
+    margin: 0;
+    padding-left: 10px;
+    color: #6f7d83;
+  }
+  
+  .admin-main {
+    padding: 50px;
+  }
+  
+  .admin-form {
+    max-width: 500px;
+  }
+  
+  .table-button {
+    border: 0;
+    margin: 0 10px;
+    background: 0;
+  }
+  
+  .table-button--show {
+    color: #0b5ed7;
+  }
+  
+  .table-button--edit {
+    color: #157347;
+  }
+  
+  .table-button--delete {
+    color: #bb2d3b;
+  }
+  
+  .admin-show-list {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .admin-show-list__img {
+    margin: 0 auto;
+  }
+  
+  .offer__photo {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+  
+  .autocomplete {
+    position: relative;
+  }
+  
+  .autocomplete__input {
+  }
+  
+  .autocomplete__dropdown {
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    background: white;
+    width: 100%;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    height: 200px;
+    overflow-y: scroll;
+    display: none;
+    z-index: 9999999;
+    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .autocomplete__dropdown-item {
+    padding: 20px 30px;
+    font-size: 14px;
+    border-bottom: 1px solid #ced4da;
+  }
+  
+  .autocomplete__dropdown-item:hover {
+    background: #fafafa;
+    cursor: pointer;
+  }
+  

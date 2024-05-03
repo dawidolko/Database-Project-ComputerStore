@@ -61,3 +61,6 @@ Route::middleware(['auth:customer'])->group(function () {
 Route::middleware(['auth:employee'])->group(function () {
     Route::get('/employee/dashboard', [EmployeeController::class, 'dashboard'])->name('employee.dashboard');
 });
+
+Route::get('/api/orders/{year}', [EmployeeController::class, 'getOrderDataByYear']);
+

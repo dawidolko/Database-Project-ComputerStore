@@ -14,7 +14,7 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/adminDashboardHome.css') }}" rel="stylesheet">
     <title>Sklep Komputerowy - Projekt Bazy</title>
 
     <!-- Additional styles and scripts for admin layout -->
@@ -41,15 +41,17 @@
         </aside>
         <div class="admin-wrapper">
             <header class="admin-header">
-                <p class="admin-header__title">Final project on Databases</p>
+                <p class="admin-header__title">Final project on Databases - Dawid Olko & Piotr Smoła</p>
                 <div class="admin-header__user">
-                    <img class="admin-header__user-av" src="{{ asset('storage/img/Portret.jpg') }}" alt="" style="width:100px">
+                    <img class="admin-header__user-av" src="{{ asset('storage/img/icons/avatar.svg') }}" alt=""
+                        style="width:100px">
                     <p class="admin-header__user-hello">
-                        @if (session('email'))
-                            {{ session('email') }}
+                        Hello, {{ $employeeName }} {{ $employeeLastName }}
+                        {{-- @if (auth()->check())
+                            {{ auth()->employee()->name }} {{ auth()->employee()->last_name }}
                         @else
                             Administrator
-                        @endif
+                        @endif --}}
                     </p>
                 </div>
             </header>
@@ -71,7 +73,7 @@
                                     <i class="fa fa-shopping-cart"></i>
                                 </div>
                                 {{-- <a href="{{ route('orders.index') }}" class="small-box-footer"> --}}
-                                    See all <i class="fa fa-arrow-circle-right"></i>
+                                See all <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
                         </div>
@@ -85,7 +87,7 @@
                                     <i class="fa fa-user"></i>
                                 </div>
                                 {{-- <a href="{{ route('customers.index') }}" class="small-box-footer"> --}}
-                                    See all <i class="fa fa-arrow-circle-right"></i>
+                                See all <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
                         </div>
@@ -99,7 +101,7 @@
                                     <i class="fa fa-laptop"></i>
                                 </div>
                                 {{-- <a href="{{ route('products.index') }}" class="small-box-footer"> --}}
-                                    See all <i class="fa fa-arrow-circle-right"></i>
+                                See all <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
                         </div>
@@ -113,22 +115,89 @@
                                     <i class="fa fa-user"></i>
                                 </div>
                                 {{-- <a href="{{ route('customers.index') }}" class="small-box-footer"> --}}
-                                    See all <i class="fa fa-arrow-circle-right"></i>
+                                See all <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="container mt-4">
+                            <div class="row">
+                                <div class="col-6 mx-auto">
+                                    <h2>Orders Overview</h2>
+                                    <canvas id="ordersChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <select id="yearSelector" class="form-select mx-auto" style="width: 200px; float: right; margin: 20px;">
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                        </select>
+
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <script>
+                            document.getElementById('yearSelector').addEventListener('change', function() {
+                                fetchData(this.value);
+                            });
+
+                            function fetchData(year) {
+                                fetch(`/api/orders/${year}`)
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        console.log(data);
+                                        const months = data.map(entry => `Month ${entry.month}`);
+                                        const counts = data.map(entry => entry.count);
+                                        drawChart(months, counts);
+                                    })
+                                    .catch(error => console.error('Error fetching data: ', error));
+                            }
+
+                            function drawChart(months, counts) {
+                                const ctx = document.getElementById('ordersChart').getContext('2d');
+                                if (window.myChart) {
+                                    window.myChart.destroy();
+                                }
+                                window.myChart = new Chart(ctx, {
+                                    type: 'line',
+                                    data: {
+                                        labels: months,
+                                        datasets: [{
+                                            label: 'Number of Orders',
+                                            data: counts,
+                                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                            borderColor: 'rgba(54, 162, 235, 1)',
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true,
+                                                max: 200,
+                                                ticks: {
+                                                    stepSize: 40
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                            fetchData(new Date().getFullYear());
+                        </script>
+
+                        {{-- <div class="col-md-12">
                             <div class="info-box bg-gray">
                                 <span class="info-box-icon"><i class="fa fa-cart-arrow-down"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Number of products ordered</span>
-                                    {{-- <span class="info-box-number">{{ wykres }}</span> --}}
+                                    
+                                    <span class="info-box-number">{{ wykres }}</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </main>
