@@ -13,7 +13,7 @@ class Orders extends Model
 
     public function Customer()
     {
-        return $this->belongsTo(Customers::class);
+        return $this->belongsTo(Customers::class, 'customers_id');
     }
 
     public function Employee()
@@ -25,6 +25,13 @@ class Orders extends Model
     {
         return $this->belongsToMany(Products::class, 'orders_products', 'ORDERS_ID', 'PRODUKTY_ID'); // do zmiany nazwa kolumny w bazie i tutaj na angielski
     }
+
+//     public function products()
+// {
+//     return $this->belongsToMany(Products::class, 'orders_products')
+//                 ->withPivot('ORDERS_ID', 'PRODUKTY_ID');
+// }
+
 
     public function shipments()
     {

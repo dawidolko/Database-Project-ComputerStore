@@ -27,14 +27,14 @@ class EmployeeController extends Controller
 
 public function Orders()
 {
-    // $order = Order::All();
-    $order = Order::with(['ordersProducts'])->get();
+    $order = Order::All();
+    // $order = Order::with(['products'])->get();
 
-        $order->map(function ($order) {
-            $order->totalAmount = $order->products->reduce(function ($carry, $product) {
-                return $carry + ($product->pivot->price * $product->pivot->quantity);
-            }, 0);
-        });
+    //     $order->map(function ($order) {
+    //         $order->totalAmount = $order->products->reduce(function ($carry, $product) {
+    //             return $carry + ($product->pivot->price * $product->pivot->quantity);
+    //         }, 0);
+    //     });
     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
 
@@ -42,6 +42,16 @@ public function Orders()
 
     // return response()->json($orders);
 }
+
+public function showOrder($id)
+{
+    $order = Order::with('customer')->findOrFail($id);
+    $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
+    $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+
+    return view('employee.show', compact('order', 'employeeName', 'employeeLastName'));
+}
+
 
 public function getOrderDataByYear($year)
 {

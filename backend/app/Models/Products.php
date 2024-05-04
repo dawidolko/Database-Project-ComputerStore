@@ -25,7 +25,7 @@ class Products extends Model
 
     public function ordersProducts()
     {
-        return $this->belongsToMany(Orders::class, 'orders_products', 'PRODUCTS_ID', 'ORDERS_ID');
+        return $this->belongsToMany(Orders::class, 'orders_products', 'PRODUKTY_ID', 'ORDERS_ID'); //podobnie jak w Orders.php
     }
 
     public function specifications()

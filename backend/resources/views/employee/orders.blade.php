@@ -59,7 +59,7 @@
                     <br />
                     <li>
                         {{-- <a href="{{ route('login.logout') }}" class="admin-aside__link"> --}}
-                            <i data-feather="log-out" class="admin-aside__link-icon"></i>Wyloguj</a>
+                            <i data-feather="log-out" class="admin-aside__link-icon"></i>Logout</a>
                     </li>
                 </ul>
             </nav>
@@ -127,7 +127,7 @@
                                     </td>
                                     <td class="align-middle">
                                         <div class="d-flex align-items-center">
-                                            {{-- <a class="table-button table-button--edit" href="{{ route('zamowienia.edit', $zamowienie->id_zamowienia) }}"> --}}
+                                            <a class="table-button table-button--edit" href="{{ route('employee.show', ['id' => $zamowienie->id]) }}">
                                                 <i data-feather="edit"></i>
                                             </a>
                                         </div>

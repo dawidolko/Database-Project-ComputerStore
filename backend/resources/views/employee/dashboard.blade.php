@@ -59,7 +59,7 @@
                     <br />
                     <li>
                         {{-- <a href="{{ route('login.logout') }}" class="admin-aside__link"> --}}
-                            <i data-feather="log-out" class="admin-aside__link-icon"></i>Wyloguj</a>
+                            <i data-feather="log-out" class="admin-aside__link-icon"></i>Logout</a>
                     </li>
                 </ul>
             </nav>
