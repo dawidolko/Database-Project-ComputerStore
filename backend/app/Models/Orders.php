@@ -21,10 +21,10 @@ class Orders extends Model
         return $this->belongsTo(Employees::class);
     }
 
-    public function ordersProducts()
-    {
-        return $this->belongsToMany(Products::class, 'orders_products', 'ORDERS_ID', 'PRODUKTY_ID'); // do zmiany nazwa kolumny w bazie i tutaj na angielski
-    }
+    // public function ordersProducts()
+    // {
+    //     return $this->belongsToMany(Products::class, 'orders_products', 'ORDERS_ID', 'PRODUKTY_ID'); // do zmiany nazwa kolumny w bazie i tutaj na angielski
+    // }
 
 //     public function products()
 // {
@@ -32,6 +32,17 @@ class Orders extends Model
 //                 ->withPivot('ORDERS_ID', 'PRODUKTY_ID');
 // }
 
+    public function products()
+    {
+        return $this->belongsToMany(Products::class, 'orders_products', 'ORDERS_ID', 'PRODUKTY_ID')
+                ->withPivot('PRODUKTY_ID')
+                ->withCount('products as quantity');
+
+    // return $this->belongsToMany(Products::class, 'orders_products', 'ORDERS_ID', 'PRODUKTY_ID')
+        // ->selectRaw('products.*, COUNT(*) AS quantity')
+        // ->groupBy('products.id', 'products.name', 'products.price', 'products.quantities_available', 'products.sale_id', 'products.old_price', 'products.description', 'orders_products.orders_id', 'orders_products.produkty_id');
+
+    }
 
     public function shipments()
     {

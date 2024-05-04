@@ -43,13 +43,40 @@ public function Orders()
     // return response()->json($orders);
 }
 
+// public function showOrder($id)
+// {
+//     $order = Order::with(['customer'])->findOrFail($id);
+//     // $order->products->each(function ($product) {
+//     //     $product->total_price = $product->pivot->price * $product->pivot->quantity;
+//     // });
+
+//     // Obliczenie całkowitej kwoty zamówienia
+//     // $order->totalAmount = $order->ordersProducts->reduce(function ($carry, $orderProduct) {
+//     //     return $carry + ($orderProduct->product->PRICE * $orderProduct->pivot->quantity);
+//     // }, 0);
+
+//     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
+//     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+
+//     return view('employee.show', compact('order', 'employeeName', 'employeeLastName'));
+// }
+
 public function showOrder($id)
 {
-    $order = Order::with('customer')->findOrFail($id);
+    $order = Order::findOrFail($id);
     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
 
-    return view('employee.show', compact('order', 'employeeName', 'employeeLastName'));
+    return view('employee.show', compact('order','employeeName', 'employeeLastName'));
+}
+
+public function Products()
+{
+    $products = Product::with('categories')->get();
+    $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
+    $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+
+    return view('employee.products', compact('products', 'employeeName', 'employeeLastName'));
 }
 
 

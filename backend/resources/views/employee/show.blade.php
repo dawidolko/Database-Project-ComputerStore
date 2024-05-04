@@ -85,7 +85,7 @@
             <main class="admin-main">
                 <div class="container">
                     <div class="row mb-4">
-                        <h1>Order #{{ $order->id }}</h1>
+                        <h1 class="mb-2">Order #{{ $order->id }}</h1>
                         <p>Date of Order: {{ $order->date_order }} - <a class="" href="{{ route("employee.orders") }}">Back to all orders</a></p>
                     </div>
             
@@ -161,33 +161,29 @@
                             <div class="mb-3">
                                 <label class="form-label">Ordered products</label>
                                 <ol class="list-group list-group-numbered order-cart">
-                                    @forelse ($products as $product)
+                                    @foreach($order->ordersProducts as $orderProduct)
                                         <li class="list-group-item d-flex justify-content-between align-items-start">
                                             <div class="ms-2 me-auto">
-                                                <div class="fw-bold">{{ $product->name }}</div>
-                                                <p class="mb-1">Cena:
-                                                    {{ $product->price }}
+                                                <div class="fw-bold">{{ $orderProduct->product->NAME }}</div>
+                                                <p class="mb-1">Price:
+                                                    {{ $orderProduct->product->PRICE }}
                                                     zł,
-                                                    <i style="color: #666">{{ $product->manufacturer_code }}</i>
                                                 </p>
-                                                <p style="font-size: 12px; color: #333">{{ $product->description }}</p>
                                             </div>
-                                            <span class="badge bg-primary rounded-pill me-1">Ilość:
-                                                {{ $product->quantity }}</span>
+                                            <span class="badge bg-primary rounded-pill me-1">quantity:
+                                                {{ $orderProduct->pivot->quantity }}</span>
                                         </li>
-                                    @empty
-                                        No products.
-                                    @endforelse
+                                        @endforeach
                                 </ol>
                             </div>
                             <div class="mb-3" style="text-align: right;">
                                 <div>Total value of the order:</div>
                                 <h2>
-                                    <span class="cart-value">{{ $order->total_price }}</span>
-                                    zł</h2>
+                                    <span class="cart-value">{{ $order->totalAmount }}</span>
+                                    $</h2>
                             </div>
-                        </div> --}}
-                    </div>
+                        </div>
+                    </div> --}}
 
 
             </main>

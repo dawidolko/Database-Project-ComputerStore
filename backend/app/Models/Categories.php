@@ -13,8 +13,14 @@ class Categories extends Model
     public $timestamps = false;
     protected $fillable = ['CATEGORY_NAME', 'DESCRIPTION'];
 
-    public function productsCategories()
+    // public function productsCategories()
+    // {
+    //     return $this->belongsToMany(Products::class, 'products_categories', 'CATEGORY_ID', 'PRODUCTS_ID');
+    // }
+
+    public function products()
     {
-        return $this->belongsToMany(Products::class, 'products_categories', 'CATEGORY_ID', 'PRODUCTS_ID');
+        return $this->belongsToMany(Products::class, 'products_categories', 'category_id', 'products_id');
     }
+
 }
