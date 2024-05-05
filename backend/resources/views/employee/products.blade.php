@@ -101,7 +101,7 @@
                             <div class="me-4">
                                 <a class="btn btn-success" href="{{ route('employee.addProduct') }}">Add new product</a>
                             </div>
-                            <form method="GET">
+                            <form method="GET" action="{{ route('employee.listProducts') }}">
                                 <div class="d-flex align-items-end">
                                     <div class="me-2" role="group" aria-label="Third group">
                                         <label class="form-label">Searching:</label>
@@ -146,10 +146,7 @@
                                 </td>
                                 <td class="align-middle">
                                     <div class="d-flex align-items-center">
-                                        <a class="table-button table-button--show" href="{{ route('employee.showProduct', $product->id) }}">
-                                            <i data-feather="arrow-right-circle"></i>
-                                        </a>
-                                        <a class="table-button table-button--edit" href="{{ route('employee.editProduct', $product->id) }}">
+                                        <a class="table-button table-button--edit" href="{{ route('employee.editProduct', ['id' => $product->id]) }}">
                                             <i data-feather="edit"></i>
                                         </a>
                                         <form method="POST" action="{{ route('employee.destroyProduct', $product->id) }}">
@@ -178,7 +175,7 @@
                         </nav>
                     </div> --}}
                 </div>                
-
+            </main>
             </div>
         </div>
     

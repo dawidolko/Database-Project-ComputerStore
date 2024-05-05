@@ -63,17 +63,17 @@ Route::middleware(['auth:employee'])->group(function () {
     Route::get('/employee/orders', [EmployeeController::class, 'Orders'])->name('employee.orders');
     Route::get('/employee/products', [EmployeeController::class, 'Products'])->name('employee.products');
     Route::get('/employee/show/{id}', [EmployeeController::class, 'showOrder'])->name('employee.show');
+    Route::get('/products', [EmployeeController::class, 'listProducts'])->name('employee.listProducts');
+    Route::get('/employee/editProduct/{id}', [EmployeeController::class, 'editProduct'])->name('employee.editProduct');
+    Route::put('/products/{id}', [ProductController::class, 'updateProduct'])->name('employee.updateProduct');
 });
 
 Route::get('/api/orders/{year}', [EmployeeController::class, 'getOrderDataByYear']);
 
-Route::get('/employee/showProduct', function (){
-    return view('employee.showProduct');
-})->name('employee.showProduct');
+// Route::get('/employee/showProduct', function (){
+//     return view('employee.showProduct');
+// })->name('employee.showProduct');
 
-Route::get('/employee/editProduct', function (){
-    return view('employee.editProduct');
-})->name('employee.editProduct');
 
 Route::get('/employee/destroyProduct', function (){
     return view('employee.destroyProduct');

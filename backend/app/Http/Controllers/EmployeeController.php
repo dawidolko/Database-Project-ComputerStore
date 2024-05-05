@@ -79,6 +79,49 @@ public function Products()
     return view('employee.products', compact('products', 'employeeName', 'employeeLastName'));
 }
 
+public function listProducts(Request $request)
+{
+    $search = $request->input('search');
+    $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
+    $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+
+    $products = Product::with('categories')
+        ->when($search, function ($query) use ($search) {
+            return $query->where('name', 'like', '%' . $search . '%');
+        })
+        ->paginate(10);
+
+    return view('employee.products', compact('products', 'employeeName', 'employeeLastName'));
+}
+
+public function editProduct($id)
+{
+    $product = Product::findOrFail($id);
+    $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
+    $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+
+    return view('employee.editProduct', compact('product','employeeName', 'employeeLastName'));
+}
+
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'nazwa' => 'required|string|max:100',
+        'cena' => 'required|numeric',
+        'ilosc' => 'required|integer',
+        'opis' => 'nullable|string',
+    ]);
+
+    $product = Product::findOrFail($id);
+    $product->update([
+        'NAME' => $request->nazwa,
+        'PRICE' => $request->cena,
+        'QUANTITIES_AVAILABLE' => $request->ilosc,
+        'DESCRIPTION' => $request->opis,
+    ]);
+
+    return redirect()->route('employee.products')->with('success__edit', 'Product updated successfully!');
+}
 
 public function getOrderDataByYear($year)
 {
