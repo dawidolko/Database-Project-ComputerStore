@@ -132,7 +132,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <th scope="row" colspan="7">Brak zamówień.</th>
+                                    <th scope="row" colspan="7">No orders.</th>
                                 </tr>
                             @endforelse
                         </tbody>

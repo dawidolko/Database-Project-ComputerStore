@@ -161,7 +161,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <th scope="row" colspan="8">Brak ofert.</th>
+                                <th scope="row" colspan="8">No products.</th>
                             </tr>
                             @endforelse
                         </tbody>

@@ -198,6 +198,16 @@ public function newProduct(Request $request)
     return redirect()->route('employee.products')->with('success', 'Product added successfully!');
 }
 
+public function complaints()
+{
+    $complaints = Complaint::All();
+    $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
+    $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+    $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
+
+    return view('employee.complaints', compact('complaints', 'employeeName', 'employeeLastName', 'jobPosition'));
+}
+
 public function getOrderDataByYear($year)
 {
     $orders = DB::table('orders')

@@ -144,7 +144,7 @@
                                     <option value="15">Office</option>
                                 </select>
                             </div>
-                            <input class="btn btn-primary" type="submit" value="Dodaj"/>
+                            <input class="btn btn-primary" type="submit" value="Add"/>
                         </div>
                     </form>
                 </div>

@@ -70,6 +70,7 @@ Route::middleware(['auth:employee'])->group(function () {
     Route::delete('/employee/products/{id}', [EmployeeController::class, 'destroyProduct'])->name('employee.destroyProduct');
     Route::get('/employee/addProduct', [EmployeeController::class, 'addProduct'])->name('employee.addProduct');
     Route::post('/employee/newProduct', [EmployeeController::class, 'newProduct'])->name('employee.newProduct');
+    Route::get('/employee/complaints', [EmployeeController::class, 'complaints'])->name('employee.complaints');
 });
 
 Route::get('/api/orders/{year}', [EmployeeController::class, 'getOrderDataByYear']);
@@ -82,8 +83,5 @@ Route::get('/employee/customer', function (){
     return view('employee.customer');
 })->name('employee.customer');
 
-Route::get('/employee/complaints', function (){
-    return view('employee.complaints');
-})->name('employee.complaints');
 
 
