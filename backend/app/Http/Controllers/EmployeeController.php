@@ -121,21 +121,81 @@ public function updateOrderStatus(Request $request, $id)
 public function updateProduct(Request $request, $id)
 {
     $request->validate([
-        'nazwa' => 'required|string|max:100',
-        'cena' => 'required|numeric',
-        'ilosc' => 'required|integer',
-        'opis' => 'nullable|string',
+        'name' => 'required|string|max:100',
+        'price' => 'required|numeric',
+        'quantity' => 'required|integer',
+        'sale_id' => 'nullable|integer',
+        'old_price' => 'nullable|numeric',
+        'description' => 'nullable|string',
     ]);
 
     $product = Product::findOrFail($id);
     $product->update([
-        'NAME' => $request->nazwa,
-        'PRICE' => $request->cena,
-        'QUANTITIES_AVAILABLE' => $request->ilosc,
-        'DESCRIPTION' => $request->opis,
+        'NAME' => $request->name,
+        'PRICE' => $request->price,
+        'QUANTITIES_AVAILABLE' => $request->quantity,
+        'SALE_ID' => $request->sale_id,
+        'OLD_PRICE' => $request->old_price,
+        'DESCRIPTION' => $request->description,
     ]);
 
     return redirect()->route('employee.products')->with('success__edit', 'Product updated successfully!');
+}
+
+public function destroyProduct($id)
+{
+    $product = Product::with('specifications', 'photosProducts', 'productsCategories')->findOrFail($id);
+
+    foreach ($product->specifications as $specification) {
+        $specification->delete();
+    }
+
+    foreach ($product->photosProducts as $photo) {
+        $photo->delete();
+    }
+
+    $product->categories()->detach();
+
+    $product->delete();
+
+    return redirect()->route('employee.products')->with('success', 'Product and all related records successfully deleted.');
+}
+
+public function addProduct()
+{
+    $product = Product::All();
+    $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
+    $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+    $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
+
+    return view('employee.addProduct', compact('product','employeeName', 'employeeLastName', 'jobPosition'));
+}
+
+public function newProduct(Request $request)
+{
+    $validated = $request->validate([
+        'name' => 'required|string|max:100',
+        'price' => 'required|numeric',
+        'quantity' => 'required|integer',
+        'sale_id' => 'nullable|integer',
+        'old_price' => 'nullable|numeric',
+        'description' => 'nullable|string',
+        'category_id' => 'required|integer|exists:categories,id'
+    ]);
+
+    $product = Product::create([
+        'ID' => null,
+        'NAME' => $validated['name'],
+        'PRICE' => $validated['price'],
+        'QUANTITIES_AVAILABLE' => $validated['quantity'],
+        'SALE_ID' => $validated['sale_id'],
+        'OLD_PRICE' => $validated['old_price'],
+        'DESCRIPTION' => $validated['description'],
+    ]);
+    // Przypisywanie kategorii
+    $product->categories()->attach($validated['category_id']);
+
+    return redirect()->route('employee.products')->with('success', 'Product added successfully!');
 }
 
 public function getOrderDataByYear($year)

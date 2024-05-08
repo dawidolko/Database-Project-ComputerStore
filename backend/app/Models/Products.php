@@ -10,8 +10,9 @@ class Products extends Model
     use HasFactory;
 
     protected $table = 'products';
-     public $timestamps = false;
-     protected $fillable = ['NAME', 'PRICE', 'QUANTITIES_AVAILABLE', 'SALE_ID', 'OLD_PRICE', 'DESCRIPTION'];
+    public $timestamps = false;
+    public $incrementing = true;
+    protected $fillable = ['NAME', 'PRICE', 'QUANTITIES_AVAILABLE', 'SALE_ID', 'OLD_PRICE', 'DESCRIPTION'];
 
     public function opinions()
     {

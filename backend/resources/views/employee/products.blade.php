@@ -149,13 +149,13 @@
                                         <a class="table-button table-button--edit" href="{{ route('employee.editProduct', ['id' => $product->id]) }}">
                                             <i data-feather="edit"></i>
                                         </a>
-                                        <form method="POST" action="{{ route('employee.destroyProduct', $product->id) }}">
+                                        <form method="POST" action="{{ route('employee.destroyProduct', ['id' => $product->id]) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="table-button table-button--delete" type="submit">
+                                            <button class="table-button table-button--delete" type="submit" onclick="return confirm('Are you sure you want to delete this product?');">
                                                 <i data-feather="x-circle"></i>
                                             </button>
-                                        </form>
+                                        </form>                                        
                                     </div>
                                 </td>
                             </tr>
