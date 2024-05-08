@@ -32,7 +32,7 @@
     <div class="admin-panel">
         <aside class="admin-aside">
             <div class="admin-aside__title">TechByte Computer Store</div>
-            <div class="admin-aside__desc">Employee panel</div>
+            <div class="admin-aside__desc fs-5">{{ $jobPosition }}</div>
             <nav class="admin-aside__nav">
                 <ul class="admin-aside__list">
                     <li>
@@ -138,7 +138,7 @@
                                 <td class="align-middle">{{ $product->quantities_available }}</td>
                                 <td class="align-middle">{{ $product->sale_id }}</td>
                                 <td class="align-middle">{{ $product->old_price }}</td>
-                                <td class="align-middle">{{ $product->description }}</td>
+                                <td class="align-middle overflow-auto">{{ $product->description }}</td>
                                 <td class="align-middle">
                                     @foreach ($product->categories as $category)
                                     {{ $category->description }}

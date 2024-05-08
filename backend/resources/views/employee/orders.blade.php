@@ -32,7 +32,7 @@
     <div class="admin-panel">
         <aside class="admin-aside">
             <div class="admin-aside__title">TechByte Computer Store</div>
-            <div class="admin-aside__desc">Employee panel</div>
+            <div class="admin-aside__desc fs-5">{{ $jobPosition }}</div>
             <nav class="admin-aside__nav">
                 <ul class="admin-aside__list">
                     <li>
@@ -90,17 +90,14 @@
                     @endif
                     @if (session('error__index'))
                         <div class="alert alert-danger alert-dismissible fade show mb-5" role="alert">
-                            <strong>Uwaga!</strong> {{ session('error__index') }}
+                            <strong>Attention!</strong> {{ session('error__index') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
                 
                     <div class="d-flex justify-content-between align-items-end mb-5 pb-2">
-                        <h1>Zamówienia</h1>
+                        <h1>Orders</h1>
                         <div class="d-flex align-items-end">
-                            <div class="">
-                                <a class="btn btn-success" href="{{ route('employee.orders') }}">Dodaj nowe zamówienie</a>
-                            </div>
                         </div>
                     </div>
                 
@@ -108,11 +105,11 @@
                         <thead>
                             <tr>
                                 <th scope="col" style="width: 5%">#</th>
-                                <th scope="col" style="width: 30%">Customer ID</th>
-                                <th scope="col" style="width: 15%">Employee ID</th>
-                                <th scope="col" style="width: 10%">Date of Order</th>
+                                <th scope="col" style="width: 10%">Customer ID</th>
+                                <th scope="col" style="width: 10%">Employee ID</th>
+                                <th scope="col" class="text-center" style="width: 20%">Date of Order</th>
                                 <th scope="col" class="text-center" style="width: 15%">Order Status</th>
-                                <th scope="col" style="width: 10%">Akcje</th>
+                                <th scope="col" class="text-center" style="width: 10%">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -121,12 +118,12 @@
                                     <th class="align-middle" scope="row">{{ $zamowienie->id }}</th>
                                     <td class="align-middle">{{ $zamowienie->customers_id }}</td>
                                     <td class="align-middle">{{ ucfirst($zamowienie->employees_id) }}</td>
-                                    <td class="align-middle">{{ $zamowienie->date_order }}</td>
-                                    <td class="align-middle text-center {{ $zamowienie->status == 'anulowane' ? 'table-danger' : ($zamowienie->status == 'dostarczone' ? 'table-success' : ($zamowienie->status == 'wysłane' ? 'table-warning' : 'table-primary')) }}">
+                                    <td class="align-middle text-center">{{ $zamowienie->date_order }}</td>
+                                    <td class="align-middle text-center {{ $zamowienie->status == 'cancelled' ? 'table-danger' : ($zamowienie->status == 'delivered' ? 'table-success' : ($zamowienie->status == 'shipped' ? 'table-warning' : 'table-primary')) }}">
                                         {{ ucfirst($zamowienie->status) }}
                                     </td>
                                     <td class="align-middle">
-                                        <div class="d-flex align-items-center">
+                                        <div class="d-flex align-items-center justify-content-center">
                                             <a class="table-button table-button--edit" href="{{ route('employee.show', ['id' => $zamowienie->id]) }}">
                                                 <i data-feather="edit"></i>
                                             </a>

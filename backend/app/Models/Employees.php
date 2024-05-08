@@ -34,4 +34,16 @@ class Employees extends Authenticatable
         return $this->attributes['name'];
     }
 
+    public function getLastNameAttribute($value)
+    {
+        return $this->attributes['last_name'];
+    }
+
+
+    public function getJobPositionAttribute($value)
+    {
+        return $this->attributes['job_position'];
+    }
+
+
 }

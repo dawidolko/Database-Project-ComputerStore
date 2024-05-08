@@ -11,8 +11,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
 
     <script src="https://unpkg.com/feather-icons"></script>
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
     <link href="{{ asset('/css/adminDashboardHome.css') }}" rel="stylesheet" />
     <title>Sklep Komputerowy - Projekt Bazy</title>
@@ -20,8 +19,7 @@
     <!-- Optional JavaScript -->
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
@@ -34,7 +32,7 @@
     <div class="admin-panel">
         <aside class="admin-aside">
             <div class="admin-aside__title">TechByte Computer Store</div>
-            <div class="admin-aside__desc">Employee panel</div>
+            <div class="admin-aside__desc fs-5">{{ $jobPosition }}</div>
             <nav class="admin-aside__nav">
                 <ul class="admin-aside__list">
                     <li>
@@ -141,7 +139,9 @@
                             </div>
             
                             <div style="border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea;" class="pt-4 pb-4 mb-3">
-                                <form method="POST">
+                                <form method="POST" action="{{ route('employee.updateOrderStatus', $order->id) }}">
+                                    @csrf
+                                    @method('PUT')
                                     <label for="status_order" class="form-label">Change order status</label>
                                     <div class="input-group mb-3">
                                         <select {{ in_array($order->status, ['delivered', 'cancelled']) ? 'disabled' : '' }} class="form-select me-3" name="status_order" id="status_order" aria-label="Default select example">

@@ -11,6 +11,8 @@ class Orders extends Model
     protected $table = 'orders';
     protected $fillable = ['CUSTOMERS_ID', 'EMPLOYEES_ID', 'DATE_ORDER', 'STATUS'];
 
+    public $timestamps = false;
+
     public function Customer()
     {
         return $this->belongsTo(Customers::class, 'customers_id');

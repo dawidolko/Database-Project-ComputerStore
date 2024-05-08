@@ -32,7 +32,7 @@
     <div class="admin-panel">
         <aside class="admin-aside">
             <div class="admin-aside__title">TechByte Computer Store</div>
-            <div class="admin-aside__desc">Employee panel</div>
+            <div class="admin-aside__desc fs-5">{{ $jobPosition }}</div>
             <nav class="admin-aside__nav">
                 <ul class="admin-aside__list">
                     <li>
@@ -106,23 +106,27 @@
                         <div class="form-group mb-3">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input value="{{ $product->NAME }}" id="nazwa" name="nazwa" type="text" class="form-control"/>
+                                <input value="{{ $product->NAME }}" id="name" name="name" type="text" class="form-control"/>
                             </div>
                             <div class="mb-3">
                                 <label for="price" class="form-label">Price</label>
-                                <input id="cena" value="{{ $product->cena }}" name="cena" type="number" min="1" max="100000" step="0.01" class="form-control"/>
+                                <input id="price" value="{{ $product->PRICE }}" name="price" type="number" min="1" max="100000" step="0.01" class="form-control"/>
                             </div>
                             <div class="mb-3">
-                                <label for="quantity" class="form-label">Quantity Available</label>
-                                <input id="ilosc" value="{{ $product->ilosc }}" name="ilosc" type="number" min="0" max="1000" class="form-control"/>
+                                <label for="quantity" class="form-label">Quantities Available</label>
+                                <input id="quantity" value="{{ $product->QUANTITIES_AVAILABLE }}" name="quantity" type="number" min="0" max="1000" class="form-control"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="sale_id" class="form-label">Sale ID</label>
+                                <input id="sale_id" value="{{ $product->SALE_ID }}" name="sale_id" type="number" class="form-control"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="old_price" class="form-label">Quantities Available</label>
+                                <input id="old_price" value="{{ $product->OLD_PRICE }}" name="old_price" type="number" min="1" max="100000" step="0.01" class="form-control"/>
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" name="opis" id="opis" cols="5" rows="7">{{ $product->opis }}</textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="category" class="form-label">Category</label>
-                                <input value="{{ $product->kategoria }}" id="kategoria" name="kategoria" type="text" class="form-control"/>
+                                <textarea class="form-control" name="description" id="description" cols="6" rows="5">{{ $product->DESCRIPTION }}</textarea>
                             </div>
                             <input value="{{ $product->id }}" name="id" type="hidden"/>
                             <input class="btn btn-primary" type="submit" value="Edit"/>

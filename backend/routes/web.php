@@ -65,7 +65,8 @@ Route::middleware(['auth:employee'])->group(function () {
     Route::get('/employee/show/{id}', [EmployeeController::class, 'showOrder'])->name('employee.show');
     Route::get('/products', [EmployeeController::class, 'listProducts'])->name('employee.listProducts');
     Route::get('/employee/editProduct/{id}', [EmployeeController::class, 'editProduct'])->name('employee.editProduct');
-    Route::put('/products/{id}', [ProductController::class, 'updateProduct'])->name('employee.updateProduct');
+    Route::put('/employee/updateOrderStatus/{id}', [EmployeeController::class, 'updateOrderStatus'])->name('employee.updateOrderStatus');
+    Route::put('/employee/products/updateProduct/{id}', [ProductController::class, 'updateProduct'])->name('employee.updateProduct');
 });
 
 Route::get('/api/orders/{year}', [EmployeeController::class, 'getOrderDataByYear']);

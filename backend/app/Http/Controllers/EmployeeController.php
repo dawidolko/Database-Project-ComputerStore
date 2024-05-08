@@ -21,8 +21,9 @@ class EmployeeController extends Controller
     $numberOfComplaints = Complaint::count();
     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+    $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
 
-    return view('employee.dashboard', compact('numberOfOrders', 'numberOfClients', 'numberOfProducts', 'numberOfComplaints', 'employeeName', 'employeeLastName'));
+    return view('employee.dashboard', compact('numberOfOrders', 'numberOfClients', 'numberOfProducts', 'numberOfComplaints', 'employeeName', 'employeeLastName', 'jobPosition'));
 }
 
 public function Orders()
@@ -37,8 +38,9 @@ public function Orders()
     //     });
     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+    $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
 
-    return view('employee.orders', compact('order', 'employeeName', 'employeeLastName'));
+    return view('employee.orders', compact('order', 'employeeName', 'employeeLastName', 'jobPosition'));
 
     // return response()->json($orders);
 }
@@ -66,8 +68,9 @@ public function showOrder($id)
     $order = Order::findOrFail($id);
     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+    $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
 
-    return view('employee.show', compact('order','employeeName', 'employeeLastName'));
+    return view('employee.show', compact('order','employeeName', 'employeeLastName', 'jobPosition'));
 }
 
 public function Products()
@@ -75,8 +78,9 @@ public function Products()
     $products = Product::with('categories')->get();
     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+    $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
 
-    return view('employee.products', compact('products', 'employeeName', 'employeeLastName'));
+    return view('employee.products', compact('products', 'employeeName', 'employeeLastName', 'jobPosition'));
 }
 
 public function listProducts(Request $request)
@@ -84,14 +88,15 @@ public function listProducts(Request $request)
     $search = $request->input('search');
     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+    $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
 
     $products = Product::with('categories')
-        ->when($search, function ($query) use ($search) {
-            return $query->where('name', 'like', '%' . $search . '%');
-        })
-        ->paginate(10);
+    ->when($search, function ($query) use ($search) {
+        return $query->whereRaw('LOWER(name) like ?', ['%' . strtolower($search) . '%']);
+    })
+    ->paginate(10);
 
-    return view('employee.products', compact('products', 'employeeName', 'employeeLastName'));
+    return view('employee.products', compact('products', 'employeeName', 'employeeLastName', 'jobPosition'));
 }
 
 public function editProduct($id)
@@ -99,11 +104,21 @@ public function editProduct($id)
     $product = Product::findOrFail($id);
     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+    $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
 
-    return view('employee.editProduct', compact('product','employeeName', 'employeeLastName'));
+    return view('employee.editProduct', compact('product','employeeName', 'employeeLastName', 'jobPosition'));
 }
 
-public function update(Request $request, $id)
+public function updateOrderStatus(Request $request, $id)
+{
+    $order = Order::findOrFail($id);
+    $order->status = $request->input('status_order');
+    $order->save();
+
+    return redirect()->route('employee.show', $id)->with('success', 'Status updated successfully!');
+}
+
+public function updateProduct(Request $request, $id)
 {
     $request->validate([
         'nazwa' => 'required|string|max:100',
