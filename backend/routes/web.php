@@ -71,17 +71,11 @@ Route::middleware(['auth:employee'])->group(function () {
     Route::get('/employee/addProduct', [EmployeeController::class, 'addProduct'])->name('employee.addProduct');
     Route::post('/employee/newProduct', [EmployeeController::class, 'newProduct'])->name('employee.newProduct');
     Route::get('/employee/complaints', [EmployeeController::class, 'complaints'])->name('employee.complaints');
+    Route::get('/employee/customers', [EmployeeController::class, 'customers'])->name('employee.customers');
+    Route::get('/customers', [EmployeeController::class, 'listCustomers'])->name('employee.listCustomers');
+    Route::get('/employee/editCustomer/{id}', [EmployeeController::class, 'editCustomer'])->name('employee.editCustomer');
+    Route::put('/employee/customers/updateCustomer/{id}', [EmployeeController::class, 'updateCustomer'])->name('employee.updateCustomer');
+    Route::delete('/employee/customers/{id}', [EmployeeController::class, 'destroyCustomer'])->name('employee.destroyCustomer');
 });
 
 Route::get('/api/orders/{year}', [EmployeeController::class, 'getOrderDataByYear']);
-
-Route::get('/employee/customers', function (){
-    return view('employee.customers');
-})->name('employee.customers');
-
-Route::get('/employee/customer', function (){
-    return view('employee.customer');
-})->name('employee.customer');
-
-
-

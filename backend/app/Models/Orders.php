@@ -38,7 +38,7 @@ class Orders extends Model
     {
         return $this->belongsToMany(Products::class, 'orders_products', 'ORDERS_ID', 'PRODUKTY_ID')
                 ->withPivot('PRODUKTY_ID')
-                ->withCount('products as quantity');
+                ->withCount('ordersProducts as quantity');
 
     // return $this->belongsToMany(Products::class, 'orders_products', 'ORDERS_ID', 'PRODUKTY_ID')
         // ->selectRaw('products.*, COUNT(*) AS quantity')

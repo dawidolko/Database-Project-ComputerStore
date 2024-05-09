@@ -208,6 +208,80 @@ public function complaints()
     return view('employee.complaints', compact('complaints', 'employeeName', 'employeeLastName', 'jobPosition'));
 }
 
+public function customers()
+{
+    $customers = Customer::All();
+    $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
+    $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+    $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
+  
+    return view('employee.customers', compact('customers', 'employeeName', 'employeeLastName', 'jobPosition'));
+}
+
+public function listCustomers(Request $request)
+{
+    $search = $request->input('search');
+    $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
+    $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+    $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
+
+    $customers = Customer::where('email', 'like', '%' . $search . '%')
+                         ->paginate(10);
+
+    return view('employee.customers', compact('customers', 'employeeName', 'employeeLastName', 'jobPosition'));
+}
+
+public function editCustomer($id)
+{
+    $customer = Customer::findOrFail($id);
+    $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
+    $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+    $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
+
+    return view('employee.editCustomer', compact('customer','employeeName', 'employeeLastName', 'jobPosition'));
+}
+
+public function updateCustomer(Request $request, $id)
+{
+    $request->validate([
+        'name' => 'required|string|max:20',
+        'last_name' => 'required|string|max:50',
+        'address' => 'required|string|max:100',
+        'phone' => 'required|string|max:20',
+        'email' => 'nullable|string|max:100',
+    ]);
+
+    $customer = Customer::findOrFail($id);
+    $customer->update([
+        'NAME' => $request->name,
+        'LAST_NAME' => $request->last_name,
+        'ADDRESS' => $request->delivery_address,
+        'PHONE' => $request->phone_number,
+        'EMAIL' => $request->email,
+    ]);
+
+    return redirect()->route('employee.customers')->with('success__edit', 'Customer updated successfully!');
+}
+
+public function destroyCustomer($id)
+{
+    $customer = Customer::with(['order.complaints', 'order'])->findOrFail($id);
+
+    foreach ($customer->order as $order) {
+        foreach ($order->complaints as $complaint) {
+            $complaint->delete();
+        }
+
+        $order->products()->detach();
+        $order->delete();
+    }
+
+    $customer->delete();
+
+    return redirect()->route('employee.customers')->with('success', 'Customer and all related records successfully deleted.');
+}
+
+
 public function getOrderDataByYear($year)
 {
     $orders = DB::table('orders')
