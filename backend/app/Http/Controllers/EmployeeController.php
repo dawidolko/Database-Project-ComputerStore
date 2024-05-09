@@ -10,6 +10,7 @@ use App\Models\Employees as Employee;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
 {
@@ -292,6 +293,16 @@ public function getOrderDataByYear($year)
                 ->get();
 
     return response()->json($orders);
+}
+
+public function logout(Request $request)
+{
+    Auth::guard('employee')->logout();
+
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect('/');
 }
 
 }

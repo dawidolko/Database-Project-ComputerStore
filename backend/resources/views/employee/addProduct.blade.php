@@ -60,9 +60,14 @@
                     </li>
                     <br />
                     <li>
-                        {{-- <a href="{{ route('login.logout') }}" class="admin-aside__link"> --}}
-                        <i data-feather="log-out" class="admin-aside__link-icon"></i>Logout</a>
+                        <a href="{{ route('logout') }}" class="admin-aside__link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i data-feather="log-out" class="admin-aside__link-icon"></i>Logout
+                        </a>
                     </li>
+                    
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </ul>
             </nav>
         </aside>

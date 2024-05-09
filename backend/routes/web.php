@@ -76,6 +76,8 @@ Route::middleware(['auth:employee'])->group(function () {
     Route::get('/employee/editCustomer/{id}', [EmployeeController::class, 'editCustomer'])->name('employee.editCustomer');
     Route::put('/employee/customers/updateCustomer/{id}', [EmployeeController::class, 'updateCustomer'])->name('employee.updateCustomer');
     Route::delete('/employee/customers/{id}', [EmployeeController::class, 'destroyCustomer'])->name('employee.destroyCustomer');
+    Route::post('/logout', [EmployeeController::class, 'logout'])->name('logout');
+
 });
 
 Route::get('/api/orders/{year}', [EmployeeController::class, 'getOrderDataByYear']);
