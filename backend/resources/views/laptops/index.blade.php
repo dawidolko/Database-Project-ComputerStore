@@ -30,11 +30,6 @@
                 </div>
                 <p class="banner-title1">your laptops</p>
               </div>
-
-              <!-- <h2 class="banner-title">custom-made computers</h2>
-
-            <p class="banner-text">starting at &dollar; <b>1000</b>.00</p> -->
-
               <a href="{{ route('laptops.index') }}" class="banner-btn">Shop now</a>
             </div>
           </div>
@@ -391,14 +386,6 @@
                     <h3 class="showcase-title">{{ $produkt->name }}</h3>
                   </a>
 
-                  <div class="showcase-rating">
-                    {{-- <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon> --}}
-                  </div>
-
                   <div class="price-box">
                     <del>${{ $produkt->old_price }}</del>
                     <p class="price">${{ $produkt->price }}</p>
@@ -423,6 +410,13 @@
         <div class="container new-conti category-section" id="all">
           <div class="product-main">
             <h2 class="title">Laptops All</h2>
+
+            @if(session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
+            @if(session('error'))
+                <div class="alert alert-danger">{{ session('error') }}</div>
+            @endif
   
             <div class="product-grid">
               @forelse($laptopyAll as $produkt)
@@ -448,13 +442,12 @@
                       @endif
 
                   <div class="showcase-actions">
-                    <button class="btn-action heart" onclick="addToFavorite(this)"
-                        data-image="{{ asset('storage/images') . '/' . $produkt->photosProducts->first()->path }}"
-                        data-name="{{ $produkt->name }}"
-                        data-price="{{ $produkt->price }}"
-                        data-quantity="1">
-                        <ion-icon name="heart-outline"></ion-icon>
-                    </button>
+                    <form action="{{ route('favorites.add', ['id' => $produkt->id]) }}" method="POST" style="display: inline;">
+                      @csrf
+                      <button type="submit" class="btn-action heart">
+                          <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+                  </form>
               
                     <button class="btn-action magnification">
                         <ion-icon name="eye-outline"></ion-icon>
@@ -464,14 +457,12 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                     </button>
         
-                    <button class="btn-action bag-add" onclick="addToCart(this)" 
-                        data-id="unique-product-id-{{ $produkt->id }}" 
-                        data-image="{{ asset('storage/images') }}/{{ $produkt->photosProducts->first()->path }}" 
-                        data-name="{{ $produkt->name }}" 
-                        data-price="{{ $produkt->price }}" 
-                        data-quantity="1">
-                        <ion-icon name="bag-add-outline"></ion-icon>
-                    </button>
+                    <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
+                      @csrf
+                      <button type="submit" class="btn-action bag-add">
+                          <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </form>
                   </div>
                 </div>
 
@@ -481,14 +472,6 @@
                   <a href={{route('laptops.show', ['id' => $produkt->id])}}>
                     <h3 class="showcase-title">{{ $produkt->name }}</h3>
                   </a>
-
-                  <div class="showcase-rating">
-                    {{-- <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star-outline"></ion-icon>
-                    <ion-icon name="star-outline"></ion-icon> --}}
-                  </div>
 
                   <div class="price-box">
                     <p class="price">${{ $produkt->price }}</p>
@@ -534,13 +517,12 @@
                   @endif
 
                   <div class="showcase-actions">
-                    <button class="btn-action heart" onclick="addToFavorite(this)"
-                        data-image="{{ asset('storage/images') . '/' . $produkt->photosProducts->first()->path }}"
-                        data-name="{{ $produkt->name }}"
-                        data-price="{{ $produkt->price }}"
-                        data-quantity="1">
-                        <ion-icon name="heart-outline"></ion-icon>
-                    </button>
+                    <form action="{{ route('favorites.add', ['id' => $produkt->id]) }}" method="POST" style="display: inline;">
+                      @csrf
+                      <button type="submit" class="btn-action heart">
+                          <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+                  </form>
               
                     <button class="btn-action magnification">
                         <ion-icon name="eye-outline"></ion-icon>
@@ -550,14 +532,12 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                     </button>
         
-                    <button class="btn-action bag-add" onclick="addToCart(this)" 
-                        data-id="unique-product-id-{{ $produkt->id }}" 
-                        data-image="{{ asset('storage/images') }}/{{ $produkt->photosProducts->first()->path }}" 
-                        data-name="{{ $produkt->name }}" 
-                        data-price="{{ $produkt->price }}" 
-                        data-quantity="1">
-                        <ion-icon name="bag-add-outline"></ion-icon>
-                    </button>
+                    <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
+                      @csrf
+                      <button type="submit" class="btn-action bag-add">
+                          <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </form>
                   </div>
                 </div>
 
@@ -567,14 +547,6 @@
                   <a href="{{route('laptops.show', ['id' => $produkt->id])}}">
                     <h3 class="showcase-title">{{ $produkt->name }}</h3>
                   </a>
-
-                  <div class="showcase-rating">
-                    {{-- <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star-outline"></ion-icon>
-                    <ion-icon name="star-outline"></ion-icon> --}}
-                  </div>
 
                   <div class="price-box">
                     <p class="price">${{ $produkt->price }}</p>
@@ -620,13 +592,12 @@
                   @endif
 
                   <div class="showcase-actions">
-                    <button class="btn-action heart" onclick="addToFavorite(this)"
-                        data-image="{{ asset('storage/images') . '/' . $produkt->photosProducts->first()->path }}"
-                        data-name="{{ $produkt->name }}"
-                        data-price="{{ $produkt->price }}"
-                        data-quantity="1">
-                        <ion-icon name="heart-outline"></ion-icon>
-                    </button>
+                    <form action="{{ route('favorites.add', ['id' => $produkt->id]) }}" method="POST" style="display: inline;">
+                      @csrf
+                      <button type="submit" class="btn-action heart">
+                          <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+                  </form>
               
                     <button class="btn-action magnification">
                         <ion-icon name="eye-outline"></ion-icon>
@@ -636,14 +607,12 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                     </button>
         
-                    <button class="btn-action bag-add" onclick="addToCart(this)" 
-                        data-id="unique-product-id-{{ $produkt->id }}" 
-                        data-image="{{ asset('storage/images') }}/{{ $produkt->photosProducts->first()->path }}" 
-                        data-name="{{ $produkt->name }}" 
-                        data-price="{{ $produkt->price }}" 
-                        data-quantity="1">
-                        <ion-icon name="bag-add-outline"></ion-icon>
-                    </button>
+                    <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
+                      @csrf
+                      <button type="submit" class="btn-action bag-add">
+                          <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </form>
                   </div>
                 </div>
 
@@ -653,14 +622,6 @@
                   <a href={{route('laptops.show', ['id' => $produkt->id])}}>
                     <h3 class="showcase-title">{{ $produkt->name }}</h3>
                   </a>
-
-                  <div class="showcase-rating">
-                    {{-- <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star-outline"></ion-icon>
-                    <ion-icon name="star-outline"></ion-icon> --}}
-                  </div>
 
                   <div class="price-box">
                     <p class="price">${{ $produkt->price }}</p>
@@ -707,13 +668,12 @@
                       @endif
 
                   <div class="showcase-actions">
-                    <button class="btn-action heart" onclick="addToFavorite(this)"
-                        data-image="{{ asset('storage/images') . '/' . $produkt->photosProducts->first()->path }}"
-                        data-name="{{ $produkt->name }}"
-                        data-price="{{ $produkt->price }}"
-                        data-quantity="1">
-                        <ion-icon name="heart-outline"></ion-icon>
-                    </button>
+                    <form action="{{ route('favorites.add', ['id' => $produkt->id]) }}" method="POST" style="display: inline;">
+                      @csrf
+                      <button type="submit" class="btn-action heart">
+                          <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+                  </form>
               
                     <button class="btn-action magnification">
                         <ion-icon name="eye-outline"></ion-icon>
@@ -723,14 +683,12 @@
                         <ion-icon name="repeat-outline"></ion-icon>
                     </button>
         
-                    <button class="btn-action bag-add" onclick="addToCart(this)" 
-                        data-id="unique-product-id-{{ $produkt->id }}" 
-                        data-image="{{ asset('storage/images') }}/{{ $produkt->photosProducts->first()->path }}" 
-                        data-name="{{ $produkt->name }}" 
-                        data-price="{{ $produkt->price }}" 
-                        data-quantity="1">
-                        <ion-icon name="bag-add-outline"></ion-icon>
-                    </button>
+                    <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
+                      @csrf
+                      <button type="submit" class="btn-action bag-add">
+                          <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </form>
                   </div>
                 </div>
 
@@ -740,14 +698,6 @@
                   <a href={{route('laptops.show', ['id' => $produkt->id])}}>
                     <h3 class="showcase-title">{{ $produkt->name }}</h3>
                   </a>
-
-                  <div class="showcase-rating">
-                    {{-- <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star-outline"></ion-icon>
-                    <ion-icon name="star-outline"></ion-icon> --}}
-                  </div>
 
                   <div class="price-box">
                     <p class="price">${{ $produkt->price }}</p>
@@ -903,26 +853,21 @@
     -->
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/counterCart.js') }}"></script>
-    <script src="{{ asset('js/loginAccount.js') }}"></script>
     <script src="{{ asset('js/changeTheLanguage.js') }}"></script>
-    <script src="{{ asset('js/cartAdd.js') }}"></script>
-    <script src="{{ asset('js/favoriteAdd.js') }}"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const categoryButtons = document.querySelectorAll('.category-btn');
       
         function showSection(category) {
-          // Ukryj wszystkie sekcje
           document.querySelectorAll('.category-section').forEach(section => {
             section.style.display = 'none';
           });
       
-          // Pokaż wybraną sekcję, używając wartości z data-category lub z hash URL
           const sectionToShow = document.querySelector(category);
           if (sectionToShow) {
             sectionToShow.style.display = 'block';
           } else {
-            console.error('Nie znaleziono sekcji dla:', category);
+            console.error('No sections found for:', category);
           }
         }
       
@@ -933,13 +878,10 @@
           });
         });
       
-        // Sprawdź, czy URL zawiera hash i użyj go do otwarcia odpowiedniej sekcji
         const currentHash = window.location.hash;
         if (currentHash) {
-          // Usuń '#' z currentHash, ponieważ selektor CSS wymaga czystego ID
           showSection(currentHash);
         } else {
-          // Domyślne otwarcie sekcji "Show all", jeśli nie ma hash w URL
           showSection('#all');
         }
       });
@@ -950,28 +892,23 @@
       document.addEventListener('DOMContentLoaded', function() {
         const overlay = document.getElementById('imageOverlay');
 
-        // Funkcja do otwierania overlay z obrazkiem
         function showOverlayImage(imgSrc) {
           overlay.style.display = 'flex';
           overlay.querySelector('.overlay-image').src = imgSrc;
         }
 
-        // Nasłuchiwanie kliknięcia na każdy przycisk 'eye-outline'
         document.querySelectorAll('.magnification').forEach(button => {
           button.addEventListener('click', function(event) {
-            // Znajdź najbliższy obrazek i pobierz jego źródło
             const imgSrc = this.closest('.showcase-banner').querySelector('.product-img.default').src;
             showOverlayImage(imgSrc);
-            event.stopPropagation(); // Zapobiegaj propagacji, aby kliknięcie na button nie zamykało od razu overlay
+            event.stopPropagation();
           });
         });
 
-        // Zamknięcie overlay po kliknięciu na krzyżyk
         document.querySelector('.image-overlay .close-btn').addEventListener('click', function() {
           overlay.style.display = 'none';
         });
 
-        // Zamknięcie overlay przez kliknięcie poza obrazek
         overlay.addEventListener('click', function(event) {
           if (event.target === overlay) {
             overlay.style.display = 'none';
@@ -981,7 +918,6 @@
     </script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // Funkcja obracająca oba obrazy produktu
         function rotateimg(showcaseBanner, rotation) {
           const img = showcaseBanner.querySelectorAll('img');
           img.forEach(img => {
@@ -992,11 +928,10 @@
           });
         }
       
-        // Dodaj nasłuchiwacz do każdego przycisku 'repeat'
         document.querySelectorAll('.repeat').forEach(button => {
           button.addEventListener('click', function() {
             const showcaseBanner = this.closest('.showcase-banner');
-            rotateimg(showcaseBanner, 90); // Obróć o 90 stopni
+            rotateimg(showcaseBanner, 90);
           });
         });
       });

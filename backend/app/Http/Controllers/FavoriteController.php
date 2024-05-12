@@ -31,4 +31,69 @@ class FavoriteController extends Controller
         'iloscPowerSupply', 'iloscProcessors', 'iloscGamingComputers', 'iloscLearningComputers', 'iloscOfficeComputers', 
         'iloscGamingLaptops', 'iloscLearningLaptops', 'iloscOfficeLaptops'));
     }
+
+    public function addToFavorites(Request $request, $id)
+    {
+        $product = Products::findOrFail($id);
+    
+        if ($product->quantities_available <= 0) {
+            return redirect()->back()->with('error', 'This product is out of stock and cannot be added to favorites.');
+        }
+    
+        $favorites = session()->get('favorites', []);
+    
+        if (!array_key_exists($id, $favorites)) {
+            $favorites[$id] = [
+                "name" => $product->name,
+                "price" => $product->price,
+                "photo" => $product->photosProducts->first()->path ?? 'default.jpg'
+            ];
+            session()->put('favorites', $favorites);
+            session()->put('favoritesCount', count($favorites));
+    
+            return redirect()->back()->with('success', 'Product added to favorites!');
+        }
+    
+        return redirect()->back()->with('error', 'Product already in favorites.');
+    }
+    
+    public function removeFromFavorites($id)
+    {
+        $favorites = session()->get('favorites', []);
+
+        if (isset($favorites[$id])) {
+            unset($favorites[$id]);
+            session()->put('favorites', $favorites);
+            session()->put('favoritesCount', count($favorites));
+            return redirect()->back()->with('success', 'Product removed from favorites.');
+        }
+
+        return redirect()->back()->with('error', 'Product not found in favorites.');
+    }
+
+
+public function addToCartFromFavorites(Request $request, $id)
+{
+    $favorites = session()->get('favorites', []);
+    if (isset($favorites[$id])) {
+        $product = Products::find($id);
+        if (!$product || $product->quantities_available <= 0) {
+            return redirect()->back()->with('error', 'This product is currently out of stock and cannot be added to the cart.');
+        }
+
+        $cart = session()->get('cart', []);
+        $cart[$id] = $favorites[$id];
+        session()->put('cart', $cart);
+
+        unset($favorites[$id]);
+        session()->put('favorites', $favorites);
+        session()->put('favoritesCount', count($favorites));
+
+        return redirect()->back()->with('success', 'Product added to cart and removed from favorites.');
+    }
+
+    return redirect()->back()->with('error', 'Product not found in favorites.');
+}
+
+
 }

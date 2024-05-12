@@ -1,8 +1,8 @@
 @include('shared.html')
 
-  @include('shared.head', ['pageTitle' => 'Home - Sklep komputerowy'])
+  @include('shared.head', ['pageTitle' => 'Techbyte - Sklep komputerowy'])
   <head>
-    <link rel="stylesheet" href="{{ asset('css/accountStyle.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/productStyle.css') }}" />
   </head>
   <body>
     @include('shared.navbar')
@@ -216,95 +216,131 @@
       </div>
 
       {{-- ! ! !SEKCJA PODSTRONY ! ! !--}}
-      <div
-      id="logged-out-message"
-      class="user-greeting container"
-      style="display: block">
-      <div class="loginregister">
-        <h2>Zaloguj się lub zarejestruj</h2>
-        <a href="{{ route('login') }}" class="action-button">Przejdź do logowania</a>
-      </div>
-    </div>
-
-    <div class="account-container container" style="display: none">
-      <div class="user-greeting">
-        <h2>Cześć, <span id="user-name">[Nazwa użytkownika]</span></h2>
-        <div class="user-actions">
-          <div class="opinion">
-            <button
-              class="action-button"
-              onclick="toggleForm('complaint-form')">
-              Zgłoś reklamację
-            </button>
-            <button class="action-button" onclick="toggleForm('review-form')">
-              Wystaw opinię
-            </button>
-          </div>
-          <div class="account-sys">
-            <button
-              class="action-button"
-              onclick="toggleForm('change-password-form')">
-              Zmień hasło
-            </button>
-            <button
-              id="logout-button"
-              class="action-button"
-              onclick="logoutUser()">
-              Wyloguj
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <form
-        id="change-password-form"
-        class="user-form"
-        style="display: none"
-        onsubmit="changePassword(); return false;">
-        <input
-          type="password"
-          placeholder="Stare hasło"
-          id="old-password"
-          required />
-        <input
-          type="password"
-          placeholder="Nowe hasło"
-          id="new-password"
-          required />
-        <button type="submit" class="submit-button">
-          Zatwierdź zmianę hasła
-        </button>
-      </form>
-
-      <form id="complaint-form" class="user-form" style="display: none">
-        <textarea
-          placeholder="Opisz swój problem"
-          id="complaint-text"
-          required></textarea>
-        <button class="submit-button" onclick="submitComplaint()">
-          Wyślij reklamację
-        </button>
-      </form>
-
-      <form id="review-form" class="user-form" style="display: none">
-        <textarea
-          placeholder="Napisz swoją opinię"
-          id="review-text"
-          required></textarea>
-        <button class="submit-button" onclick="leaveReview()">
-          Opublikuj opinię
-        </button>
-      </form>
-
-      <h3 id="order">Zamówienia</h3>
-      <div class="user-orders">
-        <div id="orders-list"></div>
-      </div>
-    </div>
-
-    <div id="notification" style="display: none"></div>
-    <div id="notification-box" style="display: none"></div>
         
+      <div id="imageOverlay" class="image-overlay" style="display: none">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
+    </div>
+    
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+    @if(session('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
+    @endif
+    
+    @forelse($products as $produkt)
+        <div class="produkt new-conti category-section" id="case{{ $produkt->id }}">
+            <div class="product-main">
+                <div class="product-grid">
+                    <div class="showcase">
+                        <div class="slider showcase-banner">
+                            <div class="slides-container">
+                                @if($produkt->photosProducts->isNotEmpty())
+                                    @foreach($produkt->photosProducts as $index => $photo)
+                                        <img src="{{ asset('storage/images') }}/{{ $photo->path }}" alt="{{ $produkt->name }}" class="slide{{ $index === 0 ? ' active' : '' }}">
+                                    @endforeach
+                                @else
+                                    <img src="{{ asset('storage/images/default.png') }}" alt="Default Image" class="slide active">
+                                @endif
+                            </div>
+                            <button class="slide-nav prev" onclick="changeSlide(-1)">&#10094;</button>
+                            <button class="slide-nav next" onclick="changeSlide(1)">&#10095;</button>
+                            <div class="thumbnail-container">
+                                @foreach($produkt->photosProducts as $index => $photo)
+                                    <img src="{{ asset('storage/images') }}/{{ $photo->path }}" alt="{{ $produkt->name }}" class="thumbnail" onclick="setCurrentSlide({{ $index }})">
+                                @endforeach
+                            </div>
+    
+                            <div class="showcase-actions">
+                                <form action="{{ route('favorites.add', ['id' => $produkt->id]) }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="btn-action heart">
+                                        <ion-icon name="heart-outline"></ion-icon>
+                                    </button>
+                                </form>
+    
+                                <button class="btn-action magnification">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </button>
+    
+                                <button class="btn-action repeat">
+                                    <ion-icon name="repeat-outline"></ion-icon>
+                                </button>
+    
+                                <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn-action bag-add">
+                                        <ion-icon name="bag-add-outline"></ion-icon>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+    
+                        <div class="showcase-content">
+                            <div class="caseBox-info">
+                                <div class="caseBox1">
+                                    <a href="{{ route($produkt->productsCategories->first()->category_name) }}#{{ $produkt->productsCategories->first()->description }}" class="showcase-category">{{ $produkt->productsCategories->first()->description }}</a>
+    
+                                    <a href="{{route('laptops.show', ['id' => $produkt->id])}}">
+                                        <h3 class="showcase-title">{{ $produkt->name }}</h3>
+                                    </a>
+    
+                                    <div class="price-cart-fav">
+                                        <div class="price-box">
+                                            <p class="price" data-price-usd="{{ $produkt->price }}">${{ $produkt->price }}</p>
+                                            <del data-price-usd="{{ $produkt->old_price }}">${{ $produkt->old_price }}</del>
+                                        </div>
+    
+                                        <div class="cart-favorite">
+                                            <form action="{{ route('favorites.add', ['id' => $produkt->id]) }}" method="POST" style="display: inline;">
+                                                @csrf
+                                                <button type="submit" class="btn-action heart favoriting">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                            </form>
+    
+                                            <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn-action bag-add carting">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <hr />
+                        <h2 class="product-description-title">Description</h2>
+                        <div class="product-description">{!! $produkt->description !!}</div>
+    
+                        <table class="product-specification">
+                            <tr>
+                                <th>Component</th>
+                                <th>Specification</th>
+                            </tr>
+                            @forelse($produkt->specifications as $specification)
+                                <tr class="specification-row {{ $loop->even ? 'alt' : '' }}">
+                                    <td>{{ $specification->parameter_name }}</td>
+                                    <td>{{ $specification->specification }}</td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="2">No specifications found.</td>
+                                </tr>
+                            @endforelse
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @empty
+        <h3 style="text-align: center;">No products found.</h3>
+    @endforelse    
+
+
          <!--
         - TESTIMONIALS, CTA & SERVICE
       -->
@@ -435,9 +471,6 @@
         </div>
       </div>
 
-      <!--
-      - BLOG
-    -->
     </main>
     @include('shared.footer')
 
@@ -445,10 +478,12 @@
     - custom js link
     -->
     <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/sliderProduct.js') }}"></script>
+    <script src="{{ asset('js/magnification.js') }}"></script>
+    <script src="{{ asset('js/rotation.js') }}"></script>
     <script src="{{ asset('js/changeTheLanguage.js') }}"></script>
-    <script src="{{ asset('js/counterCart.js') }}"></script>
     <script src="{{ asset('js/loginAccount.js') }}"></script>
-    <script src="{{ asset('js/logicAccount.js') }}"></script>
-    <script src="{{ asset('js/cartAdd.js') }}"></script>
+    <script src="{{ asset('js/counterCart.js') }}"></script>
+
 </body>
 </html>

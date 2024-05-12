@@ -11,10 +11,12 @@
         "php": "^8.2",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
+        "stripe/stripe-php": "^14.6",
         "yajra/laravel-oci8": "^11.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",
+        "barryvdh/laravel-ide-helper": "^3.0",
         "fakerphp/faker": "^1.23",
         "laravel/pint": "^1.13",
         "laravel/sail": "^1.26",

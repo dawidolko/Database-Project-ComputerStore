@@ -18,8 +18,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
-        // Country::class => CountryPolicy::class,
+        //
     ];
 
     /**
@@ -27,13 +26,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Gate::define('is-admin', function (User $user) {
-        //     //return $user->role_id == 1;
-        //     return $user->isAdmin();
-        // });
-
-        // Gate::before(function ($user, $ability) {
-        //     return $user->isAdmin();
-        // });
+        //
     }
 }

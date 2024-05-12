@@ -449,9 +449,6 @@
         </div>
       </div>
 
-      <!--
-      - BLOG
-    -->
     </main>
     @include('shared.footer')
 
@@ -461,17 +458,13 @@
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/counterCart.js') }}"></script>
     <script src="{{ asset('js/changeTheLanguage.js') }}"></script>
-    <script src="{{ asset('js/loginAccount.js') }}"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         document
           .querySelector("#contact-form-techbyte")
           .addEventListener("submit", function (e) {
             e.preventDefault();
-            // Here you would typically handle the form submission, such as using fetch or XMLHttpRequest to send the data to a server
-            alert("Message sent!"); // Placeholder action
-
-            // Reset the form after submission
+            alert("Message sent!"); 
             this.reset();
           });
       });

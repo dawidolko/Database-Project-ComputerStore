@@ -541,9 +541,42 @@ body::-webkit-scrollbar-thumb:hover {
 \*-----------------------------------*/
 
 .header-top,
-.header-user-actions,
 .desktop-navigation-menu {
     display: none;
+}
+
+.header-user-actions {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-user-actions .action-btn {
+    position: relative;
+    font-size: 35px;
+    color: var(--onyx);
+    padding: 5px;
+}
+
+.header-user-actions .count-cart,
+.header-user-actions .count-favorite {
+    position: absolute;
+    top: -2px;
+    right: -3px;
+    background: var(--bittersweet);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: var(--weight-500);
+    line-height: 1;
+    padding: 2px 4px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
 }
 
 .header-main {
@@ -3349,7 +3382,7 @@ footer {
     /**
    * #HEADER 
    */
-
+ 
     .header-social-container {
         display: -webkit-box;
         display: -webkit-flex;

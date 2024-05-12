@@ -13,35 +13,30 @@
     </button>
 
     <div class="newsletter-img">
-      <img
-        src="{{ asset('storage/img/banners/BannerMain1.webp') }}"
-        alt="subscribe newsletter"
-        width="400"
-        height="400" />
+      <img src="{{ asset('storage/img/banners/BannerMain1.webp') }}" alt="subscribe newsletter" width="400" height="400" />
     </div>
 
     <div class="newsletter">
-      <form action="#">
+      <form action="{{ route('newsletter.manage') }}" method="POST">
+        @csrf
         <div class="newsletter-header">
-          <h3 class="newsletter-title">Subscribe Newsletter.</h3>
-
+          <h3 class="newsletter-title">Manage Newsletter Subscription.</h3>
           <p class="newsletter-desc">
-            Subscribe the <b>TechByte</b> to get latest products and
-            discount update.
+            Subscribe to <b>TechByte</b> for the latest products and discount updates.
           </p>
         </div>
 
-        <input
-          type="email"
-          name="email"
-          class="email-field"
-          placeholder="Email Address"
-          required />
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="subscribe" id="subscribeCheck">
+          <label class="form-check-label" for="subscribeCheck">
+            Subscribe / Unsubscribe
+          </label>
+        </div>
 
-        <button type="submit" class="btn-newsletter">Subscribe</button>
+        <button type="submit" class="btn-newsletter">Submit</button>
       </form>
     </div>
-  </div>
+</div>
 </div>
 
 
@@ -131,31 +126,71 @@
           height="60" />
       </a>
 
-      <div class="header-search-container">
+      <form action="{{ route('products.search') }}" method="GET" class="header-search-container">
         <input
           type="search"
-          name="search"
+          name="query"
           class="search-field"
-          placeholder="Enter your product name..." />
-
+          placeholder="Enter your product name..." 
+          required />
+    
         <button class="search-btn">
           <ion-icon name="search-outline"></ion-icon>
         </button>
-      </div>
+    </form>
 
       <div class="header-user-actions">
-        <a href="{{ route('account') }}" class="action-btn"
-          ><ion-icon name="person-outline"> </ion-icon
-        ></a>
+        <div class="header-user-actions" style="display: flex; align-items: center; justify-content: space-between;">
+          <div class="dropdown" id="navbar-user admin-header__user" style="text-align: center;">
+              <style>
+                  #navbarDropdownMenuAvatar::after {
+                      display: none;
+                  }
+              </style>
+              <a class="dropdown-toggle d-flex flex-column align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="position: relative;">
+                  <ion-icon name="person-outline" style="font-size: 24px; color: #757575;"></ion-icon>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                  @if (Auth::guard('customer')->check() || Auth::guard('employee')->check())
+                      <li>
+                          <p style="text-align: center; background: var(--bittersweet);">
+                              Hello, {{ Auth::guard('customer')->user() ? Auth::guard('customer')->user()->name . ' ' . Auth::guard('customer')->user()->last_name : (Auth::guard('employee')->user() ? Auth::guard('employee')->user()->name . ' ' . Auth::guard('employee')->user()->last_name : '') }}
+                          </p>
+                      </li>
+                      <li><a class="dropdown-item" href="{{ Auth::guard('customer')->check() ? route('customer.dashboard') : route('employee.dashboard') }}">My profile</a></li>
+                      <li><a class="dropdown-item" href="{{ route('cart') }}">Cart</a></li>
+                      <li><a class="dropdown-item" href="{{ Auth::guard('customer')->check() ? route('customer.settings') : route('employee.customers') }}">Settings</a></li>
+                      @if (Auth::guard('customer')->check())
+                      <li>
+                              <form action="{{ route('logout1') }}" style="text-align: center;margin-left: 18px;" method="POST">
+                                  @csrf
+                                  <button style="text-align: center;" type="submit">Logout</button>
+                              </form>
+                      </li>
+                      @endif
+                      @if (Auth::guard('employee')->check())
+                      <li>
+                              <form action="{{ route('logout') }}" style="text-align: center;margin-left: 18px;" method="POST">
+                                  @csrf
+                                  <button style="text-align: center;" type="submit">Logout</button>
+                              </form>
+                      </li>
+                      @endif
+                      @else
+                          <li><a class="dropdown-item" href="{{ route('login') }}">Log in</a></li>
+                      @endif
+              </ul>
+          </div>
+        </div>
 
         <a href="{{ route('favorite') }}" class="action-btn">
           <ion-icon name="heart-outline"></ion-icon>
-          <span class="count-favorite">0</span></a
+          <span class="count-favorite">{{ session('favoritesCount', 0) }}</span></a
         >
 
         <a href="{{ route('cart') }}" class="action-btn">
           <ion-icon name="bag-handle-outline"></ion-icon>
-          <span class="count-cart">0</span></a
+          <span class="count-cart">{{ session('cartCount', 0) }}</span></a
         >
       </div>
     </div>
@@ -388,7 +423,7 @@
           <a href="{{ route('cart') }}">
             <ion-icon name="bag-handle-outline"></ion-icon>
           </a>
-          <span class="count-cart">0</span>
+          <span class="count-cart">{{ session('cartCount', 0) }}</span>
         </button>
 
         <button class="action-btn">
@@ -402,7 +437,7 @@
             <ion-icon name="heart-outline"></ion-icon
           ></a>
 
-          <span class="count-favorite">0</span>
+          <span class="count-favorite">{{ session('favoritesCount', 0) }}</span>
         </button>
 
         <button class="action-btn" data-mobile-menu-open-btn>

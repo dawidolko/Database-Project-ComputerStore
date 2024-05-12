@@ -3,6 +3,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ $pageTitle }}</title>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <script defer src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     <meta
       name="description"
       content="Discover the future of technology with TechByte, your ultimate online destination for cutting-edge computer components, laptops, and gaming gear. Experience unparalleled quality, competitive prices, and exceptional customer service. Shop now to elevate your tech game!" />

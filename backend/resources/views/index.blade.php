@@ -32,10 +32,6 @@
                     <p class="banner-title1">your computer</p>
                   </div>
   
-                  <!-- <h2 class="banner-title">custom-made computers</h2>
-  
-                  <p class="banner-text">starting at &dollar; <b>1000</b>.00</p> -->
-  
                   <a href="{{ route('laptops.index') }}" class="banner-btn">Shop now</a>
                 </div>
               </div>
@@ -484,14 +480,6 @@
                           <h3 class="showcase-title">{{ $produkt->name }}</h3>
                         </a>
   
-                        <div class="showcase-rating">
-                          {{-- <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon> --}}
-                        </div>
-  
                         <div class="price-box">
                           <del>${{ $produkt->old_price }}</del>
                           <p class="price">${{ $produkt->price }}</p>
@@ -668,17 +656,13 @@
                                 <p class="price">${{ $produkt->price }}</p>
                                 <del>${{ $produkt->old_price }}</del>
                             </div>
-                            <button
-                              class="add-cart-btn"
-                              class="btn-action bag-add"
-                              onclick="addToCart(this)"
-                              data-id="unique-product-id-13"
-                              data-image="{{ asset('storage/images') . '/' . $produkt->photosProducts->first()->path }}"
-                              data-name="{{ $produkt->name }}"
-                              data-price="{{ $produkt->price }}"
-                              data-quantity="1">
-                              <a style="color: white" href="{{ route('cart') }}">add to cart</a>
-                            </button>
+
+                            <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
+                              @csrf
+                              <button type="submit" class="btn-action add-cart-btn">
+                                  add cart
+                              </button>
+                            </form>
                 
                             <div class="showcase-status">
                                 <div class="wrapper">
@@ -744,16 +728,13 @@
                                     <p class="price">${{ $produkt->price }}</p>
                                     <del>${{ $produkt->old_price }}</del>
                                 </div>
-                                <button
-                                  class="btn-action bag-add add-cart-btn"
-                                  onclick="addToCart(this)"
-                                  data-id="unique-product-id-{{ $produkt->id }}"
-                                  data-image="{{ asset('storage/images') . '/' . $produkt->photosProducts->first()->path }}"
-                                  data-name="{{ $produkt->name }}"
-                                  data-price="{{ $produkt->price }}"
-                                  data-quantity="1">
-                                  <a style="color: white" href="{{ route('cart') }}">add to cart</a>
-                                </button>
+
+                                <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
+                                  @csrf
+                                  <button type="submit" class="btn-action add-cart-btn">
+                                      add cart
+                                  </button>
+                                </form>
 
                                 <div class="showcase-status">
                                     <div class="wrapper">
@@ -800,6 +781,13 @@
                 <span class="close-btn">&times;</span>
                 <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
               </div>
+
+              @if(session('success'))
+                  <div class="alert alert-success">{{ session('success') }}</div>
+              @endif
+              @if(session('error'))
+                  <div class="alert alert-danger">{{ session('error') }}</div>
+              @endif
   
               <div class="product-main">
                 <h2 class="title">Hot Offers</h2>
@@ -830,13 +818,12 @@
                         <p class="showcase-badge">-{{ $produkt->sale->discount_amount }}$</p>
 
                         <div class="showcase-actions">
-                              <button class="btn-action heart" onclick="addToFavorite(this)"
-                                data-image="{{ asset('storage/images') . '/' . $produkt->photosProducts->first()->path }}"
-                                data-name="{{ $produkt->name }}"
-                                data-price="{{ $produkt->price }}"
-                                data-quantity="1">
-                                <ion-icon name="heart-outline"></ion-icon>
-                            </button>
+                          <form action="{{ route('favorites.add', ['id' => $produkt->id]) }}" method="POST" style="display: inline;">
+                              @csrf
+                              <button type="submit" class="btn-action heart">
+                                  <ion-icon name="heart-outline"></ion-icon>
+                              </button>
+                          </form>
                       
                             <button class="btn-action magnification">
                                 <ion-icon name="eye-outline"></ion-icon>
@@ -846,14 +833,12 @@
                                 <ion-icon name="repeat-outline"></ion-icon>
                             </button>
                 
-                            <button class="btn-action bag-add" onclick="addToCart(this)" 
-                            data-id="unique-product-id-{{ $produkt->id }}" 
-                            data-image="{{ asset('storage/images') }}/{{ $produkt->photosProducts->first()->path }}" 
-                            data-name="{{ $produkt->name }}" 
-                            data-price="{{ $produkt->price }}" 
-                            data-quantity="1">
-                            <ion-icon name="bag-add-outline"></ion-icon>
-                        </button>
+                            <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
+                              @csrf
+                              <button type="submit" class="btn-action bag-add">
+                                  <ion-icon name="bag-add-outline"></ion-icon>
+                              </button>
+                            </form>
                         </div>
                       </div>
 
@@ -863,14 +848,6 @@
                         <a href="{{ route($produkt->productsCategories->first()->category_name) }}">
                           <h3 class="showcase-title">{{ $produkt->name }}</h3>
                         </a>
-
-                        <div class="showcase-rating">
-                          {{-- <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star"></ion-icon>
-                          <ion-icon name="star-outline"></ion-icon>
-                          <ion-icon name="star-outline"></ion-icon> --}}
-                        </div>
 
                         <div class="price-box">
                           <p class="price">${{ $produkt->price }}</p>
@@ -968,7 +945,7 @@
                     </div>
                   </a>
   
-                  {{-- <a href="{{ route('/') }}" class="service-item"> --}}
+                  <a href="{{ route('index') }}" class="service-item">
                     <div class="service-icon">
                       <ion-icon name="rocket-outline"></ion-icon>
                     </div>
@@ -1001,7 +978,7 @@
                     </div>
                   </a>
   
-                  {{-- <a href="{{ route('/') }}" class="service-item"> --}}
+                  <a href="{{ route('index') }}" class="service-item">
                     <div class="service-icon">
                       <ion-icon name="ticket-outline"></ion-icon>
                     </div>
@@ -1140,10 +1117,6 @@
         <script src="{{ asset('js/lanMoblieIndex.js') }}"></script>
         <script src="{{ asset('js/clocker.js') }}"></script>
         <script src="{{ asset('js/clocker2.js') }}"></script>
-
-        <script src="{{ asset('js/loginAccount.js') }}"></script>
         <script src="{{ asset('js/counterCart.js') }}"></script>
-        <script src="{{ asset('js/cartAdd.js') }}"></script>
-        <script src="{{ asset('js/favoriteAdd.js') }}"></script>
   </body>
 </html>

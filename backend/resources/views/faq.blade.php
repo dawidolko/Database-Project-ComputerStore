@@ -423,9 +423,6 @@
         </div>
       </div>
 
-      <!--
-      - BLOG
-    -->
     </main>
     @include('shared.footer')
 
@@ -435,7 +432,6 @@
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/counterCart.js') }}"></script>
     <script src="{{ asset('js/changeTheLanguage.js') }}"></script>
-    <script src="{{ asset('js/loginAccount.js') }}"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
       const accordionTitles = document.querySelectorAll('.gpt-accordion-title');
@@ -446,11 +442,9 @@
           if (content.style.display === 'block') {
             content.style.display = 'none';
           } else {
-            // Najpierw zwiń wszystkie
             document.querySelectorAll('.gpt-accordion-content').forEach(item => {
               item.style.display = 'none';
             });
-            // Rozwiń kliknięty element
             content.style.display = 'block';
           }
         });

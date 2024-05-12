@@ -14,8 +14,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
     <link href="{{ asset('/css/adminDashboardHome.css') }}" rel="stylesheet" />
-    <title>Sklep Komputerowy - Projekt Bazy</title>
-
+    <title>Edit Products - Sklep komputerowy</title>
+    <link
+      rel="shortcut icon"
+      href="{{ asset('storage/img/logo/Logo2.webp') }}"
+      type="image/x-icon" />
     <!-- Optional JavaScript -->
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -56,6 +59,10 @@
                         <a href="{{ route('employee.complaints') }}" class="admin-aside__link">
                             <i data-feather="list" class="admin-aside__link-icon"></i>Complaints</a>
                     </li>
+                    <li>
+                        <a href="{{ route('index') }}" class="admin-aside__link">
+                            <i data-feather="arrow-left" class="admin-aside__link-icon"></i>Back to page</a>
+                    </li>     
                     <br />
                     <li>
                         <a href="{{ route('logout') }}" class="admin-aside__link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -72,21 +79,42 @@
         <div class="admin-wrapper">
             <header class="admin-header">
                 <p class="admin-header__title">Final project on Databases - Dawid Olko & Piotr Smoła</p>
-                <div class="admin-header__user">
-                    <img class="admin-header__user-av" src="{{ asset('storage/img/icons/avatar.svg') }}" alt=""
-                        style="width:100px">
-                    <p class="admin-header__user-hello">
-                        Hello, {{ $employeeName }} {{ $employeeLastName }}
-                        {{-- @if (auth()->check())
-                            {{ auth()->employee()->name }} {{ auth()->employee()->last_name }}
-                        @else
-                            Administrator
-                        @endif --}}
-                    </p>
+                <div class="dropdown" id="navbar-user admin-header__user">
+                    <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img class="admin-header__user-av rounded-circle" src="{{ asset('storage/img/icons/avatar.png') }}" alt="logo awatar">
+                        @if (Auth::check())
+                            <span class="ms-2 admin-header__user-hello" style="color: inherit; text-decoration: none;">
+                                    Hello, {{ $employeeName }} {{ $employeeLastName }}
+                            </span>
+                        @endif
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                        @if (Auth::check())
+                        <li><a class="dropdown-item" href="{{ route('employee.dashboard') }}">My profile</a></li>
+                        <li><a class="dropdown-item" href="{{ route('cart') }}">Cart</a></li>
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                @csrf
+                                <button type="submit" class="btn btn-link dropdown-item" style="margin-left: 15px; padding: 0; background: none; border: none;">Log out</button>
+                            </form>
+                        </li>
+                    @else
+                        <li><a class="dropdown-item" href="{{ route('login') }}">Log in</a></li>
+                    @endif  
+                    </ul>
                 </div>
             </header>
             <main class="admin-main">
                 <div class="container admin-form">
+
+                    
+              @if(session('success'))
+              <div class="alert alert-success">{{ session('success') }}</div>
+          @endif
+          @if(session('error'))
+              <div class="alert alert-danger">{{ session('error') }}</div>
+          @endif
+
                     <div class="row mb-3">
                         <h1>Edit Product #{{ $product->id }}</h1>
                         <a class="" href="{{ route('employee.products') }}">Go to all products</a>

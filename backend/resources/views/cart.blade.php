@@ -216,123 +216,110 @@
       </div>
 
       {{-- ! ! !SEKCJA PODSTRONY ! ! !--}}
-      <div class="container">
-        <h2 class="cart__heading">Your cart</h2>
-        <section class="cart">
-          <div class="cart__wrapper">
-            <table class="cart__table">
-              <tr class="cart__table-titles">
-                <th>Product</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Total</th>
-              </tr>
-              <tbody class="cart__table_tr"></tbody>
-            </table>
-            <div class="cart__box">
-              <a href="{{ route('index') }}">
-                <button class="cart__continue">
-                  <i class="fa-solid fa-chevron-left"></i> Continue
-                </button>
-              </a>
-              <p class="cart__total-price"></p>
-            </div>
-          </div>
-          <form id="personalInfoForm" onsubmit="validateAndCheckout(event)">
-            <div class="payment">
+
+  <div class="container">
+    <h2 class="cart__heading">Your cart</h2>
+    <section class="cart">
+        <div class="cart__wrapper">
+            @if(session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
+            @if(session('error'))
+                <div class="alert alert-danger">{{ session('error') }}</div>
+            @endif
+
+            @if(session('cart') && count(session('cart')) > 0)
+                <form action="{{ route('cart.update') }}" method="POST">
+                    @csrf
+                    <table class="cart__table">
+                        <tr class="cart__table-titles">
+                            <th style="text-align: center">Product</th>
+                            <th style="text-align: center">Name</th>
+                            <th style="text-align: center">Quantity</th>
+                            <th style="text-align: center">Total</th>
+                            <th style="text-align: center">Remove</th>
+                        </tr>
+                        @php $total = 0; @endphp
+                        @foreach(session('cart') as $id => $details)
+                            @if(isset($products[$id]))
+                                @php
+                                    $product = $products[$id];
+                                    $total += $details['price'] * $details['quantity'];
+                                @endphp
+                                <tr>
+                                    <td><img src="{{ asset('storage/images/'.$details['photo']) }}" width="50" height="50" alt="product"></td>
+                                    <td>{{ $details['name'] }}</td>
+                                    <td>
+                                        <input type="number" name="quantities[{{ $id }}]" value="{{ $details['quantity'] }}" min="1" max="{{ $product->quantities_available }}" class="form-control" style="width: 70%;">
+                                    </td>
+                                    <td>$<span>{{ number_format($details['price'] * $details['quantity'], 2) }}</span></td>
+                                    <td>
+                                        <form action="{{ route('cart.remove', $id) }}" method="POST">
+                                            @csrf 
+                                            @method('POST')
+                                            <button type="submit" class="btn btn btn-danger" style="background: #dc3545;">REMOVE</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endif
+                        @endforeach
+                    </table>
+                    <div class="cart__box">
+                        <a href="{{ route('index') }}" class="cart__continue">
+                            <i class="fa-solid fa-chevron-left"></i> Continue Shopping
+                        </a>
+                        <p class="cart__total-price">Total: ${{ number_format($total, 2) }}</p>
+                        <button type="submit" class="cart__continue">Update Cart</button>
+                    </div>
+                </form>
+            @else
+                <div style="text-align: center; font-size: 2rem; margin-top: 20px;">
+                    Your cart is empty
+                </div>
+                <div class="cart__box">
+                    <a href="{{ route('index') }}" class="cart__continue" style="
+                    width: 100%;
+                    text-align: center;">
+                        <i class="fa-solid fa-chevron-left"></i> Continue Shopping
+                    </a>
+                </div>
+            @endif
+        </div>
+        <form id="personalInfoForm" action="{{ route('cart.checkout') }}" method="POST">
+          @csrf
+          <div class="payment">
               <h2 class="payment__title">Personal Information</h2>
               <label class="payment__label">Name and Surname</label>
-              <input
-                type="text"
-                placeholder="Your name"
-                id="nameSurname"
-                class="payment__input"
-                required />
+              <input type="text" placeholder="Your name" id="nameSurname" name="nameSurname" class="payment__input" required />
+      
               <label class="payment__label">Phone Number</label>
-              <input
-                type="text"
-                placeholder="Phone Number"
-                id="phoneNumber"
-                class="payment__input"
-                required />
+              <input type="text" placeholder="Phone Number" id="phoneNumber" name="phoneNumber" class="payment__input" required />
+      
               <label class="payment__label">Address</label>
-              <input
-                type="text"
-                placeholder="Address"
-                id="address"
-                class="payment__input"
-                required />
+              <input type="text" placeholder="Address" id="address" name="address" class="payment__input" required />
+      
               <h2 class="payment__title">Card Information</h2>
               <div class="payment__icons">
-                <img
-                  src="./assets/images/socials/payment.png"
-                  alt=""
-                  class="payment__icon" />
-                <img
-                  src="./assets/images/socials/visa.webp"
-                  alt=""
-                  class="payment__icon" />
+                  <img src="{{ asset('storage/img/socials/payment.png') }}" alt="" class="payment__icon" />
+                  <img src="{{ asset('storage/img/socials/visa.webp') }}" alt="" class="payment__icon" />
               </div>
-              <input
-                type="password"
-                id="cardNumber"
-                class="payment__input"
-                placeholder="Card Number"
-                required />
+      
+              <input type="password" id="cardNumber" name="cardNumber" class="payment__input" placeholder="Card Number" required />
+      
               <div class="payment__Info">
-                <input
-                  type="text"
-                  placeholder="mm"
-                  id="expMonth"
-                  class="payment__input payment__input-date"
-                  required />
-                <input
-                  type="text"
-                  placeholder="yyyy"
-                  id="expYear"
-                  class="payment__input payment__input-date"
-                  required />
-                <input
-                  type="text"
-                  placeholder="cvv"
-                  id="cvv"
-                  class="payment__input payment__input-date"
-                  required />
+                  <input type="text" placeholder="mm" id="expMonth" name="expMonth" class="payment__input payment__input-date" required />
+                  <input type="text" placeholder="yyyy" id="expYear" name="expYear" class="payment__input payment__input-date" required />
+                  <input type="text" placeholder="cvv" id="cvv" name="cvv" class="payment__input payment__input-date" required />
               </div>
+      
               <p class="payment__message"></p>
               <button type="submit" class="payment__button">Checkout!</button>
-            </div>
-          </form>
-        </section>
-      </div>
-      <div
-        id="notification"
-        style="
-          display: none;
-          position: fixed;
-          left: 0;
-          bottom: 0;
-          padding: 10px;
-          border-radius: 5px;
-          background-color: red;
-          color: white;
-          z-index: 1000;
-        "></div>
-      <div
-        id="notification-box"
-        style="
-          display: none;
-          position: fixed;
-          left: 0;
-          bottom: 0;
-          padding: 10px;
-          border-radius: 5px;
-          background-color: red;
-          color: white;
-          z-index: 1000;
-        "></div>
+          </div>
+      </form>
+         
+    </section>
+</div>
 
-        
          <!--
         - TESTIMONIALS, CTA & SERVICE
       -->
@@ -463,9 +450,6 @@
         </div>
       </div>
 
-      <!--
-      - BLOG
-    -->
     </main>
     @include('shared.footer')
 
@@ -474,9 +458,42 @@
     -->
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/changeTheLanguage.js') }}"></script>
-    <script src="{{ asset('js/counterCart.js') }}"></script>
-    <script src="{{ asset('js/loginAccount.js') }}"></script>
-    <script src="{{ asset('js/logicAccount.js') }}"></script>
-    <script src="{{ asset('js/cartAdd.js') }}"></script>
+    <script src="{{ asset('js/counterCart.js') }}"></script>    
+    <script>
+      document.getElementById("personalInfoForm").addEventListener("submit", function(event) {
+          var valid = true;
+          var errorMessage = '';
+      
+          var cardNumber = document.getElementById('cardNumber').value;
+          if (!/^\d{16}$/.test(cardNumber)) {
+              valid = false;
+              errorMessage += 'Card number must be exactly 16 digits long.\n';
+          }
+      
+          var expMonth = document.getElementById('expMonth').value;
+          if (!/^(0[1-9]|1[0-2])$/.test(expMonth)) {
+              valid = false;
+              errorMessage += 'Expiration month must be MM format (01 to 12).\n';
+          }
+      
+          var expYear = document.getElementById('expYear').value;
+          if (!/^\d{4}$/.test(expYear)) {
+              valid = false;
+              errorMessage += 'Expiration year must be YYYY format.\n';
+          }
+      
+          var cvv = document.getElementById('cvv').value;
+          if (!/^\d{3}$/.test(cvv)) {
+              valid = false;
+              errorMessage += 'CVV must be exactly 3 digits long.\n';
+          }
+      
+          if (!valid) {
+              event.preventDefault(); 
+              alert(errorMessage); 
+          }
+      });
+    </script>
+    
 </body>
 </html>

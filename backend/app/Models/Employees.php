@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Employees extends Authenticatable
@@ -23,11 +21,6 @@ class Employees extends Authenticatable
     {
         return $this->hasMany(Orders::class);
     }
-
-    // public function getAuthPassword()
-    // {
-    //     return $this->PASSWORD;
-    // }
 
     public function getNameAttribute($value)
     {

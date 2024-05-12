@@ -169,7 +169,7 @@
           </li>
 
           <li class="footer-nav-item">
-            <a href="{{ route('account') }}" class="footer-nav-link">Account</a>
+            <a href="{{ route('customer.dashboard') }}" class="footer-nav-link">Account</a>
           </li>
 
           <li class="footer-nav-item">

@@ -6,8 +6,7 @@ use App\Models\Customers as Customer;
 use App\Models\Products as Product;
 use App\Models\Complaints as Complaint;
 use App\Models\Employees as Employee;
-
-
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +19,7 @@ class EmployeeController extends Controller
     $numberOfClients = Customer::count();
     $numberOfProducts = Product::count();
     $numberOfComplaints = Complaint::count();
+    
     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
     $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
@@ -29,40 +29,13 @@ class EmployeeController extends Controller
 
 public function Orders()
 {
-    $order = Order::All();
-    // $order = Order::with(['products'])->get();
-
-    //     $order->map(function ($order) {
-    //         $order->totalAmount = $order->products->reduce(function ($carry, $product) {
-    //             return $carry + ($product->pivot->price * $product->pivot->quantity);
-    //         }, 0);
-    //     });
+    $order = Order::paginate(10);
     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
     $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
 
     return view('employee.orders', compact('order', 'employeeName', 'employeeLastName', 'jobPosition'));
-
-    // return response()->json($orders);
 }
-
-// public function showOrder($id)
-// {
-//     $order = Order::with(['customer'])->findOrFail($id);
-//     // $order->products->each(function ($product) {
-//     //     $product->total_price = $product->pivot->price * $product->pivot->quantity;
-//     // });
-
-//     // Obliczenie całkowitej kwoty zamówienia
-//     // $order->totalAmount = $order->ordersProducts->reduce(function ($carry, $orderProduct) {
-//     //     return $carry + ($orderProduct->product->PRICE * $orderProduct->pivot->quantity);
-//     // }, 0);
-
-//     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
-//     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
-
-//     return view('employee.show', compact('order', 'employeeName', 'employeeLastName'));
-// }
 
 public function showOrder($id)
 {
@@ -76,7 +49,7 @@ public function showOrder($id)
 
 public function Products()
 {
-    $products = Product::with('categories')->get();
+    $products = Product::with('categories')->paginate(5);
     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
     $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
@@ -184,24 +157,36 @@ public function newProduct(Request $request)
         'category_id' => 'required|integer|exists:categories,id'
     ]);
 
-    $product = Product::create([
-        'ID' => null,
-        'NAME' => $validated['name'],
-        'PRICE' => $validated['price'],
-        'QUANTITIES_AVAILABLE' => $validated['quantity'],
-        'SALE_ID' => $validated['sale_id'],
-        'OLD_PRICE' => $validated['old_price'],
-        'DESCRIPTION' => $validated['description'],
-    ]);
-    // Przypisywanie kategorii
-    $product->categories()->attach($validated['category_id']);
+    DB::beginTransaction();
+    try {
+        $productId = DB::table('products')->insertGetId([
+            'NAME' => $validated['name'],
+            'PRICE' => $validated['price'],
+            'QUANTITIES_AVAILABLE' => $validated['quantity'],
+            'SALE_ID' => $validated['sale_id'] ?? null,
+            'OLD_PRICE' => $validated['old_price'] ?? null,
+            'DESCRIPTION' => $validated['description'],
+        ]);
 
-    return redirect()->route('employee.products')->with('success', 'Product added successfully!');
+        if (isset($validated['category_id'])) {
+            DB::table('category_product')->insert([
+                'product_id' => $productId,
+                'category_id' => $validated['category_id'],
+            ]);
+        }
+
+        DB::commit();
+        return redirect()->route('employee.products')->with('success', 'Produkt dodany pomyślnie.');
+    } catch (\Exception $e) {
+        DB::rollBack();
+        return redirect()->route('employee.products')->with('error', 'Błąd dodawania produktu: ' . $e->getMessage());
+    }
 }
+
 
 public function complaints()
 {
-    $complaints = Complaint::All();
+    $complaints = Complaint::paginate(10);
     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
     $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
@@ -211,7 +196,7 @@ public function complaints()
 
 public function customers()
 {
-    $customers = Customer::All();
+    $customers = Customer::paginate(10);
     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
     $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
@@ -266,20 +251,25 @@ public function updateCustomer(Request $request, $id)
 
 public function destroyCustomer($id)
 {
-    $customer = Customer::with(['order.complaints', 'order'])->findOrFail($id);
+    DB::beginTransaction();
+    try {
+        DB::table('opinions')->where('customers_id', $id)->delete();
 
-    foreach ($customer->order as $order) {
-        foreach ($order->complaints as $complaint) {
-            $complaint->delete();
-        }
+        DB::table('newsletter')->where('CUSTOMERS_ID', $id)->delete();
 
-        $order->products()->detach();
-        $order->delete();
+        $orders = DB::table('orders')->where('customers_id', $id)->pluck('id');
+        DB::table('complaints')->whereIn('orders_id', $orders)->delete();
+        DB::table('order_product')->whereIn('order_id', $orders)->delete();
+        DB::table('orders')->where('customers_id', $id)->delete();
+
+        DB::table('customers')->where('id', $id)->delete();
+
+        DB::commit();
+        return redirect()->route('employee.customers')->with('success', 'Klient i wszystkie powiązane rekordy zostały pomyślnie usunięte.');
+    } catch (QueryException $e) {
+        DB::rollBack();
+        return redirect()->route('employee.customers')->with('error', 'Błąd podczas usuwania klienta: ' . $e->getMessage());
     }
-
-    $customer->delete();
-
-    return redirect()->route('employee.customers')->with('success', 'Customer and all related records successfully deleted.');
 }
 
 

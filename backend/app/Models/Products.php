@@ -24,9 +24,10 @@ class Products extends Model
         return $this->belongsTo(Sale::class);
     }
 
-    public function ordersProducts()
+    public function products()
     {
-        return $this->belongsToMany(Orders::class, 'orders_products', 'PRODUKTY_ID', 'ORDERS_ID'); //podobnie jak w Orders.php
+        return $this->belongsToMany(Orders::class, 'order_product', 'PRODUCT_ID', 'ORDER_ID')
+                    ->withPivot('QUANTITY');
     }
 
     public function specifications()
@@ -133,6 +134,4 @@ class Products extends Model
     {
         return $this->productsCategories()->where('CATEGORY_ID', 15);
     }
-
-
 }

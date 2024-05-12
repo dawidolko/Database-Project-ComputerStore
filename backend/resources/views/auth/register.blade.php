@@ -10,14 +10,14 @@
 <body>
     <main>
 
-      @include('shared.navbarLogin')
+      @include('shared.navbar')
 
             <div class="container mt-5 mb-5">
 
                 @include('shared.session-error')
 
                 <div class="row mt-4 mb-4 text-center">
-                    <h1>Zarejestruj się</h1>
+                    <h1>Register</h1>
                 </div>
 
                 @include('shared.validation-error')
@@ -27,28 +27,28 @@
                         <form method="POST" action="{{ route('register') }}" class="needs-validation" novalidate>
                             @csrf
                             <div class="form-group mb-2">
-                                <label for="name" class="form-label">Imię</label>
+                                <label for="name" class="form-label">Name</label>
                                 <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
                                 @error('name')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group mb-2">
-                                <label for="last_name" class="form-label">Nazwisko</label>
+                                <label for="last_name" class="form-label">Surname</label>
                                 <input id="last_name" name="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" value="{{ old('last_name') }}" required>
                                 @error('last_name')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group mb-2">
-                                <label for="delivery_address" class="form-label">Adres dostawy</label>
+                                <label for="delivery_address" class="form-label">Delivery address</label>
                                 <input id="delivery_address" name="delivery_address" type="text" class="form-control @error('delivery_address') is-invalid @enderror" value="{{ old('delivery_address') }}" required>
                                 @error('delivery_address')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group mb-2">
-                                <label for="phone_number" class="form-label">Numer telefonu</label>
+                                <label for="phone_number" class="form-label">Phone number</label>
                                 <input id="phone_number" name="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" value="{{ old('phone_number') }}" required>
                                 @error('phone_number')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -62,18 +62,18 @@
                                 @enderror
                             </div>
                             <div class="form-group mb-2">
-                                <label for="password" class="form-label">Hasło</label>
+                                <label for="password" class="form-label">Password</label>
                                 <input id="password" name="password" type="password" class="form-control @error('password') is-invalid @enderror" required>
                                 @error('password')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group mb-2">
-                                <label for="password_confirmation" class="form-label">Potwierdź hasło</label>
+                                <label for="password_confirmation" class="form-label">Confirm password</label>
                                 <input id="password_confirmation" name="password_confirmation" type="password" class="form-control" required>
                             </div>
                             <div class="text-center mt-4 mb-4">
-                                <button class="btn btn-primary" type="submit">Zarejestruj</button>
+                                <button class="btn btn-primary" type="submit">Register</button>
                             </div>
                         </form>
                     </div>
@@ -86,8 +86,6 @@
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/counterCart.js') }}"></script>
     <script src="{{ asset('js/changeTheLanguage.js') }}"></script>
-    <script src="{{ asset('js/login.js') }}"></script>
-    <script src="{{ asset('js/loginAccount.js') }}"></script>
 </body>
 
 </html>

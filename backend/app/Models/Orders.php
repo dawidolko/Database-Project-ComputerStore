@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Orders extends Model
 {
@@ -15,36 +15,18 @@ class Orders extends Model
 
     public function Customer()
     {
-        return $this->belongsTo(Customers::class, 'customers_id');
+        return $this->belongsTo(Customers::class, 'CUSTOMERS_ID');
     }
 
     public function Employee()
     {
-        return $this->belongsTo(Employees::class);
+        return $this->belongsTo(Employees::class, 'EMPLOYEES_ID');
     }
-
-    // public function ordersProducts()
-    // {
-    //     return $this->belongsToMany(Products::class, 'orders_products', 'ORDERS_ID', 'PRODUKTY_ID'); // do zmiany nazwa kolumny w bazie i tutaj na angielski
-    // }
-
-//     public function products()
-// {
-//     return $this->belongsToMany(Products::class, 'orders_products')
-//                 ->withPivot('ORDERS_ID', 'PRODUKTY_ID');
-// }
 
     public function products()
     {
-        return $this->belongsToMany(Products::class, 'orders_products', 'ORDERS_ID', 'PRODUKTY_ID')
-                ->withPivot('PRODUKTY_ID')
-                ->withCount('ordersProducts as quantity');
-
-    // return $this->belongsToMany(Products::class, 'orders_products', 'ORDERS_ID', 'PRODUKTY_ID')
-        // ->selectRaw('products.*, COUNT(*) AS quantity')
-        // ->groupBy('products.id', 'products.name', 'products.price', 'products.quantities_available', 'products.sale_id', 'products.old_price', 'products.description', 'orders_products.orders_id', 'orders_products.produkty_id');
-
-    }
+        return $this->belongsToMany(Products::class, 'order_product', 'ORDER_ID', 'PRODUCT_ID')->withPivot('QUANTITY');
+    }    
 
     public function shipments()
     {

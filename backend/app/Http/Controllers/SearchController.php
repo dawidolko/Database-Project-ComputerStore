@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Products;
 use Illuminate\Http\Request;
 
-class AccountController extends Controller
+class SearchController extends Controller
 {
-    public function account()
+    public function search(Request $request)
     {
         $iloscKomputerow = Products::whereHas('computerCategories')->sum('QUANTITIES_AVAILABLE');
         $iloscLaptopow = Products::whereHas('laptopCategories')->sum('QUANTITIES_AVAILABLE');
@@ -26,9 +27,16 @@ class AccountController extends Controller
         $iloscLearningLaptops = Products::whereHas('learningLaptops')->sum('QUANTITIES_AVAILABLE');
         $iloscOfficeLaptops = Products::whereHas('officeLaptops')->sum('QUANTITIES_AVAILABLE');
 
-        return view('account', compact('iloscKomputerow', 'iloscLaptopow', 'iloscCases',
+
+        $query = $request->input('query');
+        // Adjust this query according to your application's data model structure
+        $products = Products::where('name', 'LIKE', "%{$query}%")
+                            ->orWhere('description', 'LIKE', "%{$query}%")
+                            ->get();
+                            return view('search', compact('products', 'iloscKomputerow', 'iloscLaptopow', 'iloscCases',
         'iloscCooling', 'iloscDisks', 'iloscFans', 'iloscGraphics', 'iloscMemoryRam', 'iloscMotherboards',
         'iloscPowerSupply', 'iloscProcessors', 'iloscGamingComputers', 'iloscLearningComputers', 'iloscOfficeComputers', 
         'iloscGamingLaptops', 'iloscLearningLaptops', 'iloscOfficeLaptops'));
+
     }
 }

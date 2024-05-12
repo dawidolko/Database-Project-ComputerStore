@@ -1,15 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Domyślne selektory dla sekcji 1 produktu
     const descSelector = ".countdown-desc";
     const numberSelector = ".display-number";
     const countdownSelector = ".countdown-content";
-    const endTime = new Date(new Date().getTime() + 360 * 24 * 60 * 60 * 1000); // 360 dni od teraz
+    const endTime = new Date(new Date().getTime() + 360 * 24 * 60 * 60 * 1000);
 
     function updateCountdown() {
         const now = new Date();
         const remainingTime = endTime - now;
 
-        // Jeżeli czas się skończył
         if (remainingTime <= 0) {
             document.querySelector(descSelector).textContent =
                 "Offer has ended";
@@ -20,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Obliczenia dni, godzin, minut, sekund
         const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
         const hours = Math.floor(
             (remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
@@ -30,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
         );
         const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
 
-        // Aktualizacja DOM
         document
             .querySelectorAll(countdownSelector)[0]
             .querySelector(numberSelector).textContent = days;
@@ -45,6 +41,5 @@ document.addEventListener("DOMContentLoaded", function () {
             .querySelector(numberSelector).textContent = seconds;
     }
 
-    // Uruchomienie odliczania
     const interval = setInterval(updateCountdown, 1000);
 });

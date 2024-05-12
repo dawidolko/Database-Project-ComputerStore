@@ -15,6 +15,8 @@ class Newsletter extends Model
         'CUSTOMERS_ID', 'SUBSCRIPTION_START', 'SUBSCRIPTION_STATUS'
     ];
 
+    protected $primaryKey = 'CUSTOMERS_ID';
+
     public function Customer()
     {
         return $this->belongsTo(Customers::class);

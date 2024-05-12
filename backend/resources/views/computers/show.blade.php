@@ -223,13 +223,21 @@
         <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
       </div>
 
+
       <div class="produkt new-conti category-section" id="case1">
+
+        @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+    @if(session('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
+    @endif
+    
         <div class="product-main">
           <div class="product-grid">
             @forelse([$produkt] as $produkt) 
             <div class="showcase">
               <div class="slider showcase-banner">
-                <!-- Zdjęcia produktu -->
                 <div class="slides-container">
                   @if($produkt->photosProducts->isNotEmpty())
                     @foreach($produkt->photosProducts as $index => $photo)
@@ -243,10 +251,8 @@
                   </a>
                   @endif
                 </div>
-                <!-- Przyciski nawigacyjne -->
                 <button class="slide-nav prev" onclick="changeSlide(-1)">&#10094;</button>
                 <button class="slide-nav next" onclick="changeSlide(1)">&#10095;</button>
-                <!-- Miniatury obrazów -->
                 <div class="thumbnail-container">
                   @foreach($produkt->photosProducts as $index => $photo)
                     <img src="{{ asset('storage/images') }}/{{ $photo->path }}" alt="{{ $produkt->name }}" class="thumbnail" onclick="setCurrentSlide({{ $index }})">
@@ -254,30 +260,27 @@
                 </div>
 
                 <div class="showcase-actions">
-                  <button class="btn-action heart" onclick="addToFavorite(this)"
-                        data-image="{{ asset('storage/images') . '/' . $produkt->photosProducts->first()->path }}"
-                        data-name="{{ $produkt->name }}"
-                        data-price="{{ $produkt->price }}"
-                        data-quantity="1">
+                  <form action="{{ route('favorites.add', ['id' => $produkt->id]) }}" method="POST" style="display: inline;">
+                    @csrf
+                    <button type="submit" class="btn-action heart">
                         <ion-icon name="heart-outline"></ion-icon>
                     </button>
-
+                </form>
+            
                   <button class="btn-action magnification">
                       <ion-icon name="eye-outline"></ion-icon>
                   </button>
-
+      
                   <button class="btn-action repeat">
-                    <ion-icon name="repeat-outline"></ion-icon>
+                      <ion-icon name="repeat-outline"></ion-icon>
                   </button>
-
-                  <button class="btn-action bag-add" onclick="addToCart(this)" 
-                        data-id="unique-product-id-{{ $produkt->id }}" 
-                        data-image="{{ asset('storage/images') }}/{{ $produkt->photosProducts->first()->path }}" 
-                        data-name="{{ $produkt->name }}" 
-                        data-price="{{ $produkt->price }}" 
-                        data-quantity="1">
+      
+                  <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn-action bag-add">
                         <ion-icon name="bag-add-outline"></ion-icon>
                     </button>
+                  </form>
                 </div>
               </div>
 
@@ -290,14 +293,6 @@
                       <h3 class="showcase-title">{{ $produkt->name }}</h3>
                     </a>
 
-                    <div class="showcase-rating">
-                      {{-- <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon> --}}
-                    </div>
-
                     <div class="price-cart-fav">
                       <div class="price-box">
                         <p class="price" data-price-usd="{{ $produkt->price }}">${{ $produkt->price }}</p>
@@ -305,26 +300,19 @@
                       </div>
 
                       <div class="cart-favorite">
-                        <button
-                          class="btn-action heart favoriting"
-                          onclick="addToFavorite(this)"
-                          data-image="{{ asset('storage/images') . '/' . $produkt->photosProducts->first()->path }}"
-                          data-name="{{ $produkt->name }}"
-                          data-price="{{ $produkt->price }}"
-                          data-quantity="1">
-                          <ion-icon name="heart-outline"></ion-icon>
-                        </button>
-
-                        <button
-                          class="btn-action bag-add carting"
-                          onclick="addToCart(this)"
-                          data-id="unique-product-id-{{ $produkt->id }}" 
-                          data-image="{{ asset('storage/images') }}/{{ $produkt->photosProducts->first()->path }}" 
-                          data-name="{{ $produkt->name }}" 
-                          data-price="{{ $produkt->price }}" 
-                          data-quantity="1">
-                          <ion-icon name="bag-add-outline"></ion-icon>
-                        </button>
+                        <form action="{{ route('favorites.add', ['id' => $produkt->id]) }}" method="POST" style="display: inline;">
+                          @csrf
+                          <button type="submit" class="btn-action heart favoriting">
+                              <ion-icon name="heart-outline"></ion-icon>
+                          </button>
+                      </form>
+            
+                        <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
+                          @csrf
+                          <button type="submit" class="btn-action bag-add carting">
+                              <ion-icon name="bag-add-outline"></ion-icon>
+                          </button>
+                        </form>
                       </div>
                     </div>
                   </div>
@@ -487,10 +475,6 @@
           </div>
         </div>
       </div>
-
-      <!--
-      - BLOG
-    -->
     </main>
     @include('shared.footer')
 
@@ -502,11 +486,6 @@
     <script src="{{ asset('js/magnification.js') }}"></script>
     <script src="{{ asset('js/rotation.js') }}"></script>
     <script src="{{ asset('js/changeTheLanguage.js') }}"></script>
-    {{-- <script src="{{ asset('js/exchange.js') }}"></script> --}}
-    {{-- <script src="{{ asset('js/laptopsProduct.js') }}"></script> --}}
-    <script src="{{ asset('js/loginAccount.js') }}"></script>
     <script src="{{ asset('js/counterCart.js') }}"></script>
-    <script src="{{ asset('js/favoriteAdd.js') }}"></script>
-    <script src="{{ asset('js/cartAdd.js') }}"></script>
 </body>
 </html>

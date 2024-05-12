@@ -12,7 +12,7 @@ class Shipments extends Model
     public $timestamps = false;
    
     protected $fillable = [
-        'ORDER_ID', 'DELIVERY_COMPANY', 'TRACK_ID', 'DELIVERY_STATUS', 'DELIVERY_TIME'
+        'ORDERS_ID', 'DELIVERY_COMPANY', 'TRACK_ID', 'DELIVERY_STATUS', 'DELIVERY_TIME'
     ];
 
     public function order()

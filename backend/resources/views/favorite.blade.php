@@ -219,52 +219,53 @@
       <div class="container">
         <h2 class="cart__heading">Favorite products</h2>
         <section class="cart">
-          <div class="cart__wrapper">
-            <table class="favorites__table_tr">
-              <tr class="cart__table-titles">
-                <th>Product</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Total</th>
-              </tr>
-              <tbody class="favorites__table-body"></tbody>
-            </table>
-            <div class="cart__box">
-              <a href="{{ route('index') }}">
-                <button class="cart__continue">
-                  <i class="fa-solid fa-chevron-left"></i> Continue
-                </button>
-              </a>
-              <p class="favorites__total-price"></p>
-              <button class="cart__buy" onclick="attemptPurchase()">
-                Buy now
-              </button>
+            <div class="cart__wrapper">
+                <table class="favorites__table">
+                    <tr class="cart__table-titles">
+                        <th style="text-align: center">Product</th>
+                        <th style="text-align: center">Name</th>
+                        <th style="text-align: center">Price</th>
+                        <th style="text-align: center">Remove</th>
+                    </tr>
+                    @if(session('favorites') && count(session('favorites')) > 0)
+                        @foreach(session('favorites') as $id => $details)
+                            <tr>
+                                <td><img src="{{ asset('storage/images/'.$details['photo']) }}" width="50" height="50" alt="product"></td>
+                                <td>{{ $details['name'] }}</td>
+                                <td>${{ $details['price'] }}</td>
+                                <td>
+                                    <form action="{{ route('favorites.remove', ['id' => $id]) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger" style="background: #dc3545; padding: 3px;">REMOVE</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                </table> <!-- Close table here to allow buttons to be outside the table -->
+                <div class="cart__box" style="margin-top: 20px;">
+                    <a href="{{ route('index') }}" class="cart__continue">
+                        <i class="fa-solid fa-chevron-left"></i> Continue Shopping
+                    </a>
+                    <form action="{{ route('cart.addMultiple') }}" method="POST" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="cart__continue" style="margin-left: 10px;">Buy Now</button>
+                    </form>
+                </div>
+                    @else
+                    <tr>
+                        <td colspan="4" style="text-align: center; font-size: 2rem; padding: 20px;">Your favorite products are empty</td>
+                    </tr>
+                </table>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="{{ route('index') }}" class="cart__continue">
+                        <i class="fa-solid fa-chevron-left"></i> Continue Shopping
+                    </a>
+                </div>
+                    @endif
             </div>
-          </div>
         </section>
-      </div>
-      <div
-        class="notification"
-        style="
-          display: none;
-          position: fixed;
-          bottom: 0;
-          left: 0;
-          background-color: red;
-          color: white;
-          padding: 10px;
-          border-radius: 15px;
-          margin-bottom: 10px;
-          margin-left: 10px;
-        ">
-        You need to log in
-      </div>
-      <div
-        id="notification-box
-        "></div>
-
-      <div id="notification" style="display: none"></div>
-      <div id="notification-box" style="display: none"></div>
+    </div>
+    
          <!--
         - TESTIMONIALS, CTA & SERVICE
       -->
@@ -407,7 +408,5 @@
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/counterCart.js') }}"></script>
     <script src="{{ asset('js/changeTheLanguage.js') }}"></script>
-    <script src="{{ asset('js/loginAccount.js') }}"></script>
-    <script src="{{ asset('js/favoriteAdd.js') }}"></script>
 </body>
 </html>

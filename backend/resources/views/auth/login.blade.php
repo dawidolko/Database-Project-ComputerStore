@@ -10,14 +10,14 @@
 <body>
     <main>
 
-      @include('shared.navbarLogin')
+      @include('shared.navbar')
 
       <div class="container mt-5 mb-5">
   
           @include('shared.session-error')
   
-          <div class="row mt-4 mb-4 text-center">
-              <h1>Zaloguj się</h1>
+          <div class="row mt-4 mb-4 text-center ">
+              <h1>Log in</h1>
           </div>
   
           @include('shared.validation-error')
@@ -29,18 +29,18 @@
                       <div class="form-group mb-2">
                           <label for="email" class="form-label">Email</label>
                           <input id="email" name="email" type="text" class="form-control @if ($errors->first('email')) is-invalid @endif" value="{{ old('email') }}">
-                          <div class="invalid-feedback">Nieprawidłowy email!</div>
+                          <div class="invalid-feedback">Invalid email!</div>
                       </div>
                       <div class="form-group mb-2">
-                          <label for="continent" class="form-label">Hasło</label>
+                          <label for="continent" class="form-label">Password</label>
                           <input id="password" name="password" type="password" class="form-control @if ($errors->first('password')) is-invalid @endif">
-                          <div class="invalid-feedback">Nieprawidłowe hasło!</div>
+                          <div class="invalid-feedback">Incorrect password!</div>
                       </div>
                       
                       <div class="text-center mt-4 mb-4">
-                          <input class="btn btn-primary" type="submit" value="Wyślij">
+                          <input class="btn btn-primary" type="submit" value="Send">
                       </div>
-                      <p>Nie masz konta? <a href="{{ route('register') }}">Zarejestruj się</a></p>
+                      <p>You do not have an account? <a href="{{ route('register') }}">Register</a></p>
                   </form>
               </div>
           </div>
@@ -52,8 +52,6 @@
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/counterCart.js') }}"></script>
     <script src="{{ asset('js/changeTheLanguage.js') }}"></script>
-    <script src="{{ asset('js/login.js') }}"></script>
-    <script src="{{ asset('js/loginAccount.js') }}"></script>
 </body>
 
 </html>

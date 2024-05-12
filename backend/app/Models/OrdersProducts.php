@@ -6,9 +6,8 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class OrdersProducts extends Pivot
 {
-    // protected $table = 'orders_products';
+    // protected $table = 'order_product';
      // public $timestamps = false;
     
-     // protected $fillable = ['ORDERS_ID', 'PRODUCTS_ID'];
-
+     // protected $fillable = ['ORDER_ID', 'PRODUCT_ID', 'QUANTITY'];
 }

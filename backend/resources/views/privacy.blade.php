@@ -365,10 +365,7 @@
           </div>
         </div>
       </div>
-
-      <!--
-      - BLOG
-    -->
+    
     </main>
     @include('shared.footer')
     <!--
@@ -377,13 +374,10 @@
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/counterCart.js') }}"></script>
     <script src="{{ asset('js/changeTheLanguage.js') }}"></script>
-    <script src="{{ asset('js/loginAccount.js') }}"></script>
     <script>
           document.addEventListener('DOMContentLoaded', function() {
-        // Przykład: pokazanie komunikatu o plikach cookies
-        alert("Ta strona używa plików cookies w celu poprawy jakości usług.");
+        alert("This website uses cookies to improve the quality of services.");
     });
-
     </script>
 </body>
 </html>

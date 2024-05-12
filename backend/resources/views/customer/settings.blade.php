@@ -1,8 +1,8 @@
 @include('shared.html')
 
-  @include('shared.head', ['pageTitle' => 'Checkout - Sklep komputerowy'])
+  @include('shared.head', ['pageTitle' => 'Settings - Sklep komputerowy'])
   <head>
-    <link rel="stylesheet" href="{{ asset('css/checkoutStyle.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/CustomerStyle.css') }}" />
   </head>
   <body>
     @include('shared.navbar')
@@ -216,7 +216,104 @@
       </div>
 
       {{-- ! ! !SEKCJA PODSTRONY ! ! !--}}
-        
+
+      @if (Auth::check())  {{-- Sprawdza, czy użytkownik jest zalogowany --}}
+          <div class="container mt-5 mb-5 marginbig">
+              @include('shared.session-error')
+
+              <div class="row mt-4 mb-4 text-center">
+                  <div class="col-12">
+                      <h1>Account settings</h1>
+                  </div>
+              </div>
+
+              {{-- Sekcja zmiany adresu i miasta --}}
+              <div class="container mt-5 mb-5">
+                  <div class="row d-flex justify-content-center">
+                      <div class="col-md-6">
+                          {{-- Komunikaty o sukcesie --}}
+                          @if (session('success'))
+                              <div class="alert alert-success" role="alert">
+                                  {{ session('success') }}
+                              </div>
+                          @endif
+              
+                          {{-- Komunikaty o błędach --}}
+                          @if ($errors->any())
+                              <div class="alert alert-danger">
+                                  @foreach ($errors->all() as $error)
+                                      <p>{{ $error }}</p>
+                                  @endforeach
+                              </div>
+                          @endif
+              
+                          <form method="POST" action="{{ route('customer.updateSettings') }}" class="needs-validation" novalidate>
+                            @csrf
+                            {{-- @method('PUT') --}}
+
+                            <div class="form-group mb-3">
+                                <label for="NAME" class="form-label">First Name</label>
+                                <input id="NAME" name="NAME" type="text" class="form-control" value="{{ $customer->NAME }}" required>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="LAST_NAME" class="form-label">Last Name</label>
+                                <input id="LAST_NAME" name="LAST_NAME" type="text" class="form-control" value="{{ $customer->LAST_NAME }}" required>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="DELIVERY_ADDRESS" class="form-label">Delivery Address</label>
+                                <input id="DELIVERY_ADDRESS" name="DELIVERY_ADDRESS" type="text" class="form-control" value="{{ $customer->DELIVERY_ADDRESS }}" required>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="PHONE_NUMBER" class="form-label">Phone Number</label>
+                                <input id="PHONE_NUMBER" name="PHONE_NUMBER" type="text" class="form-control" value="{{ $customer->PHONE_NUMBER }}" required>
+                            </div>
+
+                            <div class="text-center mb-3">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>
+                          </form>
+
+                      </div>
+                  </div>
+              </div>
+
+              {{-- Sekcja zmiany hasła --}}
+              <div class="container mt-5 mb-5">
+                <div class="row d-flex justify-content-center">
+                  <div class="col-md-6">
+                    <form method="POST" action="{{ route('customer.change_password') }}" class="needs-validation" novalidate>
+                      @csrf
+                      {{-- @method('PUT') --}}
+                      <div class="form-group mb-3">
+                          <label for="current_password" class="form-label">Current Password</label>
+                          <input id="current_password" name="current_password" type="password" class="form-control" required>
+                      </div>
+                      <div class="form-group mb-3">
+                          <label for="new_password" class="form-label">A new password</label>
+                          <input id="new_password" name="new_password" type="password" class="form-control" required>
+                      </div>
+                      <div class="form-group mb-3">
+                          <label for="new_password_confirmation" class="form-label">Confirmation of New Password</label>
+                          <input id="new_password_confirmation" name="new_password_confirmation" type="password" class="form-control" required>
+                      </div>
+                      <div class="text-center">
+                          <button type="submit" class="btn btn-primary">Change Password</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>              
+          </div>
+
+    @else
+        <div class="full-height">
+            <p class="text-large">Please log in to access your account settings.</p>
+        </div>
+    @endif
+
          <!--
         - TESTIMONIALS, CTA & SERVICE
       -->
@@ -347,9 +444,6 @@
         </div>
       </div>
 
-      <!--
-      - BLOG
-    -->
     </main>
     @include('shared.footer')
 
@@ -359,6 +453,5 @@
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/changeTheLanguage.js') }}"></script>
     <script src="{{ asset('js/counterCart.js') }}"></script>
-    <script src="{{ asset('js/loginAccount.js') }}"></script>
 </body>
 </html>

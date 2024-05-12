@@ -1,22 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\DB;
-
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 use App\Models\Products;
-use App\Models\Categories;
-use App\Models\Opinions;
-use App\Models\Sale;
-use App\Models\PhotosProducts;
-use App\Models\Specifications;
-use App\Models\Orders;
-use App\Models\OrdersProducts;
-use App\Models\Customers;
-use App\Models\Promotions;
-use App\Models\Newsletter;
+
 
 class MainController extends Controller
 {

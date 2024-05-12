@@ -6,10 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
         overlay.querySelector(".overlay-image").src = imgSrc;
     }
 
-    // Integracja z przyciskami powiększające na stronie
     document.querySelectorAll(".btn-action.magnification").forEach((button) => {
         button.addEventListener("click", function (event) {
-            // Zmodyfikuj poniższy selektor, aby pasował do twojej struktury HTML
             const imgSrc =
                 this.closest(".product-container").querySelector(
                     ".product-img"

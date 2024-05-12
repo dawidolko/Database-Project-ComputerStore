@@ -5,12 +5,8 @@ use App\Models\Employees;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
-use App\Models\Country;
 use App\Models\Products;
 use App\Models\Customers;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -52,37 +48,20 @@ class AuthController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-
-        // $user = Employees::where('EMAIL', 'aurelia23@stowarzyszenie.pl')->first();
-        // if ($user && Hash::check('n#6#91R2#Fz7', $user->PASSWORD)) {
-        //     dd('Password matches');
-        // } else {
-        //     dd('Password does not match');
-        // }
-        
     
         if (Auth::guard('employee')->attempt($credentials)) {
             $request->session()->regenerate();
     
-            // Przekieruj użytkownika tam, gdzie powinien się znaleźć po zalogowaniu jako pracownik
             return redirect()->intended('employee/dashboard');
         }
     
-        // Sprawdź czy próbuje się zalogować klient
         if (Auth::guard('customer')->attempt($credentials)) {
             $request->session()->regenerate();
-            // Przekieruj użytkownika tam, gdzie powinien się znaleźć po zalogowaniu jako klient
             return redirect()->intended('customer/dashboard');
         }
 
-        // if (Auth::attempt($credentials)) {
-        //     $request->session()->regenerate();
-        //     return redirect()->route('customer/dashboard');
-        // }
-    
-        // Jeśli nie udało się zalogować
         return back()->withErrors([
-            'email' => 'Podane dane nie zgadzają się z naszymi rekordami.',
+            'email' => 'The data provided does not match our records.',
         ]);
     }
     
@@ -95,16 +74,7 @@ class AuthController extends Controller
             'phone_number' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:customers'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-
-        // DB::table('customers')->insertGetId([
-        //     'NAME' => $validatedData['name'],
-        //     'LAST_NAME' => $validatedData['last_name'],
-        //     'DELIVERY_ADDRESS' => $validatedData['delivery_address'],
-        //     'PHONE_NUMBER' => $validatedData['phone_number'],
-        //     'EMAIL' => $validatedData['email'],
-        //     'PASSWORD' => bcrypt($validatedData['password']), 
-        // ]);      
+        ]);   
         
         $customer = Customers::create([
             'NAME' => $validatedData['name'],
@@ -129,16 +99,7 @@ class AuthController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:customers'],
             'phone_number' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-
-        // DB::table('customers')->insertGetId([
-        //     'NAME' => $validatedData['name'],
-        //     'LAST_NAME' => $validatedData['last_name'],
-        //     'DELIVERY_ADDRESS' => $validatedData['delivery_address'],
-        //     'PHONE_NUMBER' => $validatedData['phone_number'],
-        //     'EMAIL' => $validatedData['email'],
-        //     'PASSWORD' => bcrypt($validatedData['password']), 
-        // ]);      
+        ]);    
         
         $employee = Employees::create([
             'NAME' => $validatedData['name'],
@@ -155,14 +116,14 @@ class AuthController extends Controller
     }
 
     
-    public function logout(Request $request)
+    public function logout1(Request $request)
     {
         Auth::guard('customer')->logout();
     
         $request->session()->invalidate();
         $request->session()->regenerateToken();
     
-        return redirect('index');
+        return redirect('/');
     }
 
     public function showRegistrationForm()

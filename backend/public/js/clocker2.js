@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Domyślne selektory dla sekcji 2 produktu
     const descSelector = ".countdown-desc2";
     const numberSelector = ".display-number2";
     const countdownSelector = ".countdown-content2";
-    const countDownDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000); // 24 godziny od teraz
+    const countDownDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
 
     var countdownFunction = setInterval(function () {
         var now = new Date().getTime();
