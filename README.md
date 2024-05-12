@@ -100,7 +100,7 @@ A directory with `PHP scripts` responsible for transferring data to the applicat
 
 Directory with files documenting the Entity-Relationship Diagram (ERD) model for the store database. Below
 
-<br><br>![erd](entity-relationship-diagram//ERD-VERSION4.png)
+<br><br>![erd](entity-relationship-diagram/ERD%20diagram.png)
 
 <hr>
 
