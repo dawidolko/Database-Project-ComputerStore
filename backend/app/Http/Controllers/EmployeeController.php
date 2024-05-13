@@ -39,7 +39,7 @@ public function Orders()
 
 public function showOrder($id)
 {
-    $order = Order::findOrFail($id);
+    $order = Order::with('customer')->findOrFail($id); // Załadowanie klienta wraz z zamówieniem    
     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
     $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
@@ -159,18 +159,22 @@ public function newProduct(Request $request)
 
     DB::beginTransaction();
     try {
+        $currentMaxId = DB::table('products')->max('ID');
+        $newId = $currentMaxId ? $currentMaxId + 1 : 106;
+
         $productId = DB::table('products')->insertGetId([
+            'ID' => $newId,
             'NAME' => $validated['name'],
             'PRICE' => $validated['price'],
             'QUANTITIES_AVAILABLE' => $validated['quantity'],
             'SALE_ID' => $validated['sale_id'] ?? null,
             'OLD_PRICE' => $validated['old_price'] ?? null,
             'DESCRIPTION' => $validated['description'],
-        ]);
+        ], 'ID');
 
         if (isset($validated['category_id'])) {
-            DB::table('category_product')->insert([
-                'product_id' => $productId,
+            DB::table('products_categories')->insert([
+                'products_id' => $productId,
                 'category_id' => $validated['category_id'],
             ]);
         }
@@ -183,7 +187,6 @@ public function newProduct(Request $request)
     }
 }
 
-
 public function complaints()
 {
     $complaints = Complaint::paginate(10);
@@ -193,6 +196,20 @@ public function complaints()
 
     return view('employee.complaints', compact('complaints', 'employeeName', 'employeeLastName', 'jobPosition'));
 }
+
+public function updateComplaintStatus(Request $request, $id)
+{
+    $request->validate([
+        'status' => 'required|in:pending,accepted,rejected'
+    ]);
+
+    $complaint = Complaint::findOrFail($id);
+    $complaint->status = $request->status;
+    $complaint->save();
+
+    return redirect()->back()->with('success', 'Status updated successfully.');
+}
+
 
 public function customers()
 {

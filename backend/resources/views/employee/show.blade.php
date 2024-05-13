@@ -81,7 +81,7 @@
                 <p class="admin-header__title">Final project on Databases - Dawid Olko & Piotr Smoła</p>
                 <div class="dropdown" id="navbar-user admin-header__user">
                     <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="admin-header__user-av rounded-circle" src="{{ asset('storage/img/icons/avatar.png') }}" alt="logo awatar">
+                        <img class="admin-header__user-av rounded-circle" src="{{ asset('storage/img/icons/avatar.svg') }}" alt="logo awatar">
                         @if (Auth::check())
                             <span class="ms-2 admin-header__user-hello" style="color: inherit; text-decoration: none;">
                                     Hello, {{ $employeeName }} {{ $employeeLastName }}
@@ -118,43 +118,50 @@
                     <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
             
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="">
-                                <label class="form-label">Customer - <a href="{{ route('employee.customer', $order->customers_id) }}">Go to</a></label>
-                                <ol class="list-group mb-4">
-                                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                                        <div class="ms-2 me-auto">
-                                            <div class="fw-bold">{{ $order->customer->name }}
-                                                {{ $order->customer->last_name }}</div>
-                                            Name and Last name
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                                        <div class="ms-2 me-auto">
-                                            <div class="fw-bold">{{ $order->customer->email }}</div>
-                                            E-Mail
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                                        <div class="ms-2 me-auto">
-                                            <div class="fw-bold">+48{{ $order->customer->phone_number }}</div>
-                                            Phone number
-                                        </div>
-                                    </li>
-                                </ol>
-                            </div>
+                <div class="col-md-4">
+                    <div class="">
+                        <label class="form-label">Customer - <a href="{{ route('employee.customer', $order->customers_id) }}">Go to</a></label>
+                        <ol class="list-group mb-4">
+                            @if ($order->customer)
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">{{ $order->customer->name }} {{ $order->customer->last_name }}</div>
+                                        Name and Last name
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">{{ $order->customer->email }}</div>
+                                        E-Mail
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">+48{{ $order->customer->phone_number }}</div>
+                                        Phone number
+                                    </div>
+                                </li>
+                            @else
+                                <li class="list-group-item">
+                                    No customer details available.
+                                </li>
+                                @endif
+                            
             
-                            <div class="mb-4">
-                                <label class="form-label">Address</label>
-                                <ol class="list-group">
-                                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                                        <div class="ms-2 me-auto">
-                                            <div>{{ $order->customer->delivery_address }}</div>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Address</label>
+                                    <ol class="list-group">
+                                        @if ($order->customer)
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="ms-2 me-auto">
+                                                    <div>{{ $order->customer->delivery_address }}</div>
+                                                </div>
+                                            </li>
+                                        @else
+                                            <li class="list-group-item">No address details available.</li>
+                                        @endif
+                                    </ol>
+                                </div>
             
                             <div style="border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea;" class="pt-4 pb-4 mb-3">
                                 <form method="POST" action="{{ route('employee.updateOrderStatus', $order->id) }}">
@@ -172,6 +179,7 @@
                                         </select>
                                         <input type="submit" class="btn btn-success" value="Change" {{ in_array($order->status, ['delivered', 'cancelled']) ? 'disabled' : '' }}>
                                     </div>
+                                  
                                 </form>
                             </div>
                         </div>

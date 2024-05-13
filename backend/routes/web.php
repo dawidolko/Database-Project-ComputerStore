@@ -82,7 +82,13 @@ Route::middleware(['auth:employee'])->group(function () {
     Route::put('/employee/customers/updateCustomer/{id}', [EmployeeController::class, 'updateCustomer'])->name('employee.updateCustomer');
     Route::delete('/employee/customers/{id}', [EmployeeController::class, 'destroyCustomer'])->name('employee.destroyCustomer');
     Route::post('/logout', [EmployeeController::class, 'logout'])->name('logout');
+    Route::post('/complaints/update-status/{id}', [EmployeeController::class, 'updateComplaintStatus'])->name('complaints.update-status');
+    Route::get('/employee/customer', function (){
+        return view('employee.customer');
+    })->name('employee.customer');
 });
+
+
 
 Route::get('/api/orders/{year}', [EmployeeController::class, 'getOrderDataByYear']);
 Route::get('/cart-counts', [CartController::class, 'getCartAndFavoritesCount'])->name('cart.counts');

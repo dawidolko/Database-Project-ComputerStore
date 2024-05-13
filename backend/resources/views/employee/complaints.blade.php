@@ -81,7 +81,7 @@
                 <p class="admin-header__title">Final project on Databases - Dawid Olko & Piotr Smoła</p>
                 <div class="dropdown" id="navbar-user admin-header__user">
                     <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="admin-header__user-av rounded-circle" src="{{ asset('storage/img/icons/avatar.png') }}" alt="logo awatar">
+                        <img class="admin-header__user-av rounded-circle" src="{{ asset('storage/img/icons/avatar.svg') }}" alt="logo awatar">
                         @if (Auth::check())
                             <span class="ms-2 admin-header__user-hello" style="color: inherit; text-decoration: none;">
                                     Hello, {{ $employeeName }} {{ $employeeLastName }}
@@ -135,29 +135,42 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th scope="col" style="width: 5%">#</th>
-                                <th scope="col" style="width: 10%">Order ID</th>
-                                <th scope="col" style="width: 15%">Cause</th>
-                                <th scope="col" style="width: 15%">Status</th>
-                                <th scope="col" style="width: 15%">Submission Date</th>
+                                <th scope="col">#</th>
+                                <th scope="col">Order ID</th>
+                                <th scope="col">Cause</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Submission Date</th>
+                                <th scope="col">Change Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($complaints as $complaint)
                             <tr>
-                                <th class="align-middle" scope="row">{{ $complaint->id }}</th>
-                                <td class="align-middle">{{ $complaint->orders_id }}</td>
-                                <td class="align-middle">{{ $complaint->cause }}</td>
-                                <td class="align-middle">{{ $complaint->status }}</td>
-                                <td class="align-middle">{{ $complaint->submission_date }}</td>
+                                <th scope="row">{{ $complaint->id }}</th>
+                                <td>{{ $complaint->orders_id }}</td>
+                                <td>{{ $complaint->cause }}</td>
+                                <td>{{ $complaint->status }}</td>
+                                <td>{{ $complaint->submission_date }}</td>
+                                <td>
+                                    <form action="{{ route('complaints.update-status', $complaint->id) }}" method="POST">
+                                        @csrf
+                                        <select class="form-select" name="status" onchange="this.form.submit()">
+                                            <option value="pending" {{ $complaint->status == 'pending' ? 'selected' : '' }}>Pending</option>
+                                            <option value="accepted" {{ $complaint->status == 'accepted' ? 'selected' : '' }}>Accepted</option>
+                                            <option value="rejected" {{ $complaint->status == 'rejected' ? 'selected' : '' }}>Rejected</option>
+                                        </select>
+                                    </form>                                    
+                                </td>
                             </tr>
                             @empty
                             <tr>
-                                <th scope="row" colspan="5">No complaints.</th>
+                                <th colspan="6">No complaints.</th>
                             </tr>
                             @endforelse
                         </tbody>
                     </table>
+                    
+                    
                 
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">

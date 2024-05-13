@@ -111,7 +111,7 @@ return [
 
         'oracle' => [
             'driver' => 'oracle',
-            'tns' => env('DB_TNS', '(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SID=orcle)))'),
+            'tns' => env('DB_TNS', '(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SID=oracle)))'),
             'host' => env('DB_HOST', ''),
             'port' => env('DB_PORT', ''),
             'database' => env('DB_DATABASE', ''),

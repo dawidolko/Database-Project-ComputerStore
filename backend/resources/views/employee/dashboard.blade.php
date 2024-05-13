@@ -82,7 +82,7 @@
                 <p class="admin-header__title">Final project on Databases - Dawid Olko & Piotr Smoła</p>
                 <div class="dropdown" id="navbar-user admin-header__user">
                     <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="admin-header__user-av rounded-circle" src="{{ asset('storage/img/icons/avatar.png') }}" alt="logo awatar">
+                        <img class="admin-header__user-av rounded-circle" src="{{ asset('storage/img/icons/avatar.svg') }}" alt="logo awatar">
                         @if (Auth::check())
                             <span class="ms-2 admin-header__user-hello" style="color: inherit; text-decoration: none;">
                                     Hello, {{ $employeeName }} {{ $employeeLastName }}
