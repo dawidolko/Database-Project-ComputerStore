@@ -113,7 +113,7 @@ class MainController extends Controller
 
     public function sales()
     {
-        $produktyPromocyjne = Products::whereHas('sale')->get();
+        $promotionalProducts = Products::getPromotionalProducts();
         
         $iloscKomputerow = Products::whereHas('computerCategories')->sum('QUANTITIES_AVAILABLE');
         $iloscLaptopow = Products::whereHas('laptopCategories')->sum('QUANTITIES_AVAILABLE');
@@ -133,7 +133,7 @@ class MainController extends Controller
         $iloscLearningLaptops = Products::whereHas('learningLaptops')->sum('QUANTITIES_AVAILABLE');
         $iloscOfficeLaptops = Products::whereHas('officeLaptops')->sum('QUANTITIES_AVAILABLE');
 
-        return view('sales', compact('produktyPromocyjne', 'iloscKomputerow', 'iloscLaptopow', 'iloscCases',
+        return view('sales', compact('promotionalProducts', 'iloscKomputerow', 'iloscLaptopow', 'iloscCases',
         'iloscCooling', 'iloscDisks', 'iloscFans', 'iloscGraphics', 'iloscMemoryRam', 'iloscMotherboards',
         'iloscPowerSupply', 'iloscProcessors', 'iloscGamingComputers', 'iloscLearningComputers', 'iloscOfficeComputers', 
         'iloscGamingLaptops', 'iloscLearningLaptops', 'iloscOfficeLaptops'));

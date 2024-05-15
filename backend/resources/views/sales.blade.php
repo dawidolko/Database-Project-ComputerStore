@@ -217,92 +217,95 @@
 
       {{-- ! ! !SEKCJA PODSTRONY ! ! !--}}
 
-          <div id="imageOverlay" class="image-overlay" style="display: none">
-            <span class="close-btn">&times;</span>
-            <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
-          </div>
-        
-          <div class="container new-conti category-section" id="all">
-            <div class="product-main">
-              <h2 class="title">Hot Offers</h2>
+      <div id="imageOverlay" class="image-overlay" style="display: none">
+        <span class="close-btn">&times;</span>
+        <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
+    </div>
+    
+    <div class="container new-conti category-section" id="all">
+        <div class="product-main">
+            <h2 class="title">Hot Offers</h2>
             
-              
-          @if(session('success'))
-          <div class="alert alert-success">{{ session('success') }}</div>
-      @endif
-      @if(session('error'))
-          <div class="alert alert-danger">{{ session('error') }}</div>
-      @endif
-      
-                <div class="product-grid">
-                  @forelse($produktyPromocyjne as $produkt)
-                  <div class="showcase">
-                    <div class="showcase-banner">
-                      @if($produkt->photosProducts->isNotEmpty())
-                          @if($produkt->photosProducts->count() >= 2)
-                          <a href="{{ route($produkt->productsCategories->first()->category_name) }}">
-                              <img src="{{ asset('storage') }}/images/{{ $produkt->photosProducts[1]->path }}" alt="{{ $produkt->name }} - photo 2" width="300" class="product-img hover" />
-                          </a>
-                              @else
-                          <a href="{{ route($produkt->productsCategories->first()->category_name) }}">
-                              <img src="{{ asset('storage') }}/images/{{ $produkt->photosProducts->first()->path }}" alt="{{ $produkt->name }} - photo 2" width="300" class="product-img hover" />
-                              </a>
-                              @endif
-                          <a href="{{ route($produkt->productsCategories->first()->category_name) }}">
-                          <img src="{{ asset('storage') }}/images/{{ $produkt->photosProducts->first()->path }}" alt="{{ $produkt->name }} - photo 1" width="300" class="product-img default" />
-                          </a>
-                          @else
-                      <a href="{{ route($produkt->productsCategories->first()->category_name) }}">
-                          <img src="{{ asset('storage') }}/images/default.png" alt="{{ $produkt->name }} - default photo" width="300" class="product-img default" />
-                      </a>
-                          @endif
-
-                      <p class="showcase-badge">-{{ $produkt->sale->discount_amount }}$</p>
-
-                      <div class="showcase-actions">
-                        <form action="{{ route('favorites.add', ['id' => $produkt->id]) }}" method="POST" style="display: inline;">
-                          @csrf
-                          <button type="submit" class="btn-action heart">
-                              <ion-icon name="heart-outline"></ion-icon>
-                          </button>
-                      </form>
-                  
-                        <button class="btn-action magnification">
-                            <ion-icon name="eye-outline"></ion-icon>
-                        </button>
-            
-                        <button class="btn-action repeat">
-                            <ion-icon name="repeat-outline"></ion-icon>
-                        </button>
-            
-                        <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
-                          @csrf
-                          <button type="submit" class="btn-action bag-add">
-                              <ion-icon name="bag-add-outline"></ion-icon>
-                          </button>
-                        </form>
-                      </div>
+            @if(session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
+            @if(session('error'))
+                <div class="alert alert-danger">{{ session('error') }}</div>
+            @endif
+    
+            <div class="product-grid">
+                @forelse($promotionalProducts as $product)
+                    <div class="showcase">
+                        <div class="showcase-banner">
+                            @if(!empty($product['photosProducts']))
+                                @if(count($product['photosProducts']) >= 2)
+                                    <a href="{{ route($product['productsCategories'][0]->category_name ?? 'default.route') }}">
+                                        <img src="{{ asset('storage') }}/images/{{ $product['photosProducts'][1]->path }}" alt="{{ $product['NAME'] }} - photo 2" width="300" class="product-img hover" />
+                                    </a>
+                                @else
+                                    <a href="{{ route($product['productsCategories'][0]->category_name ?? 'default.route') }}">
+                                        <img src="{{ asset('storage') }}/images/{{ $product['photosProducts'][0]->path }}" alt="{{ $product['NAME'] }} - photo 2" width="300" class="product-img hover" />
+                                    </a>
+                                @endif
+                                <a href="{{ route($product['productsCategories'][0]->category_name ?? 'default.route') }}">
+                                    <img src="{{ asset('storage') }}/images/{{ $product['photosProducts'][0]->path }}" alt="{{ $product['NAME'] }} - photo 1" width="300" class="product-img default" />
+                                </a>
+                            @else
+                                <a href="{{ route($product['productsCategories'][0]->category_name ?? 'default.route') }}">
+                                    <img src="{{ asset('storage') }}/images/default.png" alt="{{ $product['NAME'] }} - default photo" width="300" class="product-img default" />
+                                </a>
+                            @endif
+    
+                            @if(isset($product['sale']))
+                                <p class="showcase-badge">-{{ $product['sale']->discount_amount }}$</p>
+                            @endif
+    
+                            <div class="showcase-actions">
+                                <form action="{{ route('favorites.add', ['id' => $product['ID']]) }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="btn-action heart">
+                                        <ion-icon name="heart-outline"></ion-icon>
+                                    </button>
+                                </form>
+                            
+                                <button class="btn-action magnification">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </button>
+                    
+                                <button class="btn-action repeat">
+                                    <ion-icon name="repeat-outline"></ion-icon>
+                                </button>
+                    
+                                <form action="{{ route('cart.add', ['id' => $product['ID']]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn-action bag-add">
+                                        <ion-icon name="bag-add-outline"></ion-icon>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+    
+                        <div class="showcase-content">
+                            @if(!empty($product['productsCategories']))
+                                <a href="{{ route($product['productsCategories'][0]->category_name ?? 'default.route') }}#{{ $product['productsCategories'][0]->description }}" class="showcase-category">{{ $product['productsCategories'][0]->description }}</a>
+                            @endif
+    
+                            <a href="{{ route($product['productsCategories'][0]->category_name ?? 'default.route') }}">
+                                <h3 class="showcase-title">{{ $product['NAME'] }}</h3>
+                            </a>
+    
+                            <div class="price-box">
+                                <p class="price">${{ $product['PRICE'] }}</p>
+                                <del>${{ $product['OLD_PRICE'] }}</del>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="showcase-content">
-                      <a href="{{ route($produkt->productsCategories->first()->category_name) }}#{{ $produkt->productsCategories->first()->description }}" class="showcase-category">{{ $produkt->productsCategories->first()->description }}</a>
-
-                      <a href="{{ route($produkt->productsCategories->first()->category_name) }}">
-                        <h3 class="showcase-title">{{ $produkt->name }}</h3>
-                      </a>
-
-                      <div class="price-box">
-                        <p class="price">${{ $produkt->price }}</p>
-                        <del>${{ $produkt->old_price }}</del>
-                      </div>
-                    </div>
-                  </div>
-                  @empty
-                      <p>No promotional products.</p>
-                  @endforelse
-                </div>
+                @empty
+                    <p>No promotional products.</p>
+                @endforelse
             </div>
-          </div>
+        </div>
+    </div>
         
          <!--
         - TESTIMONIALS, CTA & SERVICE

@@ -3,6 +3,58 @@
   @include('shared.head', ['pageTitle' => $produkt->name.' - Sklep komputerowy'])
   <head>
     <link rel="stylesheet" href="{{ asset('css/productStyle.css') }}" />
+    <style>
+      .product-reviews-container {
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-reviews-title {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .product-reviews {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .review {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .review:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .review p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .review p strong {
+            color: #333;
+        }
+
+        .review p span {
+            color: #f39c12; /* Kolor dla gwiazdek */
+            font-size: 18px;
+        }
+
+    </style>
   </head>
   <body>
     @include('shared.navbar')
@@ -220,126 +272,140 @@
       <div id="imageOverlay" class="image-overlay" style="display: none">
         <span class="close-btn">&times;</span>
         <img class="overlay-image" src="" alt="Powiększone zdjęcie" />
-      </div>
-
-      <div class="produkt new-conti category-section" id="case1">
-
-            @if(session('success'))
+    </div>
+    
+    <div class="produkt new-conti category-section" id="case1">
+        @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
         @if(session('error'))
             <div class="alert alert-danger">{{ session('error') }}</div>
         @endif
-        
+    
         <div class="product-main">
-          <div class="product-grid">
-            @forelse([$produkt] as $produkt) 
-            <div class="showcase">
-              <div class="slider showcase-banner">
-                <div class="slides-container">
-                  @if($produkt->photosProducts->isNotEmpty())
-                    @foreach($produkt->photosProducts as $index => $photo)
-                      <img src="{{ asset('storage/images') }}/{{ $photo->path }}" alt="{{ $produkt->name }}" class="slide{{ $index === 0 ? ' active' : '' }}">
-                    @endforeach
-                  @else
-                    <img src="{{ asset('storage/images/default.png') }}" alt="Default Image" class="slide active">
-                  @endif
-                </div>
-                <button class="slide-nav prev" onclick="changeSlide(-1)">&#10094;</button>
-                <button class="slide-nav next" onclick="changeSlide(1)">&#10095;</button>
-                <div class="thumbnail-container">
-                  @foreach($produkt->photosProducts as $index => $photo)
-                    <img src="{{ asset('storage/images') }}/{{ $photo->path }}" alt="{{ $produkt->name }}" class="thumbnail" onclick="setCurrentSlide({{ $index }})">
-                  @endforeach
-                </div>
-
-                <div class="showcase-actions">
-                  <form action="{{ route('favorites.add', ['id' => $produkt->id]) }}" method="POST" style="display: inline;">
-                    @csrf
-                    <button type="submit" class="btn-action heart">
-                        <ion-icon name="heart-outline"></ion-icon>
-                    </button>
-                </form>
-            
-                  <button class="btn-action magnification">
-                      <ion-icon name="eye-outline"></ion-icon>
-                  </button>
-      
-                  <button class="btn-action repeat">
-                      <ion-icon name="repeat-outline"></ion-icon>
-                  </button>
-      
-                  <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn-action bag-add">
-                        <ion-icon name="bag-add-outline"></ion-icon>
-                    </button>
-                  </form>
-                </div>
-              </div>
-
-              <div class="showcase-content">
-                <div class="caseBox-info">
-                  <div class="caseBox1">
-                    <a href="{{ route($produkt->productsCategories->first()->category_name) }}#{{ $produkt->productsCategories->first()->description }}" class="showcase-category">{{ $produkt->productsCategories->first()->description }}</a>
-
-                    <a href="{{route('laptops.show', ['id' => $produkt->id])}}">
-                      <h3 class="showcase-title">{{ $produkt->name }}</h3>
-                    </a>
-
-                    <div class="price-cart-fav">
-                      <div class="price-box">
-                        <p class="price" data-price-usd="{{ $produkt->price }}">${{ $produkt->price }}</p>
-                        <del data-price-usd="{{ $produkt->old_price }}">${{ $produkt->old_price }}</del>
-                      </div>
-
-                      <div class="cart-favorite">
-                        <form action="{{ route('favorites.add', ['id' => $produkt->id]) }}" method="POST" style="display: inline;">
-                          @csrf
-                          <button type="submit" class="btn-action heart favoriting">
-                              <ion-icon name="heart-outline"></ion-icon>
-                          </button>
-                      </form>
-            
-                        <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
-                          @csrf
-                          <button type="submit" class="btn-action bag-add carting">
-                              <ion-icon name="bag-add-outline"></ion-icon>
-                          </button>
-                        </form>
-                      </div>
+            <div class="product-grid">
+                @forelse([$produkt] as $produkt)
+                    <div class="showcase">
+                        <div class="slider showcase-banner">
+                            <div class="slides-container">
+                                @if($produkt->photosProducts->isNotEmpty())
+                                    @foreach($produkt->photosProducts as $index => $photo)
+                                        <img src="{{ asset('storage/images') }}/{{ $photo->path }}" alt="{{ $produkt->name }}" class="slide{{ $index === 0 ? ' active' : '' }}">
+                                    @endforeach
+                                @else
+                                    <img src="{{ asset('storage/images/default.png') }}" alt="Default Image" class="slide active">
+                                @endif
+                            </div>
+                            <button class="slide-nav prev" onclick="changeSlide(-1)">&#10094;</button>
+                            <button class="slide-nav next" onclick="changeSlide(1)">&#10095;</button>
+                            <div class="thumbnail-container">
+                                @foreach($produkt->photosProducts as $index => $photo)
+                                    <img src="{{ asset('storage/images') }}/{{ $photo->path }}" alt="{{ $produkt->name }}" class="thumbnail" onclick="setCurrentSlide({{ $index }})">
+                                @endforeach
+                            </div>
+    
+                            <div class="showcase-actions">
+                                <form action="{{ route('favorites.add', ['id' => $produkt->id]) }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="btn-action heart">
+                                        <ion-icon name="heart-outline"></ion-icon>
+                                    </button>
+                                </form>
+    
+                                <button class="btn-action magnification">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </button>
+    
+                                <button class="btn-action repeat">
+                                    <ion-icon name="repeat-outline"></ion-icon>
+                                </button>
+    
+                                <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn-action bag-add">
+                                        <ion-icon name="bag-add-outline"></ion-icon>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+    
+                        <div class="showcase-content">
+                            <div class="caseBox-info">
+                                <div class="caseBox1">
+                                    <a href="{{ route($produkt->productsCategories->first()->category_name) }}#{{ $produkt->productsCategories->first()->description }}" class="showcase-category">{{ $produkt->productsCategories->first()->description }}</a>
+    
+                                    <a href="{{route('laptops.show', ['id' => $produkt->id])}}">
+                                        <h3 class="showcase-title">{{ $produkt->name }}</h3>
+                                    </a>
+    
+                                    <div class="price-cart-fav">
+                                        <div class="price-box">
+                                            <p class="price" data-price-usd="{{ $produkt->price }}">${{ $produkt->price }}</p>
+                                            <del data-price-usd="{{ $produkt->old_price }}">${{ $produkt->old_price }}</del>
+                                        </div>
+    
+                                        <div class="cart-favorite">
+                                            <form action="{{ route('favorites.add', ['id' => $produkt->id]) }}" method="POST" style="display: inline;">
+                                                @csrf
+                                                <button type="submit" class="btn-action heart favoriting">
+                                                    <ion-icon name="heart-outline"></ion-icon>
+                                                </button>
+                                            </form>
+    
+                                            <form action="{{ route('cart.add', ['id' => $produkt->id]) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn-action bag-add carting">
+                                                    <ion-icon name="bag-add-outline"></ion-icon>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <hr />
+                        <h2 class="product-description-title">Description</h2>
+                        <div class="product-description">{!! $produkt->description !!}</div>
+    
+                        <table class="product-specification">
+                            <tr>
+                                <th>Component</th>
+                                <th>Specification</th>
+                            </tr>
+                            @forelse($produkt->specifications as $specification)
+                                <tr class="specification-row {{ $loop->even ? 'alt' : '' }}">
+                                    <td>{{ $specification->parameter_name }}</td>
+                                    <td>{{ $specification->specification }}</td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="2">No specifications found.</td>
+                                </tr>
+                            @endforelse
+                        </table>
+    
+                        <!-- Sekcja opinii -->
+                        <div class="product-reviews-container" style="padding: 20px;">
+                          <h2 class="product-reviews-title" style="text-align: center; font-size: 24px; color: #333; margin-bottom: 20px;">Customer Reviews</h2>
+                          <div class="product-reviews" style="display: flex; flex-direction: column; gap: 20px;">
+                              @forelse($opinions as $opinion)
+                                  <div class="review" style="padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #f9f9f9;">
+                                      <p style="margin: 0 0 10px;"><strong>{{ $opinion['NAME'] }}</strong> rated it <span style="color: #f39c12;">{{ str_repeat('★', $opinion['RATING']) }}{{ str_repeat('☆', 5 - $opinion['RATING']) }}</span></p>
+                                      <p style="margin: 0;">{{ $opinion['CONTENT_OPINION'] }}</p>
+                                  </div>
+                              @empty
+                                  <p style="text-align: center; color: #777;">No reviews found.</p>
+                              @endforelse
+                          </div>
+                      </div>                                        
                     </div>
-                  </div>
-                </div>
-              </div>
-
-              <hr />
-              <h2 class="product-description-title">Description</h2>
-              <div class="product-description">{!! $produkt->description !!}</div>
-
-              <table class="product-specification">
-                <tr>
-                  <th>Component</th>
-                  <th>Specification</th>
-                </tr>
-                @forelse($produkt->specifications as $specification)
-                  <tr class="specification-row {{ $loop->even ? 'alt' : '' }}">
-                    <td>{{ $specification->parameter_name }}</td>
-                    <td>{{ $specification->specification }}</td>
-                  </tr>
                 @empty
-                  <tr>
-                    <td colspan="2">No specifications found.</td>
-                  </tr>
+                    <p>No product found.</p>
                 @endforelse
-              </table>
             </div>
-            @empty
-                  <p>No found.</p>
-              @endforelse
-          </div>
         </div>
-      </div>
+    </div>    
 
 
          <!--

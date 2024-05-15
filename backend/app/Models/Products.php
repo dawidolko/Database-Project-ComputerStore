@@ -21,13 +21,65 @@ class Products extends Model
         return $this->hasMany(Opinions::class);
     }
     
-    public static function deleteProductById($id)
+    public static function getPromotionalProducts()
     {
-        try {
-            DB::connection('oracle')->getPdo()->exec("BEGIN delete_product_by_id({$id}); END;");
-        } catch (\Exception $e) {
-            throw new \Exception('Failed to delete product: ' . $e->getMessage());
+        $pdo = DB::getPdo();
+        $stmt = $pdo->prepare("BEGIN sp_get_promotional_products(:p_products); END;");
+        
+        $stmt->bindParam(':p_products', $cursor, PDO::PARAM_STMT);
+        $stmt->execute();
+        
+        oci_execute($cursor, OCI_DEFAULT);
+        
+        $products = [];
+        while ($row = oci_fetch_assoc($cursor)) {
+            $products[] = $row;
         }
+        
+        oci_free_statement($cursor);
+        
+        foreach ($products as &$product) {
+            $productId = $product['ID'];
+            $product['productsCategories'] = DB::table('products_categories')
+                ->join('categories', 'categories.id', '=', 'products_categories.category_id')
+                ->where('products_categories.products_id', $productId)
+                ->select('categories.CATEGORY_NAME', 'categories.DESCRIPTION')
+                ->get()->toArray();
+
+            $product['photosProducts'] = DB::table('photos_products')
+                ->where('products_id', $productId)
+                ->select('path')
+                ->get()->toArray();
+
+            $product['sale'] = DB::table('sale')
+                ->where('id', $product['SALE_ID'])
+                ->select('DISCOUNT_AMOUNT')
+                ->first();
+        }
+
+        return $products;
+    }
+
+    public static function getProductOpinions($productId)
+    {
+        $pdo = DB::getPdo();
+        $stmt = $pdo->prepare("BEGIN :result := get_product_opinions(:product_id); END;");
+
+        $stmt->bindParam(':product_id', $productId, PDO::PARAM_INT);
+        $stmt->bindParam(':result', $cursor, PDO::PARAM_STMT);
+
+        $stmt->execute();
+
+        oci_execute($cursor, OCI_DEFAULT);
+
+        $opinions = [];
+        while ($row = oci_fetch_assoc($cursor)) {
+            $opinions[] = $row;
+        }
+
+        oci_free_statement($cursor);
+
+        return $opinions;
     }
 
     public function sale()

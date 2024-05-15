@@ -56,9 +56,10 @@ class LaptopsController extends Controller
     public function show($id)
     {
         $randomProducts = Products::inRandomOrder()->take(4)->get();
-
         $produkt = Products::with('photosProducts', 'specifications')->findOrFail($id);
-
+    
+        $opinions = Products::getProductOpinions($id);
+    
         $iloscKomputerow = Products::whereHas('computerCategories')->sum('QUANTITIES_AVAILABLE');
         $iloscLaptopow = Products::whereHas('laptopCategories')->sum('QUANTITIES_AVAILABLE');
         $iloscCases = Products::whereHas('caseCategories')->sum('QUANTITIES_AVAILABLE');
@@ -76,12 +77,13 @@ class LaptopsController extends Controller
         $iloscGamingLaptops = Products::whereHas('gamingLaptops')->sum('QUANTITIES_AVAILABLE');
         $iloscLearningLaptops = Products::whereHas('learningLaptops')->sum('QUANTITIES_AVAILABLE');
         $iloscOfficeLaptops = Products::whereHas('officeLaptops')->sum('QUANTITIES_AVAILABLE');
-
-        return view('laptops.show', compact('produkt', 'randomProducts', 'iloscKomputerow', 'iloscLaptopow', 'iloscCases',
+    
+        return view('laptops.show', compact('produkt', 'randomProducts', 'opinions', 'iloscKomputerow', 'iloscLaptopow', 'iloscCases',
         'iloscCooling', 'iloscDisks', 'iloscFans', 'iloscGraphics', 'iloscMemoryRam', 'iloscMotherboards',
         'iloscPowerSupply', 'iloscProcessors', 'iloscGamingComputers', 'iloscLearningComputers', 'iloscOfficeComputers', 
         'iloscGamingLaptops', 'iloscLearningLaptops', 'iloscOfficeLaptops'), [
             'produkt' => Products::findOrFail($id)
         ]);
     }
+    
 }
