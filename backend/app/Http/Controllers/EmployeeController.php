@@ -10,6 +10,8 @@ use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use PDO;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class EmployeeController extends Controller
 {
@@ -65,14 +67,63 @@ public function listProducts(Request $request)
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
     $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
 
-    $products = Product::with('categories')
-    ->when($search, function ($query) use ($search) {
-        return $query->whereRaw('LOWER(name) like ?', ['%' . strtolower($search) . '%']);
-    })
-    ->paginate(10);
+    $products = collect();
+
+    if ($search) {
+        try {
+            $conn = oci_connect(env('DB_USERNAME'), env('DB_PASSWORD'), env('DB_CONNECTION_STRING'));
+
+            $sql = "BEGIN search_products_by_name(:name, :cursor); END;";
+            $stmt = oci_parse($conn, $sql);
+
+            $cursor = oci_new_cursor($conn);
+            $searchParam = $search;
+
+            oci_bind_by_name($stmt, ':name', $searchParam);
+            oci_bind_by_name($stmt, ':cursor', $cursor, -1, OCI_B_CURSOR);
+
+            oci_execute($stmt);
+            oci_execute($cursor, OCI_DEFAULT);
+
+            oci_fetch_all($cursor, $results, 0, -1, OCI_FETCHSTATEMENT_BY_ROW);
+
+            oci_free_statement($stmt);
+            oci_free_statement($cursor);
+            oci_close($conn);
+
+            $products = collect($results)->groupBy('ID')->map(function ($group) {
+                $first = $group->first();
+                $categories = $group->pluck('CATEGORY_DESCRIPTION')->filter()->unique()->values();
+                
+                return (object) [
+                    'id' => $first['ID'],
+                    'name' => $first['NAME'],
+                    'price' => $first['PRICE'],
+                    'quantities_available' => $first['QUANTITIES_AVAILABLE'],
+                    'sale_id' => $first['SALE_ID'],
+                    'old_price' => $first['OLD_PRICE'],
+                    'description' => $first['DESCRIPTION'],
+                    'categories' => $categories->map(function ($description) {
+                        return (object) ['description' => $description];
+                    })
+                ];
+            });
+
+            $perPage = 10;
+            $currentPage = LengthAwarePaginator::resolveCurrentPage();
+            $currentPageResults = $products->slice(($currentPage - 1) * $perPage, $perPage)->values();
+            $products = new LengthAwarePaginator($currentPageResults, $products->count(), $perPage);
+
+        } catch (\Exception $e) {
+            return redirect()->route('employee.products')->with('error', 'Failed to search products: ' . $e->getMessage());
+        }
+    } else {
+        $products = Products::with('categories')->paginate(10);
+    }
 
     return view('employee.products', compact('products', 'employeeName', 'employeeLastName', 'jobPosition'));
 }
+
 
 public function editProduct($id)
     {
@@ -106,10 +157,9 @@ public function updateProduct(Request $request, $id)
 
     $sale_id = $request->sale_id ? $request->sale_id : 'NULL';
     $old_price = $request->old_price ? $request->old_price : 'NULL';
-    $description = addslashes($request->description); // Escape special characters in the description
+    $description = addslashes($request->description);
 
     try {
-        // Połącz się z bazą danych Oracle i wywołaj procedurę PL/SQL
         DB::connection('oracle')->getPdo()->exec("BEGIN update_product_by_id(
             {$id},
             '".addslashes($request->name)."',
@@ -130,7 +180,6 @@ public function updateProduct(Request $request, $id)
 public function destroyProduct($id)
 {
     try {
-        // Połącz się z bazą danych Oracle i wywołaj procedurę PL/SQL
         DB::connection('oracle')->getPdo()->exec("BEGIN delete_product_by_id({$id}); END;");
         
         return redirect()->route('employee.products')->with('success', 'Product and all related records successfully deleted.');

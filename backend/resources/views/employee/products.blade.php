@@ -131,7 +131,7 @@
                                 <div class="d-flex align-items-end">
                                     <div class="me-2" role="group" aria-label="Third group">
                                         <label class="form-label">Searching:</label>
-                                        <input name="search" class="form-control" type="search" placeholder="Search product" value="{{ request('search') }}" />
+                                        <input name="search" class="form-control" type="search" placeholder="Search product" value="{{ request()->input('search') }}" />
                                     </div>
                                     <div class="btn-group" role="group" aria-label="Third group">
                                         <button class="btn btn-primary" type="submit">Search</button>
