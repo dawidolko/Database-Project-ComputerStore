@@ -231,7 +231,6 @@ public function newProduct(Request $request)
     }
 }
 
-
 public function complaints()
 {
     $complaints = Complaint::paginate(10);
@@ -273,8 +272,55 @@ public function listCustomers(Request $request)
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
     $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
 
-    $customers = Customer::where('email', 'like', '%' . $search . '%')
-                         ->paginate(10);
+    $customers = collect();
+
+    if ($search) {
+        try {
+            // Użyj surowego połączenia OCI8
+            $conn = oci_connect(env('DB_USERNAME'), env('DB_PASSWORD'), env('DB_CONNECTION_STRING'));
+
+            // Przygotuj procedurę PL/SQL
+            $sql = "BEGIN search_customers_by_email(:email, :cursor); END;";
+            $stmt = oci_parse($conn, $sql);
+
+            $cursor = oci_new_cursor($conn);
+            $searchParam = $search;
+
+            oci_bind_by_name($stmt, ':email', $searchParam);
+            oci_bind_by_name($stmt, ':cursor', $cursor, -1, OCI_B_CURSOR);
+
+            oci_execute($stmt);
+            oci_execute($cursor, OCI_DEFAULT);
+
+            oci_fetch_all($cursor, $results, 0, -1, OCI_FETCHSTATEMENT_BY_ROW);
+
+            oci_free_statement($stmt);
+            oci_free_statement($cursor);
+            oci_close($conn);
+
+            $customers = collect($results)->map(function ($customer) {
+                return (object) [
+                    'id' => $customer['ID'],
+                    'name' => $customer['NAME'],
+                    'last_name' => $customer['LAST_NAME'],
+                    'delivery_address' => $customer['DELIVERY_ADDRESS'],
+                    'phone_number' => $customer['PHONE_NUMBER'],
+                    'email' => $customer['EMAIL'],
+                ];
+            });
+
+            // Paginacja wyników
+            $perPage = 10;
+            $currentPage = LengthAwarePaginator::resolveCurrentPage();
+            $currentPageResults = $customers->slice(($currentPage - 1) * $perPage, $perPage)->values();
+            $customers = new LengthAwarePaginator($currentPageResults, $customers->count(), $perPage);
+
+        } catch (\Exception $e) {
+            return redirect()->route('employee.customers')->with('error', 'Failed to search customers: ' . $e->getMessage());
+        }
+    } else {
+        $customers = Customers::paginate(10);
+    }
 
     return view('employee.customers', compact('customers', 'employeeName', 'employeeLastName', 'jobPosition'));
 }
@@ -294,46 +340,39 @@ public function updateCustomer(Request $request, $id)
     $request->validate([
         'name' => 'required|string|max:20',
         'last_name' => 'required|string|max:50',
-        'address' => 'required|string|max:100',
-        'phone' => 'required|string|max:20',
+        'delivery_address' => 'required|string|max:100',
+        'phone_number' => 'required|string|max:20',
         'email' => 'nullable|string|max:100',
     ]);
 
-    $customer = Customer::findOrFail($id);
-    $customer->update([
-        'NAME' => $request->name,
-        'LAST_NAME' => $request->last_name,
-        'ADDRESS' => $request->delivery_address,
-        'PHONE' => $request->phone_number,
-        'EMAIL' => $request->email,
-    ]);
+    $email = $request->email ? "'" . addslashes($request->email) . "'" : 'NULL';
 
-    return redirect()->route('employee.customers')->with('success__edit', 'Customer updated successfully!');
+    try {
+        DB::connection('oracle')->getPdo()->exec("BEGIN update_customer_by_id(
+            {$id},
+            '".addslashes($request->name)."',
+            '".addslashes($request->last_name)."',
+            '".addslashes($request->delivery_address)."',
+            '".addslashes($request->phone_number)."',
+            {$email}
+        ); END;");
+        
+        return redirect()->route('employee.customers')->with('success__edit', 'Customer updated successfully!');
+    } catch (\Exception $e) {
+        return redirect()->route('employee.customers')->with('error', 'Failed to update customer: ' . $e->getMessage());
+    }
 }
 
 public function destroyCustomer($id)
 {
-    DB::beginTransaction();
     try {
-        DB::table('opinions')->where('customers_id', $id)->delete();
-
-        DB::table('newsletter')->where('CUSTOMERS_ID', $id)->delete();
-
-        $orders = DB::table('orders')->where('customers_id', $id)->pluck('id');
-        DB::table('complaints')->whereIn('orders_id', $orders)->delete();
-        DB::table('order_product')->whereIn('order_id', $orders)->delete();
-        DB::table('orders')->where('customers_id', $id)->delete();
-
-        DB::table('customers')->where('id', $id)->delete();
-
-        DB::commit();
-        return redirect()->route('employee.customers')->with('success', 'Klient i wszystkie powiązane rekordy zostały pomyślnie usunięte.');
-    } catch (QueryException $e) {
-        DB::rollBack();
-        return redirect()->route('employee.customers')->with('error', 'Błąd podczas usuwania klienta: ' . $e->getMessage());
+        DB::connection('oracle')->getPdo()->exec("BEGIN delete_customer_by_id({$id}); END;");
+        
+        return redirect()->route('employee.customers')->with('success', 'Customer and all related records successfully deleted.');
+    } catch (\Exception $e) {
+        return redirect()->route('employee.customers')->with('error', 'Failed to delete customer: ' . $e->getMessage());
     }
 }
-
 
 public function getOrderDataByYear($year)
 {

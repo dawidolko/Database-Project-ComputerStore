@@ -146,12 +146,12 @@
                                 <input value="{{ $customer->last_name }}" id="last_name" name="last_name" type="text" class="form-control"/>
                             </div>
                             <div class="mb-3">
-                                <label for="address" class="form-label">Delivery Address</label>
-                                <input value="{{ $customer->delivery_address }}" id="address" name="address" type="text" class="form-control"/>
+                                <label for="delivery_address" class="form-label">Delivery Address</label>
+                                <input value="{{ $customer->delivery_address }}" id="delivery_address" name="delivery_address" type="text" class="form-control"/>
                             </div>
                             <div class="mb-3">
-                                <label for="phone" class="form-label">Phone</label>
-                                <input id="phone" value="{{ $customer->phone_number }}" name="phone" type="tel" maxlength="20" class="form-control"/>
+                                <label for="phone_number" class="form-label">Phone</label>
+                                <input id="phone_number" value="{{ $customer->phone_number }}" name="phone_number" type="tel" maxlength="20" class="form-control"/>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">E-Mail</label>
@@ -161,6 +161,7 @@
                             <input class="btn btn-primary" type="submit" value="Edit"/>
                         </div>
                     </form>
+                                                           
                 </div>
             </div>
         </div>
