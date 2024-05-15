@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Products;
 use App\Models\Customers;
+use DB;
 
 class AuthController extends Controller
 {
@@ -66,29 +67,37 @@ class AuthController extends Controller
     }
     
     public function register(Request $request)
-    {
-        $validatedData = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'delivery_address' => ['required', 'string', 'max:255'],
-            'phone_number' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:customers'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);   
-        
-        $customer = Customers::create([
-            'NAME' => $validatedData['name'],
-            'LAST_NAME' => $validatedData['last_name'],
-            'DELIVERY_ADDRESS' => $validatedData['delivery_address'],
-            'PHONE_NUMBER' => $validatedData['phone_number'],
-            'EMAIL' => $validatedData['email'],
-            'PASSWORD' => bcrypt($validatedData['password']), 
-        ]);        
+{
+    $validatedData = $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'last_name' => ['required', 'string', 'max:255'],
+        'delivery_address' => ['required', 'string', 'max:255'],
+        'phone_number' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:customers'],
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+    ]);
 
+    $hashedPassword = bcrypt($validatedData['password']);
+
+    try {
+        DB::connection('oracle')->getPdo()->exec("BEGIN register_customer(
+            '".addslashes($validatedData['name'])."',
+            '".addslashes($validatedData['last_name'])."',
+            '".addslashes($validatedData['delivery_address'])."',
+            '".addslashes($validatedData['phone_number'])."',
+            '".addslashes($validatedData['email'])."',
+            '".addslashes($hashedPassword)."'
+        ); END;");
+        
+        $customer = Customers::where('email', $validatedData['email'])->first();
         Auth::guard('customer')->login($customer);
 
         return redirect('customer/dashboard');
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Failed to register customer: ' . $e->getMessage());
     }
+}
+
 
     public function register2(Request $request)
     {
