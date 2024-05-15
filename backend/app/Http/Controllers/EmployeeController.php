@@ -57,6 +57,7 @@ public function Products()
     return view('employee.products', compact('products', 'employeeName', 'employeeLastName', 'jobPosition'));
 }
 
+
 public function listProducts(Request $request)
 {
     $search = $request->input('search');
@@ -74,14 +75,14 @@ public function listProducts(Request $request)
 }
 
 public function editProduct($id)
-{
-    $product = Product::findOrFail($id);
-    $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
-    $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
-    $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
+    {
+        $product = Product::findOrFail($id);
+        $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
+        $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
+        $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
 
-    return view('employee.editProduct', compact('product','employeeName', 'employeeLastName', 'jobPosition'));
-}
+        return view('employee.editProduct', compact('product','employeeName', 'employeeLastName', 'jobPosition'));
+    }
 
 public function updateOrderStatus(Request $request, $id)
 {
@@ -103,36 +104,39 @@ public function updateProduct(Request $request, $id)
         'description' => 'nullable|string',
     ]);
 
-    $product = Product::findOrFail($id);
-    $product->update([
-        'NAME' => $request->name,
-        'PRICE' => $request->price,
-        'QUANTITIES_AVAILABLE' => $request->quantity,
-        'SALE_ID' => $request->sale_id,
-        'OLD_PRICE' => $request->old_price,
-        'DESCRIPTION' => $request->description,
-    ]);
+    $sale_id = $request->sale_id ? $request->sale_id : 'NULL';
+    $old_price = $request->old_price ? $request->old_price : 'NULL';
+    $description = addslashes($request->description); // Escape special characters in the description
 
-    return redirect()->route('employee.products')->with('success__edit', 'Product updated successfully!');
+    try {
+        // Połącz się z bazą danych Oracle i wywołaj procedurę PL/SQL
+        DB::connection('oracle')->getPdo()->exec("BEGIN update_product_by_id(
+            {$id},
+            '".addslashes($request->name)."',
+            {$request->price},
+            {$request->quantity},
+            {$sale_id},
+            {$old_price},
+            '{$description}'
+        ); END;");
+        
+        return redirect()->route('employee.products')->with('success__edit', 'Product updated successfully!');
+    } catch (\Exception $e) {
+        return redirect()->route('employee.products')->with('error', 'Failed to update product: ' . $e->getMessage());
+    }
 }
+
 
 public function destroyProduct($id)
 {
-    $product = Product::with('specifications', 'photosProducts', 'productsCategories')->findOrFail($id);
-
-    foreach ($product->specifications as $specification) {
-        $specification->delete();
+    try {
+        // Połącz się z bazą danych Oracle i wywołaj procedurę PL/SQL
+        DB::connection('oracle')->getPdo()->exec("BEGIN delete_product_by_id({$id}); END;");
+        
+        return redirect()->route('employee.products')->with('success', 'Product and all related records successfully deleted.');
+    } catch (\Exception $e) {
+        return redirect()->route('employee.products')->with('error', 'Failed to delete product: ' . $e->getMessage());
     }
-
-    foreach ($product->photosProducts as $photo) {
-        $photo->delete();
-    }
-
-    $product->categories()->detach();
-
-    $product->delete();
-
-    return redirect()->route('employee.products')->with('success', 'Product and all related records successfully deleted.');
 }
 
 public function addProduct()
@@ -159,25 +163,16 @@ public function newProduct(Request $request)
 
     DB::beginTransaction();
     try {
-        $currentMaxId = DB::table('products')->max('ID');
-        $newId = $currentMaxId ? $currentMaxId + 1 : 106;
-
-        $productId = DB::table('products')->insertGetId([
-            'ID' => $newId,
-            'NAME' => $validated['name'],
-            'PRICE' => $validated['price'],
-            'QUANTITIES_AVAILABLE' => $validated['quantity'],
-            'SALE_ID' => $validated['sale_id'] ?? null,
-            'OLD_PRICE' => $validated['old_price'] ?? null,
-            'DESCRIPTION' => $validated['description'],
-        ], 'ID');
-
-        if (isset($validated['category_id'])) {
-            DB::table('products_categories')->insert([
-                'products_id' => $productId,
-                'category_id' => $validated['category_id'],
-            ]);
-        }
+        // Wywołanie procedury PL/SQL
+        DB::statement('BEGIN add_product(:name, :price, :quantity, :sale_id, :old_price, :description, :category_id); END;', [
+            'name' => $validated['name'],
+            'price' => $validated['price'],
+            'quantity' => $validated['quantity'],
+            'sale_id' => $validated['sale_id'] ?? null,
+            'old_price' => $validated['old_price'] ?? null,
+            'description' => $validated['description'],
+            'category_id' => $validated['category_id']
+        ]);
 
         DB::commit();
         return redirect()->route('employee.products')->with('success', 'Produkt dodany pomyślnie.');
@@ -186,6 +181,7 @@ public function newProduct(Request $request)
         return redirect()->route('employee.products')->with('error', 'Błąd dodawania produktu: ' . $e->getMessage());
     }
 }
+
 
 public function complaints()
 {

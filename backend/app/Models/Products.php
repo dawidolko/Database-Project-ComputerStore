@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use PDO;
+use DB;
 
 class Products extends Model
 {
@@ -17,6 +19,15 @@ class Products extends Model
     public function opinions()
     {
         return $this->hasMany(Opinions::class);
+    }
+    
+    public static function deleteProductById($id)
+    {
+        try {
+            DB::connection('oracle')->getPdo()->exec("BEGIN delete_product_by_id({$id}); END;");
+        } catch (\Exception $e) {
+            throw new \Exception('Failed to delete product: ' . $e->getMessage());
+        }
     }
 
     public function sale()
