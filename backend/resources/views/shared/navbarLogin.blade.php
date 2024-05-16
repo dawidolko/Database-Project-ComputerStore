@@ -23,16 +23,16 @@
           <form action="{{ route('newsletter.manage') }}" method="POST">
             @csrf
             <div class="newsletter-header">
-              <h3 class="newsletter-title">Manage Newsletter Subscription.</h3>
+              <h3 class="newsletter-title">Subscribe Newsletter.</h3>
               <p class="newsletter-desc">
-                Subscribe to <b>TechByte</b> for the latest products and discount updates.
+                Subscribe the <b>TechByte</b> to get latest products and discount update.
               </p>
             </div>
     
             <div class="form-check">
               <input class="form-check-input" type="checkbox" name="subscribe" id="subscribeCheck">
               <label class="form-check-label" for="subscribeCheck">
-                Subscribe / Unsubscribe
+                Subscribe
               </label>
             </div>
     
