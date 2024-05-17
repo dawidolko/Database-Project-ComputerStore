@@ -11,18 +11,17 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
 
     <script src="https://unpkg.com/feather-icons"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
     <link href="{{ asset('/css/adminDashboardHome.css') }}" rel="stylesheet" />
     <title>Dashboard - Sklep komputerowy</title>
-    <link
-      rel="shortcut icon"
-      href="{{ asset('storage/img/logo/Logo2.webp') }}"
-      type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ asset('storage/img/logo/Logo2.webp') }}" type="image/x-icon" />
     <!-- Optional JavaScript -->
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
@@ -62,14 +61,15 @@
                     <li>
                         <a href="{{ route('index') }}" class="admin-aside__link">
                             <i data-feather="arrow-left" class="admin-aside__link-icon"></i>Back to page</a>
-                    </li>     
+                    </li>
                     <br />
                     <li>
-                        <a href="{{ route('logout') }}" class="admin-aside__link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <a href="{{ route('logout') }}" class="admin-aside__link"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i data-feather="log-out" class="admin-aside__link-icon"></i>Logout
                         </a>
                     </li>
-                    
+
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
@@ -80,27 +80,31 @@
             <header class="admin-header">
                 <p class="admin-header__title">Final project on Databases - Dawid Olko & Piotr Smoła</p>
                 <div class="dropdown" id="navbar-user admin-header__user">
-                    <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="admin-header__user-av rounded-circle" src="{{ asset('storage/img/icons/avatar.svg') }}" alt="logo awatar">
+                    <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
+                        id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img class="admin-header__user-av rounded-circle"
+                            src="{{ asset('storage/img/icons/avatar.svg') }}" alt="logo awatar">
                         @if (Auth::check())
                             <span class="ms-2 admin-header__user-hello" style="color: inherit; text-decoration: none;">
-                                    Hello, {{ $employeeName }} {{ $employeeLastName }}
+                                Hello, {{ $employeeName }} {{ $employeeLastName }}
                             </span>
                         @endif
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                         @if (Auth::check())
-                        <li><a class="dropdown-item" href="{{ route('employee.dashboard') }}">My profile</a></li>
-                        <li><a class="dropdown-item" href="{{ route('cart') }}">Cart</a></li>
-                        <li>
-                            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                                @csrf
-                                <button type="submit" class="btn btn-link dropdown-item" style="margin-left: 15px; padding: 0; background: none; border: none;">Log out</button>
-                            </form>
-                        </li>
-                    @else
-                        <li><a class="dropdown-item" href="{{ route('login') }}">Log in</a></li>
-                    @endif  
+                            <li><a class="dropdown-item" href="{{ route('employee.dashboard') }}">My profile</a></li>
+                            <li><a class="dropdown-item" href="{{ route('cart') }}">Cart</a></li>
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="btn btn-link dropdown-item"
+                                        style="margin-left: 15px; padding: 0; background: none; border: none;">Log
+                                        out</button>
+                                </form>
+                            </li>
+                        @else
+                            <li><a class="dropdown-item" href="{{ route('login') }}">Log in</a></li>
+                        @endif
                     </ul>
                 </div>
             </header>
@@ -110,59 +114,54 @@
                         <h1 class="mb-2">Order #{{ $order->id }}</h1>
                         <p>Date of Order: {{ $order->date_order }} - <a class="" href="{{ route("employee.orders") }}">Back to all orders</a></p>
                     </div>
-
+                
                     @if(session('success'))
-                    <div class="alert alert-success">{{ session('success') }}</div>
-                @endif
-                @if(session('error'))
-                    <div class="alert alert-danger">{{ session('error') }}</div>
-                @endif
-            
-                <div class="col-md-4">
-                    <div class="">
-                        <label class="form-label">Customer - <a href="{{ route('employee.customer', $order->customers_id) }}">Go to</a></label>
-                        <ol class="list-group mb-4">
-                            @if ($order->customer)
-                                <li class="list-group-item d-flex justify-content-between align-items-start">
-                                    <div class="ms-2 me-auto">
-                                        <div class="fw-bold">{{ $order->customer->name }} {{ $order->customer->last_name }}</div>
-                                        Name and Last name
-                                    </div>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-start">
-                                    <div class="ms-2 me-auto">
-                                        <div class="fw-bold">{{ $order->customer->email }}</div>
-                                        E-Mail
-                                    </div>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-start">
-                                    <div class="ms-2 me-auto">
-                                        <div class="fw-bold">+48{{ $order->customer->phone_number }}</div>
-                                        Phone number
-                                    </div>
-                                </li>
-                            @else
-                                <li class="list-group-item">
-                                    No customer details available.
-                                </li>
-                                @endif
-                            
-            
-                                <div class="mb-4">
-                                    <label class="form-label">Address</label>
-                                    <ol class="list-group">
-                                        @if ($order->customer)
-                                            <li class="list-group-item d-flex justify-content-between align-items-start">
-                                                <div class="ms-2 me-auto">
-                                                    <div>{{ $order->customer->delivery_address }}</div>
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                    @endif
+                    @if(session('error'))
+                        <div class="alert alert-danger">{{ session('error') }}</div>
+                    @endif
+                
+                    <div class="col-md-4">
+                        <div class="">
+                            <label class="form-label">Customer - <a href="{{ route('employee.customer', $order->customers_id) }}">Go to</a></label>
+                            <ol class="list-group mb-4">
+                                @if (!empty($orderDetails['customer_details']))
+                                    @foreach ($orderDetails['customer_details'] as $customerDetail)
+                                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="ms-2 me-auto">
+                                                <div class="fw-bold">
+                                                    {{ $customerDetail['CUSTOMER_NAME'] ?? 'Name not available' }} 
+                                                    {{ $customerDetail['CUSTOMER_LAST_NAME'] ?? '' }}
                                                 </div>
-                                            </li>
-                                        @else
-                                            <li class="list-group-item">No address details available.</li>
-                                        @endif
-                                    </ol>
-                                </div>
-            
+                                                Name and Last name
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="ms-2 me-auto">
+                                                <div class="fw-bold">{{ $customerDetail['CUSTOMER_EMAIL'] ?? 'Email not available' }}</div>
+                                                E-Mail
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="ms-2 me-auto">
+                                                <div class="fw-bold">+48{{ $customerDetail['CUSTOMER_PHONE'] ?? 'Phone not available' }}</div>
+                                                Phone number
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="ms-2 me-auto">
+                                                <div>{{ $customerDetail['CUSTOMER_ADDRESS'] ?? 'Address not available' }}</div>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                @else
+                                    <li class="list-group-item">
+                                        No customer details available.
+                                    </li>
+                                @endif
+                            </ol>
+                
                             <div style="border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea;" class="pt-4 pb-4 mb-3">
                                 <form method="POST" action="{{ route('employee.updateOrderStatus', $order->id) }}">
                                     @csrf
@@ -179,40 +178,44 @@
                                         </select>
                                         <input type="submit" class="btn btn-success" value="Change" {{ in_array($order->status, ['delivered', 'cancelled']) ? 'disabled' : '' }}>
                                     </div>
-                                  
                                 </form>
                             </div>
                         </div>
-                        {{-- <div class="col-md-8">
-                            <div class="mb-3">
-                                <label class="form-label">Ordered products</label>
-                                <ol class="list-group list-group-numbered order-cart">
-                                    @foreach($order->ordersProducts as $orderProduct)
+                    </div>
+                    <div class="col-md-8">
+                        <div class="mb-3">
+                            <label class="form-label">Ordered products</label>
+                            <ol class="list-group list-group-numbered order-cart">
+                                @if (!empty($orderDetails['order_products']))
+                                    @foreach($orderDetails['order_products'] as $orderProduct)
                                         <li class="list-group-item d-flex justify-content-between align-items-start">
                                             <div class="ms-2 me-auto">
-                                                <div class="fw-bold">{{ $orderProduct->product->NAME }}</div>
-                                                <p class="mb-1">Price:
-                                                    {{ $orderProduct->product->PRICE }}
-                                                    zł,
-                                                </p>
+                                                <div class="fw-bold">{{ $orderProduct['PRODUCT_NAME'] ?? 'Product name not available' }}</div>
+                                                <p class="mb-1">Price: {{ $orderProduct['PRODUCT_PRICE'] ?? 'Price not available' }} zł</p>
                                             </div>
-                                            <span class="badge bg-primary rounded-pill me-1">quantity:
-                                                {{ $orderProduct->pivot->quantity }}</span>
+                                            <span class="badge bg-primary rounded-pill me-1">quantity: {{ $orderProduct['QUANTITY'] ?? 'Quantity not available' }}</span>
+                                            <span class="badge bg-secondary rounded-pill me-1">total: {{ $orderProduct['TOTAL_PRICE'] ?? 'Total not available' }} zł</span>
                                         </li>
-                                        @endforeach
-                                </ol>
-                            </div>
-                            <div class="mb-3" style="text-align: right;">
-                                <div>Total value of the order:</div>
-                                <h2>
-                                    <span class="cart-value">{{ $order->totalAmount }}</span>
-                                    $</h2>
-                            </div>
+                                    @endforeach
+                                @else
+                                    <li class="list-group-item">
+                                        No ordered products available.
+                                    </li>
+                                @endif
+                            </ol>
                         </div>
-                    </div> --}}
-
-
+                        <div class="mb-3" style="text-align: right;">
+                            <div>Total value of the order:</div>
+                            <h2>
+                                <span class="cart-value">{{ array_sum(array_column($orderDetails['order_products'], 'TOTAL_PRICE')) ?? 0 }} zł</span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>                
             </main>
+            
+            
+
         </div>
     </div>
 

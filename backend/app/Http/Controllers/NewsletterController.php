@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Newsletter;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class NewsletterController extends Controller
 {
@@ -15,8 +16,8 @@ class NewsletterController extends Controller
         }
 
         $customerId = Auth::id();
-
         $subscription = Newsletter::where('CUSTOMERS_ID', $customerId)->first();
+        $message = '';
 
         if ($request->has('subscribe')) {
             if ($subscription && $subscription->SUBSCRIPTION_STATUS === 'resigned') {
@@ -24,21 +25,53 @@ class NewsletterController extends Controller
                     'SUBSCRIPTION_START' => Carbon::now(),
                     'SUBSCRIPTION_STATUS' => 'subscribed'
                 ]);
-                return redirect()->back()->with('success', 'You have successfully re-subscribed to the newsletter!');
+                $message = 'You have successfully re-subscribed to the newsletter!';
             } else {
                 Newsletter::updateOrCreate(
                     ['CUSTOMERS_ID' => $customerId],
                     ['SUBSCRIPTION_START' => Carbon::now(), 'SUBSCRIPTION_STATUS' => 'subscribed']
                 );
-                return redirect()->back()->with('success', 'Thank you for subscribing to our newsletter!');
+                $message = 'Thank you for subscribing to our newsletter!';
             }
+            $this->enqueueNewsletterNotification($customerId, 'subscribed');
         } else {
             if ($subscription && $subscription->SUBSCRIPTION_STATUS === 'subscribed') {
                 $subscription->update(['SUBSCRIPTION_STATUS' => 'resigned']);
-                return redirect()->back()->with('success', 'You have successfully unsubscribed from the newsletter.');
+                $message = 'You have successfully unsubscribed from the newsletter.';
+                $this->enqueueNewsletterNotification($customerId, 'resigned');
             }
         }
 
-        return redirect()->back()->with('error', 'Your request could not be processed.');
+        return redirect()->back()->with('success', $message);
+    }
+
+    private function enqueueNewsletterNotification($customerId, $status)
+    {
+        $email = Auth::user()->email;
+        $subject = $status === 'subscribed' ? 'Subscription Confirmation' : 'Unsubscription Confirmation';
+        $body = $status === 'subscribed' ? 'Thank you for subscribing to our newsletter!' : 'You have unsubscribed from our newsletter.';
+
+        DB::statement('
+            DECLARE
+                enqueue_options    DBMS_AQ.enqueue_options_t;
+                message_properties DBMS_AQ.message_properties_t;
+                message_handle     RAW(16);
+                message            SYS.AQ$_JMS_TEXT_MESSAGE;
+            BEGIN
+                message := SYS.AQ$_JMS_TEXT_MESSAGE.construct;
+                message.set_text(:body);
+
+                DBMS_AQ.enqueue(
+                    queue_name         => :queue_name,
+                    enqueue_options    => enqueue_options,
+                    message_properties => message_properties,
+                    payload            => message,
+                    msgid              => message_handle
+                );
+            END;
+        ', [
+            'queue_name' => 'newsletter_queue',
+            'body' => $body
+        ]);
     }
 }

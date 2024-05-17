@@ -41,13 +41,28 @@ public function Orders()
 
 public function showOrder($id)
 {
-    $order = Order::with('customer')->findOrFail($id); // Załadowanie klienta wraz z zamówieniem    
+    $orderDetails = Order::getOrderDetails($id);
+    $order = Order::with('customer')->findOrFail($id);
     $employeeName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->NAME;
     $employeeLastName = Employee::where('id', auth()->guard('employee')->user()->id)->first()->LAST_NAME;
     $jobPosition = Employee::where('id', auth()->guard('employee')->user()->id)->first()->JOB_POSITION;
 
-    return view('employee.show', compact('order','employeeName', 'employeeLastName', 'jobPosition'));
+    return view('employee.show', compact(
+        'order',
+        'employeeName' ,
+        'employeeLastName',
+        'jobPosition' ,
+        'orderDetails'
+    ));
 }
+
+
+
+
+
+
+
+
 
 public function Products()
 {
@@ -118,7 +133,7 @@ public function listProducts(Request $request)
             return redirect()->route('employee.products')->with('error', 'Failed to search products: ' . $e->getMessage());
         }
     } else {
-        $products = Products::with('categories')->paginate(10);
+        $products = Product::with('categories')->paginate(10);
     }
 
     return view('employee.products', compact('products', 'employeeName', 'employeeLastName', 'jobPosition'));
@@ -319,7 +334,7 @@ public function listCustomers(Request $request)
             return redirect()->route('employee.customers')->with('error', 'Failed to search customers: ' . $e->getMessage());
         }
     } else {
-        $customers = Customers::paginate(10);
+        $customers = Customer::paginate(10);
     }
 
     return view('employee.customers', compact('customers', 'employeeName', 'employeeLastName', 'jobPosition'));

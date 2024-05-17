@@ -20,7 +20,58 @@ class Products extends Model
     {
         return $this->hasMany(Opinions::class);
     }
+
+    public static function getProductDetails()
+    {
+        return DB::table('vw_product_details')->get();
+    }
+
+    public static function addProduct($name, $price, $quantitiesAvailable, $saleId, $oldPrice, $description)
+    {
+        $pdo = DB::getPdo();
+        $stmt = $pdo->prepare("BEGIN pkg_products.add_product(:name, :price, :quantities_available, :sale_id, :old_price, :description); END;");
+        
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':price', $price, PDO::PARAM_INT);
+        $stmt->bindParam(':quantities_available', $quantitiesAvailable, PDO::PARAM_INT);
+        $stmt->bindParam(':sale_id', $saleId, PDO::PARAM_INT);
+        $stmt->bindParam(':old_price', $oldPrice, PDO::PARAM_INT);
+        $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+        
+        $stmt->execute();
+    }
+
+    public static function updateProductPrice($productId, $price)
+    {
+        $pdo = DB::getPdo();
+        $stmt = $pdo->prepare("BEGIN pkg_products.update_product_price(:product_id, :price); END;");
+        
+        $stmt->bindParam(':product_id', $productId, PDO::PARAM_INT);
+        $stmt->bindParam(':price', $price, PDO::PARAM_INT);
+        
+        $stmt->execute();
+    }
     
+    public static function getTopRatedProducts()
+    {
+        $pdo = DB::getPdo();
+        $stmt = $pdo->prepare("BEGIN :cursor := fn_get_top_rated_products; END;");
+        
+        $stmt->bindParam(':cursor', $cursor, PDO::PARAM_STMT);
+        $stmt->execute();
+        
+        oci_execute($cursor, OCI_DEFAULT);
+        
+        $products = [];
+        while ($row = oci_fetch_assoc($cursor)) {
+            $products[] = $row;
+        }
+        
+        oci_free_statement($cursor);
+        
+        return $products;
+    }
+
     public static function getPromotionalProducts()
     {
         $pdo = DB::getPdo();
