@@ -1,231 +1,663 @@
-# Team: Dawid Olko, Piotr Smoła
+# TechByte – Computer Store E-Commerce Platform
 
-## Project topic: Website of an online store with computers and computer parts
+### Authors: Dawid Olko and Piotr Smoła  
+### Rzeszów 2024
 
-### Description:
+## Table of Contents
 
-The online store project, which aims to offer a wide range of computer equipment, will be an advanced e-commerce platform, designed to give users influence when shopping online. The website is available with an external user interface that allows you to navigate through various products such as laptops, desktop computers, PC components (processors, graphics cards, RAM or hard drives, etc.)
+1. [Introduction](#introduction)
+2. [Project Description](#project-description)
+   - [Technologies Used](#technologies-used)
+   - [Project Features](#project-features)
+   - [Database](#database)
+     - [Database Structure](#database-structure)
+     - [Table Relationships](#table-relationships)
+3. [Project Assumptions](#project-assumptions)
+   - [Project Goal](#project-goal)
+   - [Database](#database-details)
+     - [Database Views](#database-views)
+     - [Database Indexes](#database-indexes)
+     - [Stored Procedures](#stored-procedures)
+     - [Database Functions](#database-functions)
+     - [Operators](#operators)
+     - [Queues and Queue Tables](#queues-and-queue-tables)
+     - [Triggers](#triggers)
+     - [Sequences](#sequences)
+4. [Requirements Specification](#requirements-specification)
+   - [Functional Requirements](#functional-requirements)
+   - [CRUD Operations](#crud-operations)
+   - [User Interface (GUI)](#user-interface-gui)
+5. [Installation and Configuration](#installation-and-configuration)
+   - [SQL Developer Installation](#sql-developer-installation)
+   - [Oracle 19c Installation](#oracle-19c-installation)
+   - [User and Database Creation](#user-and-database-creation)
+   - [Laravel Oracle Connection Configuration](#laravel-oracle-connection-configuration)
+6. [Project Structure](#project-structure)
+   - [System Architecture](#system-architecture)
+   - [Directory Structure](#directory-structure)
+   - [Module Descriptions](#module-descriptions)
+7. [Database Design](#database-design)
+   - [Database Tables](#database-tables)
+   - [Database Views](#database-views-details)
+   - [Database Indexes](#database-indexes-details)
+   - [Stored Procedures](#stored-procedures-details)
+   - [Database Functions](#database-functions-details)
+   - [Operators](#operators-details)
+   - [Queues and Queue Tables](#queues-and-queue-tables-details)
+   - [Triggers](#triggers-details)
+   - [Sequences](#sequences-details)
+8. [Detailed Database Description](#detailed-database-description)
+   - [Database Structure](#detailed-database-structure)
+   - [Table Relationships](#detailed-table-relationships)
+   - [Views and Indexes](#views-and-indexes)
+   - [Stored Procedures and Functions](#stored-procedures-and-functions)
+   - [Triggers and Sequences](#triggers-and-sequences)
+   - [Queues](#queues)
+   - [Optimization and Management](#optimization-and-management)
+9. [Project Schedule](#project-schedule)
+   - [Frontend Development](#frontend-development)
+   - [Backend Development](#backend-development)
+   - [Frontend and Backend Integration](#frontend-and-backend-integration)
+   - [Commit History Analysis](#commit-history-analysis)
+10. [User Interface Presentation](#user-interface-presentation)
+    - [Home Page](#home-page)
+    - [Category Page](#category-page)
+    - [Product Page](#product-page)
+    - [Shopping Cart](#shopping-cart)
+    - [Order Process](#order-process)
+    - [User Account](#user-account)
+    - [Admin Panel](#admin-panel)
+11. [Admin Panel](#admin-panel-details)
+    - [Dashboard](#dashboard)
+    - [Order Management](#order-management)
+    - [Product Management](#product-management)
+    - [Customer Management](#customer-management)
+    - [Complaint Management](#complaint-management)
+    - [Navigation and Additional Features](#navigation-and-additional-features)
+12. [Support and Customer Service](#support-and-customer-service)
+    - [FAQ Section](#faq-section)
+    - [Contact Forms](#contact-forms)
+    - [Email Support](#email-support)
+    - [Post-Sales Support](#post-sales-support)
+13. [Summary](#summary)
+    - [Key Project Elements](#key-project-elements)
+    - [Requirements Specification](#requirements-specification-summary)
+    - [Installation and Configuration](#installation-and-configuration-summary)
+    - [Project Structure](#project-structure-summary)
+    - [Database Design](#database-design-summary)
+    - [Detailed Database Description](#detailed-database-description-summary)
+    - [Project Schedule](#project-schedule-summary)
+    - [User Interface Presentation](#user-interface-presentation-summary)
+    - [Admin Panel](#admin-panel-summary)
+    - [Support and Customer Service](#support-and-customer-service-summary)
+    - [Conclusions](#conclusions)
+14. [References](#references)
+    - [Laravel](#laravel)
+    - [Oracle 19c](#oracle-19c)
+    - [Similar Online Stores Documentation](#similar-online-stores-documentation)
+    - [Additional Sources](#additional-sources)
+15. [Attachments](#attachments)
+    - [Frontend](#frontend)
+    - [Code Repository](#code-repository)
+    - [Technical Documentation](#technical-documentation)
 
-### Database and Product Catalog
+---
 
-A key element of the equipment will be an extensive product database, which will be regularly updated with new elements to provide access to the latest technology and software on the market. Each product will have a detailed product card, including full technical specifications, high-quality photos, prices, availability information, as well as a section with ratings from other users. To enable customers to review before making a purchase.
+## Introduction
 
-### Functionality For Users
+The "TechByte" project is an advanced e-commerce platform designed for the sale of computer hardware and components. The primary goal is to create an intuitive, functional, and scalable website that meets customer expectations and facilitates efficient store management by administrators. The project encompasses the full online sales cycle – from product presentation through order processing to delivery and post-sales support.
 
-The frontend includes advanced search functions, product filtering based on various parameters such as price, brand, technical specifications and user ratings, along with post-rating or inspection sorting controls. The shopping cart system will be designed to be easy to distribute, enabling the addition and removal of products, as well as a quick transition to the purchasing process.
-The customer will be able to use an account containing information such as disruption history, address details or exit information.
-Sending process with payment methods including credit cards, bank transfers, as well as biological online payment systems, email like PayPal, so that users can use the payment method. The store also provides support for the mobile shopping process, which allows you to make payments via distribution and tablets.
+## Project Description
 
-### Administration panel
+### Technologies Used
 
-An advanced administration panel will be available to store end users, providing distributors for delivering new products, inventory management, pricing, and promotion and exit devices. The panel enables monitoring over time, which allows for quick launch to meet customer needs and manage logistics and deliveries.
+- **Backend:**
+  - **Laravel 11.0**: A PHP framework that supports advanced web applications using the MVC (Model-View-Controller) pattern.
+  - **Oracle 19c**: A relational database known for its reliability and scalability.
 
-### Customer support and service
+- **Frontend:**
+  - **HTML5, CSS3, JavaScript**: Standard web technologies for responsive and attractive design.
+  - **Bootstrap**: A CSS framework for creating responsive and aesthetically pleasing user interfaces.
 
-The website will include a support section where customers can find answers to frequently asked questions (FAQs) about examples of information on how to apply the by-products, along with a return for return.
+- **Version Control:**
+  - **Git**: A tool for tracking changes in the source code.
+  - **GitHub**: A platform for hosting Git repositories, supporting team collaboration, CI/CD automation, and project monitoring.
 
-the design of the online computer store was created to ensure comfort of use as well as security of online shopping. It contains a set of tools and functions that not only facilitate shopping, but also manage the store and assortment, which will help reduce side effects and develop your business.
-To translate the entire document into English and add specifications to each table attribute based on the diagram and screenshots you've provided, I will proceed as follows:
+### Project Features
 
-1. Translate the provided document excerpt into English.
-2. Add `NULLABLE` and `DATA_TYPE` specifications to each attribute in the tables based on the diagrams.
-3. Update or add the tables `Klienci` (Clients), `Produkty` (Products), `Specyfikacje` (Specifications), `Promocje` (Promotions), and `Zdjecia Produktow` (Product Images) as per the images provided.
+TechByte offers a range of advanced features to enhance user experience and facilitate store management:
+- Advanced product search and filtering
+- Shopping cart system
+- User account management
+- Admin panel for store management
+- Customer support and service
 
-# Database Tables Descriptions:
+### Database
 
+The database is a key element of the TechByte project, storing all the necessary information for the online store. It is designed in Oracle 19c to ensure reliability, security, and scalability.
+
+#### Database Structure
+
+The database includes the following tables:
+- **Categories**: Information about product categories.
+- **Customers**: Customer data.
+- **Newsletter**: Newsletter subscriber data.
+- **Opinions**: Customer opinions about products.
+- **Employees**: Employee data.
+- **Products**: Detailed information about products.
+- **Products_Categories**: Links products with categories.
+- **Sale**: Promotion data.
+- **Complaints**: Information about complaints.
+- **Orders**: Order data.
+- **Order_Product**: Links orders with products.
+- **Shipments**: Shipment information.
+- **Specifications**: Detailed product specifications.
+- **Photos_Products**: Paths to product images.
+
+#### Table Relationships
+
+- **Products**: Related to Categories, Opinions, Sale, Order_Product, Specifications, and Photos_Products.
+- **Categories**: Related to Products and Products_Categories.
+- **Orders**: Related to Customers, Shipments, Complaints, Order_Product, and Employees.
+- **Customers**: Related to Orders, Opinions, and Newsletter.
+- **Opinions**: Related to Products and Customers.
+- **Employees**: Related to Orders.
+- **Complaints**: Related to Orders.
+- **Newsletter**: Related to Customers.
+- **Shipments**: Related to Orders.
+- **Sale**: Related to Products.
+- **Products_Categories**: Related to Products and Categories.
+- **Specifications**: Related to Products.
+- **Photos_Products**: Related to Products.
+
+## Project Assumptions
+
+### Project Goal
+
+The goal of the "TechByte" project is to create an advanced e-commerce platform for selling computer hardware and components using modern technologies such as Laravel 11.0 for backend development and Oracle 19c for database management.
+
+### Database Details
+
+The well-designed and efficient database is a crucial aspect of the project, storing all necessary information for the online store. It includes views, indexes, stored procedures, functions, operators, queues, triggers, and sequences.
+
+#### Database Views
+
+Views allow for convenient data retrieval from multiple tables:
+- **VW_ORDER_DETAILS**: Detailed order information.
+- **VW_ORDER_PRODUCTS**: Information about products in orders.
+- **VW_PRODUCT_DETAILS**: Detailed product information.
+
+#### Database Indexes
+
+Indexes are used to speed up database queries:
+- **Primary Key (PK)**
+- **Unique Key (UK)**
+- **Secondary Indexes**
+
+#### Stored Procedures
+
+Stored procedures perform complex database operations:
+- **ADD_PRODUCT**: Adds a new product.
+- **DELETE_CUSTOMER_BY_ID**: Deletes a customer by ID.
+- **REGISTER_CUSTOMER**: Registers a new customer.
+- **SEARCH_PRODUCTS_BY_NAME**: Searches products by name.
+
+#### Database Functions
+
+Functions perform operations that return values:
+- **FN_AVG_RATING**: Returns
+
+ the average rating of a product.
+- **FN_GET_TOP_RATED_PRODUCTS**: Returns the top-rated products.
+- **FN_IS_AVAILABLE**: Checks product availability.
+
+#### Operators
+
+Operators define custom operations in the database:
+- **OP_AVG_RATING**: Operator for calculating average rating.
+- **OP_IS_AVAILABLE**: Operator for checking product availability.
+
+#### Queues and Queue Tables
+
+Queues manage asynchronous tasks:
+- **COMPLAINTS_QUEUE**: Complaint queue.
+- **NEWSLETTER_QUEUE**: Newsletter queue.
+
+Queue tables store tasks waiting for processing:
+- **COMPLAINTS_QUEUE_TABLE**: Stores complaint tasks.
+- **NEWSLETTER_QUEUE_TABLE**: Stores newsletter tasks.
+
+#### Triggers
+
+Triggers automate operations in the database:
+- **CATEGORIES_ID_TRG**: Automates operations on the CATEGORIES table.
+- **ORDERS_ID_TRG**: Automates operations on the ORDERS table.
+
+#### Sequences
+
+Sequences generate unique values for primary keys:
+- **CATEGORIES_ID_SEQ**: Generates unique IDs for the CATEGORIES table.
+- **ORDERS_ID_SEQ**: Generates unique IDs for the ORDERS table.
+
+## Requirements Specification
+
+### Functional Requirements
+
+The project is oriented towards providing complete functionalities for efficient store management and ensuring a user-friendly online shopping experience.
+
+### CRUD Operations
+
+CRUD operations are implemented for all key components of the system:
+- **Products**
+- **Categories**
+- **Customers**
+- **Orders**
+- **Complaints**
+- **Opinions**
+
+### User Interface (GUI)
+
+The "TechByte" system features user-friendly graphical interfaces for both customers and administrators.
+
+#### Frontend for Customers
+
+- **Home Page**: Overview of the latest and promoted products.
+- **Category Pages**: Product listings by category.
+- **Product Page**: Detailed product information.
+- **Shopping Cart**: View and manage selected products.
+- **User Account**: Registration, login, and personal data management.
+- **Contact Page**: Contact form and FAQ section.
+
+#### Admin Panel
+
+- **Product Management**: Add, edit, and delete products.
+- **Category Management**: Add, edit, and delete product categories.
+- **Customer Management**: View and edit customer data.
+- **Order Management**: View and update order statuses.
+- **Complaint Management**: Manage complaint submissions.
+- **Opinion Management**: View and moderate product opinions.
+
+## Installation and Configuration
+
+### SQL Developer Installation
+
+1. Download SQL Developer from the [Oracle SQL Developer Downloads](https://www.oracle.com/tools/downloads/sql-developer-downloads.html) page.
+2. Extract the ZIP file to a chosen directory.
+3. Run `sqldeveloper.exe` from the extracted folder.
+
+### Oracle 19c Installation
+
+1. Download Oracle 19c from the [Oracle Database 19c Downloads](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html) page.
+2. Run the installer and follow the installation instructions.
+3. Note the SID and port (default is 1521).
+
+### User and Database Creation
+
+1. Connect to the database as the `sys` user using SQL Developer.
+2. Create a new user and grant permissions:
+   ```sql
+   CREATE USER sklep IDENTIFIED BY admin;
+   GRANT CONNECT, RESOURCE TO sklep;
+   ```
+3. Create the database:
+   ```sql
+   CREATE DATABASE sklepinternetowy;
+   ```
+
+### Laravel Oracle Connection Configuration
+
+1. Install required PHP extensions:
+   - Uncomment `extension=oci8_12c` in `php.ini`.
+   - Add `extension=php_oci8_19.dll`.
+
+2. Install Laravel packages:
+   ```bash
+   php -r "copy('.env.example', '.env');"
+   composer install
+   composer require yajra/laravel-oci8
+   composer require barryvdh/laravel-debugbar --dev
+   php artisan migrate:fresh --seed
+   php artisan key:generate
+   php artisan storage:link
+   ```
+
+3. Configure the `.env` file:
+   ```env
+   DB_CONNECTION=oracle
+   DB_HOST=localhost
+   DB_PORT=1521
+   DB_DATABASE=sklepinternetowy
+   DB_USERNAME=sklep
+   DB_PASSWORD=admin
+   DB_SID=orcl
+   ```
+
+4. Configure `config/database.php` to include Oracle configuration.
+
+### Running the Project
+
+Start the local Laravel server:
+```bash
+php artisan serve
 ```
-**Table `Klienci` (Clients):**
 
-- `ID_KLIENTA` NUMBER(38, 0) NOT NULL
-- `IMIE` VARCHAR2(20 CHAR) NOT NULL
-- `NAZWISKO` VARCHAR2(50 CHAR) NOT NULL
-- `ADRES_DOSTAWY` VARCHAR2(100 CHAR) NOT NULL
-- `NR_TELEFONU` CHAR(10 CHAR) NOT NULL
-- `EMAIL` VARCHAR2(100 CHAR) (nullable)
-- `HASLO` CHAR(64 CHAR) NOT NULL
+## Project Structure
 
-**Table `Produkty` (Products):**
+### System Architecture
 
-- `ID_PRODUKTU` NUMBER(38, 0) NOT NULL
-- `NAZWA` VARCHAR2(50 CHAR) NOT NULL
-- `ID_KATEGORII` NUMBER(38, 0) NOT NULL
-- `CENA` NUMBER(10,2) NOT NULL
-- `ILOSC_DOSTEPNYCH` NUMBER(38, 0) NOT NULL
-- `ID_PROMOCJI` NUMBER(38, 0) (nullable)
-- `STARA_CENA` NUMBER(10,2) (nullable)
-- `OPIS` CLOB NOT NULL
+The system architecture is based on the MVC (Model-View-Controller) pattern, dividing the application into three main components: Model, View, and Controller.
 
-**Table `Specyfikacje` (Specifications):**
+### Directory Structure
 
-- `ID_SPECYFIKACJI` NUMBER(38, 0) NOT NULL
-- `ID_PRODUKTU` NUMBER(38, 0) NOT NULL
-- `NAZWA_PARAMETRU` VARCHAR2(50 CHAR) NOT NULL
-- `SPECYFIKACJA` CLOB (nullable)
+The project directory structure is organized for easy code management and development:
+- **app/**: Main application files (models, controllers, etc.).
+- **Models/**: Models representing database tables.
+- **Http/Controllers/**: Controllers handling application logic.
+- **database/**: Migrations, seeds, and factories.
+- **resources/**: Views, language files, and frontend assets.
+- **views/**: Blade templates.
+- **config/**: Application configuration files.
+- **public/**: Publicly accessible files (CSS, JavaScript, images).
+- **routes/**: Route definitions.
 
-**Table `Promocje` (Promotions):**
+### Module Descriptions
 
-- `ID_PROMOCJI` NUMBER(38, 0) NOT NULL
-- `WYSOKOSC_RABATU` NUMBER(5,2) NOT NULL
-- `
+The project consists of several main modules responsible for different aspects of the store:
+- **Products Module**: Manages products.
+- **Categories Module**: Manages product categories.
+- **Customers Module**: Manages customer data.
+- **Orders Module**: Manages customer orders.
+- **Complaints Module**: Manages complaints.
+- **Opinions Module**: Manages product opinions.
+- **Admin Panel Module**: Manages the entire store.
 
-Continuing with the table definitions, here are the translations and the specifications for the remaining tables:
+## Database Design
 
-**Table `Promocje` (Promotions):**
+### Database Tables
 
-- `ID_PROMOCJI` NUMBER(38, 0) NOT NULL
-- `WYSOKOSC_RABATU` NUMBER(5,2) NOT NULL
-- `DATA_ROZPOCZECIA` DATE NOT NULL
-- `DATA_ZAKONCZENIA` DATE NOT NULL
+Detailed description of each database table:
+- **CATEGORIES**: Product category information.
+- **COMPLAINTS**: Complaint data.
+- **CUSTOMERS**: Customer information.
+- **EMPLOYEES**: Employee information.
+- **NEWSLETTER**: Newsletter subscriber information.
+- **OPINIONS**: Customer opinions on products.
+- **ORDERS**: Order information.
+- **ORDER_PRODUCT**: Links orders with products.
+- **PHOTOS_PRODUCTS**: Paths to product images.
+- **PRODUCTS**: Product information.
+- **PRODUCTS_CATEGORIES**: Links products with categories.
+- **SALE**: Promotion information.
+- **SHIPMENTS**: Shipment information.
+- **SPECIFICATIONS**: Product specifications.
 
-**Table `Zdjecia Produktow` (Product Images):**
+### Database Views
 
-- `ID_ZDJECIA` NUMBER(38, 0) NOT NULL
-- `ID_PRODUKTU` NUMBER(38, 0) NOT NULL
-- `SCIEZKA` VARCHAR2(255 BYTE) NOT NULL
+Database views provide convenient data retrieval from multiple tables:
+- **VW_ORDER_DETAILS**: Detailed order information.
+- **VW_ORDER_PRODUCTS**: Information about products in orders.
+- **VW_PRODUCT_DETAILS**: Detailed product information.
 
-For the rest of the tables, based on the ERD and screenshots you provided, I assume that they already exist and need to be aligned with the information given. I'll continue the translation and specification adjustments for the remaining tables based on the screenshots and the text provided.
+### Database Indexes
 
-**Table `Produkty_Kategorie` (Product Categories):**
+Indexes are used to speed up database queries:
+- **Primary Key (PK)**
+- **Unique Key (UK)**
+- **Secondary Indexes**
 
-- `ID_Kategorii` INT NOT NULL
-- `ID_Produktu` INT NOT NULL
+### Stored Procedures
 
-**Table `Kategorie` (Categories):**
+Stored procedures perform complex database operations:
+- **ADD_PRODUCT**: Adds a new product.
+- **DELETE_CUSTOMER_BY_ID**: Deletes a customer by ID.
+- **REGISTER_CUSTOMER**: Registers a new customer.
+- **SEARCH_PRODUCTS_BY_NAME**: Searches products by name.
 
-- `ID_Kategorii` INT NOT NULL
-- `Nazwa_Kategorii` VARCHAR2(50) NOT NULL
-- `Opis` VARCHAR2(100)
+### Database Functions
 
-**Table `Zamowienia` (Orders):**
+Functions perform operations that return values:
+- **FN_AVG_RATING**: Returns the average rating of a product.
+- **FN_GET_TOP_RATED_PRODUCTS**: Returns the top-rated products.
+- **FN_IS_AVAILABLE**: Checks product availability.
 
-- `ID_Zamowienia` INT NOT NULL
-- `ID_Klienta` INT NOT NULL
-- `ID_Pracownika` INT
-- `Data_Zamowienia` TIMESTAMP NOT NULL
-- `Status` VARCHAR2(20) NOT NULL
+### Operators
 
-**Table `Opinie` (Reviews):**
+Operators define custom operations in the database:
+- **OP_AVG_RATING**: Operator for calculating average rating.
+- **OP_IS_AVAILABLE**: Operator for checking product availability.
 
-- `ID_Opinii` INT NOT NULL
-- `ID_Produktu` INT NOT NULL
-- `ID_Klienta` INT NOT NULL
-- `Tresc_Opinii` VARCHAR2(250)
-- `Ocena` INT NOT NULL
+### Queues and Queue Tables
 
-**Table `Pracownicy` (Employees):**
+Queues manage asynchronous tasks:
+- **COMPLAINTS_QUEUE**: Complaint queue.
+- **NEWSLETTER_QUEUE**: Newsletter queue.
 
-- `ID_Pracownika` INT NOT NULL
-- `Imie` VARCHAR2(20) NOT NULL
-- `Nazwisko` VARCHAR2(50) NOT NULL
-- `Stanowisko` VARCHAR2(50)
-- `Email` VARCHAR2(100)
-- `Nr_Telefonu` CHAR(10)
+Queue tables store tasks waiting for processing:
+- **COMPLAINTS_QUEUE_TABLE**: Stores complaint tasks.
+- **NEWSLETTER_QUEUE_TABLE**: Stores newsletter tasks.
 
-**Table `Reklamacje` (Complaints):**
+### Triggers
 
-- `ID_Reklamacji` INT NOT NULL
-- `ID_Zamowienia` INT NOT NULL
-- `Przyczyna` VARCHAR2(100) NOT NULL
-- `Status` VARCHAR2(20) NOT NULL
-- `Data_Zgloszenia` TIMESTAMP NOT NULL
+Triggers automate operations in the database:
+- **CATEGORIES_ID_TRG**: Automates operations on the CATEGORIES table.
+- **ORDERS_ID_TRG**: Automates operations on the ORDERS table.
 
-**Table `Newsletter` (Newsletter Subscriptions):**
+### Sequences
 
-- `ID_Subskrypcji` INT NOT NULL
-- `ID_Klienta` INT NOT NULL
-- `Poczatek_Subskrypcji` TIMESTAMP NOT NULL
-- `Status_Subskrypcji` VARCHAR2(10) NOT NULL
+Sequences generate unique values for primary keys:
+- **CATEGORIES_ID_SEQ**: Generates unique IDs for the CATEGORIES table.
+- **ORDERS_ID_SEQ**: Generates unique IDs for the ORDERS table.
 
-**Table `Przesylki` (Shipments):**
+## Detailed Database Description
 
-- `ID_Przesylki` INT NOT NULL
-- `ID_Zamowienia` INT NOT NULL
-- `Firma_Kurierska` VARCHAR2(50) NOT NULL
-- `ID_Sledzenia` CHAR(20)
-- `Status_Dostawy` VARCHAR2(30) NOT NULL
-- `Czas_Dostawy` DATE
-```
+### Database Structure
 
-## Relationships between tables:
+The database is designed to ensure data integrity, operational efficiency, and ease of expansion and maintenance.
 
-### I. Products table:
+### Table Relationships
 
-• Stores data about all products offered in the store.
-• Relations:
-• With the Category Table via the Category field that indicates d
+Relationships between tables are defined using foreign keys to ensure data consistency and integrity.
 
-## Relationships between tables:
+### Views and Indexes
 
-### I. Products table:
+Views simplify queries and improve code readability, while indexes optimize query performance.
 
-• Stores data about all products offered in the store.
-• Relations:
-• With the Category Table via the Category field, which indicates which category the product belongs to.
-• With the Reviews Table via Product ID, allowing reviews to be assigned to a product.
-• With the Stock Status Table via Product ID, enabling the collection of information on the number of available pieces of a product in stock.
+### Stored Procedures and Functions
 
-### II. Table Categories:
+Stored procedures and functions enable complex operations on data without writing complex SQL queries every time.
 
-• Provides information about product categories.
-• Relations:
-• With the Products Table, where each product is assigned to one category.
+### Triggers and Sequences
 
-### III. Order Table:
+Triggers automate record updates, while sequences generate unique identifiers for records.
 
-• Contains information about orders placed by customers.
-• Relations:
-• With the Customers Table via Customer ID, indicating who placed the order.
-• With the Shipping Table via Order ID, tracking delivery information for a given order.
-• With the Complaints Table via Order ID, for any complaints related to the order.
+### Queues
 
-### IV. Customers table:
+Queues manage asynchronous tasks such as complaint processing and newsletter sending.
 
-• Contains store customer data.
-• Relations:
-• With Order Table via Customer ID, showing their orders.
-• With a Reviews Table via Customer ID, allowing them to leave product reviews.
-• With the Newsletter Table via Customer ID, indicating newsletter subscription.
+### Optimization and Management
 
-### V. Table Opinions:
+The database is optimized for performance and management, with regular maintenance operations like analysis and statistic updates.
 
-• Contains customer opinions about products.
-• Relations:
-• With the Products Table and the Customers Table via Product ID and Customer ID respectively, assigning reviews to products and customers.
+## Project Schedule
 
-### VI. Employees table:
+### Frontend Development
 
-• Contains data of store employees.
-• Relations:
-• Linking to the Orders table, linking a given order with the employee preparing it (Employee ID as a foreign key in the Orders table)
+Initial focus on designing and implementing the user interface using HTML5, CSS3, JavaScript, and Bootstrap.
 
-### VII. Complaints table:
+### Backend Development
 
-• Manages the product complaint process.
-• Relations:
-• With the Order Table via Order ID, identifying which order is being advertised.
+Development of backend logic using Laravel 11.0, including model creation, controller implementation, and database migrations.
 
-### VIII. Newsletter table:
+### Frontend and Backend Integration
 
-• Manages customer subscriptions to newsletters.
-• Relations:
-• With the Customers Table via Customer ID, tracking who subscribes to the newsletter.
+Integrating the frontend with the backend and connecting to the Oracle 19c database.
 
-### IX. Product Statistics Table:
+### Commit History Analysis
 
-• Contains data on the number of available pieces of a given product in stock
-• Relations:
-• With the Products Table via Product ID, allowing you to collect statistics about a specific product.
+Intensive work by the two main authors, with 120 commits made throughout the project development.
 
-### X. Shipping Table:
+## User Interface Presentation
 
-• Stores information about shipments of goods to customers.
-• Relations:
-• With the Order Table via Order ID, allowing you to track which shipments correspond to specific orders.
+### Home Page
 
-### XI. Table Promotions:
+Includes a header, promotional banners, featured products, new arrivals, and a footer.
 
-• Contains information about promotions and discounts offered by the store.
-• Relations:
-• With the Products Table to assign promotions to specific products.
+### Category Page
 
-Each table in the database has its own purpose, which contributes to the overall functionality of the online store. The Products table is the heart of the store catalog, containing all the items available for purchase. The Categories table allows customers to easily search the store's assortment. The Order Table and the Shipment Table support the sales process from the moment the customer places the order until its delivery. The Customers table is essential for managing user accounts, while the Opinions table helps build trust and provides product feedback. The Employees table is used to manage orders when, in case of problems encountered with the order, the employee assigned to him will be responsible at the stage of order preparation and execution. The Complaints table is used to handle any post-sale problems. The Newsletter table is important for marketing activities and maintaining customer relationships. The Inventory Table provides valuable information for sales departments and people responsible for replenishing missing products in stock, while the Promotions Table enables the management of prices and special offers.
+Displays products in different categories with filters and sorting options.
+
+### Product Page
+
+Provides detailed information about
+
+ selected products, including images, specifications, price, availability, and customer reviews.
+
+### Shopping Cart
+
+Allows users to view and manage selected products before checkout.
+
+### Order Process
+
+Simplified order process with order summary, shipping details, and payment options.
+
+### User Account
+
+Enables registered users to manage their personal data and order history.
+
+### Admin Panel
+
+Tools for employees to manage products, categories, customers, orders, and complaints.
+
+## Admin Panel Details
+
+### Dashboard
+
+Overview of key metrics and statistics about store activity.
+
+### Order Management
+
+View and manage all customer orders.
+
+### Product Management
+
+Manage store products, including adding, editing, and deleting products.
+
+### Customer Management
+
+View and edit customer data.
+
+### Complaint Management
+
+Manage complaint submissions and statuses.
+
+### Navigation and Additional Features
+
+Navigation menu, quick return to store, and secure logout options.
+
+## Support and Customer Service
+
+### FAQ Section
+
+Provides answers to frequently asked questions about shopping, payments, shipping, returns, and user accounts.
+
+### Contact Forms
+
+Different forms for general inquiries, complaints, and product returns.
+
+### Email Support
+
+Email support for customer inquiries.
+
+### Post-Sales Support
+
+Order tracking, shipment updates, and technical support for purchased products.
+
+## Summary
+
+### Key Project Elements
+
+Overview of project goal, technologies used, and core functionalities.
+
+### Requirements Specification Summary
+
+Implementation of CRUD operations and user interface (GUI) for efficient store management.
+
+### Installation and Configuration Summary
+
+Steps for installing SQL Developer, Oracle 19c, and configuring Laravel with Oracle.
+
+### Project Structure Summary
+
+Modular project structure for easy management and development.
+
+### Database Design Summary
+
+Well-structured database with tables, views, indexes, stored procedures, functions, operators, queues, triggers, and sequences.
+
+### Detailed Database Description Summary
+
+Comprehensive database design ensuring data integrity, performance, and management.
+
+### Project Schedule Summary
+
+Detailed project schedule with frontend development, backend development, and integration phases.
+
+### User Interface Presentation Summary
+
+Intuitive and functional user interface design for both customers and administrators.
+
+### Admin Panel Summary
+
+Admin panel providing tools for efficient store management.
+
+### Support and Customer Service Summary
+
+Comprehensive customer support and service mechanisms.
+
+### Conclusions
+
+The "TechByte" project integrates advanced web technologies with solid database solutions, offering a comprehensive e-commerce platform that meets the expectations of both customers and store administrators.
+
+## References
+
+### Laravel
+
+- [Laravel Official Documentation](https://laravel.com/docs)
+- [Yajra/laravel-oci8 GitHub Repository](https://github.com/yajra/laravel-oci8)
+- [Barryvdh/laravel-debugbar GitHub Repository](https://github.com/barryvdh/laravel-debugbar)
+
+### Oracle 19c
+
+- [Oracle Database 19c](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html)
+- [SQL Developer](https://www.oracle.com/tools/downloads/sql-developer-downloads.html)
+
+### Similar Online Stores Documentation
+
+- [X-KOM](https://www.x-kom.pl/)
+- [Morele.net](https://www.morele.net/)
+
+### Additional Sources
+
+- [Bootstrap Documentation](https://getbootstrap.com/docs)
+- [Git Documentation](https://git-scm.com/doc)
+- [GitHub Documentation](https://docs.github.com/)
+
+## Attachments
+
+### Frontend
+
+The frontend of the TechByte project is available online via GitHub Pages for easy access and testing.
+
+### Code Repository
+
+The full source code repository, including frontend and backend, is hosted on GitHub.
+
+### Technical Documentation
+
+Technical documentation, including detailed configuration and project structure descriptions, is available in the GitHub repository in Markdown format. 
+
+- [TechByte Repository](https://github.com/dawidolko/Database-Project-ComputerStore/tree/main/frontend)
+
+---
+
+This README.md provides a comprehensive overview of the TechByte project, detailing the technologies used, project features, database design, installation and configuration steps, and more, ensuring a clear understanding for developers and stakeholders involved.
