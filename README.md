@@ -1,30 +1,74 @@
 # Database project - Computer store
 
-## Final database project.
+## Final database project
 
-### Full application of a store selling computers and computer components, with a Frontend written in JavaScript, a Backend in PHP and a PL/SQL database
+### Full application of a store selling computers and computer components, with a Frontend written in JavaScript, a Backend in PHP, and a PL/SQL database
 
-<br><br>![info](frontend/assets/images/plsql.png)
+![info](frontend/assets/images/plsql.png)
 
 # TechByte
 
-<br><br>![info](frontend/assets/images/Main.png)
+![info](frontend/assets/images/Main.png)
 
 ## Introduction
 
-Welcome to the GitHub repository of the TechByte computer store project. This store is a modern e-commerce platform, offering a wide selection of computer products, including laptops, desktop computers and components and accessories.
+Welcome to the GitHub repository of the TechByte computer store project. This store is a modern e-commerce platform, offering a wide selection of computer products, including laptops, desktop computers, and components and accessories.
 
 ## Project Structure
 
-The repository is available in various directories that are responsible for part of the web application and contain HTML files necessary for the operation of the store. Here is a detailed description of each directory and file:
+The repository is organized into several directories that are responsible for different parts of the web application and contain necessary files for the operation of the store. Here is a detailed description of each directory and file:
 
 ```
 # Structure of the ComputerStore Project
 
-The ComputerStore project contains several directories and files related to documentation, database design and the application frontend.
+The ComputerStore project contains several directories and files related to documentation, database design, and the application frontend.
 
 ## .github/workflows
 - static.yml # Configuration file for GitHub Actions
+
+## backend
+### app
+(Path to the main application logic, models, controllers)
+### bootstrap
+(Path to the application bootstrap files)
+### config
+- app.php
+- auth.php
+- cache.php
+- database.php
+- filesystems.php
+- hashing.php
+- logging.php
+- mail.php
+- oracle.php
+- queue.php
+- services.php
+- session.php
+(Configuration files for the application)
+
+## database
+(Path to database migrations and seeds)
+
+## public
+(Path to publicly accessible files)
+
+## resources
+(Path to view templates and language files)
+
+## routes
+(Path to route definitions)
+
+## scripts
+(Path to custom scripts)
+
+## storage
+(Path to storage files like logs, compiled views)
+
+## tests
+(Path to test files)
+
+## vendor
+(Path to Composer dependencies)
 
 ## docs
 ### jsDoc
@@ -46,7 +90,7 @@ The ComputerStore project contains several directories and files related to docu
 - ERD.pgerd
 - README.md # ER diagram documentation
 
-##fronted
+## frontend
 ### assets
 (Path to resources like graphics, CSS, etc.)
 ### components
@@ -54,7 +98,7 @@ The ComputerStore project contains several directories and files related to docu
 ### computers
 (Possible path to computer-specific components or pages)
 ### laptops
-- accounts.html
+- account.html
 - cart.html
 - checkout.html
 - CNAME # CNAME configuration file for the custom domain
@@ -62,7 +106,7 @@ The ComputerStore project contains several directories and files related to docu
 - computers.html
 - contact.html
 - dashboard.html
--faq.html
+- faq.html
 - favorite.html
 - index.html # Main page of the store
 - laptops.html
@@ -70,88 +114,75 @@ The ComputerStore project contains several directories and files related to docu
 - privacy.html
 - sales.html
 
-## plsql
-- photos
-- export-database-v1.sql
-- export-database-v2.sql
-- final_modified_database.xlsx
-- README.md # PL/SQL statements
+## plsql-oracle19c
+### python-codes
+- clear.sql
+- delete.sql
+- export_of_data.sql
+- export.sql
+- procedures.sql
+(PL/SQL scripts for database management)
 
 ## Project root files
-- CNAME
+- .env.example
+- .env
+- .gitignore
 - CONTRIBUTING.md
-- LICENSES
+- LICENSE
 - README.md # This file with instructions
 ```
 
-### .github/workflow
+### .github/workflows
 
-Catalog of applying CI/CD system definitions for our project, automatic testing and implementation of changes on the website.
+Directory containing CI/CD system definitions for the project, including automatic testing and deployment of changes.
 
-### documents
+### docs
 
-Catalog with project documentation, including API specifications and user manuals for end users.
+Directory with project documentation, including API specifications and user manuals.
 
-### php
+### backend
 
-A directory with `PHP scripts` responsible for transferring data to the application, including session handling and database interaction.
+Directory with PHP scripts responsible for the backend logic, data handling, session management, and interaction with the database.
 
-### ERD
+### entity-relationship-diagram
 
-Directory with files documenting the Entity-Relationship Diagram (ERD) model for the store database. Below
+Directory containing files documenting the Entity-Relationship Diagram (ERD) for the store database.
 
-<br><br>![erd](entity-relationship-diagram/ERD%20diagram.png)
+![erd](entity-relationship-diagram/ERD%20diagram.png)
 
-<hr>
+### frontend
 
-## fronted
+Directory containing the frontend application, including HTML files, CSS, JavaScript, and other assets used to create an engaging user interface.
 
-### assets
+### plsql-oracle19c
 
-It contains multimedia files such as `images`, `CSS styles`, and `JavaScript` scripts that are used to create an opening and attractive user interface.
+Directory containing PL/SQL scripts for database management, including stored procedures, triggers, and data export/import scripts.
 
-### ingredients
+### Project root files
 
-The catalog contains HTML snippets that are re-available on various pages, such as headers, footers, and navigation.
-
-### computers
-
-Contains HTML files containing various models of stationary devices available in our store.
-
-### laptops
-
-The catalog contains `HTML pages` with laptop offers.
-
-<hr>
-
-### Please
-
-Directory with `PL/SQL` scripts for database management, including stored procedures and triggers.
-
-### [HTML files]
-
-Each HTML file represents a different page or component of the store, such as the home page `"index.html`, shopping cart `cart.html`, checkout process `checkout.html`, etc.
+- Configuration and environment setup files.
+- Contribution guidelines and license information.
+- Main README file with project instructions.
 
 ## Getting started
 
-Instructions on how to start working with this repository and launching the store.
-
-[page](https://piotrsmola.dawidolko.pl/)
+Instructions on how to start working with this repository and launching the store can be found in the [README.md](https://github.com/dawidolko/Database-Project-ComputerStore/blob/main/README.md) file.
 
 ## License
 
-The project is distributed under a medical license in the [LICENSE](https://github.com/dawidolko/Database-Project-ComputerStore/blob/main/LICENSE) file.
+The project is distributed under the MIT license. See the [LICENSE](https://github.com/dawidolko/Database-Project-ComputerStore/blob/main/LICENSE) file for more information.
 
 ## Collaborators
 
-List of people who are involved in the development of the project.
+List of people involved in the development of the project:
+
+- [dawidolko](https://github.com/dawidolko)
+- [piotrsmola](https://github.com/piotrsmola)
 
 ## Contribution
 
-If you follow the design, please see our insert effect in the [CONTRIBUTING.md](https://github.com/dawidolko/Database-Project-ComputerStore/blob/main/CONTRIBUTING.md) file.
+If you want to contribute to this project, please see our contribution guidelines in the [CONTRIBUTING.md](https://github.com/dawidolko/Database-Project-ComputerStore/blob/main/CONTRIBUTING.md) file.
 
 ---
 
-- [dawidolko](https://github.com/dawidolko).
-
-- [piotrsmola](https://github.com/piotrsmola)
+Feel free to explore the repository and provide feedback or contribute to the project. For any questions or issues, please contact the collaborators.
