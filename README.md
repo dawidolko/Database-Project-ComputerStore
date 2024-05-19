@@ -18,15 +18,14 @@ Welcome to the GitHub repository of the TechByte computer store project. This st
 
 The repository is organized into several directories that are responsible for different parts of the web application and contain necessary files for the operation of the store. Here is a detailed description of each directory and file:
 
-```
-# Structure of the ComputerStore Project
+### Structure of the ComputerStore Project
 
 The ComputerStore project contains several directories and files related to documentation, database design, and the application frontend.
 
-## .github/workflows
+### .github/workflows
 - static.yml # Configuration file for GitHub Actions
 
-## backend
+### backend
 ### app
 (Path to the main application logic, models, controllers)
 ### bootstrap
@@ -46,31 +45,31 @@ The ComputerStore project contains several directories and files related to docu
 - session.php
 (Configuration files for the application)
 
-## database
+### database
 (Path to database migrations and seeds)
 
-## public
+### public
 (Path to publicly accessible files)
 
-## resources
+### resources
 (Path to view templates and language files)
 
-## routes
+### routes
 (Path to route definitions)
 
-## scripts
+### scripts
 (Path to custom scripts)
 
-## storage
+### storage
 (Path to storage files like logs, compiled views)
 
-## tests
+### tests
 (Path to test files)
 
-## vendor
+### vendor
 (Path to Composer dependencies)
 
-## docs
+### docs
 ### jsDoc
 - database-storage-and-limitation.docx
 - project-description-v1.docx
@@ -78,7 +77,7 @@ The ComputerStore project contains several directories and files related to docu
 - suggestions-sopics.docx
 - README.md # Project documentation
 
-## entity-relationship-diagram
+### entity-relationship-diagram
 - DB-Diagram.pdf
 - ERD_v3.pdf
 - ERD_v3.png
@@ -90,7 +89,7 @@ The ComputerStore project contains several directories and files related to docu
 - ERD.pgerd
 - README.md # ER diagram documentation
 
-## frontend
+### frontend
 ### assets
 (Path to resources like graphics, CSS, etc.)
 ### components
@@ -123,14 +122,13 @@ The ComputerStore project contains several directories and files related to docu
 - procedures.sql
 (PL/SQL scripts for database management)
 
-## Project root files
+### Project root files
 - .env.example
 - .env
 - .gitignore
 - CONTRIBUTING.md
 - LICENSE
 - README.md # This file with instructions
-```
 
 ### .github/workflows
 
